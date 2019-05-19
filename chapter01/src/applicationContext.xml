@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	
+	<!-- sample03 -->
+	<bean id="messageBean" name="mb" class="sample03.MessageBeanKo" scope="prototype"></bean> <!-- prototype : 단일 생성(singleton x) , 기본은 singleton-->
+	<!-- scope= "prototype" : 단일 생성
+				"request" : 요청했을때만
+				"session" : session 정보가 살아있을때만
+				"singleton" : 싱글톤으로(기본)
+	-->
+	
+	<!-- sample04 -->
+	<bean id="calcAdd" name="calcA" class="sample04.CalcAdd"></bean>
+	<bean id="calcMul" name="calcM" class="sample04.CalcMul"></bean>
+</beans>
