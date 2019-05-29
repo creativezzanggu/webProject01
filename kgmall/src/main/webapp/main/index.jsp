@@ -251,7 +251,7 @@
 
 							<!-- 상품분류 -->
 							<ul class="xans-element- xans-layout xans-layout-category left">
-<li df-cate-no="42" df-cate-depth="1" class="d1 xans-record-" style="width: 20%;"><a href="/product/list.html?cate_no=42">BEST 50</a><div class="m2"><ul><li df-cate-no="43" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=43">한주간 베스트</a></li><li df-cate-no="44" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=44">이달의 베스트</a></li><li df-cate-no="45" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=45">MD'S 초이스</a></li></ul></div></li>
+<li df-cate-no="42" df-cate-depth="1" class="d1 xans-record-" style="width: 20%;"><a href="/product/list.html?cate_no=42">BEST 50</a><div class="m2"><ul><li df-cate-no="43" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=43">베스트 50</a></li></ul></div></li>
 <li df-cate-no="49" df-cate-depth="1" class="d1 xans-record-" style="width: 20%;"><a href="/product/list.html?cate_no=49">OUTER</a>
 <div class="m2"><ul>
 <li df-cate-no="51" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=51">JACKET</a></li>

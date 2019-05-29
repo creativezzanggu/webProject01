@@ -1,6 +1,7 @@
 package main.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import board.bean.BoardDTO;
 import board.dao.BoardDAO;
 
 @Controller
@@ -24,7 +26,7 @@ public class MainController {
 	
 	@RequestMapping(value="/board/getNotice.do", method=RequestMethod.GET)
 	public ModelAndView getNotice() {
-		List<String> list =  boardDAO.getTitleList();
+		List<BoardDTO> list =  boardDAO.getTitleList();
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("list", list);
 		mav.setViewName("jsonView");
