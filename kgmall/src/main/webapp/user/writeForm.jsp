@@ -50,35 +50,35 @@
 
 <tbody>
 <tr>
-<th scope="row">아이디 <img src="../image/ico_required.png" alt="필수"/></th>
+<th scope="row">아이디 <img src="../image/user_icon/ico_required.png" alt="필수"/></th>
 <td><input id="id" name="id" autocomplete="off" type="text"  />
 <div id="member_idDiv"></div>
 </td>
 </tr>
 
 <tr>
-<th scope="row">비밀번호 <img src="../image/ico_required.png" alt="필수"/></th>
+<th scope="row">비밀번호 <img src="../image/user_icon/ico_required.png" alt="필수"/></th>
 <td><input id="pwd" name="pwd" autocomplete="off" type="password" />
 <div id="member_pwdDiv"></div>
 </td>
 </tr>
 
 <tr>
-<th scope="row">비밀번호 확인 <img src="../image/ico_required.png" alt="필수"/></th>
+<th scope="row">비밀번호 확인 <img src="../image/user_icon/ico_required.png" alt="필수"/></th>
 <td><input id="repwd" name="repwd" autocomplete="off" type="password" /> 
 <div id="member_repwdDiv"></div>
 </td>
 </tr>
 
 <tr>
-<th scope="row">이름 <img src="../image/ico_required.png" alt="필수"/></th>
+<th scope="row">이름 <img src="../image/user_icon/ico_required.png" alt="필수"/></th>
 <td><input id="name" name="name" autocomplete="off" type="text"  />
 <div id="member_nameDiv"></div>
 </td>
 </tr>
 
 <tr>
-<th scope="row">휴대전화 <img src="../image/ico_required.png" alt="필수"/></th>
+<th scope="row">휴대전화 <img src="../image/user_icon/ico_required.png" alt="필수"/></th>
 <td>
 <select id="phone1" name="phone1">
 <option value="010">010</option>
@@ -90,7 +90,7 @@
 </tr>
 
 <tr>
-<th scope="row">이메일 <img src="../image/ico_required.png" alt="필수"/></th>
+<th scope="row">이메일 <img src="../image/user_icon/ico_required.png" alt="필수"/></th>
 <td><input type="text" id="email1" name="email1">@<input type="text" id="email2" name="email2">
 <div id="member_emailDiv"></div>
 </td>

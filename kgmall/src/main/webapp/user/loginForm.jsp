@@ -17,7 +17,7 @@
 	<label class="password"><span>PASSWORD</span><input type="password" id="pwd2" name="pwd2" autocomplete="off" ></label>
 	<div id="pwdDiv" style="color : red;"></div>
 	<p class="security">
-		<span class="securityLogin"><img src="../image/ico_security.png" class="ico"><img src="../image/ico_access.gif" alt="보안접속"> 보안접속 </span>
+		<span class="securityLogin"><img src="../image/user_icon/ico_security.png" class="ico"><img src="../image/user_icon/ico_access.gif" alt="보안접속"> 보안접속 </span>
 		<span class="saveId"><input id="member_check_save_id0" name="check_save_id" type="checkbox"><label for="member_check_save_id0">아이디 저장</label></span>
 	</p>
 	<a href="#" class="btn Login" id="login">로그인</a>
