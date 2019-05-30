@@ -13,8 +13,7 @@
 
 <div class="xans-element- xans-member xans-member-findid">
 <div class="findId">
-<h3>비밀번호 찾기</h3>
-<p class="info">이메일 인증을 하셔야 비밀번호 찾기가 가능합니다.</p>
+<h3>비밀번호 찾기</h3><br><br>
 <p id="pwd_view" class="pwd"><strong>새로운 비밀번호</strong><input id="pwd" name="pwd" type="password"></p>
 <div id="new_pwd"></div>
 <p id="repwd_view" class="repwd"><strong>비밀번호 확인</strong><input id="repwd" name="repwd" type="password"></p>
