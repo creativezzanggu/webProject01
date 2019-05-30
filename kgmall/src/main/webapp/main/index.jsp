@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "//www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
 <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width"><!--PG크로스브라우징필수내용 시작--><meta http-equiv="Cache-Control" content="no-cache"><meta http-equiv="Expires" content="0"><meta http-equiv="Pragma" content="no-cache"><!--PG크로스브라우징필수내용 끝--><!--
 	====================================================================
 
@@ -67,11 +68,11 @@
                 };
             })();</script>
 
-<link rel="stylesheet" type="text/css" href="http://ecudemo31431.cafe24.com/ind-script/optimizer.php?filename=tZTBbsMgDIbvaa97Djft9gI777Q3AOImbIAZNlv69iNqV0WqJk0dHKJgE39_BPYPE3mEfp8gJhqT8pCQKSeDYJjhmCgIGPKewrYkHuAv36PpmFwWS6HTNN9ZmEXuFXXqhOm-UlHa4S-lKkZ4JpUGeF1Dbo4HzSYzJi6LPKCnQ_946CFm7azZTOId8ICbAdmOAfjdhr6H4eiI0opXMl07cjkhytKCnG0TKmMLrFaMnVhx7eg3fVwXX3pzyEY6Z7nSdZ53Swo48PLsnuqAo8ujPfe1Ehwpndbrqho4d3pmZwdM8PaRseB_4to6bBI5p9VV6Jqoo1RMp_hUsSn1VUzHX3yrxN0lsfW2YnstZIagQvYjyWRNbXQiTUIt5qE4e6TA9rPJMJvMQr72JAhFrUIobboO_qmy_LgvtuAQzj4PPjuxPFF8aWETqJKZLq_dfsF_Aw&amp;type=css&amp;k=1f91cba0c3c4e11789a3392aef312faa33c9eb79&amp;t=1556261055">
+<link rel="stylesheet" type="text/css" href="../css/mainCss2.css">
 <link rel="stylesheet" type="text/css" href="http://ecudemo31431.cafe24.com/ind-script/optimizer.php?filename=rZBLDsIwDAX3LVvOYUVwE05QEre1cOwoTgq9PWHDR-ygG2ueZL-RDLNGBPR9NczWoAaMenDHg4NUz0y-n0tksIB9QKNJwC4kzkEYWTVD4jqRtNSNdDsPIpg_QlfWhG7nzfbws6tdQ9RQGYGHVWuBWLmQzZpOM6VEMm1u8CpLKyGV5P8s_3rVldoCt5E_09aeqAsyWXnnrR0ZF8Lrizbtx1tHYmUYEQM86aG4Aw&amp;type=css&amp;k=4de9394e8875e15150957694c6141523af0a50b4&amp;t=1556586844">
 <style type="text/css">
 </style>
-<title>카페24 쇼핑몰 디자인 전문제작 디자인플로어</title>
+<title>kgmall</title>
 <meta name="path_role" content="MAIN">
 <meta name="author" content="디자인플로어">
 <meta name="description" content="카페24 쇼핑몰디자인, 모바일 쇼핑몰 디자인등 전문제작 디자인플로어">
@@ -112,12 +113,7 @@
 							<span class="rep-msgbox">+2,000 P</span>
 						</div>
 </li>
-															<li>
-						<a href="/order/basket.html">CART</a>
-						<span class="xans-element- xans-layout xans-layout-orderbasketcount cart-count EC-Layout_Basket-count-display "><span class="EC-Layout-Basket-count">0</span>
-</span>
-					</li>
-					<li><a href="/myshop/order/list.html">ORDER</a></li>
+															
 
 					<!-- 마이샵 메뉴 -->
 					<li class="myshop">
@@ -132,12 +128,15 @@
 </ul>
 </li>
 
-				</ul><!-- 커뮤니티(전체 게시판) 메뉴 --><ul class="xans-element- xans-layout xans-layout-boardinfo bnb"><li class="xans-record-">
+				</ul><!-- 커뮤니티(전체 게시판) 메뉴 --><ul class="xans-element- xans-layout xans-layout-boardinfo bnb">
+<li class="xans-record-">
+<a href="/board/free/list.html?board_no=1">CART</a> </li>
+<li class="xans-record-">
+<a href="/board/free/list.html?board_no=1">ORDER</a> </li>
+<li class="xans-record-">
 <a href="/board/free/list.html?board_no=1">NOTICE</a> </li>
 <li class="xans-record-">
 <a href="/board/product/list.html?board_no=6">Q &amp; A</a> </li>
-<li class="xans-record-">
-<a href="/board/review/list.html?board_no=4">PHOTO REVIEW</a> </li>
 <!-- 1:1 문의게시판 -->
 <li class="xans-element- xans-myshop xans-myshop-main displaynone "><a href="/board/consult/list.html">1:1 문의란</a>
 </li>
@@ -265,7 +264,6 @@
 									<div class="m2">
 										<ul class="xans-element- xans-layout xans-layout-boardinfo"><li class="xans-record-"><a href="/board/free/list.html?board_no=1">NOTICE</a></li>
 <li class="xans-record-"><a href="/board/product/list.html?board_no=6">Q &amp; A</a></li>
-<li class="xans-record-"><a href="/board/review/list.html?board_no=4">PHOTO REVIEW</a></li>
 <!-- 1:1 문의게시판 -->
 <li class="xans-element- xans-myshop xans-myshop-main displaynone "><a href="/board/consult/list.html">1:1 문의란</a>
 </li>
@@ -695,7 +693,6 @@ var basket_result = '/product/add_basket.html';
 var basket_option = '/product/basket_option.html';
 var iBoardNo = "4";
 var EC_SHOP_MULTISHOP_SHIPPING = {"bMultishopShipping":false,"bMultishopShippingCountrySelection":false,"bMultishopShippingLanguageSelection":false};
-var aPopupListData = {"aPopupList":"[{\"type\":\"L\",\"child_type\":\"F\",\"idx\":1,\"file\":\"\\\/dfloor\\\/plugin\\\/df-popup\\\/df-popup.html\",\"size\":\"310*560\",\"position\":\"160*80\",\"title\":\"\\ub514\\uc790\\uc778\\ud50c\\ub85c\\uc5b4 \\uba40\\ud2f0\\ud31d\\uc5c5 [\\uc0ad\\uc81c\\uae08\\uc9c0]\",\"open\":true}]","aPopupCouponList":"","sIsAuthGuidePopup":"","sIsUpdateEventGuidePopup":"","sIsLifetimeEventGuidePopup":"","sPopupPage":"F"};
 var aLogData = {"log_server1":null,"log_server2":null,"mid":"ecudemo31431","stype":"e","domain":"","shop_no":1,"etc":""};
 var sMileageName = '적립금';
 var sMileageUnit = '[:PRICE:]원';
@@ -705,6 +702,4 @@ var EC_ASYNC_LIVELINKON_ID = '';
 var EC_FRONT_JS_CONFIG_MANAGE = {"sWebLogEventFlag":"F"};
 </script>
 
-<!-- 팝업창 -->
-<div id="popup_1" style="position: absolute; top: 160px; left: 80px; z-index: 99; width: 310px;"><iframe src="http://ecudemo31431.cafe24.com/dfloor/plugin/df-popup/df-popup.html?idx=1&type=L&__popupPage=T?idx=1&amp;type=L&amp;__popupPage=T" scrolling="no" width="310" height="560" frameborder="0" allowtransparency="true"></iframe></div><iframe src="http://ecudemo31431.cafe24.com/exec/front/eclog/main/?&amp;rloc=http%3A//ecudemo31431.cafe24.com/&amp;rref=&amp;udim=1600*900&amp;rserv=null&amp;cid=CID5f1529b91f8e9c2d67e244a5ea84da17&amp;role_path=MAIN" id="log_realtime" style="display: none;"></iframe><div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"><div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div></div>
 </body></html>
