@@ -26,6 +26,7 @@
 	
 	<context:component-scan base-package="com.project.kgmall" />
 	<context:component-scan base-package="main.controller"/>
+	<context:component-scan base-package="user.controller"/>
 	
 	<beans:bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
 		<beans:property name="contentType" value="text/html;charset=UTF-8"/>

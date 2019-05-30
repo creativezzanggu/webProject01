@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "//www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width"><!--PG크로스브라우징필수내용 시작--><meta http-equiv="Cache-Control" content="no-cache"><meta http-equiv="Expires" content="0"><meta http-equiv="Pragma" content="no-cache"><!--PG크로스브라우징필수내용 끝--><!--
@@ -67,7 +68,7 @@
                     }
                 };
             })();</script>
-
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.4.0.min.js"></script>
 <link rel="stylesheet" type="text/css" href="../css/mainCss2.css">
 <link rel="stylesheet" type="text/css" href="http://ecudemo31431.cafe24.com/ind-script/optimizer.php?filename=rZBLDsIwDAX3LVvOYUVwE05QEre1cOwoTgq9PWHDR-ygG2ueZL-RDLNGBPR9NczWoAaMenDHg4NUz0y-n0tksIB9QKNJwC4kzkEYWTVD4jqRtNSNdDsPIpg_QlfWhG7nzfbws6tdQ9RQGYGHVWuBWLmQzZpOM6VEMm1u8CpLKyGV5P8s_3rVldoCt5E_09aeqAsyWXnnrR0ZF8Lrizbtx1tHYmUYEQM86aG4Aw&amp;type=css&amp;k=4de9394e8875e15150957694c6141523af0a50b4&amp;t=1556586844">
 <style type="text/css">
@@ -105,15 +106,17 @@
 			<div class="inner">
 
 				<ul class="gnb"><li class="home"><a href="/">HOME</a></li>
-					<li class="xans-element- xans-layout xans-layout-statelogoff "><a href="/member/login.html" class="log">LOGIN</a>
-</li>
-					<li class="xans-element- xans-layout xans-layout-statelogoff "><a href="/member/join.html">JOIN US</a>
-<div class="msgbox use-msgbox" style="display: block;">
-							<i class="fa fa-caret-up"></i>
-							<span class="rep-msgbox">+2,000 P</span>
-						</div>
-</li>
-															
+					<c:if test="${id == null}">
+					<li class="xans-element- xans-layout xans-layout-statelogoff "><a href="../user/loginForm.do" class="log">LOGIN</a></li>
+					<li class="xans-element- xans-layout xans-layout-statelogoff "><a href="../user/writeForm.do">JOIN US</a>
+					<div class="msgbox use-msgbox" style="display: block;">
+						<i class="fa fa-caret-up"></i>
+						<span class="rep-msgbox">+2,000 P</span></div>
+					</li>
+					</c:if>
+					<c:if test="${id != null}">
+					<li class="xans-element- xans-layout xans-layout-statelogoff "><a href="../user/logout.do" class="log">LOGOUT</a></li>
+					</c:if>							
 
 					<!-- 마이샵 메뉴 -->
 					<li class="myshop">
@@ -677,7 +680,7 @@
 <script type="text/javascript" src="http://ecudemo31431.cafe24.com/ind-script/optimizer.php?filename=rZVBbsIwEEUPANueY9TeoEArIUFBRO1-cIbExPZYY6dpbt8EUAtSQSXJIlbmK__529bEkLMleHwS8MKZoAX0HpKcPWwocCmKYB_gVdhFeKMKVj5qdvDyFQVb4VgfyrVoReN9eIABoXOL2eDQmQ7eYK0j2QHR8waXaJcZSsiQaqXhg0sDnmAoKPZh_1CnbG2_mGcoFwYBTbRLBwHNMOIgoA80OsXrB2r0Ft61R1VcAKelCDlVQ2imGvnr7fEvvzpVox2Lxdg3yVCYMmrTaZObZy2clioudIg9Ec_d2-0XkkRWRSfGQhcEE-EqkExR5dSd0qMjz_ynFd2NOflgRhG1gUnpUkONaLnz_m7oU1MV0RSn1ymX7kayZR3-hrWyb_6vc7fj6_Y1-_LS7VtlzJ5u5F-ia-6ZC1tFW8PZ3xY5-y6P1pCLOmoKd02AoXbqOHb2WbJbks72laQk6nAa3w&amp;type=js&amp;k=b7c36bfa1811014339712088b43bcc81a5effc18&amp;t=1558462804"></script>
 <script type="text/javascript" src="http://ecudemo31431.cafe24.com/ind-script/optimizer.php?filename=tZTNbtswEITvsa95DoqSLUvH1gHag4MGaYGeV8uVRYvisvxJobev4gZo2ktRMb2IB2m-nRGHFANPJGTphfN89jAJcE7cg4UziUcKnDySuAQBYbb487l9D2GkiDZuL-FWrCc4r5EyGQ-eVcL1To6cHNucLPfa0PJ-tf6OHAe9fv5XHQbklJHAE1KG_PEq_8IRzDHLxyevyK_vA1nqdW4nTzBnePjgQa1vwrsUeYKo8Yr5PPD39aVMJuoHdsmtR8wnPdLL-crb2JN-IqPtyDavGx91iOzntWYcxMGzoc0TGK1gQa1PxKD-Sez-vKciTe4qDGoUhEnRxJXcVfL567pu6q7pij3ui6puuwp3fUuyxVaqtpVSdLjDHvaNLMuyg67ucVe0bXloVCdlia1AOtQNlXDAQ4EKoZJtQU3VUV-qPcjyryN-OSXcpEA-_O7Spc5o3AxxMksE2igK-mxFGLVd_KneMPvnKMjT9HrfM2jOpLO24vItkZ9flhu5leW22k76f8ywfGTbL6r4JvBA8fWBzPuxqr8JMDlDbwjsIGhceD8A&amp;type=js&amp;k=1cc8ed9afc61cd5e4e1f4019492e35c2a7f55a20&amp;t=1558894315"></script>
 <script type="text/javascript" src="http://ecudemo31431.cafe24.com/ind-script/optimizer.php?filename=tZMxcoQwDEV72Dbn0DCbm-QEgAWIyJZj2SzcPp7MApu0Md1_bp79LcEkFgH7OikGzSEZtHJv3u8N-NQx9fUULYMarA0qjQ70k1zTgBlYJIDnNJLLVPVtxFHC9ppvltxt1jcopMG16lZlMhhg_kqYDTtfoNI-CHPXHq7joLQsV-aDmNRHJo1_8AKZoaVrncstvkIx0aw_Q5A0ii188yj-vPkBhSUDrafkgCpuHpv_l5TbsflzGYHbTVIEmziSTuI_JvKe3Fj4OY-8H8-l-UUXDJaVBfcR3vMFmoAL4eNMFyw_OY3tgGjgSE_LNw&amp;type=js&amp;k=14244da5bfdc8baef95a32bf0bba0d5e375bc8b2&amp;t=1555848171"></script>
-<script type="text/javascript" src="../js/data_loading.js"></script>
+
 <script type="text/javascript">
 var mobileWeb = false;
 var bUseElastic = false;

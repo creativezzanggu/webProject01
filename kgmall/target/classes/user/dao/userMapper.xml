@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="userSQL">
+	<!-- 중복체크 -->
+	<select id="isExistId" parameterType="String" resultType="user">
+		select * from usertable where id=#{id}
+	</select>
+	<insert id="write" parameterType="user">
+		insert into usertable values(#{name},#{id},#{pwd},#{email1}||'@'||#{email2},#{phone1}||'-'||#{phone2}||'-'||#{phone3})
+	</insert>
+	<select id="getUser" parameterType="java.util.Map" resultType="java.util.Map">
+ 		select * from usertable where id= #{id} and pwd= #{pwd}
+ 	</select>
+ 	<select id="confirmEmail" parameterType="String" resultType="String">
+		select email from usertable where email=#{email}
+	</select>
+	<select id="getId" parameterType="String" resultType="String">
+		select id from usertable where email=#{email}
+	</select>
+	<select id="getPwd" parameterType="java.util.Map" resultType="java.util.Map">
+		select email from usertable where email=#{email} and id=#{id}
+	</select>
+	<update id="updatePwd" parameterType="java.util.Map">
+		update usertable set pwd=#{pwd} where email=#{email}
+	</update>
+</mapper>
