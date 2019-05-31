@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="noticeSQL">
+	<select id="getNoticeList" parameterType="java.util.Map" resultType="notice">
+		select * from
+		(select rownum rn, tt.* from
+		(select seq,subject,content,writer,to_char(logtime,'YYYY-MM-DD') "logtime",hit from notice order by seq desc)tt)
+		where rn between #{startNum} and #{endNum}
+	</select>
+	
+	<select id="getTotalA" resultType="int">
+		select count(*) from notice 
+	</select>
+	
+	<select id="noticeView" parameterType="int" resultType="notice">
+		select seq,subject,content,writer,to_char(logtime,'YYYY-MM-DD') "logtime",hit from notice where seq=#{seq}
+	</select>
+	
+	<update id="noticeModify" parameterType="notice">
+		update notice set subject=#{subject}, content=#{content} where seq=#{seq}
+	</update>
+	
+	<insert id="noticeWrite" parameterType="java.util.Map">
+		insert into notice values(seq_notice.nextval,#{subject},#{content},#{writer},sysdate,0)
+	</insert>
+	
+	<update id="noticeHit" parameterType="int">
+		update notice set hit=hit+1 where seq=#{seq}
+	</update>
+	
+	<delete id="noticeDelete" parameterType="int">
+		delete notice where seq=#{seq}
+	</delete>
+	
+	<select id="getNoticeSearch" parameterType="java.util.Map" resultType="notice">
+ 		select * from
+		(select rownum rn, tt.* from
+		(select seq,subject,content,writer,to_char(logtime,'YYYY-MM-DD') "logtime",hit from notice 
+		where logtime >= ${date} and ${key} like '%'||#{search}||'%'
+		order by seq desc)tt)
+		where rn between #{startNum} and #{endNum}
+ 	</select>
+ 	
+ 	<select id="getSearchTotalA" parameterType="java.util.Map" resultType="int">
+ 		select count(*) from notice where logtime >= ${date} and ${key} like '%'||#{search}||'%'
+ 	</select>
+ 	
+ 	<select id="getTitleList" resultType="notice">
+		select * from(select rownum rm, subject from (select * from notice order by seq desc)) where rm<![CDATA[<=5]]>
+	</select>
+	
+	<select id="getNoticeSeq" parameterType="int" resultType="int">
+		select seq from(select rownum rm, seq from (select *  from notice order by seq desc)) where rm=#{num}
+	</select>
+	
+</mapper>

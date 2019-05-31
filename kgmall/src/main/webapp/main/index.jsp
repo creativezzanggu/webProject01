@@ -85,7 +85,7 @@
 <li class="xans-record-">
 <a href="/board/free/list.html?board_no=1">ORDER</a> </li>
 <li class="xans-record-">
-<a href="/board/free/list.html?board_no=1">NOTICE</a> </li>
+<a href="/kgmall/notice/noticeForm.do?pg=1">NOTICE</a> </li>
 <li class="xans-record-">
 <a href="/board/product/list.html?board_no=6">Q &amp; A</a> </li>
 <!-- 1:1 문의게시판 -->
@@ -252,6 +252,7 @@
 
 
 		<!-- 콘텐츠가 들어갈 바디 -->
+		<div></div>
 		<jsp:include page="${display }"/>
 
 
