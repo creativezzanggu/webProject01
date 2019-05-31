@@ -57,7 +57,7 @@ background: #fafafa;margin: 0;-moz-box-sizing: border-box;-webkit-box-sizing: bo
 	<p class="info">공지사항입니다.</p>
 </div>
 <form name="noticeWriteForm" method="post" action="/kgmall/notice/noticeWrite.do">
-<input type="hidden" name="writer" value="${Name }">
+<input type="hidden" name="writer" value="${name }">
 <div class="boardWrite">
 	<table width="100%" border="1" summary="">
 	<tbody>

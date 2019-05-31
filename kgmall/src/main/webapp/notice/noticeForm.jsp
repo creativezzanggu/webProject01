@@ -162,8 +162,7 @@ border-radius:10px;
 					})).append($('<td/>',{
 
 					}).append($('<a/>',{
-						class : 'a',
-						href : 'javascript:void(0)',
+						href : '/kgmall/notice/noticeView.do?seq='+items.seq,
 						text : items.subject
 					}))).append($('<td/>',{
 
@@ -182,14 +181,7 @@ border-radius:10px;
 				});
 				
 				$('#paging').html(data.noticePaging.pagingHTML);
-				$('.a').click(function(){
-					
-					//alert($(this).parent().prev().text());
-					var seq = $(this).parent().prev().text();
-					//alert(seq);
-					
-					location.href = '/kgmall/notice/noticeView.do?seq='+seq;
-				});
+				
 			}
 		});
 	});
@@ -244,8 +236,7 @@ border-radius:10px;
 						})).append($('<td/>',{
 
 						}).append($('<a/>',{
-							id : 'a',
-							href : 'javascript:void(0)',
+							href : '/kgmall/notice/noticeView.do?seq='+items.seq,
 							text : items.subject
 						}))).append($('<td/>',{
 
@@ -262,13 +253,6 @@ border-radius:10px;
 						})).appendTo('#noticeTable');
 					});
 					$('#paging').html(data.noticePaging.pagingHTML);
-					$('#a').click(function(){
-						//alert($(this).parent().prev().text());
-						var seq = $(this).parent().prev().text();
-						//alert(seq);
-						
-						location.href = '/kgmall/notice/noticeView.do?seq='+seq;
-					});
 				
 				}//success
 			});//ajax
