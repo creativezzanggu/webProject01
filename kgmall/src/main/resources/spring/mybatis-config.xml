@@ -6,5 +6,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<typeAliases>
 		<typeAlias type="user.bean.UserDTO" alias="user"/>
 		<typeAlias type="notice.bean.NoticeDTO" alias="notice"/>
+		<typeAlias type="board.bean.QADTO" alias="qa"/>
+		<typeAlias type="board.bean.QAreplyDTO" alias="qaReply"/>
 	</typeAliases>
 </configuration>

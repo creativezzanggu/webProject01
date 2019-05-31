@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BoardSQL">
+	
+	<select id="getQAList" parameterType="java.util.Map" resultType="qa">
+		select * from 
+		(select rownum rn,tt.* from 
+		(select * from qa order by ref desc, step asc)tt) 
+		 where rn between #{startNum} and #{endNum}
+	</select>
+	
+	<select id="QASelectList" parameterType="java.util.Map" resultType="qa">
+		<if test='category == "전체"'>
+			select * from 
+			(select rownum rn,tt.* from 
+			(select * from qa order by ref desc, step asc)tt) 
+			 where rn between #{startNum} and #{endNum}
+		</if>
+		<if test='category != "전체"'>
+			select * from 
+			(select rownum rn,tt.* from 
+			(select * from qa where category=#{category} order by ref desc, step asc)tt) 
+			 where rn between #{startNum} and #{endNum}
+		</if>
+	</select>
+	
+	<select id="getTotal" resultType="Integer">
+		select count(*) from qa
+	</select>
+	
+	<select id="getSelectTotalA" parameterType="String" resultType="Integer">
+		select count(*) from qa where category=#{category}
+	</select>
+	
+	<select id="QASearchList" parameterType="java.util.Map" resultType="qa">
+		<if test='date == "all"'>
+			select * from
+			(select rownum rn,tt.* from
+			(select * from qa where ${key} like '${search}' order by ref desc, step asc)tt)
+			where rn between ${startNum} and ${endNum}
+		</if>
+		<if test='date != "all"'>
+			select * from
+			(select rownum rn,tt.* from
+			(select * from qa where ${key} like '${search}' and logtime between '${date}' and sysdate order by ref desc, step asc)tt)
+			where rn between ${startNum} and ${endNum}
+		</if>
+	</select>
+	
+	<select id="getQA" parameterType="String" resultType="qa">
+		select * from qa where seq=#{seq}
+	</select>
+	
+	<delete id="QAdelete" parameterType="Integer">
+		delete from qa where seq=#{seqInt}
+	</delete>
+	
+	<update id="hitUp" parameterType="String">
+		update qa set hit = hit+1 where seq=#{seq}
+	</update>
+	
+	<select id="getSearchTotalA" parameterType="java.util.Map" resultType="Integer">
+		select count(*) from qa where ${key} like '${search}' and logtime between '${date}' and sysdate order by 1 desc
+	</select>
+	
+	<insert id="QAreplyInsert" parameterType="java.util.Map">
+		insert into qareply values(#{seq},replyseq.nextval,#{id},#{comment},sysdate)
+	</insert>
+	
+	<select id="getReply" parameterType="java.util.Map" resultType="qaReply">
+		select * from qareply where seq=#{seq} order by logtime desc
+	</select>
+	
+	<delete id="QAreplyDelete" parameterType="java.util.Map">
+		delete from qareply where replyseq=#{replyseq}
+	</delete>
+	
+	<select id="QAreplyInsertCheck" parameterType="java.util.Map" resultType="qaReply">
+		select * from qareply where seq=${seq} and id='${id}' and content='${comment}'
+	</select>
+	
+</mapper>

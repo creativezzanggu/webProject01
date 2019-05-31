@@ -1,0 +1,134 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta http-equiv="Cache-Control" content="no-cache"/>
+<meta http-equiv="Expires" content="0"/>
+<meta http-equiv="Pragma" content="no-cache"/><link href="http://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet"/>
+<meta name="naver-site-verification" content="de91de2491676d55b39c26812e5f1ef2e0868a63"/>
+<meta name="viewport" content="width=device-width">
+<meta property="og:title" content="피팅부스">
+<meta property="og:description" content="걸리쉬한 스타일의 핏감만족 하이퀄리티 여성의류 쇼핑몰 피팅부스">
+
+
+
+<link rel="canonical" href="http://fittingbooth.co.kr/board/product/write.html" />
+<link rel="alternate" href="http://m.fittingbooth.co.kr/board/product/write.html" />
+<meta property="og:url" content="http://fittingbooth.co.kr/board/product/write.html" />
+<meta property="og:title" content="핏감만족" />
+<meta property="og:description" content="피팅부스, 여성의류, 페미닌, 감성룩" />
+<meta property="og:site_name" content="피팅부스" />
+<meta property="og:type" content="website" />
+<link rel="shortcut icon" href="/web/upload/favicon_20170826105621.ico" />
+<link rel="stylesheet" type="text/css" href="http://skin-skin7.jewvis.cafe24.com/ind-script/optimizer.php?filename=rc1BcsIwDAXQPWHbcwi66SW4hKMIrGJZxpKT4fZNJ3SmbMErfX3NPEFUISAcmlE1-KZlZoPSxsQ4RJcENtEwkfElg105f8F0TqoVQikGZ80eFrJfBG3bd49iL5z3a_kBL__4Iw1yyE0u6pGxm1l1VNcOHKqI5rXZVbKi2Ximriw2c5UOpOjUEkEKd20O0pKzRS0nNn9T345rA0ahYnyMw2c3txJS9plp-RcPx27-rTFex-auT3n78AM&type=css&k=f99b639bf6e570d59115fd9fba228b416088e912&t=1492753981" />
+<link rel="stylesheet" type="text/css" href="http://skin-skin7.jewvis.cafe24.com/ind-script/optimizer.php?filename=tdTBTsMwDADQe8uV7zAgIe5IHBAXNL4gTdw2WxKH2Bnb35NQkIYmENrCoVLr1M9WFAdm8gjXNwlioikpDwmZctIImhnGREFAk_cULkrgEv7yP-qOyWWxFLqBdicmZpFTizq1x3RaqqjB4Q-pKka4J5UMrA6RX7en5jwYK5S-J22of1qBEneQh7rPjIlhjW9byxDz4KzuZ_EO2GBvkO0UgDc23IEZHRW0Wp5MdgjDR2sJlXlWeqMmbE3HZB7DSK3Zun8Y5J-a9rTFyrd2nWXhKVGOreUxB13PYju3zANlAZ-dWJ4pvsw2Rhum5hU0hW1BSvNRN8CXySqR7mjGzieXls8kGSXHXivBidK-aX_ZtuUYm3qDYuzEivsH9ujub-SWS9lkLV2d3TP1ZbFEgAPX5-r2TDG6PNnlsH8ep8P3NjjuumHHzhpMsH7NWNyv71rgHQ&type=css&k=c103ba2bf47bcb9445b628b1b904d2103cb09ca6&t=1530036797" />
+
+<title>write</title>
+<meta name="path_role" content="BOARD_PRODUCT_WRITE" />
+<meta name="author" content="fitting booth" />
+<meta name="description" content="걸리쉬한 스타일의 핏감만족 하이퀄리티 여성의류 쇼핑몰 피팅부스, " />
+<meta name="keywords" content="피팅부스, 여성의류, 페미닌, 감성룩, 쇼핑몰, 걸리쉬" />
+</head>
+<body>
+<div id="wrap">
+	<div id="container">
+		<div id="contents">
+			<div class="xans-board xans-board-writepackage">
+				<div class="xans-board xans-board-title location-board ">
+					<div class="path-board">
+						<h2>현재 위치</h2>
+						<ol>
+							<li><a href="/">Home</a></li>
+							<li>Board</li>
+							<li title="현재 위치"><strong>Q & A</strong></li>
+						</ol>
+					</div>
+					
+					<div class="tit-board">
+						<h2><font color="333333">Q & A</font></h2>
+						<p class="info">상품 Q&A입니다.</p>
+					</div>
+				</div>
+				
+				<style>
+				.board-nav-style1 { font-size:0; margin:30px auto 30px }
+				.board-nav-style1 li { display:inline-block; *display:inline; *zoom:1; margin:0 8px; font-family:Roboto, 'Nanum Gothic', Dotum, '돋움', AppleGothic, sans-serif; font-weight:400; font-size:11px }
+				.board-nav-style1 li a { display:inline-block; *display:inline; *zoom:1; border:1px solid #e7e7e7; padding:16px 31px; letter-spacing:1px }
+				.board-nav-style1 li a:hover { border:1px solid #434343; background:#434343; color:#fff }
+				</style>
+				
+				<form id="boardWriteForm" name="boardWriteForm" action="/kgmall/board/QAwriteInsert.do" method="post" target="_self" enctype="multipart/form-data" >
+					<div class="xans-board xans-board-write">
+						<div class="boardWrite ">
+							<table width="100%" border="1" summary="">
+								<caption>글쓰기 폼</caption>
+								<tbody>
+									<tr class="first">
+										<th scope="row" class="thead txtLess">SUBJECT</th>
+										<td>
+											<select id="board_category" name="board_category" fw-filter="" fw-label="" fw-msg="" >
+												<option value="회원관련">회원관련</option>
+												<option value="주문/결제">주문/결제</option>
+												<option value="배송관련">배송관련</option>
+												<option value="취소/반품/환불/교환">취소/반품/환불/교환</option>
+												<option value="상품문의">상품문의</option>
+											</select>
+											<input id="subject" name="subject" fw-filter="isFill" fw-label="제목" fw-msg="" class="inputTypeText" placeholder="" maxLength="125" type="text"/>	
+										</td>
+									</tr>
+									<tr>
+										<td colspan="2" class="write">
+										<form action="./insertBoard.do" method="post" id="insertBoardFrm" enctype="multipart/form-data">
+        								<textarea name="editor" id="editor" style="width: 700px; height: 400px;"></textarea>
+       									<input type="button" id="insertBoard" value="등록" />
+    									</form>
+										</td>
+									</tr>
+							</table>
+						</div>
+						
+						<div class="btnArea btnAreaCustom ">
+							<span class="left"><a href="/kgmall/board/QA.do" class="btn Normal Medium Wnormal">목록</a></span>
+							<input type="button" value="등록" class="btn Normal Dark Wnormal mL5">
+							<a href="/kgmall/board/QA.do" class="btn Normal Medium Wnormal mL5">취소</a>
+						</div>
+						
+					</div>
+				</form>
+			</div>
+		</div>
+</div>
+</body>
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="../editor/js/HuskyEZCreator.js" charset="utf-8"></script>
+<script type="text/javascript">
+    $(function(){
+        //전역변수
+        var obj = [];              
+        //스마트에디터 프레임생성
+        nhn.husky.EZCreator.createInIFrame({
+            oAppRef: obj,
+            elPlaceHolder: "editor",
+            sSkinURI: "../editor/SmartEditor2Skin.html",
+            htParams : {
+                // 툴바 사용 여부
+                bUseToolbar : true,            
+                // 입력창 크기 조절바 사용 여부
+                bUseVerticalResizer : true,    
+                // 모드 탭(Editor | HTML | TEXT) 사용 여부
+                bUseModeChanger : true,
+            }
+        });
+        //전송버튼
+        $("#insertBoard").click(function(){
+            //id가 smarteditor인 textarea에 에디터에서 대입
+            obj.getById["editor"].exec("UPDATE_CONTENTS_FIELD", []);
+            //폼 submit
+            $("#insertBoardFrm").submit();
+        });
+    });
+</script>
+</html>
+    
