@@ -272,19 +272,19 @@
 				<!-- 회사정보 -->
 				<div class="info">
 					<p class="customer">
-						<span class="name">TEL</span><span class="value-tel color-middle">1544-4941</span> <span class="name-fax displaynone">FAX</span><span class="value-fax color-middle"></span>
+						<span class="name">TEL</span><span class="value-tel color-middle">0000-0000</span> <span class="name-fax displaynone">FAX</span><span class="value-fax color-middle"></span>
 					</p>
 					<p>
-						<span class="value-cs rep-cstime">평일 오전 10:00 ~ 오후 6:00 / 점심시간 오후 12:00 ~ 오후 1:00 <br> 토 / 일 / 공휴일 휴무</span>
+						<span class="value-cs rep-cstime">평일 오전 09:00 ~ 오후 3:30 / 점심시간 오후 12:00 ~ 오후 12:30 <br> 토 / 일 / 공휴일 휴무</span>
 					</p>
 					<p>
-						<span class="name">COMPANY</span><span class="value">kgmall</span> <span class="name">OWNER</span><span class="value">장성수</span>
+						<span class="name">COMPANY</span><span class="value">kgmall</span> <span class="name">OWNER</span><span class="value">피카츄</span>
 					</p>
 					<p>
-						<span class="name-address">ADDRESS</span><span class="value-address">100196 서울특별시 중구 을지로6가 APM 1F 뷰티인사이드</span>
+						<span class="name-address">ADDRESS</span><span class="value-address">100196 서울특별시 종로구 종로3가 단성사 5th floor</span>
 					</p>
 					<p class="email">
-						<span class="name">MASTER</span><span class="value">박종규</span> <span class="name">E-MAIL</span><span class="value"><a href="mailto:dfloor@naver.com"><i class="fa fa-envelope-o" aria-hidden="true"></i>dfloor@naver.com</a></span>
+						<span class="name">MASTER</span><span class="value">피카츄</span> <span class="name">E-MAIL</span><span class="value"><a href="mailto:dfloor@naver.com"><i class="fa fa-envelope-o" aria-hidden="true"></i>kgmall@naver.com</a></span>
 					</p>
 					<p class="confirm">
 						<span class="name">BUSINESS LICENSE</span><span class="value">620-08-52026</span><a href="#none" onclick="window.open('http://www.ftc.go.kr/bizCommPop.do?wrkr_no=6200852026', 'bizCommPop', 'width=750, height=950;');return false;"><img src="http://ecudemo31431.cafe24.com/web/upload/dfloor_base/web/img/btn_license_confirm.png" alt="" class="img_on"></a>					</p>
@@ -372,7 +372,6 @@
 				<li class="ico-wish"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i><span>관심상품</span></a></li>
 				<li class="ico-contact"><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i><span>제휴문의</span></a></li>
 				<li class="ico-cert"><a href="#" target="_blank"><i class="fa fa-barcode" aria-hidden="true"></i><span>정품인증</span></a></li>
-				<li class="ico-bookmark"><a href="#" onclick="winPop(this.href); return false;"><i class="fa fa-tag" aria-hidden="true"></i><span>즐겨찾기</span></a></li>
 				<li class="ico-shortcut"><a href="#" onclick="winPop(this.href); return false;"><i class="fa fa-desktop" aria-hidden="true"></i><span>바로가기</span></a></li>
 			</ul>
 <!-- 에스크로 --><p class="escrow"><!--
@@ -631,6 +630,5 @@ $('#mainLogo').click(function(){
 	location.href="/kgmall/main/index.do";
 });
 </script>
-
 
 </body></html>

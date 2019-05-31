@@ -1702,7 +1702,13 @@
 		 </div>
 	</div>
 </div></li></ul></div><div class="bx-controls bx-has-pager bx-has-controls-direction"><div class="bx-pager bx-default-pager"><div class="bx-pager-item"><a href="" data-slide-index="0" class="bx-pager-link">1</a></div><div class="bx-pager-item"><a href="" data-slide-index="1" class="bx-pager-link">2</a></div><div class="bx-pager-item"><a href="" data-slide-index="2" class="bx-pager-link active">3</a></div><div class="bx-pager-item"><a href="" data-slide-index="3" class="bx-pager-link">4</a></div></div><div class="bx-controls-direction"><a class="bx-prev" href=""><i class="fa fa-angle-left" aria-hidden="true"></i></a><a class="bx-next" href=""><i class="fa fa-angle-right" aria-hidden="true"></i></a></div></div></div>
-</div><ul class="df-divbanner"><li class="xans-record-"><a href="/board/free/list.html?board_no=1" alt="배너"><img class="banner_image" alt="배너" rel="74-3" src="//app-storage-005.cafe24.com/bannermanage2/ecudemo31431/2017/05/11/d941cf3e0bd878252be6217cede44702.jpg"></a></li></ul>
+</div><ul class="df-divbanner"><li class="xans-record-"><a href="/board/free/list.html?board_no=1" alt="배너">
+<img class="banner_image" alt="배너" rel="74-3" src="../image/banner/pikachu.jpg" usemap="#001" id="pikachu_banner" width="1260" height="350">
+<map name="001">
+	<area shape="rect" coords="131,100,377,171" href="#" id="catchSucess">
+	<area shape="rect" coords="131,197,377,268" href="#" id="runAway">
+</map>
+</a></li></ul>
 <!-- //메인 상품분류 목록 1 끝 -->
 
 
@@ -2225,3 +2231,13 @@
 </div>
 
 <script type="text/javascript" src="../js/data_loading.js"></script>
+<script type="text/javascript">
+	$('#catchSucess').click(function(){
+		$('#pikachu_banner').attr("src","../image/gif/pikachu.gif");
+		$('#pikachu_banner').attr("usemap","#none");
+	});
+	$('#runAway').click(function(){
+		$('#pikachu_banner').attr("src","../image/gif/pikachu_runAway.gif");
+		$('#pikachu_banner').attr("usemap","#none");
+	});
+</script>
