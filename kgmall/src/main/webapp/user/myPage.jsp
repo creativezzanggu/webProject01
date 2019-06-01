@@ -3,9 +3,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "//www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="//www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
 <head>
+<style type="text/css">
+.subject a{color:#2e2e2e;text-decoration: none;}
+.subject a:hover{color:#888;}
+</style>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width"><meta http-equiv="Cache-Control" content="no-cache"><meta http-equiv="Expires" content="0"><meta http-equiv="Pragma" content="no-cache">
-<link href="../css/myPageCss1.css" rel="stylesheet">
 
+<link href="../css/myPageCss1.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="../css/myPageCss2.css">
 <link rel="stylesheet" type="text/css" href="../css/myPageCss3.css">
 
@@ -29,7 +33,7 @@
 								class="myshop_benefit_group_image_tag"></div>
 	<div class="userInfo">
 <span class="userName"><span>
-<span class="xans-member-var-name">asd</span></span></span>
+<span class="xans-member-var-name">${id }</span></span></span>
 <span class="groupName"><span class="displaynone">
 <img src="" alt="" class="myshop_benefit_group_icon_tag"></span>
 <span class="xans-member-var-group_name">일반회원</span>
@@ -38,7 +42,7 @@
 		</div>
 <div class="userRight">
 	<div class="quickButton">
-	<p class="welcome"><b><span><span class="xans-member-var-name">asd</span></span></b></p>
+	<p class="welcome"><b><span><span class="xans-member-var-name">${id}</span></span></b></p>
 <ul class="xans-element- xans-myshop xans-myshop-main ">
 <!-- 주문내역 -->
 <li class="order"><a href="#productList"></a></li>
@@ -83,9 +87,9 @@
 <div class="xans-element- xans-myshop xans-myshop-asyncbenefit benefitInfo"><h3 class="title"></h3>
 <div class="content">
 <div class="benefit ko ">
-<p><span>저희 쇼핑몰을 이용해 주셔서 감사합니다. 
+<p><span>항상 저희 KG mall 을 이용해 주셔서 감사합니다. 
 <strong class="txtEm"><span><span class="xans-member-var-name">${id}</span></span></strong>
- 회원님은 <strong>[<span class="xans-member-var-group_name" id="member">bronze</span>
+ 회원님은 <strong>[ <span class="xans-member-var-group_name" id="member">${usergrade }</span>
 <span class="myshop_benefit_ship_free_message"></span>]</strong> 등급 회원이십니다.</span></p>
 </div>
 </div>
@@ -147,7 +151,7 @@
 <span class="title"></span></h3>
 <div class="xans-element- xans-myshop xans-myshop-boardlist content">
 
-<table width="100%" border="1" summary="">
+<table id="myQA" width="100%" border="1">
 <caption>게시물 관리 목록</caption>
 <colgroup class="xans-element- xans-board xans-board-listheader-1002 xans-board-listheader xans-board-1002 ">
 <col style="width:70px;">
@@ -165,13 +169,56 @@
 <th scope="col">작성일</th>
 <th scope="col">조회</th>
 </tr></thead>
-<tbody class="displaynone">
-</tbody>
+
 </table>
-<p class="empty"></p>
 </body>
-<script type="text/javascript" src="http://code.jquery.com/jquery-3.4.0.min.js"></script>
+
 <script>
-$('#member').css("color", "gold");
+$(function(){
+	if(${usergrade == 'bronze'}){
+		$('#member').css("color", "brown");
+	}
+	else if(${usergrade == 'silver'}){
+		$('#member').css("color","silver");
+	}
+	else{
+		$('#member').css("color","gold");
+	}
+	
+	$.ajax({
+		type : 'GET',
+		url : '/kgmall/board/myQAList.do',
+		dataType : 'json',
+		success : function(data){
+			$.each(data.list, function(index, items){
+				$('<tr/>').append($('<td/>',{
+					align : 'center',
+					text : items.seq
+				})).append($('<td/>',{
+					align : 'center',
+					text : items.category
+				})).append($('<td/>',{
+					align : 'center',
+					class : 'subject'
+					}).append($('<a/>',{
+						href : '/kgmall/board/QAview.do?seq='+items.seq,
+						text : items.subject
+					}))
+				).append($('<td/>',{
+					align : 'center',
+					text : items.id
+				})).append($('<td/>',{
+					align : 'center',
+					text : items.logtime
+				})).append($('<td/>',{
+					align : 'center',
+					text : items.hit
+				})).appendTo($('#myQA'));
+				
+			});
+		}
+	});
+});
+
 </script>
 </html>

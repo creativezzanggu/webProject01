@@ -64,27 +64,13 @@
 					</c:if>
 					<c:if test="${id != null}">
 					<li class="xans-element- xans-layout xans-layout-statelogoff "><a href="../user/logout.do" class="log">LOGOUT</a></li>
-					</c:if>							
-
-					<!-- 마이샵 메뉴 -->
 					<li class="myshop">
-<<<<<<< HEAD
-						<a href="../user/myPage.do">MY PAGE</a>
-						<ul class="xans-element- xans-myshop xans-myshop-main mnb "><li><a href="/myshop/wish_list.html">관심상품</a></li>
-<li><a href="/myshop/order/list.html">주문조회</a></li>
-<li><a href="/myshop/mileage/historyList.html">적립금</a></li>
-<li class="displaynone"><a href="/myshop/deposits/historyList.html">예치금</a></li>
-<li class=""><a href="/myshop/likeit/product.html">좋아요</a></li>
-<li class=""><a href="/myshop/coupon/coupon.html">마이쿠폰</a></li>
-<li><a href="/myshop/board_list.html">내가쓴글</a></li>
-</ul>
-</li>
-=======
-						<a href="/myshop/index.html">MY PAGE</a>
+					<a href="../user/myPage.do">MY PAGE</a>
 					</li>
->>>>>>> branch 'develop' of https://github.com/creativezzanggu/webProject01.git
+					</c:if>							
+</li>
 
-				</ul><!-- 커뮤니티(전체 게시판) 메뉴 --><ul class="xans-element- xans-layout xans-layout-boardinfo bnb">
+</ul><!-- 커뮤니티(전체 게시판) 메뉴 --><ul class="xans-element- xans-layout xans-layout-boardinfo bnb">
 <li class="xans-record-">
 <a href="/board/free/list.html?board_no=1">CART</a> </li>
 <li class="xans-record-">
