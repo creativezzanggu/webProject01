@@ -87,7 +87,7 @@
 <li class="xans-record-">
 <a href="/kgmall/notice/noticeForm.do?pg=1">NOTICE</a> </li>
 <li class="xans-record-">
-<a href="/board/product/list.html?board_no=6">Q &amp; A</a> </li>
+<a href="/kgmall/board/QA.do?pg=1">Q &amp; A</a> </li>
 <!-- 1:1 문의게시판 -->
 <li class="xans-element- xans-myshop xans-myshop-main displaynone "><a href="/board/consult/list.html">1:1 문의란</a>
 </li>

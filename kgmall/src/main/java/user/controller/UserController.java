@@ -77,7 +77,8 @@ public class UserController {
 		Map<String,String> map2 = userDAO.getUser(map);
 		
 		ModelAndView mav = new ModelAndView();
-		session.setAttribute("id", map.get("id"));
+		session.setAttribute("id", map2.get("ID"));
+		session.setAttribute("name", map2.get("NAME"));
 		mav.addObject("map", map2);
 		mav.setViewName("jsonView");
 		return mav;
