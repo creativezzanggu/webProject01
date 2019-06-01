@@ -30,7 +30,39 @@
 <meta name="author" content="fitting booth" />
 <meta name="description" content="걸리쉬한 스타일의 핏감만족 하이퀄리티 여성의류 쇼핑몰 피팅부스, " />
 <meta name="keywords" content="피팅부스, 여성의류, 페미닌, 감성룩, 쇼핑몰, 걸리쉬" />
+
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="../resources/editor/js/HuskyEZCreator.js" charset="utf-8"></script>
 </head>
+<script type="text/javascript">
+    $(function(){
+        //전역변수
+        var obj = [];              
+        //스마트에디터 프레임생성
+        nhn.husky.EZCreator.createInIFrame({
+            oAppRef: obj,
+            elPlaceHolder: "editor",
+            sSkinURI: "../resources/editor/SmartEditor2Skin.html",
+            htParams : {
+                // 툴바 사용 여부
+                bUseToolbar : true,            
+                // 입력창 크기 조절바 사용 여부
+                bUseVerticalResizer : true,    
+                // 모드 탭(Editor | HTML | TEXT) 사용 여부
+                bUseModeChanger : true,
+            }
+        });
+        //전송버튼
+        $("#insertBoard").click(function(){
+            //id가 smarteditor인 textarea에 에디터에서 대입
+            obj.getById["editor"].exec("UPDATE_CONTENTS_FIELD", []);
+            //폼 submit
+            $("#insertBoardFrm").submit();
+        });
+    });
+    $('#insertBoard').hide();
+</script>
+
 <body>
 <div id="wrap">
 	<div id="container">
@@ -59,9 +91,9 @@
 				.board-nav-style1 li a:hover { border:1px solid #434343; background:#434343; color:#fff }
 				</style>
 				
-				<form id="boardWriteForm" name="boardWriteForm" action="/kgmall/board/QAwriteInsert.do" method="post" target="_self" enctype="multipart/form-data" >
+				<form id="insertBoardFrm" name="insertBoardFrm" action="/kgmall/board/QAwriteInsert.do" method="post" target="_self" enctype="multipart/form-data" >
 					<div class="xans-board xans-board-write">
-						<div class="boardWrite ">
+						<div class="boardWrite">
 							<table width="100%" border="1" summary="">
 								<caption>글쓰기 폼</caption>
 								<tbody>
@@ -80,10 +112,9 @@
 									</tr>
 									<tr>
 										<td colspan="2" class="write">
-										<form action="./insertBoard.do" method="post" id="insertBoardFrm" enctype="multipart/form-data">
-        								<textarea name="editor" id="editor" style="width: 700px; height: 400px;"></textarea>
-       									<input type="button" id="insertBoard" value="등록" />
-    									</form>
+										<!-- <form action="./insertBoard.do" method="post" id="insertBoardFrm" enctype="multipart/form-data"> -->
+									        <textarea name="editor" id="editor" style="width: 700px; height: 400px;"></textarea>
+									    <!-- </form> -->
 										</td>
 									</tr>
 							</table>
@@ -91,7 +122,7 @@
 						
 						<div class="btnArea btnAreaCustom ">
 							<span class="left"><a href="/kgmall/board/QA.do" class="btn Normal Medium Wnormal">목록</a></span>
-							<input type="button" value="등록" class="btn Normal Dark Wnormal mL5">
+							<input type="submit" value="등록" class="btn Normal Dark Wnormal mL5">
 							<a href="/kgmall/board/QA.do" class="btn Normal Medium Wnormal mL5">취소</a>
 						</div>
 						
@@ -101,34 +132,5 @@
 		</div>
 </div>
 </body>
-<script src="https://code.jquery.com/jquery-latest.js"></script>
-<script type="text/javascript" src="../editor/js/HuskyEZCreator.js" charset="utf-8"></script>
-<script type="text/javascript">
-    $(function(){
-        //전역변수
-        var obj = [];              
-        //스마트에디터 프레임생성
-        nhn.husky.EZCreator.createInIFrame({
-            oAppRef: obj,
-            elPlaceHolder: "editor",
-            sSkinURI: "../editor/SmartEditor2Skin.html",
-            htParams : {
-                // 툴바 사용 여부
-                bUseToolbar : true,            
-                // 입력창 크기 조절바 사용 여부
-                bUseVerticalResizer : true,    
-                // 모드 탭(Editor | HTML | TEXT) 사용 여부
-                bUseModeChanger : true,
-            }
-        });
-        //전송버튼
-        $("#insertBoard").click(function(){
-            //id가 smarteditor인 textarea에 에디터에서 대입
-            obj.getById["editor"].exec("UPDATE_CONTENTS_FIELD", []);
-            //폼 submit
-            $("#insertBoardFrm").submit();
-        });
-    });
-</script>
 </html>
     

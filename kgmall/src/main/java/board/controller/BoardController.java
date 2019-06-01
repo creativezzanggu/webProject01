@@ -63,10 +63,15 @@ public class BoardController {
 		return "/main/index";
 	}
 	
-	
-	@RequestMapping(value="/QAwriteInsert.do", method=RequestMethod.GET)
-	public String QAwriteInsert(@RequestParam Map<String,String> map,Model model) {
-		System.out.println(map);
+	//텍스트 내용을 못받고 있음
+	@RequestMapping(value="/QAwriteInsert.do", method=RequestMethod.POST)
+	public String QAwriteInsert(@RequestParam String board_category,@RequestParam String subject,Model model) {
+		System.out.println(board_category);
+		System.out.println(subject);
+		int totalA = boardDAO.getTotal();
+		
+		model.addAttribute("pg", 1);
+		model.addAttribute("totalA", totalA);
 		model.addAttribute("display", "/board/QA.jsp");
 		return "/main/index";
 	}
@@ -213,20 +218,12 @@ public class BoardController {
 	
 	@RequestMapping(value="/QASearch.do", method=RequestMethod.POST)
 	public ModelAndView QASearch(@RequestParam Map<String,Object> map) {
-		Calendar c1 = new GregorianCalendar();
-		if(map.get("date").equals("all")) {
-			map.put("date","all");
-		}else {
-			c1.add(Calendar.DATE, Integer.parseInt((String) map.get("date")));
-			map.put("date",c1);
-		}
 		int endNum = Integer.parseInt((String) map.get("pg"))*5;
 		int startNum =  endNum-4;
 		map.put("endNum",Integer.toString(endNum));
 		map.put("startNum",Integer.toString(startNum));
 		map.put("search","%"+map.get("search")+"%");
 		
-		//System.out.println("map="+map);
 		List<QADTO> list = boardDAO.QASearchList(map);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("searchList",list);
@@ -241,17 +238,8 @@ public class BoardController {
 		int currentPage = Integer.parseInt(map.get("currentPage"));
 		int pageBlock = Integer.parseInt(map.get("pageBlock"));
 		int totalA=0;
-		Calendar c1 = new GregorianCalendar();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-		if(map.get("date").equals("all")) {
-			totalA = boardDAO.getTotal();
-		}else {
-			c1.add(Calendar.DATE, Integer.parseInt(map.get("date"))); 
-			map.put("date",sdf.format(c1));
-			System.out.println("search="+map);
-			totalA = boardDAO.getSearchTotalA(map);
-		}
-		System.out.println(totalA);
+
+		totalA = boardDAO.getSearchTotalA(map);
 		
 		int pageSize = Integer.parseInt(map.get("pageSize"));
 		
@@ -298,7 +286,6 @@ public class BoardController {
 	
 	@RequestMapping(value="/QAreplyList.do", method=RequestMethod.POST)
 	public ModelAndView QAreplyList(@RequestParam Map<String,String> map) {
-		System.out.println(map);
 		List<QAreplyDTO> list= boardDAO.getReply(map);
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		StringBuffer qareply = new StringBuffer();
@@ -313,30 +300,23 @@ public class BoardController {
 					"<span class='date'>"+sdf.format(dto.getLogtime())+"</span>"+ 
 					"<span class='button btnAreaCustom'>"+ 
 					"<input type='button' value='수정' id='qaReplyModify"+dto.getReplyseq()+"' class='btn Tiny Light'>"+ 
-					"<a href='/kgmall/board/QAreplyDelete.do?replyseq="+dto.getReplyseq()+"&seq="+dto.getSeq()+"' class='btn Tiny Light mL4'>삭제</a>"+ 
+					"<input type='button' value='삭제' onclick=qaReplydelete('"+dto.getReplyseq()+"') class='btn Tiny Light mL4'>"+ 
 					"</span>"+ 
 					"</div>"+ 
 					"<div class='comment txtLittle'>" + 
 					"<span>"+dto.getContent()+"</span></div></li>");
 		}qareply.append("</ul>");
 		
-		System.out.println(qareply);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("qareply",qareply);
 		mav.setViewName("jsonView");
 		return mav;
 	}
 	
-	@RequestMapping(value="/QAreplyDelete.do", method=RequestMethod.GET)
-	public String QAreplyDelete(@RequestParam Map<String,String> map,Model model,HttpSession session) {
-		QADTO qa= boardDAO.getQA(map.get("seq"));
+	@RequestMapping(value="/QAreplyDelete.do", method=RequestMethod.POST)
+	public void QAreplyDelete(@RequestParam Map<String,String> map) {
+		System.out.println(map);
 		boardDAO.QAreplyDelete(map);
-		
-		model.addAttribute("qa",qa);
-		model.addAttribute("seq",map.get("seq"));
-		model.addAttribute("id",session.getAttribute("id"));
-		model.addAttribute("display", "/board/QAview.jsp");
-		return "/main/index";
 	}
 	
 	@RequestMapping(value="/QAreplyModify.do", method=RequestMethod.GET)

@@ -269,7 +269,7 @@ $(document).ready(function(){
 					type : 'GET',
 					url : '/kgmall/board/QASelectPaging.do',
 					data : {'currentPage':'1',
-						'pageBlock':'2',
+						'pageBlock':'3',
 						'pageSize':'5',
 						'totalA':$('#totalA').val(),
 						'category':$('#selectTotalA').val()},
