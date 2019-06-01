@@ -179,6 +179,7 @@
 	  		<groupId>org.apache.commons</groupId>
 	  		<artifactId>commons-email</artifactId>
 	  		<version>1.5</version>
+<<<<<<< HEAD
 	    </dependency>
 	    
 	    <!-- 스마트 에디터 -->
@@ -193,6 +194,10 @@
             <version>2.5</version>
         </dependency>
 	    
+=======
+	    </dependency> 
+	       
+>>>>>>> branch 'develop' of https://github.com/creativezzanggu/webProject01.git
 	</dependencies>
     <build>
         <plugins>

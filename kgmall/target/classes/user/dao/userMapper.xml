@@ -8,7 +8,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from usertable where id=#{id}
 	</select>
 	<insert id="write" parameterType="user">
-		insert into usertable values(#{name},#{id},#{pwd},#{email1}||'@'||#{email2},#{phone1}||'-'||#{phone2}||'-'||#{phone3})
+		insert into usertable values(#{name},#{id},#{pwd},#{email1}||'@'||#{email2},#{phone1}||'-'||#{phone2}||'-'||#{phone3},'bronze',0)
 	</insert>
 	<select id="getUser" parameterType="java.util.Map" resultType="java.util.Map">
  		select * from usertable where id= #{id} and pwd= #{pwd}

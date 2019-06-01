@@ -64,26 +64,15 @@
 					</c:if>
 					<c:if test="${id != null}">
 					<li class="xans-element- xans-layout xans-layout-statelogoff "><a href="../user/logout.do" class="log">LOGOUT</a></li>
-					</c:if>							
-
-					<!-- 마이샵 메뉴 -->
 					<li class="myshop">
-						<a href="/myshop/index.html">MY PAGE</a>
-						<ul class="xans-element- xans-myshop xans-myshop-main mnb "><li><a href="/myshop/wish_list.html">관심상품</a></li>
-<li><a href="/myshop/order/list.html">주문조회</a></li>
-<li><a href="/myshop/mileage/historyList.html">적립금</a></li>
-<li class="displaynone"><a href="/myshop/deposits/historyList.html">예치금</a></li>
-<li class=""><a href="/myshop/likeit/product.html">좋아요</a></li>
-<li class=""><a href="/myshop/coupon/coupon.html">마이쿠폰</a></li>
-<li><a href="/myshop/board_list.html">내가쓴글</a></li>
-</ul>
+					<a href="../user/myPage.do">MY PAGE</a>
+					</li>
+					</c:if>							
 </li>
 
-				</ul><!-- 커뮤니티(전체 게시판) 메뉴 --><ul class="xans-element- xans-layout xans-layout-boardinfo bnb">
+</ul><!-- 커뮤니티(전체 게시판) 메뉴 --><ul class="xans-element- xans-layout xans-layout-boardinfo bnb">
 <li class="xans-record-">
 <a href="/board/free/list.html?board_no=1">CART</a> </li>
-<li class="xans-record-">
-<a href="/board/free/list.html?board_no=1">ORDER</a> </li>
 <li class="xans-record-">
 <a href="/kgmall/notice/noticeForm.do?pg=1">NOTICE</a> </li>
 <li class="xans-record-">
@@ -104,8 +93,8 @@
 			<!-- 로고 -->
 			<!-- 배너관리 : 로고 -->
 <h1 class="xans-element- xans-bannermanage2 xans-bannermanage2-display-8 xans-bannermanage2-display xans-bannermanage2-8 top-logo"><a href="#" class="logo" id="mainLogo">
-		<span class="xans-record-" style="opacity: 1;"><img class="banner_image" alt="로고" rel="109-8" src="//app-storage-005.cafe24.com/bannermanage2/ecudemo31431/2019/03/31/ff00d6939fa27c3379078161d8bad45f.png"></span>
-		<span class="xans-record-" style="display: none;"><img class="banner_image" alt="로고" rel="110-8" src="//app-storage-005.cafe24.com/bannermanage2/ecudemo31431/2019/03/31/83758942bd82e85397329f53092db2b1.png"></span>	</a>
+		<span class="xans-record-" style="opacity: 1;"><img class="banner_image" alt="로고" rel="109-8" src="../image/banner/kgmall_banner.png"></span>
+		<span class="xans-record-" style="display: none;"><img class="banner_image" alt="로고" rel="110-8" src="../image/banner/kgmall_banner2.png"></span>	</a>
 </h1>
 
 			<div class="xans-element- xans-layout xans-layout-multishoplist globalThumb "><ul class="xans-element- xans-layout xans-layout-multishoplistitem"><li class=""><a href="///"><img src="http://ecudemo31431.cafe24.com/web/upload/dfloor_base/web/icon/ico_global_.png" class="img_on" alt=""></a></li>
@@ -199,7 +188,7 @@
 
 							<!-- 상품분류 -->
 							<ul class="xans-element- xans-layout xans-layout-category left">
-<li df-cate-no="42" df-cate-depth="1" class="d1 xans-record-" style="width: 20%;"><a href="/product/list.html?cate_no=42">BEST 50</a><div class="m2"><ul><li df-cate-no="43" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=43">베스트 50</a></li></ul></div></li>
+<li df-cate-no="42" df-cate-depth="1" class="d1 xans-record-" style="width: 20%;"><a href="/product/list.html?cate_no=42">BEST 30</a><div class="m2"><ul><li df-cate-no="43" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=43">베스트 30</a></li></ul></div></li>
 <li df-cate-no="49" df-cate-depth="1" class="d1 xans-record-" style="width: 20%;"><a href="/product/list.html?cate_no=49">OUTER</a>
 <div class="m2"><ul>
 <li df-cate-no="51" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=51">JACKET</a></li>
@@ -211,8 +200,8 @@
 <ul class="right"><!-- 게시판 --><li class="d1 community" df-cate-depth="1">
 									<a href="#none">커뮤니티</a>
 									<div class="m2">
-										<ul class="xans-element- xans-layout xans-layout-boardinfo"><li class="xans-record-"><a href="/board/free/list.html?board_no=1">NOTICE</a></li>
-<li class="xans-record-"><a href="/board/product/list.html?board_no=6">Q &amp; A</a></li>
+										<ul class="xans-element- xans-layout xans-layout-boardinfo"><li class="xans-record-"><a href="/kgmall/notice/noticeForm.do?pg=1">NOTICE</a></li>
+<li class="xans-record-"><a href="/kgmall/board/QA.do?pg=1">Q &amp; A</a></li>
 <!-- 1:1 문의게시판 -->
 <li class="xans-element- xans-myshop xans-myshop-main displaynone "><a href="/board/consult/list.html">1:1 문의란</a>
 </li>
@@ -230,7 +219,7 @@
 				<div id="cnb" style="opacity: 1; visibility: visible;">
 					<div class="m1">
 						<ul class="xans-element- xans-layout xans-layout-category">
-<li df-cate-no="42" df-cate-depth="1" class="d1 xans-record-" style="margin-left: 5px; margin-right: 5px;"><a href="/product/list.html?cate_no=42"><span>BEST 50</span></a><div class="m2" style="margin-left: 255px;"><ul><li df-cate-no="43" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=43">한주간 베스트</a></li><li df-cate-no="44" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=44">이달의 베스트</a></li><li df-cate-no="45" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=45">MD'S 초이스</a></li></ul><div class="menuImg"><a href="#none"><img class="banner_image" alt="BEST 50" rel="145-10" src="//app-storage-005.cafe24.com/bannermanage2/ecudemo31431/2019/04/01/754aabcb687e8b214258c68638b2f99a.jpg"></a></div></div></li>
+<li df-cate-no="42" df-cate-depth="1" class="d1 xans-record-" style="margin-left: 5px; margin-right: 5px;"><a href="/product/list.html?cate_no=42"><span>BEST 30</span></a><div class="m2" style="margin-left: 255px;"><ul><li df-cate-no="43" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=43">한주간 베스트</a></li><li df-cate-no="44" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=44">이달의 베스트</a></li><li df-cate-no="45" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=45">MD'S 초이스</a></li></ul><div class="menuImg"><a href="#none"><img class="banner_image" alt="BEST 50" rel="145-10" src="//app-storage-005.cafe24.com/bannermanage2/ecudemo31431/2019/04/01/754aabcb687e8b214258c68638b2f99a.jpg"></a></div></div></li>
 <li df-cate-no="49" df-cate-depth="1" class="d1 xans-record-" style="margin-left: 5px; margin-right: 5px;"><a href="/product/list.html?cate_no=49"><span>OUTER</span></a><div class="m2" style="margin-left: 230px; display: none;"><ul><li df-cate-no="50" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=50">COAT &amp; TERNCH<i class="fa fa-angle-right"></i></a><div class="m3"><ul><li df-cate-no="82" class="d3" df-cate-depth="3"><a href="/product/list.html?cate_no=82">COAT</a></li><li df-cate-no="83" class="d3" df-cate-depth="3"><a href="/product/list.html?cate_no=83">TRENCH</a></li></ul></div></li><li df-cate-no="51" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=51">JACKET</a></li><li df-cate-no="52" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=52">JUMPER</a></li><li df-cate-no="53" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=53">CADIGAN</a></li></ul><div class="menuImg"><a href="#none"><img class="banner_image" alt="OUTER" rel="147-10" src="//app-storage-005.cafe24.com/bannermanage2/ecudemo31431/2019/04/01/396c3b5987be025dea136313d8fe2694.jpg"></a></div></div></li>
 <li df-cate-no="54" df-cate-depth="1" class="d1 xans-record-" style="margin-left: 5px; margin-right: 5px;"><a href="/product/list.html?cate_no=54"><span>TOP</span></a><div class="m2" style="margin-left: 135px; display: none;"><ul><li df-cate-no="55" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=55">TEE SHIRT</a></li><li df-cate-no="56" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=56">BLOUSE</a></li><li df-cate-no="57" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=57">KNIT</a></li><li df-cate-no="58" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=58">CAMI</a></li></ul><div class="menuImg"><a href="#none"><img class="banner_image" alt="TOP" rel="148-10" src="//app-storage-005.cafe24.com/bannermanage2/ecudemo31431/2019/04/01/5fd957237ec382d2da17dc91229ba020.jpg"></a></div></div></li>
 <li df-cate-no="59" df-cate-depth="1" class="d1 xans-record-" style="margin-left: 5px; margin-right: 5px;"><a href="/product/list.html?cate_no=59"><span>BOTTOM</span></a><div class="m2" style="margin-left: 135px; display: none;"><ul><li df-cate-no="60" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=60">SKIRT</a></li><li df-cate-no="61" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=61">LEGGINGS</a></li><li df-cate-no="62" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=62">PANTS</a></li><li df-cate-no="63" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=63">DENIM</a></li></ul><div class="menuImg"><a href="#none"><img class="banner_image" alt="BOTTOM" rel="149-10" src="//app-storage-005.cafe24.com/bannermanage2/ecudemo31431/2019/04/01/b803ca4d03d223ccdccae19195d85a15.jpg"></a></div></div></li>
@@ -288,7 +277,7 @@
 						<span class="name">MASTER</span><span class="value">피카츄</span> <span class="name">E-MAIL</span><span class="value"><a href="mailto:dfloor@naver.com"><i class="fa fa-envelope-o" aria-hidden="true"></i>kgmall@naver.com</a></span>
 					</p>
 					<p class="confirm">
-						<span class="name">BUSINESS LICENSE</span><span class="value">620-08-52026</span><a href="#none" onclick="window.open('http://www.ftc.go.kr/bizCommPop.do?wrkr_no=6200852026', 'bizCommPop', 'width=750, height=950;');return false;"><img src="http://ecudemo31431.cafe24.com/web/upload/dfloor_base/web/img/btn_license_confirm.png" alt="" class="img_on"></a>					</p>
+						<span class="name">BUSINESS LICENSE</span><span class="value">620-08-52026</span><a href="#none" onclick="window.open('https://www.instagram.com/kgitbank_ty/', '사업자정보', 'width=750, height=950;');return false;"><img src="http://ecudemo31431.cafe24.com/web/upload/dfloor_base/web/img/btn_license_confirm.png" alt="" class="img_on"></a>					</p>
 					<p>
 						<span class="name">MALL-ORDER LICENSE</span><span class="value">on the anvil</span>
 					</p>
@@ -365,10 +354,10 @@
                 <p class="info">자세한 교환·반품절차 안내는 문의란 및 공지사항을 참고해주세요</p>
 			</div>
 			<ul class="quick-link">
-<!-- 공지사항 --><li class="ico-notice"><a href="#"><i class="fa fa-microphone" aria-hidden="true"></i><span>공지사항</span></a></li>
-				<li class="ico-qna"><a href="#"><i class="fa fa-comments" aria-hidden="true"></i><span>상품문의</span></a></li>
-				<li class="ico-review"><a href="#"><i class="fa fa-camera" aria-hidden="true"></i><span>구매후기</span></a></li>
-				<li class="ico-order"><a href="#"><i class="fa fa-credit-card-alt" aria-hidden="true"></i><span>주문조회</span></a></li>
+<!-- 공지사항 --><li class="ico-notice"><a href="/kgmall/notice/noticeForm.do?pg=1"><i class="fa fa-microphone" aria-hidden="true"></i><span>공지사항</span></a></li>
+				<li class="ico-qna"><a href="/kgmall/board/QA.do?pg=1"><i class="fa fa-comments" aria-hidden="true"></i><span>Q & A</span></a></li>
+				<li class="ico-review"><a href="#"><i class="fa fa-camera" aria-hidden="true"></i><span>카트</span></a></li>
+				<li class="ico-order"><a href="#"><i class="fa fa-credit-card-alt" aria-hidden="true"></i><span>마이페이지</span></a></li>
 				<li class="ico-cart"><a href="#"><i class="fa fa-folder-open" aria-hidden="true"></i><span>장바구니</span></a></li>
 				<li class="ico-wish"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i><span>관심상품</span></a></li>
 				<li class="ico-contact"><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i><span>제휴문의</span></a></li>

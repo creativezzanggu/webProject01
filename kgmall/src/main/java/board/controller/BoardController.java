@@ -37,7 +37,6 @@ public class BoardController {
 		model.addAttribute("display", "/board/board.jsp");
 		return "/main/index";
 	}
-	
 
 	@RequestMapping(value="/QA.do", method=RequestMethod.GET)
 	public String QA(Model model,@RequestParam(required=false,defaultValue="1") String pg,HttpServletRequest req,HttpServletResponse resp,HttpSession session) {
@@ -122,6 +121,17 @@ public class BoardController {
 		map.put("startNum",startNum);
 		
 		List<QADTO> list = boardDAO.getQAList(map);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("list",list);
+		mav.setViewName("jsonView");
+		return mav;
+	}
+	
+	@RequestMapping(value="/myQAList.do", method=RequestMethod.GET)
+	public ModelAndView myQAList(HttpSession session) {
+		Map<String,String> map = new HashMap<String,String>();
+		map.put("id", session.getAttribute("id").toString());
+		List<QADTO> list = boardDAO.myQAList(map);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("list",list);
 		mav.setViewName("jsonView");
