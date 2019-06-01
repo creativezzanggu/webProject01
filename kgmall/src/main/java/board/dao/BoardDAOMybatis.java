@@ -18,6 +18,11 @@ public class BoardDAOMybatis implements BoardDAO {
 	private SqlSession sqlSession;
 
 	@Override
+	public List<QADTO> myQAList(Map<String, String> map) {
+		return sqlSession.selectList("BoardSQL.myQAList", map);
+	}
+	
+	@Override
 	public List<QADTO> getQAList(Map<String, Integer> map) {
 		return sqlSession.selectList("BoardSQL.getQAList",map);
 	}
@@ -84,7 +89,5 @@ public class BoardDAOMybatis implements BoardDAO {
 		
 	}
 
-	
-	
 
 }

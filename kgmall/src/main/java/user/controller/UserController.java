@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
+import javax.mail.Session;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -79,6 +80,7 @@ public class UserController {
 		ModelAndView mav = new ModelAndView();
 		session.setAttribute("id", map2.get("ID"));
 		session.setAttribute("name", map2.get("NAME"));
+		session.setAttribute("usergrade", map2.get("USERGRADE"));
 		mav.addObject("map", map2);
 		mav.setViewName("jsonView");
 		return mav;
@@ -185,9 +187,10 @@ public class UserController {
 		return "/main/index";
 	}
 	
-	
-
-
-	
+	@RequestMapping(value="/myPage.do", method=RequestMethod.GET)
+	public String myPage(Map<String,String> map, Model model, HttpSession session) {
+		model.addAttribute("display", "../user/myPage.jsp");
+		return "/main/index";
+	}
 	
 }

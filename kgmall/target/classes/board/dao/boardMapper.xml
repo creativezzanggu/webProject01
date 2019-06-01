@@ -11,6 +11,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		 where rn between #{startNum} and #{endNum}
 	</select>
 	
+	<select id="myQAList" parameterType="java.util.Map" resultType="qa">
+		select * from qa where id=#{id}
+	</select>
+	
 	<select id="QASelectList" parameterType="java.util.Map" resultType="qa">
 		<if test='category == "전체"'>
 			select * from 
@@ -80,5 +84,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="QAreplyInsertCheck" parameterType="java.util.Map" resultType="qaReply">
 		select * from qareply where seq=${seq} and id='${id}' and content='${comment}'
 	</select>
+	
+	
 	
 </mapper>

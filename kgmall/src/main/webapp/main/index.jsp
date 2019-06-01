@@ -64,14 +64,13 @@
 					</c:if>
 					<c:if test="${id != null}">
 					<li class="xans-element- xans-layout xans-layout-statelogoff "><a href="../user/logout.do" class="log">LOGOUT</a></li>
-					</c:if>							
-
-					<!-- 마이샵 메뉴 -->
 					<li class="myshop">
-						<a href="/myshop/index.html">MY PAGE</a>
+					<a href="../user/myPage.do">MY PAGE</a>
 					</li>
+					</c:if>							
+</li>
 
-				</ul><!-- 커뮤니티(전체 게시판) 메뉴 --><ul class="xans-element- xans-layout xans-layout-boardinfo bnb">
+</ul><!-- 커뮤니티(전체 게시판) 메뉴 --><ul class="xans-element- xans-layout xans-layout-boardinfo bnb">
 <li class="xans-record-">
 <a href="/board/free/list.html?board_no=1">CART</a> </li>
 <li class="xans-record-">

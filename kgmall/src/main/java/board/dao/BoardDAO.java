@@ -34,6 +34,8 @@ public interface BoardDAO {
 
 	public QAreplyDTO QAreplyInsertCheck(Map<String, String> map);
 
+	public List<QADTO> myQAList(Map<String, String> map);
+
 
 
 }
