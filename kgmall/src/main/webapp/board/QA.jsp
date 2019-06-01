@@ -62,7 +62,7 @@ background: #fafafa;margin: 0;-moz-box-sizing: border-box;-webkit-box-sizing: bo
 </div>
 <div class="sec-sort">
 	<div class="boardSort">
-		<span class="xans-element- xans-board xans-board-category-4 xans-board-category xans-board-4 ">
+		<span class="xans-board xans-board-category">
 			<select id="board_category" id="board_category" name="board_category" fw-filter="" fw-label="" fw-msg="">
 				<option value="전체" selected="selected">전체</option>
 				<option value="회원관련">회원관련</option>
@@ -72,7 +72,7 @@ background: #fafafa;margin: 0;-moz-box-sizing: border-box;-webkit-box-sizing: bo
 				<option value="상품문의">상품문의</option>
 			</select>
 		</span>
-		<span class="xans-element- xans-board xans-board-replysort-4 xans-board-replysort xans-board-4 "></span>
+		<span class="xans-board xans-board-replysort"></span>
 	</div>
 </div>
 
@@ -82,7 +82,7 @@ background: #fafafa;margin: 0;-moz-box-sizing: border-box;-webkit-box-sizing: bo
 <input type="hidden" id="selectTotalA">
 <div class="boardList">
 <table width="100%" border="1" summary="" id="qa_List">
-<colgroup class="xans-element- xans-board xans-board-listheader-4 xans-board-listheader xans-board-4 ">
+<colgroup class="xans-board xans-board-listheader">
 	<col style="width:70px;">
 	<col style="width:77px;">
 	<col style="width:135px;" class="">
@@ -122,7 +122,7 @@ background: #fafafa;margin: 0;-moz-box-sizing: border-box;-webkit-box-sizing: bo
 </table>
 </div>
 
-<div class="xans-element- xans-board xans-board-buttonlist-4 xans-board-buttonlist xans-board-4  ">
+<div class="xans-board xans-board-buttonlist">
 	<c:if test="${id != null}">
 		<a id="qawrite" href="/kgmall/board/QAwrite.do" class="btn Normal Wnormal Dark ">쓰기</a>
 	</c:if>
@@ -132,7 +132,7 @@ background: #fafafa;margin: 0;-moz-box-sizing: border-box;-webkit-box-sizing: bo
 </div>
 <div id="re"></div>
 
-<div class="xans-element- xans-board xans-board-search-4 xans-board-search xans-board-4 ">
+<div class="xans-board xans-board-search">
 	<fieldset class="boardSearch">
 		<p>
 			<select id="search_date" name="search_date" fw-filter="" fw-label="" fw-msg="">

@@ -298,6 +298,7 @@ public class BoardController {
 	
 	@RequestMapping(value="/QAreplyList.do", method=RequestMethod.POST)
 	public ModelAndView QAreplyList(@RequestParam Map<String,String> map) {
+		System.out.println(map);
 		List<QAreplyDTO> list= boardDAO.getReply(map);
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		StringBuffer qareply = new StringBuffer();
@@ -319,7 +320,7 @@ public class BoardController {
 					"<span>"+dto.getContent()+"</span></div></li>");
 		}qareply.append("</ul>");
 		
-		
+		System.out.println(qareply);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("qareply",qareply);
 		mav.setViewName("jsonView");

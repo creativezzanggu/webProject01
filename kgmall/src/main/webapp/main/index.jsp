@@ -68,6 +68,7 @@
 
 					<!-- 마이샵 메뉴 -->
 					<li class="myshop">
+<<<<<<< HEAD
 						<a href="../user/myPage.do">MY PAGE</a>
 						<ul class="xans-element- xans-myshop xans-myshop-main mnb "><li><a href="/myshop/wish_list.html">관심상품</a></li>
 <li><a href="/myshop/order/list.html">주문조회</a></li>
@@ -78,12 +79,14 @@
 <li><a href="/myshop/board_list.html">내가쓴글</a></li>
 </ul>
 </li>
+=======
+						<a href="/myshop/index.html">MY PAGE</a>
+					</li>
+>>>>>>> branch 'develop' of https://github.com/creativezzanggu/webProject01.git
 
 				</ul><!-- 커뮤니티(전체 게시판) 메뉴 --><ul class="xans-element- xans-layout xans-layout-boardinfo bnb">
 <li class="xans-record-">
 <a href="/board/free/list.html?board_no=1">CART</a> </li>
-<li class="xans-record-">
-<a href="/board/free/list.html?board_no=1">ORDER</a> </li>
 <li class="xans-record-">
 <a href="/kgmall/notice/noticeForm.do?pg=1">NOTICE</a> </li>
 <li class="xans-record-">
