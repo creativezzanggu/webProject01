@@ -165,13 +165,6 @@ $(document).ready(function(){
 		alert("중복된 글은 입력불가능합니다.");
 	}
 	
-	$('div').on('click','#qaReplyModify24',function(){
-		alert($('#qaReplyModify24').val());
-	});
-	$('#qaReplyModify24').click(function(){
-		alert("123");
-	});
-	
 	$.ajax({
 		type : 'POST',
 		url : '/kgmall/board/QAreplyList.do',
