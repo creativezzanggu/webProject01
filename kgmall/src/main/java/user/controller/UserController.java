@@ -185,6 +185,12 @@ public class UserController {
 		return "/main/index";
 	}
 	
+	@RequestMapping(value="/myPage.do", method=RequestMethod.GET)
+	public String myPage(Model model) {
+		model.add
+		return "/main/index";
+	}
+	
 	
 
 

@@ -68,7 +68,7 @@
 
 					<!-- 마이샵 메뉴 -->
 					<li class="myshop">
-						<a href="/myshop/index.html">MY PAGE</a>
+						<a href="../user/myPage.do">MY PAGE</a>
 						<ul class="xans-element- xans-myshop xans-myshop-main mnb "><li><a href="/myshop/wish_list.html">관심상품</a></li>
 <li><a href="/myshop/order/list.html">주문조회</a></li>
 <li><a href="/myshop/mileage/historyList.html">적립금</a></li>
