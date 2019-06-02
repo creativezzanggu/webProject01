@@ -89,5 +89,10 @@ public class BoardDAOMybatis implements BoardDAO {
 		
 	}
 
+	@Override
+	public String QAreplyGetContent(Map<String, String> map) {
+		return sqlSession.selectOne("BoardSQL.QAreplyGetContent",map);
+	}
+
 
 }
