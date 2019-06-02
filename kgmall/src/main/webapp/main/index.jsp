@@ -103,13 +103,13 @@
 
 			<!-- SNS아이콘 모음 -->
 			<ul class="sns"><li class="use-facebook" style="display: list-item;">
-					<a href="https://facebook.com/" class="facebook put-facebook" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+					<a href="https://facebook.com/" class="facebook put-facebook" target="_blank"><i aria-hidden="true"><img src="https://www.facebook.com/images/fb_icon_325x325.png" width="15" height="15" align="center"/></i></a>
 				</li>
 				<li class="use-twitter" style="display: list-item;">
 					<a href="https://twitter.com/" class="twitter put-twitter" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
 				</li>
 				<li class="use-instagram" style="display: list-item;">
-					<a href="https://instagram.com/" class="instagram put-instagram" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+					<a href="https://instagram.com/" class="instagram put-instagram" target="_blank"><i aria-hidden="true"><img src="http://www.instagram.com/static/images/ico/favicon.svg/fc72dd4bfde8.svg"/></i></a>
 				</li>
 				<li class="use-blog" style="display: list-item;">
 					<a href="https://blog.naver.com/" class="blog put-blog" target="_blank"><i class="fa fa-bold" aria-hidden="true"></i></a>
@@ -188,7 +188,7 @@
 
 							<!-- 상품분류 -->
 							<ul class="xans-element- xans-layout xans-layout-category left">
-<li df-cate-no="42" df-cate-depth="1" class="d1 xans-record-" style="width: 20%;"><a href="/product/list.html?cate_no=42">BEST 30</a><div class="m2"><ul><li df-cate-no="43" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=43">베스트 30</a></li></ul></div></li>
+<li df-cate-no="42" df-cate-depth="1" class="d1 xans-record-" style="width: 20%;"><a href="/product/list.html?cate_no=42">BEST 6</a><div class="m2"><ul><li df-cate-no="43" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=43">베스트 6</a></li></ul></div></li>
 <li df-cate-no="49" df-cate-depth="1" class="d1 xans-record-" style="width: 20%;"><a href="/product/list.html?cate_no=49">OUTER</a>
 <div class="m2"><ul>
 <li df-cate-no="51" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=51">JACKET</a></li>
@@ -219,7 +219,7 @@
 				<div id="cnb" style="opacity: 1; visibility: visible;">
 					<div class="m1">
 						<ul class="xans-element- xans-layout xans-layout-category">
-<li df-cate-no="42" df-cate-depth="1" class="d1 xans-record-" style="margin-left: 5px; margin-right: 5px;"><a href="/product/list.html?cate_no=42"><span>BEST 30</span></a><div class="m2" style="margin-left: 255px;"><ul><li df-cate-no="43" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=43">한주간 베스트</a></li><li df-cate-no="44" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=44">이달의 베스트</a></li><li df-cate-no="45" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=45">MD'S 초이스</a></li></ul><div class="menuImg"><a href="#none"><img class="banner_image" alt="BEST 50" rel="145-10" src="//app-storage-005.cafe24.com/bannermanage2/ecudemo31431/2019/04/01/754aabcb687e8b214258c68638b2f99a.jpg"></a></div></div></li>
+<li df-cate-no="42" df-cate-depth="1" class="d1 xans-record-" style="margin-left: 5px; margin-right: 5px;"><a href="/product/list.html?cate_no=42"><span>BEST 6</span></a><div class="m2" style="margin-left: 255px;"><ul><li df-cate-no="43" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=43">한주간 베스트</a></li><li df-cate-no="44" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=44">이달의 베스트</a></li><li df-cate-no="45" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=45">MD'S 초이스</a></li></ul><div class="menuImg"><a href="#none"><img class="banner_image" alt="BEST 50" rel="145-10" src="//app-storage-005.cafe24.com/bannermanage2/ecudemo31431/2019/04/01/754aabcb687e8b214258c68638b2f99a.jpg"></a></div></div></li>
 <li df-cate-no="49" df-cate-depth="1" class="d1 xans-record-" style="margin-left: 5px; margin-right: 5px;"><a href="/product/list.html?cate_no=49"><span>OUTER</span></a><div class="m2" style="margin-left: 230px; display: none;"><ul><li df-cate-no="50" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=50">COAT &amp; TERNCH<i class="fa fa-angle-right"></i></a><div class="m3"><ul><li df-cate-no="82" class="d3" df-cate-depth="3"><a href="/product/list.html?cate_no=82">COAT</a></li><li df-cate-no="83" class="d3" df-cate-depth="3"><a href="/product/list.html?cate_no=83">TRENCH</a></li></ul></div></li><li df-cate-no="51" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=51">JACKET</a></li><li df-cate-no="52" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=52">JUMPER</a></li><li df-cate-no="53" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=53">CADIGAN</a></li></ul><div class="menuImg"><a href="#none"><img class="banner_image" alt="OUTER" rel="147-10" src="//app-storage-005.cafe24.com/bannermanage2/ecudemo31431/2019/04/01/396c3b5987be025dea136313d8fe2694.jpg"></a></div></div></li>
 <li df-cate-no="54" df-cate-depth="1" class="d1 xans-record-" style="margin-left: 5px; margin-right: 5px;"><a href="/product/list.html?cate_no=54"><span>TOP</span></a><div class="m2" style="margin-left: 135px; display: none;"><ul><li df-cate-no="55" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=55">TEE SHIRT</a></li><li df-cate-no="56" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=56">BLOUSE</a></li><li df-cate-no="57" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=57">KNIT</a></li><li df-cate-no="58" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=58">CAMI</a></li></ul><div class="menuImg"><a href="#none"><img class="banner_image" alt="TOP" rel="148-10" src="//app-storage-005.cafe24.com/bannermanage2/ecudemo31431/2019/04/01/5fd957237ec382d2da17dc91229ba020.jpg"></a></div></div></li>
 <li df-cate-no="59" df-cate-depth="1" class="d1 xans-record-" style="margin-left: 5px; margin-right: 5px;"><a href="/product/list.html?cate_no=59"><span>BOTTOM</span></a><div class="m2" style="margin-left: 135px; display: none;"><ul><li df-cate-no="60" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=60">SKIRT</a></li><li df-cate-no="61" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=61">LEGGINGS</a></li><li df-cate-no="62" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=62">PANTS</a></li><li df-cate-no="63" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=63">DENIM</a></li></ul><div class="menuImg"><a href="#none"><img class="banner_image" alt="BOTTOM" rel="149-10" src="//app-storage-005.cafe24.com/bannermanage2/ecudemo31431/2019/04/01/b803ca4d03d223ccdccae19195d85a15.jpg"></a></div></div></li>
@@ -551,7 +551,7 @@
 </ul>
 <!-- SNS아이콘 모음 --><div class="sns-wrap" style="display: block;">
 			<ul class="sns"><!-- 페이스북 --><li class="use-facebook" style="display: list-item;">
-					<a href="https://facebook.com/" class="facebook put-facebook" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+					<a href="https://facebook.com/" class="facebook put-facebook" target="_blank"><i aria-hidden="true"><img src="https://www.facebook.com/images/fb_icon_325x325.png" width="25" height="25"/></i></a>
 				</li>
 
 				<!-- 트위터 -->
@@ -561,7 +561,7 @@
 
 				<!-- 인스타그램 -->
 				<li class="use-instagram" style="display: list-item;">
-					<a href="https://instagram.com/" class="instagram put-instagram" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+					<a href="https://instagram.com/" class="instagram put-instagram" target="_blank"><i aria-hidden="true"><img src="http://www.instagram.com/static/images/ico/favicon.svg/fc72dd4bfde8.svg"/></i></a>
 				</li>
 
 				<!-- 블로그 -->
@@ -599,10 +599,6 @@
 					<a href="https://www.tumblr.com/" class="tumblr put-tumblr" target="_blank"><i class="fa fa-tumblr" aria-hidden="true"></i></a>
 				</li>
 
-				<!-- 인스타그램 -->
-				<li class="use-youtube" style="display: none;">
-					<a href="https://youtube.com/" class="youtube put-youtube" target="_blank"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
-				</li>
 			</ul></div>
 
 	</div>
