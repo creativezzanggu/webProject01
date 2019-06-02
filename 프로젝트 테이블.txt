@@ -1,0 +1,21 @@
+﻿- usertable
+create table usertable(
+name varchar2(30) not null,
+id varchar2(30) primary key,
+pwd varchar2(100) not null,
+email varchar2(30) not null,
+phone varchar2(30) not null,
+usergrade varchar2(10),
+cash number(15)
+);
+
+
+- 따봉 테이블
+create table tumbsup(
+    id varchar2(30)
+);
+
+ALTER TABLE thumbsup
+ADD CONSTRAINTS fk FOREIGN KEY (id)
+REFERENCES usertable(id);
+
