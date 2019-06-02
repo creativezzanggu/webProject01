@@ -19,12 +19,11 @@
 </div>
 
 
-<!-- 메인 2단 배너 -->
-<div class="sec-banner1">
-	<!-- 배너관리 : 메인 2단배너 -->
-<ul class="xans-element- xans-bannermanage2 xans-bannermanage2-display-6 xans-bannermanage2-display xans-bannermanage2-6 banner">
-<li class="xans-record-"><a href="#" alt="배너"><img class="banner_image" alt="배너" rel="140-6" src="//app-storage-005.cafe24.com/bannermanage2/ecudemo31431/2019/03/31/96612b7e5915cb451e4093e01679622e.jpg"></a></li>
-<li class="xans-record-"><a href="#" alt="배너" target="_blank"><img class="banner_image" alt="배너" rel="141-6" src="//app-storage-005.cafe24.com/bannermanage2/ecudemo31431/2019/03/31/aff861c370daf4d0476de94878e5f5ab.jpg"><input type="hidden" class="popup_size_width" value="600"><input type="hidden" class="popup_size_height" value="800"></a></li>
+<!-- 메인 동영상 배너 -->
+<div class="sec-vbanner">
+	<!-- 배너관리 : 메인 동영상 배너 /embed/뒤에 소스 붙이기-->
+<ul class="xans-element- xans-bannermanage2 xans-bannermanage2-display-4 xans-bannermanage2-display xans-bannermanage2-4"><li class="xans-record-">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2xSJMvoaJhM?autoplay=1&amp;loop=1;playlist=2xSJMvoaJhM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe><a href="" alt="배너"><img class="banner_image" alt="배너" rel="144-4" src="../image/banner/비치.jpg"></a></li>
 </ul>
 </div>
 
