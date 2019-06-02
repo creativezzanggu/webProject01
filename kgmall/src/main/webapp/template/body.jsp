@@ -23,7 +23,7 @@
 <div class="sec-vbanner">
 	<!-- 배너관리 : 메인 동영상 배너 /embed/뒤에 소스 붙이기-->
 <ul class="xans-element- xans-bannermanage2 xans-bannermanage2-display-4 xans-bannermanage2-display xans-bannermanage2-4"><li class="xans-record-">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/2xSJMvoaJhM?autoplay=1&amp;loop=1;playlist=2xSJMvoaJhM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe><a href="" alt="배너"><img class="banner_image" alt="배너" rel="144-4" src="../image/banner/비치.jpg"></a></li>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2xSJMvoaJhM?autoplay=1&amp;loop=1;playlist=2xSJMvoaJhM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe><a href="" alt="배너"><img class="banner_image" alt="배너" rel="144-4" src="../image/banner/비치2.jpg"></a></li>
 </ul>
 </div>
 
