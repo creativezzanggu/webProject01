@@ -54,7 +54,7 @@ background: #fafafa;margin: 0;-moz-box-sizing: border-box;-webkit-box-sizing: bo
 .boardSearch img{vertical-align:middle;}
 .boardSearch a{text-decoration: none;}
 </style>
-<div style="margin-left:322px;">
+<div style="margin-left:322px;margin-right:322px;">
 <div class="tit-board">
 	<p class="img"></p>
 	<h2><font color="333333">Q &amp; A</font></h2>
