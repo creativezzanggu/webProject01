@@ -48,7 +48,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<if test='date != "all"'>
 			select * from
 			(select rownum rn,tt.* from
-			(select * from qa where ${key} like '${search}' and logtime between '${date}' and sysdate order by ref desc, step asc)tt)
+			(select * from qa where ${key} like '${search}' and logtime between SYSDATE-${date} and sysdate order by ref desc, step asc)tt)
 			where rn between ${startNum} and ${endNum}
 		</if>
 	</select>
@@ -66,7 +66,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 	
 	<select id="getSearchTotalA" parameterType="java.util.Map" resultType="Integer">
-		select count(*) from qa where ${key} like '${search}' and logtime between '${date}' and sysdate order by 1 desc
+		<if test='date == "all"'>
+			select count(*) from qa where ${key} like '${search}' order by 1 desc
+		</if>
+		<if test='date != "all"'>
+			select count(*) from qa where ${key} like '${search}' and logtime between sysdate-'${date}' and sysdate order by 1 desc
+		</if>
 	</select>
 	
 	<insert id="QAreplyInsert" parameterType="java.util.Map">

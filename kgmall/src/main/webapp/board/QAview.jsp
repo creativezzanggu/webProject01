@@ -175,7 +175,18 @@ $(document).ready(function(){
 			$('#QAreplyList').html(data.qareply);
 		}
 	});
+	
+	
 });
+function qaReplydelete(replyseq) {
+	$.ajax({
+		type : 'POST',
+		url : '/kgmall/board/QAreplyDelete.do',
+		data : {'replyseq' : replyseq},
+		success : function(data){
+		}
+	});
+}
 </script>
 </html>
 

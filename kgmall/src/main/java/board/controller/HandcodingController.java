@@ -38,7 +38,7 @@ public class HandcodingController {
             // 파일명을 받는다 - 일반 원본파일명
             String oldName = request.getHeader("file-name");
             // 파일 기본경로 _ 상세경로
-            String filePath = "D:/12month/Spring/workspace/KGmall/WebContent/image/";
+            String filePath = "E:/kgmall/webProject01/kgmall/src/main/webapp/resources/photoUpload/";
             String saveName = sb.append(new SimpleDateFormat("yyyyMMddHHmmss")
                           .format(System.currentTimeMillis()))
                           .append(UUID.randomUUID().toString())
@@ -56,7 +56,7 @@ public class HandcodingController {
             sb = new StringBuffer();
             sb.append("&bNewLine=true")
               .append("&sFileName=").append(oldName)
-              .append("&sFileURL=").append("http://localhost:8080/Spring/resources/photoUpload/")
+              .append("&sFileURL=").append("http://localhost:8080/kgmall/resources/photoUpload/")
         .append(saveName);
         } catch (Exception e) {
             e.printStackTrace();
@@ -64,3 +64,4 @@ public class HandcodingController {
         return sb.toString();
     }
 }
+
