@@ -91,7 +91,7 @@
 				.board-nav-style1 li a:hover { border:1px solid #434343; background:#434343; color:#fff }
 				</style>
 				
-				<form id="insertBoardFrm" name="insertBoardFrm" action="/kgmall/board/QAwriteInsert.do" method="post" target="_self" enctype="multipart/form-data" >
+				<form id="insertBoardFrm" name="insertBoardFrm" id="insertBoardFrm" action="/kgmall/board/insertBoard.do" method="post" enctype="multipart/form-data" >
 					<div class="xans-board xans-board-write">
 						<div class="boardWrite">
 							<table width="100%" border="1" summary="">
@@ -122,7 +122,7 @@
 						
 						<div class="btnArea btnAreaCustom ">
 							<span class="left"><a href="/kgmall/board/QA.do" class="btn Normal Medium Wnormal">목록</a></span>
-							<input type="submit" value="등록" class="btn Normal Dark Wnormal mL5">
+							<input type="button" value="등록" id="boardInsert" class="btn Normal Dark Wnormal mL5">
 							<a href="/kgmall/board/QA.do" class="btn Normal Medium Wnormal mL5">취소</a>
 						</div>
 						
@@ -132,5 +132,10 @@
 		</div>
 </div>
 </body>
+<script type="text/javascript">
+$('#boardInsert').click(function(){
+	alert($('#editor').value);
+});
+</script>
 </html>
     

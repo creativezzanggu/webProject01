@@ -24,17 +24,17 @@ public class NoticePaging {
 		if(endPage > totalP) endPage = totalP;
 		
 		if(startPage > pageBlock)
-			pagingHTML.append("[<a id=paging href='/kgmall2/notice/noticeForm.do?pg="+(startPage-1)+"'>����</a>]");
+			pagingHTML.append("[<a id=paging href='/kgmall/notice/noticeForm.do?pg="+(startPage-1)+"'>����</a>]");
 		
 		for(int i=startPage; i<=endPage; i++) {
 			if(i==currentPage)
-				pagingHTML.append("[<a id=currentPaging href='/kgmall2/notice/noticeForm.do?pg="+i+"'>"+i+"</a>]");
+				pagingHTML.append("[<a id=currentPaging href='/kgmall/notice/noticeForm.do?pg="+i+"'>"+i+"</a>]");
 			else
-				pagingHTML.append("[<a id=paging href='/kgmall2/notice/noticeForm.do?pg="+i+"'>"+i+"</a>]");
+				pagingHTML.append("[<a id=paging href='/kgmall/notice/noticeForm.do?pg="+i+"'>"+i+"</a>]");
 		}
 		
 		if(totalP > endPage)
-			pagingHTML.append("[<a id=paging href='/kgmall2/notice/noticeForm.do?pg="+(endPage+1)+"'>����</a>]");
+			pagingHTML.append("[<a id=paging href='/kgmall/notice/noticeForm.do?pg="+(endPage+1)+"'>����</a>]");
 	}
 
 	public void makeSearchPagingHTML() {

@@ -36,6 +36,8 @@ public interface BoardDAO {
 
 	public List<QADTO> myQAList(Map<String, String> map);
 
+	public String QAreplyGetContent(Map<String, String> map);
+
 
 
 }

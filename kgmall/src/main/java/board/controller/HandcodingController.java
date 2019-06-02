@@ -4,6 +4,7 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
+import java.util.Map;
 import java.util.UUID;
  
 import javax.servlet.http.HttpServletRequest;
@@ -11,20 +12,16 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
  
 @Controller
 public class HandcodingController {
  
-    @RequestMapping(value = "/coding.do")
-    public String coding() {
-        return "coding";
-    }
- 
-    @RequestMapping(value = "/insertBoard.do", method = RequestMethod.POST)
-    public String insertBoard(String editor) {
-        System.err.println("저장할 내용 : " + editor);
-        return "redirect:/coding.do";
+    @RequestMapping(value = "/board/insertBoard.do", method = RequestMethod.POST)
+    public String insertBoard(@RequestParam Map<String,String>map) {
+        System.err.println("저장할 내용 : " + map);
+        return "redirect:/board/QA.do";
     }
  
     // 다중파일업로드

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "//www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width"><!--PG크로스브라우징필수내용 시작--><meta http-equiv="Cache-Control" content="no-cache"><meta http-equiv="Expires" content="0"><meta http-equiv="Pragma" content="no-cache"><!--PG크로스브라우징필수내용 끝--><link href="../css/mainCss1.css" rel="stylesheet">
@@ -111,8 +111,8 @@
 				<li class="use-instagram" style="display: list-item;">
 					<a href="https://instagram.com/" class="instagram put-instagram" target="_blank"><i aria-hidden="true"><img src="http://www.instagram.com/static/images/ico/favicon.svg/fc72dd4bfde8.svg"/></i></a>
 				</li>
-				<li class="use-blog" style="display: list-item;">
-					<a href="https://blog.naver.com/" class="blog put-blog" target="_blank"><i class="fa fa-bold" aria-hidden="true"></i></a>
+				<li class="use-blog" style="display: list-item;">https://section.blog.naver.com/favicon.ico?2
+					<a href="https://blog.naver.com/" class="blog put-blog" target="_blank"><i  aria-hidden="true"><img src="https://section.blog.naver.com/favicon.ico?2"/></i></a>
 				</li>
 				<li class="use-cafe" style="display: none;">
 					<a href="https://cafe.naver.com/" class="cafe put-cafe" target="_blank"><i class="fa fa-coffee" aria-hidden="true"></i></a>

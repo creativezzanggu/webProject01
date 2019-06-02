@@ -122,8 +122,6 @@ background: #fafafa;margin: 0;-moz-box-sizing: border-box;-webkit-box-sizing: bo
 </form>
 </div>
 
-
-<script type="text/javascript" src="http://code.jquery.com/jquery-3.4.0.min.js"></script>
 <script>
 	$('#writeBtn').click(function(){
 		document.noticeWriteForm.submit();

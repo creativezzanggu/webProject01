@@ -120,31 +120,28 @@
 				<!-- 댓글쓰기 -->
 				<div id="QAreply">
 					<div class="xans-board  xans-board-commentwrite">
-						<form action="/kgmall/board/QAreplyInsert.do" method="post" id="QAreplyInsert">
-							<fieldset>
-								<div class="view">
-									<textarea id="comment" name="comment"></textarea>
-								</div>
-								<div class="btnAreaWrap">
-									<input type="hidden" name="id" id="id" value="${id}">
-									<input type="hidden" name="seq" id="seq" value="${qa.seq}">
-									<input type="button" class="btn Normal Wnormal Dark" value="등록" id="QAreplyInsertBtn"/>
-								</div>
-							</fieldset>
-						</form>
+						<fieldset>
+							<div class="view">
+								<textarea id="comment" name="comment"></textarea>
+							</div>
+							<div class="btnAreaWrap">
+								<input type="hidden" name="id" id="id" value="${id}">
+								<input type="hidden" name="seq" id="seq" value="${qa.seq}">
+								<input type="button" value="등록" class="btn Normal Wnormal Dark" onclick="QAreplyInsertBtn(${id})" id="QAreplyInsertBtn"/>
+							</div>
+						</fieldset>
 					</div>
 				</div>
 			</div>
 			
 				<div class="xans-element- xans-board xans-board-movement-4 xans-board-movement xans-board-4 ">
 					<ul>
+						<input type="button" name="content" id="content">
 						<li class="prev "><strong class="thead txtLess">PREV</strong><a href="/article/q-a/6/20/">상품 질문이요</a></li>
 						<li class="next "><strong class="thead txtLess">NEXT</strong><a href="/article/q-a/6/19/">질문이용</a></li>
 					</ul>
 				</div>
 			</div>
-			<input type="hidden" name="check" id="check" value="${check}">
-			<input type="hidden" name="pgseq" id="pgseq" value="${seq}">
 		</div>
 	</div>
 </body>
@@ -157,13 +154,21 @@ $(document).ready(function(){
 		}else if(+$('#comment').val()==''){
 			alert("댓글 내용 입력하세요.");
 		}else{
-			$('#QAreplyInsert').submit();
+			$.ajax({
+				type : 'POST',
+				url : '/kgmall/board/QAreplyInsert.do',
+				data : {'seq' : $('#seq').val(),
+						'id' : $('#id').val(),
+						'content' : $('#comment').val()},
+				dataType : 'text',
+				success : function(data){
+					if(data=='insert')location.reload(true); 
+				}
+			});
+			
+			
 		}
 	});
-	
-	if($('#check').val()=='true'){
-		alert("중복된 글은 입력불가능합니다.");
-	}
 	
 	$.ajax({
 		type : 'POST',
@@ -176,15 +181,71 @@ $(document).ready(function(){
 		}
 	});
 	
+	$('#QAreplyUpdate').click(function(){
+		alert("check");
+	});
 	
 });
 function qaReplydelete(replyseq) {
+	$('#replyseq'+replyseq).remove();
 	$.ajax({
 		type : 'POST',
 		url : '/kgmall/board/QAreplyDelete.do',
 		data : {'replyseq' : replyseq},
 		success : function(data){
 		}
+	});
+}
+function qaReplyModify(replyseq,id,seq) {
+	$('#replyseq'+replyseq).click(function(){
+		$.ajax({
+			type : 'POST',
+			url : '/kgmall/board/QAreplyGetContent.do',
+			data : {'replyseq' : replyseq,
+					'seq' : seq},
+			success : function(data){
+				$('#content').val(data);
+			}
+		});
+		$('#replyseq'+replyseq).children().remove();
+		$('#replyseq'+replyseq).append($('<div/>',{
+			class : 'xans-board  xans-board-commentwrite'
+			}).append($('<fieldset/>')
+					.append($('<div>',{
+						class : "view"
+						}).append($('<textarea/>',{
+							id : 'comment',
+							name : 'comment',
+							val : $('#content').val()
+						}))
+					).append($('<div/>',{
+						class : "btnAreaWrap"
+						}).append($('<input/>',{
+							type : 'hidden',
+							name : 'id',
+							id : 'id',
+							value : id
+						}))
+						.append($('<input/>',{
+							type : 'hidden',
+							name : 'seq',
+							id : 'seq',
+							value : seq
+						}))
+						.append($('<input/>',{
+							type : 'button',
+							value : '등록',
+							class : 'btn Normal Wnormal Dark',
+							onclick : 'QAreplyUpdate(${id})',
+							id : 'QAreplyUpdate'
+						}))
+						.append($('<input/>',{
+							type : 'button',
+							value : '취소',
+							class : 'btn Normal Wnormal Dark mL4',
+						}))
+					)
+			));	
 	});
 }
 </script>
