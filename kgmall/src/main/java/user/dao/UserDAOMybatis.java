@@ -70,6 +70,14 @@ public class UserDAOMybatis implements UserDAO {
 		sqlSession.update("userSQL.updatePwd", map);
 		
 	}
+
+
+	@Override
+	public String checkEmail(String email) {
+		return sqlSession.selectOne("userSQL.checkEmail",email);
+	}
+
+
 	
 	
 }

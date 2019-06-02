@@ -75,7 +75,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<insert id="QAreplyInsert" parameterType="java.util.Map">
-		insert into qareply values(#{seq},replyseq.nextval,#{id},#{comment},sysdate)
+		insert into qareply values(#{seq},replyseq.nextval,#{id},#{content},sysdate)
 	</insert>
 	
 	<select id="getReply" parameterType="java.util.Map" resultType="qaReply">
@@ -87,9 +87,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</delete>
 	
 	<select id="QAreplyInsertCheck" parameterType="java.util.Map" resultType="qaReply">
-		select * from qareply where seq=${seq} and id='${id}' and content='${comment}'
+		select * from qareply where seq=${seq} and id='${id}' and content='${content}'
 	</select>
 	
-	
+	<select id="QAreplyGetContent" parameterType="java.util.Map" resultType="String">
+		select content from qareply where replyseq=#{replyseq}
+	</select>
 	
 </mapper>

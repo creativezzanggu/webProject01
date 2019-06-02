@@ -64,9 +64,9 @@ public class BoardController {
 	
 	//텍스트 내용을 못받고 있음
 	@RequestMapping(value="/QAwriteInsert.do", method=RequestMethod.POST)
-	public String QAwriteInsert(@RequestParam String board_category,@RequestParam String subject,Model model) {
-		System.out.println(board_category);
-		System.out.println(subject);
+	public String QAwriteInsert(@RequestParam Map<String,String> map,Model model) {
+		System.out.println(map);
+
 		int totalA = boardDAO.getTotal();
 		
 		model.addAttribute("pg", 1);
@@ -277,21 +277,22 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value="/QAreplyInsert.do", method=RequestMethod.POST)
+	@ResponseBody
 	public String QAreplyInsert(@RequestParam Map<String,String> map,Model model,HttpSession session) {
-		QAreplyDTO dto = boardDAO.QAreplyInsertCheck(map);
+		System.out.println("insert="+map);
+		QAreplyDTO dto = boardDAO.QAreplyInsertCheck(map);//중복글체크
 		QADTO qa= boardDAO.getQA(map.get("seq"));
-		String check = "true";
 		if(dto==null) {
 			boardDAO.QAreplyInsert(map);
-			check = "false";
+		}else if(dto != null) {
+			return "no";
 		}
 		
-		model.addAttribute("check",check);
 		model.addAttribute("qa",qa);
 		model.addAttribute("seq",map.get("seq"));
 		model.addAttribute("id",session.getAttribute("id"));
-		model.addAttribute("display", "/board/QAview.jsp");
-		return "/main/index";
+		return "insert";
+		
 	}
 	
 	@RequestMapping(value="/QAreplyList.do", method=RequestMethod.POST)
@@ -302,14 +303,15 @@ public class BoardController {
 		qareply.append("<ul class='boardComment'>");
 		for(QAreplyDTO dto : list) {
 			qareply.append(
-					"<li class='xans-record-'>"+ 
+					"<li id='replyseq"+dto.getReplyseq()+"' class='xans-record-'>"+ 
 					"<div id='commentTop' class='commentTop'>"+
 					"<strong class='name txtLittle'>"+
 					"<span class='cmtBy'>Comment by</span>"+
 					"<span class='cmtName'>"+dto.getId()+"</span></strong>" + 
 					"<span class='date'>"+sdf.format(dto.getLogtime())+"</span>"+ 
 					"<span class='button btnAreaCustom'>"+ 
-					"<input type='button' value='수정' id='qaReplyModify"+dto.getReplyseq()+"' class='btn Tiny Light'>"+ 
+					"<input type='button' value='수정' onclick=qaReplyModify('"+dto.getReplyseq()+"','"
+					+dto.getId()+"','"+dto.getSeq()+"') class='btn Tiny Light'>"+ 
 					"<input type='button' value='삭제' onclick=qaReplydelete('"+dto.getReplyseq()+"') class='btn Tiny Light mL4'>"+ 
 					"</span>"+ 
 					"</div>"+ 
@@ -340,6 +342,19 @@ public class BoardController {
 		model.addAttribute("display", "/board/QAview.jsp");
 		return "/main/index";
 	}
+	
+	@RequestMapping(value="/QAreplyGetContent.do", method=RequestMethod.POST)
+	@ResponseBody
+	public String QAreplyGetContent(@RequestParam Map<String,String> map,Model model,HttpSession session) {
+		String content = boardDAO.QAreplyGetContent(map);
+		QADTO qa= boardDAO.getQA(map.get("seq"));
+
+		model.addAttribute("qa",qa);
+		model.addAttribute("seq",map.get("seq"));
+		model.addAttribute("id",session.getAttribute("id"));
+		return content;
+	}
+	
 }
 
 

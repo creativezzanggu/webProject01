@@ -107,6 +107,8 @@
 </form>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.4.0.min.js"></script>
 <script>
+
+
 $('#check1').click(function(){
 	if($("input:checkbox[id='check1']").is(":checked")){
 		if($("input:checkbox[id='check2']").is(":checked")){
@@ -138,6 +140,7 @@ $('#check2').click(function(){
 	});
 	
 	var a;
+	var b;
 	
 	$('#id').focusout(function(){
 		$.ajax({
@@ -159,6 +162,55 @@ $('#check2').click(function(){
 					$('#member_idDiv').text('먼저 아이디를 입력하세요');
 					$('#member_idDiv').css('color','red');
 					$('#member_idDiv').css('font-size','8pt');
+				}
+			}
+		});
+	});
+	
+	$('#email1').focusout(function(){
+		if($('#email2').val().length==0){
+			$('#member_emailDiv').text('이메일을 확인해주세요');
+			$('#member_emailDiv').css('color','red');
+			$('#member_emailDiv').css('font-size','8pt');
+		}else{
+			$.ajax({
+				type : 'POST',
+				url : '/kgmall/user/checkEmail.do',
+				data : 'email='+$('#email1').val()+'@'+$('#email2').val(),
+				dataType : 'text',
+				success : function(data){
+					b=data;
+					if(data=='1'){
+						$('#member_emailDiv').text('중복된 이메일입니다');
+						$('#member_emailDiv').css('color','red');
+						$('#member_emailDiv').css('font-size','8pt');
+					}else if(data=='0'){
+						$('#member_emailDiv').text('사용 할 수 있는 이메일 입니다');
+						$('#member_emailDiv').css('color','red');
+						$('#member_emailDiv').css('font-size','8pt');
+					}
+				}
+			});
+		}
+		
+	});
+	
+	$('#email2').focusout(function(){
+		$.ajax({
+			type : 'POST',
+			url : '/kgmall/user/checkEmail.do',
+			data : 'email='+$('#email1').val()+'@'+$('#email2').val(),
+			dataType : 'text',
+			success : function(data){
+				b=data;
+				if(data=='1'){
+					$('#member_emailDiv').text('중복된 이메일입니다');
+					$('#member_emailDiv').css('color','red');
+					$('#member_emailDiv').css('font-size','8pt');
+				}else if(data=='0'){
+					$('#member_emailDiv').text('사용 할 수 있는 이메일 입니다');
+					$('#member_emailDiv').css('color','red');
+					$('#member_emailDiv').css('font-size','8pt');
 				}
 			}
 		});
@@ -200,9 +252,15 @@ $('#check2').click(function(){
 		}else if(a=='exist'){
 			$('#member_idDiv').text('아이디를 확인해주세요');
 			$('#id').focus();
-		}else{
-			alert("회원가입 성공");
-			$('#joinForm').submit();	
+		}else {
+			if(b=='1'){
+				$('#member_emailDiv').text('이메일을 확인해주세요').css('color','red').css('font-size','8pt');
+				$('#email1').focus();
+			}else{
+				$('#joinForm').submit();
+				alert("회원가입 완료");
+			}
+			
 		}
 	});
 	
