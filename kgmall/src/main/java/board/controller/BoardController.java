@@ -67,7 +67,6 @@ public class BoardController {
 		map.put("id",(String) session.getAttribute("id"));
 		map.put("name",(String) session.getAttribute("name"));
 		map.put("email",(String) session.getAttribute("email"));
-		System.out.println(map);
 		boardDAO.QAinsert(map);
 		
 		return "redirect:/board/QA.do";
@@ -277,7 +276,6 @@ public class BoardController {
 	@RequestMapping(value="/QAreplyInsert.do", method=RequestMethod.POST)
 	@ResponseBody
 	public String QAreplyInsert(@RequestParam Map<String,String> map,Model model,HttpSession session) {
-		System.out.println("insert="+map);
 		QAreplyDTO dto = boardDAO.QAreplyInsertCheck(map);//중복글체크
 		QADTO qa= boardDAO.getQA(map.get("seq"));
 		if(dto==null) {
@@ -325,7 +323,6 @@ public class BoardController {
 	
 	@RequestMapping(value="/QAreplyDelete.do", method=RequestMethod.POST)
 	public void QAreplyDelete(@RequestParam Map<String,String> map) {
-		System.out.println(map);
 		boardDAO.QAreplyDelete(map);
 	}
 	
