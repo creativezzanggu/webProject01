@@ -23,7 +23,7 @@
 <div class="sec-vbanner">
 	<!-- 배너관리 : 메인 동영상 배너 /embed/뒤에 소스 붙이기-->
 <ul class="xans-element- xans-bannermanage2 xans-bannermanage2-display-4 xans-bannermanage2-display xans-bannermanage2-4"><li class="xans-record-">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/2xSJMvoaJhM?autoplay=1&amp;loop=1;playlist=2xSJMvoaJhM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe><a href="" alt="배너"><img class="banner_image" alt="배너" rel="144-4" src="../image/banner/비치.jpg"></a></li>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2xSJMvoaJhM?autoplay=1&amp;loop=1;playlist=2xSJMvoaJhM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe><a href="" alt="배너"><img class="banner_image" alt="배너" rel="144-4" src="../image/banner/비치2.jpg"></a></li>
 </ul>
 </div>
 
@@ -112,7 +112,14 @@
 	<span class="label-new">NEW</span>
 	<div class="thumbnail">
 		<span class="chk"><input type="checkbox" class="ProductCompareClass xECPCNO_97 displaynone"></span>
+		
+		
 		<a href="#none" name="anchorBoxName_97" df-data-rolloverimg1="//ecudemo31431.cafe24.com/web/product/medium/df_sample_list15.jpg" df-data-rolloverimg2="//ecudemo31431.cafe24.com/web/product/tiny/df_sample_list15_on.jpg"><img src="//ecudemo31431.cafe24.com/web/product/medium/df_sample_list15.jpg" id="eListPrdImage97_3" alt="이거 하나면 끝!" class="thumb"><!-- 일반목록꾸미기아이콘 --><!-- 검색목록꾸미기아이콘 --></a>
+		
+		
+		
+		
+		
 		<div class="likeButton likePrd likePrd_97 ">
 			<button type="button"><img src="http://ecudemo31431.cafe24.com/web/upload/icon_201606070448230500.png" class="likePrdIcon" product_no="97" category_no="1" icon_status="off" alt="좋아요 등록 전"><strong class=""><span class="likePrdCount likePrdCount_97">10</span></strong></button><!-- 좋아요 개수 -->
 			<span class="bg-layer1"></span><span class="bg-layer2"></span><span class="bg-layer3"></span><span class="bg-layer4"></span>
@@ -147,7 +154,7 @@
 </ul>
 <div class="icon">  <img src="http://ecudemo31431.cafe24.com/web/upload/icon_201601081108247400.gif" class="icon_img" alt="추천"> <img src="http://ecudemo31431.cafe24.com/web/upload/icon_201601081108285800.gif" class="icon_img" alt="New">   </div>
 		</div>
-		<a href="/product/detail.html?product_no=97&amp;cate_no=1&amp;display_group=3" class="fadebox-link"></a>
+		<a href="../product/select.do?name=product1" class="fadebox-link"></a>
 	</div>
 	<div class="status">
 		 <div class="button">

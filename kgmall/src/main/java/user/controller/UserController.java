@@ -42,12 +42,22 @@ public class UserController {
 		return "/main/index";
 	}
 	
+	@RequestMapping(value="/checkEmail.do", method=RequestMethod.POST)
+	public @ResponseBody String checkEmail(@RequestParam String email) {
+		String checkEmail = userDAO.checkEmail(email);
+		if(checkEmail!=null) 
+			return "1";
+		else
+			return "0";
+	}
+
 	@RequestMapping(value="/write.do", method=RequestMethod.POST)
 	public String write(@ModelAttribute UserDTO userDTO, Model model) {	
 		//DB
 		userDAO.write(userDTO);
 		model.addAttribute("display", "../user/writeOk.jsp");
 		return "/main/index";
+		
 	}
 	
 	@RequestMapping(value="/searchId.do", method=RequestMethod.GET)

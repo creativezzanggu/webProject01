@@ -13,4 +13,6 @@ public interface UserDAO {
 	public String idCheck(String email);
 	public Map<String,String> pwdCheck(Map<String,String> map);
 	public void pwdUpdate(Map<String,String> map);
+	public String checkEmail(String email);
+	
 }
