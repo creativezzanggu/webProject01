@@ -62,17 +62,15 @@ public class BoardController {
 		return "/main/index";
 	}
 	
-	//텍스트 내용을 못받고 있음
-	@RequestMapping(value="/QAwriteInsert.do", method=RequestMethod.POST)
-	public String QAwriteInsert(@RequestParam Map<String,String> map,Model model) {
+	@RequestMapping(value="/insertBoard.do", method=RequestMethod.POST)
+	public String QAwriteInsert(@RequestParam Map<String,String> map,Model model,HttpSession session) {
+		map.put("id",(String) session.getAttribute("id"));
+		map.put("name",(String) session.getAttribute("name"));
+		map.put("email",(String) session.getAttribute("email"));
 		System.out.println(map);
-
-		int totalA = boardDAO.getTotal();
+		boardDAO.QAinsert(map);
 		
-		model.addAttribute("pg", 1);
-		model.addAttribute("totalA", totalA);
-		model.addAttribute("display", "/board/QA.jsp");
-		return "/main/index";
+		return "redirect:/board/QA.do";
 	}
 	
 	@RequestMapping(value="/QAdelete.do", method=RequestMethod.GET)

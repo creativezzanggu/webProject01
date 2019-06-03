@@ -122,7 +122,7 @@
 						
 						<div class="btnArea btnAreaCustom ">
 							<span class="left"><a href="/kgmall/board/QA.do" class="btn Normal Medium Wnormal">목록</a></span>
-							<input type="button" value="등록" id="boardInsert" class="btn Normal Dark Wnormal mL5">
+							<input type="button" value="등록" name="insertBoard" id="insertBoard" class="btn Normal Dark Wnormal mL5">
 							<a href="/kgmall/board/QA.do" class="btn Normal Medium Wnormal mL5">취소</a>
 						</div>
 						
@@ -132,10 +132,5 @@
 		</div>
 </div>
 </body>
-<script type="text/javascript">
-$('#boardInsert').click(function(){
-	alert($('#editor').value);
-});
-</script>
 </html>
     
