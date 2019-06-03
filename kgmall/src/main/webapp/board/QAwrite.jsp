@@ -2,35 +2,14 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
-<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-<meta http-equiv="Cache-Control" content="no-cache"/>
-<meta http-equiv="Expires" content="0"/>
-<meta http-equiv="Pragma" content="no-cache"/><link href="http://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet"/>
-<meta name="naver-site-verification" content="de91de2491676d55b39c26812e5f1ef2e0868a63"/>
-<meta name="viewport" content="width=device-width">
-<meta property="og:title" content="피팅부스">
-<meta property="og:description" content="걸리쉬한 스타일의 핏감만족 하이퀄리티 여성의류 쇼핑몰 피팅부스">
-
-
-
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <link rel="canonical" href="http://fittingbooth.co.kr/board/product/write.html" />
 <link rel="alternate" href="http://m.fittingbooth.co.kr/board/product/write.html" />
-<meta property="og:url" content="http://fittingbooth.co.kr/board/product/write.html" />
-<meta property="og:title" content="핏감만족" />
-<meta property="og:description" content="피팅부스, 여성의류, 페미닌, 감성룩" />
-<meta property="og:site_name" content="피팅부스" />
-<meta property="og:type" content="website" />
 <link rel="shortcut icon" href="/web/upload/favicon_20170826105621.ico" />
 <link rel="stylesheet" type="text/css" href="http://skin-skin7.jewvis.cafe24.com/ind-script/optimizer.php?filename=rc1BcsIwDAXQPWHbcwi66SW4hKMIrGJZxpKT4fZNJ3SmbMErfX3NPEFUISAcmlE1-KZlZoPSxsQ4RJcENtEwkfElg105f8F0TqoVQikGZ80eFrJfBG3bd49iL5z3a_kBL__4Iw1yyE0u6pGxm1l1VNcOHKqI5rXZVbKi2Ximriw2c5UOpOjUEkEKd20O0pKzRS0nNn9T345rA0ahYnyMw2c3txJS9plp-RcPx27-rTFex-auT3n78AM&type=css&k=f99b639bf6e570d59115fd9fba228b416088e912&t=1492753981" />
 <link rel="stylesheet" type="text/css" href="http://skin-skin7.jewvis.cafe24.com/ind-script/optimizer.php?filename=tdTBTsMwDADQe8uV7zAgIe5IHBAXNL4gTdw2WxKH2Bnb35NQkIYmENrCoVLr1M9WFAdm8gjXNwlioikpDwmZctIImhnGREFAk_cULkrgEv7yP-qOyWWxFLqBdicmZpFTizq1x3RaqqjB4Q-pKka4J5UMrA6RX7en5jwYK5S-J22of1qBEneQh7rPjIlhjW9byxDz4KzuZ_EO2GBvkO0UgDc23IEZHRW0Wp5MdgjDR2sJlXlWeqMmbE3HZB7DSK3Zun8Y5J-a9rTFyrd2nWXhKVGOreUxB13PYju3zANlAZ-dWJ4pvsw2Rhum5hU0hW1BSvNRN8CXySqR7mjGzieXls8kGSXHXivBidK-aX_ZtuUYm3qDYuzEivsH9ujub-SWS9lkLV2d3TP1ZbFEgAPX5-r2TDG6PNnlsH8ep8P3NjjuumHHzhpMsH7NWNyv71rgHQ&type=css&k=c103ba2bf47bcb9445b628b1b904d2103cb09ca6&t=1530036797" />
-
 <title>write</title>
-<meta name="path_role" content="BOARD_PRODUCT_WRITE" />
-<meta name="author" content="fitting booth" />
-<meta name="description" content="걸리쉬한 스타일의 핏감만족 하이퀄리티 여성의류 쇼핑몰 피팅부스, " />
-<meta name="keywords" content="피팅부스, 여성의류, 페미닌, 감성룩, 쇼핑몰, 걸리쉬" />
-
 <script src="https://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript" src="../resources/editor/js/HuskyEZCreator.js" charset="utf-8"></script>
 </head>
@@ -122,7 +101,7 @@
 						
 						<div class="btnArea btnAreaCustom ">
 							<span class="left"><a href="/kgmall/board/QA.do" class="btn Normal Medium Wnormal">목록</a></span>
-							<input type="button" value="등록" id="boardInsert" class="btn Normal Dark Wnormal mL5">
+							<input type="button" value="등록" name="insertBoard" id="insertBoard" class="btn Normal Dark Wnormal mL5">
 							<a href="/kgmall/board/QA.do" class="btn Normal Medium Wnormal mL5">취소</a>
 						</div>
 						
@@ -132,10 +111,5 @@
 		</div>
 </div>
 </body>
-<script type="text/javascript">
-$('#boardInsert').click(function(){
-	alert($('#editor').value);
-});
-</script>
 </html>
     

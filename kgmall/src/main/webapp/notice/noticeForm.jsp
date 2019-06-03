@@ -96,7 +96,7 @@ cursor: pointer;
 border-radius:10px;
 }
 </style>
-<div style="margin-left:322px;">
+<div style="margin-left:322px;margin-right:322px;">
 <br><br>
 <div id="title">
 <h2 style="font-size:16px;">NOTICE</h2>

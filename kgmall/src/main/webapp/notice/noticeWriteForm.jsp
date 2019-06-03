@@ -50,7 +50,7 @@ background: #fafafa;margin: 0;-moz-box-sizing: border-box;-webkit-box-sizing: bo
 </style>
 
 <!-- 수정 -->
-<div style="margin-left:322px;">
+<div style="margin-left:322px;margin-right:322px;">
 <div class="tit-board">
 	<p class="img"></p>
 	<h2><font color="333333">NOTICE</font></h2>
@@ -73,30 +73,7 @@ background: #fafafa;margin: 0;-moz-box-sizing: border-box;-webkit-box-sizing: bo
 				<label for="is_post0">게시안함</label>
 			</td>
 		</tr>
-	<tr class="displaynone">
-		<th scope="row" class="thead txtLess">
-			NAME
-		</th>
-		<td>
-			
-		</td>
-	</tr>
-	<tr class="formEmail displaynone">
-		<th scope="row" class="thead txtLess">
-			E-MAIL
-		</th>
-		<td>
-			
-		</td>
-	</tr>
-	<tr class="displaynone">
-		<th scope="row" class="thead txtLess">
-			RATE
-		</th>
-		<td>
-			<span style="font-style:normal"></span>
-		</td>
-	</tr>
+
 	<tr>
 	<td colspan="2" class="write">           
 	<textArea id="content" name="content" style="width:100%; height:500px;"></textArea>	

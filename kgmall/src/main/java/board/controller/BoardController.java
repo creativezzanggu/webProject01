@@ -62,17 +62,14 @@ public class BoardController {
 		return "/main/index";
 	}
 	
-	//텍스트 내용을 못받고 있음
-	@RequestMapping(value="/QAwriteInsert.do", method=RequestMethod.POST)
-	public String QAwriteInsert(@RequestParam Map<String,String> map,Model model) {
-		System.out.println(map);
-
-		int totalA = boardDAO.getTotal();
+	@RequestMapping(value="/insertBoard.do", method=RequestMethod.POST)
+	public String QAwriteInsert(@RequestParam Map<String,String> map,Model model,HttpSession session) {
+		map.put("id",(String) session.getAttribute("id"));
+		map.put("name",(String) session.getAttribute("name"));
+		map.put("email",(String) session.getAttribute("email"));
+		boardDAO.QAinsert(map);
 		
-		model.addAttribute("pg", 1);
-		model.addAttribute("totalA", totalA);
-		model.addAttribute("display", "/board/QA.jsp");
-		return "/main/index";
+		return "redirect:/board/QA.do";
 	}
 	
 	@RequestMapping(value="/QAdelete.do", method=RequestMethod.GET)
@@ -279,7 +276,6 @@ public class BoardController {
 	@RequestMapping(value="/QAreplyInsert.do", method=RequestMethod.POST)
 	@ResponseBody
 	public String QAreplyInsert(@RequestParam Map<String,String> map,Model model,HttpSession session) {
-		System.out.println("insert="+map);
 		QAreplyDTO dto = boardDAO.QAreplyInsertCheck(map);//중복글체크
 		QADTO qa= boardDAO.getQA(map.get("seq"));
 		if(dto==null) {
@@ -327,7 +323,6 @@ public class BoardController {
 	
 	@RequestMapping(value="/QAreplyDelete.do", method=RequestMethod.POST)
 	public void QAreplyDelete(@RequestParam Map<String,String> map) {
-		System.out.println(map);
 		boardDAO.QAreplyDelete(map);
 	}
 	

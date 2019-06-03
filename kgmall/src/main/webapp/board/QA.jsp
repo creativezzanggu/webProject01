@@ -9,25 +9,22 @@
 .sec-sort {padding: 5px 0 11px;}
 .boardSort select {height: 26px;padding: 2px;line-height: 120px;}
 .boardSort select {font-family: "Roboto","Arial","돋움","Dotum","Apple SD Gothic Neo","Apple Gothic",sans-serif;height: 26px;border: 1px solid #e7e7e7;}
-.boardList{clear:both }
-.boardList table{color:#353535;font-size:12px;line-height:140%; 
-    width: 100%;border: 0;border-spacing: 0;border-collapse: collapse;}
-.xans-board-listpackage table th {padding: 12px 0 12px;font-weight: normal;
-font-size: 10px;line-height: 100%;border-top: 1px solid #e6e6e6;border-bottom: 1px solid #e6e6e6;letter-spacing: 1px;border:0;}
-.xans-board-listpackage table td {padding: 7px 3px 7px;height: 27px;border-top: 1px solid #e6e6e6;
-text-align: center;vertical-align: middle;border: 0;}
 .thumb img {max-width: 54px;max-height: 54px;}
 .category{font-size:11px; }
 .category:before{content:""}
 .category select{margin:0 4px 0 0;width:130px;height:26px;padding:2px;}
 .category select#product_category_depth1{margin:0 5px 0 0;}
+table {color:#353535;font-size:12px;line-height:140%;border-collapse: collapse;border-top:1px solid #e6e6e6; 
+border-bottom:1px solid #e6e6e6;}
+th{padding:14px 0; font-size:12px; border-top:1px solid #e6e6e6; border-bottom:1px solid #e6e6e6;}
+td{padding:14px 0; border-top:1px solid #e6e6e6; border-bottom:1px solid #e6e6e6;}
 .subject{word-break:break-all;text-align:left;padding-left:8px;}
 .subject img{vertical-align:middle;margin:0 3px 0 0;}
 .subject p.product-name{margin:0 0 4px;}
 .subject p.product-name a{font-size:11px;color:#999;line-height:1.5;}
 .subject p.product-name a:hover{color:#555;}
-.subject a{color:#2e2e2e;text-decoration: none;}
-.subject a:hover{color:#888;}
+.subject a{color:black;text-decoration: none;}
+.subject a:hover{color:gray;}
 .comment-count{margin-left:0;color:#444;font-size:10px;font-weight:500;letter-spacing:1px;}
 .btn.Wnormal {min-width: 80px;text-decoration: none;}
 .btn.Normal {font-size: 11px;height: 31px;line-height: 31px;}
@@ -49,7 +46,6 @@ background: #fafafa;margin: 0;-moz-box-sizing: border-box;-webkit-box-sizing: bo
 .df-base-paging li a.this{background:#f2f2f2;color:#000 }
 .df-base-paging a.nolink{cursor:default }
 .xans-board-search {margin-top: 1px;padding: 10px 0 10px 0;color: #2e2e2e;font-size: 11px;}
-.displaynone{display:none;}
 .boardSearch{display:block;border: none;vertical-align: top;}
 .boardSearch img{vertical-align:middle;}
 .boardSearch a{text-decoration: none;}
@@ -81,45 +77,22 @@ background: #fafafa;margin: 0;-moz-box-sizing: border-box;-webkit-box-sizing: bo
 <input type="hidden" id="totalA" value="${totalA}">
 <input type="hidden" id="selectTotalA">
 <div class="boardList">
-<table width="100%" border="1" summary="" id="qa_List">
-<colgroup class="xans-board xans-board-listheader">
-	<col style="width:70px;">
-	<col style="width:77px;">
-	<col style="width:135px;" class="">
-	<col style="width:auto;">
-	<col style="width:105px;">
-	<col style="width:80px;" class="">
-	<col style="width:53px;" class="">
-</colgroup>
-	<tr style=" ">
-		<th scope="col">
-			글번호
-		</th>
-		<th scope="col" class="thumb">
-			상품이미지
-		</th>
-		<th scope="col" class="">
-			카테고리
-		</th>
-		<th scope="col">
-			제목
-		</th>
-		<th scope="col">
-			작성자
-		</th>
-		<th scope="col" class="">
-			작성날짜
-		</th>
-		<th scope="col" class="">
-			조회수
-		</th>
-		
-	</tr>
-	<tbody id="qalist">
-	${list}
-	</tbody>
-
-</table>
+<table id="qa_List" width="100%">
+		<thead>
+			<tr>
+				<th width="70px">글번호</th>
+				<th width="77px">상품이미지</th>
+				<th width="135px">카테고리</th>
+				<th width="auto">제목</th>
+				<th width="105px">작성자</th>
+				<th width="80px">작성날짜</th>
+				<th width="53px">조회수</th>
+			</tr>
+			<tbody id="qalist">
+				${list}
+			</tbody>
+		</thead>
+	</table>
 </div>
 
 <div class="xans-board xans-board-buttonlist">
@@ -226,7 +199,7 @@ $(document).ready(function(){
 			success : function(data){
 				//alert(JSON.stringify(data));
 				$('#selectTotalA').val($("select[name=board_category]").val());
-				$("#qa_List > tbody").children("tr:not(:first)").remove();
+				$("#qa_List > tbody").children("tr").remove();
 				$.each(data.list, function(index, items){
 					$('<tr/>').append($('<td/>',{
 						align : 'center',
