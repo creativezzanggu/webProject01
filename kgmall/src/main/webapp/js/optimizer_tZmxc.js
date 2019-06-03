@@ -376,9 +376,9 @@ $(document).ready(function(){
 DF['set-mainslider-startSlide'] = "0";
 
 // 슬라이드 이전버튼
-DF['set-mainslider-prev'] = "<img src='/web/upload/dfloor_base/web/button/btn_wideslider_prev.png' style='width:20px; height:30px'>";
+DF['set-mainslider-prev'] = "<img src='http://ecudemo31431.cafe24.com/web/upload/dfloor_base/web/button/btn_wideslider_prev.png' style='width:20px; height:30px'>";
 // 슬라이드 다음버튼
-DF['set-mainslider-next'] = "<img src='/web/upload/dfloor_base/web/button/btn_wideslider_next.png' style='width:20px; height:30px'>";
+DF['set-mainslider-next'] = "<img src='http://ecudemo31431.cafe24.com/web/upload/dfloor_base/web/button/btn_wideslider_next.png' style='width:20px; height:30px'>";
 // 슬라이드 활성화시 자동재생 설정 (on, off)
 DF['set-mainsliderYt-autoplay'] = "on";
 // 자동재생 버튼 사용여부 (on, off)
