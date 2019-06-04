@@ -53,7 +53,7 @@ CREATE SEQUENCE replyseq NOCACHE NOCYCLE;
 
 
 -- 따봉 테이블
-create table tumbsup(
+create table thumbsup(
     id varchar2(30)
 );
 
