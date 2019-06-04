@@ -74,6 +74,7 @@ background: #fafafa;margin: 0;-moz-box-sizing: border-box;-webkit-box-sizing: bo
 
 <input type="hidden" id="id" value="${id}">
 <input type="hidden" id="pg" value="${pg}">
+<input type="hidden" id="category" value="${category}">
 <input type="hidden" id="totalA" value="${totalA}">
 <input type="hidden" id="selectTotalA">
 <div class="boardList">
@@ -189,12 +190,20 @@ $(document).ready(function(){
 		}
 	});
 	
+	function qaSelectPaging(pg){
+		alert(pg);
+		$('#pg').val(pg);
+		$('#board_category').trigger('change','trigger');
+	}
 	
-	$('#board_category').change(function(){
+	$('#board_category').change(function(event,str){
+		if(str!='trigger')$('#pg').val(1);
+		
 		$.ajax({
-			type : 'GET',
+			type : 'POST',
 			url : '/kgmall/board/QASelectList.do',
-			data : 'category='+$("select[name=board_category]").val(),
+			data : {'category' : $("select[name=board_category]").val(),
+					'pg' : $('#pg').val()},
 			dataType : 'json',
 			success : function(data){
 				//alert(JSON.stringify(data));
@@ -249,17 +258,21 @@ $(document).ready(function(){
 					dataType : 'json',
 					success : function(data){
 						$('#pagingHTML').html(data.pagingHTML);
-						$('#change').click(function(){	
-							alert("123");
-						});
 					}
 				});
 			}
 		});
 	});
 	
+	function qaSearchPaging(pg){
+		alert(pg);
+		$('#pg').val(pg);
+		$('#qaSearchBtn').trigger('click','trigger');
+	}
+	
 	$('#qaSearchBtn').click(function(event,str){
 		if(str!='trigger')$('#pg').val(1);
+		
 		$("select[name=search_date]").val();
 		$("select[name=search_key]").val();
 		$.ajax({
@@ -272,7 +285,7 @@ $(document).ready(function(){
 					alert("내용을 입력하세요");
 				}else{
 					//alert(JSON.stringify(data));
-					$("#qa_List > tbody").children("tr:not(:first)").remove();
+					$("#qa_List > tbody").children("tr").remove();
 					$.each(data.searchList, function(index, items){
 						$('<tr/>').append($('<td/>',{
 							align : 'center',
@@ -333,9 +346,6 @@ $(document).ready(function(){
 		});
 	});
 	
-	function boardSearch(pg){
-		$('#pg').val(pg);
-		$('#qaSearchBtn').trigger('click','trigger');
-	}
+	
 });
 </script>

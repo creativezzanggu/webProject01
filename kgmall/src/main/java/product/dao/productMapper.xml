@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="productSQL">
+
+ 	<select id="getDTO" parameterType="String" resultType="product">
+ 		select * from product where name=#{name}
+ 	</select>
+
+	<select id="getColor" parameterType="String" resultType="String">
+ 		select distinct color from productdetail where productname=#{name}
+ 	</select>
+</mapper>

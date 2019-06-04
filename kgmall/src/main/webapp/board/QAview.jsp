@@ -112,15 +112,7 @@
 					</div>
 				</div>
 			</div>
-			
-				<div class="xans-element- xans-board xans-board-movement-4 xans-board-movement xans-board-4 ">
-					<ul>
-						<input type="button" name="content" id="content">
-						<input type="hidden" name="admin" id="admin" value="admin">
-						<li class="prev "><strong class="thead txtLess">PREV</strong><a href="/article/q-a/6/20/">상품 질문이요</a></li>
-						<li class="next "><strong class="thead txtLess">NEXT</strong><a href="/article/q-a/6/19/">질문이용</a></li>
-					</ul>
-				</div>
+			<input type="hidden" name="content" id="content">
 			</div>
 		</div>
 	</div>
@@ -180,28 +172,13 @@ function qaReplydelete(replyseq) {
 function qaReplyModify(replyseq,id,seq) {
 	if(id == $('#id').val()){
 		$('#replyseq'+replyseq).click(function(){
-			$.ajax({
-				type : 'POST',
-				url : '/kgmall/board/QAreplyGetContent.do',
-				data : {'replyseq' : replyseq,
-						'seq' : seq},
-				success : function(data){
-					$('#content').val(data);
-				}
-			});
 			$('#replyseq'+replyseq).children().remove();
 			$('#replyseq'+replyseq).append($('<div/>',{
 				class : 'xans-board  xans-board-commentwrite'
 				}).append($('<fieldset/>')
 						.append($('<div>',{
 							class : "view"
-							}).append($('<textarea/>',{
-								id : 'comment_modify',
-								name : 'comment_modify',
-								rows : '10',
-								clos : '40',
-								val : $('#content').val()
-							}))
+							}).append($('<textarea id="comment_modify" name="comment_modify">'))
 						).append($('<div/>',{
 							class : "btnAreaWrap"
 							}).append($('<input/>',{
@@ -216,28 +193,41 @@ function qaReplyModify(replyseq,id,seq) {
 								id : 'seq',
 								value : seq
 							}))
-							.append($('<input/>',{
-								type : 'button',
-								value : '등록',
-								class : 'btn Normal Wnormal Dark',
-								onClick : 'qaReplyUpdate('+$('#comment_modify').val()+');',
-								id : 'qaReplyUpdate'
-							}))
-							.append($('<input/>',{
-								type : 'button',
-								value : '취소',
-								class : 'btn Normal Wnormal Dark mL4',
-							}))
+							.append($('<input type="button" class="btn Normal Wnormal Dark" id="qaReplyUpdate'+replyseq+'" value="등록">'))
+							.append($('<input type="button" class="btn Normal Wnormal Dark mL4" id="qaReplyCansle'+replyseq+'" value="취소" onclick="qaReplyCansle('+replyseq+')">'))
 						)
-				));	
+				));	//$('#replyseq'+replyseq).append
+			$.ajax({
+				type : 'POST',
+				url : '/kgmall/board/QAreplyGetContent.do',
+				data : {'replyseq' : replyseq,
+						'seq' : seq},
+				success : function(data){
+					$('#comment_modify').val(data);
+				}
+			});//ajax QAreplyGetContent
+			$('#comment_modify').focus();
+			$('#qaReplyUpdate'+replyseq).click(function(){
+				$.ajax({
+					type : 'POST',
+					url : '/kgmall/board/QAreplyUpdate.do',
+					data : {'replyseq' : replyseq,
+							'seq' : seq,
+							'content' : $('#comment_modify').val()},
+					dataType : 'text',
+					success : function(data){
+						if(data=='ok')location.reload(true); 
+					}
+				});//ajax QAreplyUpdate
+			});//$('#qaReplyUpdate').click(function()
+			$('#qaReplyCansle'+replyseq).click(function(){
+				location.reload(true); 
+			});
+			
 		});
 	}//if
 }
 //qaReplyModify
-
-function qaReplyUpdate(content) {
-	alert(content);
-}
 
 </script>
 </html>

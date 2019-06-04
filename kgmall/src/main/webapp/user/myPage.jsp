@@ -116,7 +116,7 @@
 <th scope="col" class="price"></th>					
 </tr></thead>
 </table>
-<p class="empty "></p>
+<p id="empty1" class="empty"></p>
 </div>
 </div>
 
@@ -142,7 +142,7 @@
 	<th scope="col" class="order"></th>
 </tr></thead>
 </table>
-<p class="empty "></p>
+<p id="empty2" class="empty"></p>
 </div>
 </div>
 
@@ -169,12 +169,13 @@
 <th scope="col">작성일</th>
 <th scope="col">조회</th>
 </tr></thead>
-
 </table>
+<p id="empty3" class="empty"></p>
 </body>
-
 <script>
 $(function(){
+	//$('#empty3').attr("class","");
+	
 	if(${usergrade == 'bronze'}){
 		$('#member').css("color", "brown");
 	}
@@ -218,7 +219,11 @@ $(function(){
 			});
 		}
 	});
+	
+	
+	
 });
+
 
 </script>
 </html>
