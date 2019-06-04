@@ -44,7 +44,7 @@
 					.board-nav-style1 li a { display:inline-block; *display:inline; *zoom:1; border:1px solid #e7e7e7; padding:16px 31px; letter-spacing:1px }
 					.board-nav-style1 li a:hover { border:1px solid #434343; background:#434343; color:#fff }
 					</style>
-					
+					<form action="/kgmall/board/QAmodify.do" method="POST" name="qaModify" id="qaModify">
 					<div class="xans-board  xans-board-read">
 						<div class="boardView ">
 							<table width="100%" border="1" summary="">
@@ -84,11 +84,13 @@
 								<a href="/kgmall/board/QA.do" class="btn Normal Medium Wnormal">목록</a>
 							</span>
 							<c:if test="${id==qa.id || id=='admin'}">
-								<a href="/kgmall/board/QAreplyDelete.do?seq=${qa.seq}" id="QAdelete" class="btn Normal Wnormal Light ">삭제</a>
-								<a href="/kgmall/board/QAmodify.do?seq=${qa.seq}" class="btn Normal Wnormal Medium mL5 ">수정</a>
+								<input type="hidden" value="${qa.seq}" name="seq">
+								<input type="button" value="삭제" id="QAdelete" class="btn Normal Wnormal Light ">
+								<input type="submit" value="수정" id="QAmodify" class="btn Normal Wnormal Medium mL5 ">
 							</c:if>
 						</div>
 					</div>
+					</form>
 				</div>
 			
 			<div class="xans-board  xans-board-commentpackage">
@@ -154,6 +156,18 @@ $(document).ready(function(){
 		}
 	});
 	
+	//글삭제하기
+	$('#QAdelete').click(function(){
+		$.ajax({
+			type : 'POST',
+			url : '/kgmall/board/QAdelete.do',
+			data : {'seq' : $('#seq').val()},
+			dataType : 'text',
+			success : function(data){
+				if(data=='ok')location.href='/kgmall/board/QA.do?pg=1';
+			}//success
+		});
+	});
 });
 
 function qaReplydelete(replyseq) {

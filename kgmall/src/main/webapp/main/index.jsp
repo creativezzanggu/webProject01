@@ -4,7 +4,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "//www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width"><!--PG크로스브라우징필수내용 시작--><meta http-equiv="Cache-Control" content="no-cache"><meta http-equiv="Expires" content="0"><meta http-equiv="Pragma" content="no-cache"><!--PG크로스브라우징필수내용 끝--><link href="../css/mainCss1.css" rel="stylesheet">
-
 <meta name="naver-site-verification" content="dd85968ac57ed1d64007f8ef41ba2a6cf51dc33f">
 <link rel="canonical" href="http://ecudemo31431.cafe24.com/">
 <script type="text/javascript" id="www-widgetapi-script" src="https://s.ytimg.com/yts/jsbin/www-widgetapi-vfl99qXyH/www-widgetapi.js" async=""></script><script src="//www.youtube.com/iframe_api"></script><script type="text/javascript" src="../js/cid.generate.js?vs=3d0b473968a0ec4ec41e3bf59df3aa51"></script>
@@ -505,7 +504,8 @@
 
 			<!-- 상품검색 -->
 			<li class="tooltip ajax search" df-data-ajaxname="search"><a href="#none"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-
+			
+			
 			<!-- 주문·배송조회 로그오프 상태 -->
 			<li df-data-ajaxname="login" df-data-query="?noMemberOrder&amp;returnUrl=%2Fmyshop%2Forder%2Flist.html" class="xans-element- xans-layout xans-layout-statelogoff tooltip ajax login "><a href="#none"><i class="fa fa-truck" aria-hidden="true"></i></a>
 </li>
