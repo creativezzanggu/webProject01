@@ -258,7 +258,8 @@ $(document).ready(function(){
 		});
 	});
 	
-	$('#qaSearchBtn').click(function(){
+	$('#qaSearchBtn').click(function(event,str){
+		if(str!='trigger')$('#pg').val(1);
 		$("select[name=search_date]").val();
 		$("select[name=search_key]").val();
 		$.ajax({
@@ -331,5 +332,10 @@ $(document).ready(function(){
 			}
 		});
 	});
+	
+	function boardSearch(pg){
+		$('#pg').val(pg);
+		$('#qaSearchBtn').trigger('click','trigger');
+	}
 });
 </script>

@@ -175,10 +175,10 @@ function qaReplydelete(replyseq) {
 			}
 		});
 	}//if
-	
-}
+}//qaReplydelete
+
 function qaReplyModify(replyseq,id,seq) {
-	if('admin' == $('#id').val() || ${qa.id} == $('#id').val()){
+	if(id == $('#id').val()){
 		$('#replyseq'+replyseq).click(function(){
 			$.ajax({
 				type : 'POST',
@@ -196,8 +196,10 @@ function qaReplyModify(replyseq,id,seq) {
 						.append($('<div>',{
 							class : "view"
 							}).append($('<textarea/>',{
-								id : 'comment',
-								name : 'comment',
+								id : 'comment_modify',
+								name : 'comment_modify',
+								rows : '10',
+								clos : '40',
 								val : $('#content').val()
 							}))
 						).append($('<div/>',{
@@ -218,8 +220,8 @@ function qaReplyModify(replyseq,id,seq) {
 								type : 'button',
 								value : '등록',
 								class : 'btn Normal Wnormal Dark',
-								onclick : 'QAreplyUpdate(${id})',
-								id : 'QAreplyUpdate'
+								onClick : 'qaReplyUpdate('+$('#comment_modify').val()+');',
+								id : 'qaReplyUpdate'
 							}))
 							.append($('<input/>',{
 								type : 'button',
@@ -230,8 +232,13 @@ function qaReplyModify(replyseq,id,seq) {
 				));	
 		});
 	}//if
-	
 }
+//qaReplyModify
+
+function qaReplyUpdate(content) {
+	alert(content);
+}
+
 </script>
 </html>
 
