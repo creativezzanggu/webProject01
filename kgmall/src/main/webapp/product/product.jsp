@@ -265,7 +265,7 @@ function product_buy(){
 	if($('.productCount').length==0){
 		alert("구매하실 항목을 선택해 주세요");
 	}else{
-		
+		//db
 	}
 }
 </script>
