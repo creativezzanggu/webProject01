@@ -1,6 +1,12 @@
 package product.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -44,4 +50,26 @@ public class ProductController {
 		mav.setViewName("jsonView");
 		return mav;
 	}
+	@RequestMapping(value="/createCookie.do", method=RequestMethod.POST)
+	public void createCookie(@RequestParam String productName, String number, HttpServletResponse response,HttpServletRequest request) {
+		Cookie setCookie = new Cookie(productName, number);
+		setCookie.setMaxAge(60*60*24); 
+		response.addCookie(setCookie);
+	}
+	@RequestMapping(value="/deleteCookie.do", method=RequestMethod.POST)
+	public void deleteCookie(HttpServletResponse response,HttpServletRequest request) {
+		Cookie[] cookies = request.getCookies();
+		if(cookies != null){
+			for(int i=0; i< cookies.length; i++){
+				cookies[i].setMaxAge(0); // 유효시간을 0으로 설정
+				response.addCookie(cookies[i]); // 응답 헤더에 추가
+			}
+		}
+	}
+	@RequestMapping(value="/order.do", method=RequestMethod.GET)
+	public String order(@RequestParam String name, String total, Model model) {
+		model.addAttribute("display", "../product/order.jsp");
+		return "/main/index";
+	}
+	
 }

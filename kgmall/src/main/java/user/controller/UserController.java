@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.Properties;
 
 import javax.mail.Session;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -105,9 +106,16 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/logout.do", method=RequestMethod.GET)
-	public String logout(Model model, HttpSession session) {
+	public String logout(Model model, HttpSession session, HttpServletRequest request, HttpServletResponse response) {
 		model.addAttribute("display", "../template/body.jsp");
 		session.invalidate();
+		Cookie[] cookies = request.getCookies();
+		if(cookies != null){
+			for(int i=0; i< cookies.length; i++){
+				cookies[i].setMaxAge(0); // 유효시간을 0으로 설정
+				response.addCookie(cookies[i]); // 응답 헤더에 추가
+			}
+		}
 		return "/main/index";
 	}
 	

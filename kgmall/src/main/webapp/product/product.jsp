@@ -26,6 +26,8 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 </style>
 <%String name= request.getParameter("name");%>
+
+
 <script type="text/javascript">
 
 //comma
@@ -265,12 +267,43 @@ function product_buy(){
 	if($('.productCount').length==0){
 		alert("구매하실 항목을 선택해 주세요");
 	}else{
-		//db
+		var id = <%=(String)session.getAttribute("id")%>
+
+		if(id==null){
+			$.ajax({
+				type : 'POST',
+				url : '/kgmall/product/deleteCookie.do'
+			});
+			alert("로그인을 해 주세요");
+			for(var i=0; i<$('.productCount').length; i++){
+				var productName = $('.productCount').eq(i).attr("id");
+				var number = parseInt($('.productCount').eq(i).val());
+				$.ajax({
+					type : 'POST',
+					url : '/kgmall/product/createCookie.do',
+					data : {'productName' : productName , 'number' : number}
+				});
+			}		
+			location.href="/kgmall/user/loginForm.do";
+		}else{
+			$.ajax({
+				type : 'POST',
+				url : '/kgmall/product/deleteCookie.do'
+			});
+			for(var i=0; i<$('.productCount').length; i++){
+				var productName = $('.productCount').eq(i).attr("id");
+				var number = parseInt($('.productCount').eq(i).val());
+				$.ajax({
+					type : 'POST',
+					url : '/kgmall/product/createCookie.do',
+					data : {'productName' : productName , 'number' : number}
+				});
+			}
+			location.href="/kgmall/product/order.do?name="+name+"&total="+total;
+		}
 	}
 }
 </script>
-
-
 
 
 <!-- 
