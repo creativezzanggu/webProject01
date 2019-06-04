@@ -94,4 +94,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select content from qareply where replyseq=#{replyseq}
 	</select>
 	
+	<insert id="QAinsert" parameterType="java.util.Map">
+		insert into qa values(QABOARD.nextval
+								,#{id}<!-- 이미지 경로 -->
+								,#{board_category}
+								,#{id}
+								,#{name}
+								,#{email}
+								,#{subject}
+								,#{editor}
+								,QABOARD.currval
+								,0
+								,0
+								,0
+								,0
+								,0
+								,sysdate)
+	</insert>
 </mapper>

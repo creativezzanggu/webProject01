@@ -95,6 +95,7 @@ public class UserController {
 		}else {
 		session.setAttribute("id", map2.get("ID"));
 		session.setAttribute("name", map2.get("NAME"));
+		session.setAttribute("email", map2.get("EMAIL"));
 		session.setAttribute("usergrade", map2.get("USERGRADE"));
 		mav.addObject("map", map2);
 		mav.setViewName("jsonView");
