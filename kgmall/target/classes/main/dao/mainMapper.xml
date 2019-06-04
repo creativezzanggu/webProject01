@@ -3,5 +3,29 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mainSQL">
+	<!-- <select id="search" parameterType="java.util.Map" resultType="product.bean.ProductDTO">
+		select * from product where keyword=#{keyword}
+		<if test="majorcategory != ''">
+        AND majorcategory = #{majorcategory}
+   		</if>
+   		<if test="search_type != ''">
+   		AND search_type = #{search_type}
+   		</if>
+   		<if test="product_price1 != '' or product_price2 != ''">
+   			<if test="product_price1 !=''">
+   				AND price <![CDATA[<=]]> #{product_price2}
+   			</if><if test="product_price2 != ''">
+   				AND price >= #{product_price1}
+   			</if><if test="product_price1 !='' and product_price2 != ''">
+   				AND price <![CDATA[<=]]> #{product_price2} AND price >= #{product_price1}
+   			</if>
+   		</if>
+   		<if test="order != ''">
+   			order by #{order} ${order_by}
+   		</if>
+	</select> -->
 	
+	<select id="keywordSearch" parameterType="java.util.map" resultType="product.bean.ProductDTO">
+		select * from product where keyword = #{keyword}
+	</select>
 </mapper>
