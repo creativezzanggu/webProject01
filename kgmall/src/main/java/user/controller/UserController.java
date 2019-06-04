@@ -86,14 +86,21 @@ public class UserController {
 	@RequestMapping(value="/getUser.do", method=RequestMethod.POST)
 	public ModelAndView getUser(@RequestParam Map<String,String> map, HttpSession session) {
 		Map<String,String> map2 = userDAO.getUser(map);
-		
 		ModelAndView mav = new ModelAndView();
+		
+		if(map2==null) {
+			mav.addObject("0", 0);
+			mav.setViewName("jsonView");
+			return mav;
+		}else {
 		session.setAttribute("id", map2.get("ID"));
 		session.setAttribute("name", map2.get("NAME"));
 		session.setAttribute("usergrade", map2.get("USERGRADE"));
 		mav.addObject("map", map2);
 		mav.setViewName("jsonView");
+		
 		return mav;
+		}
 	}
 	
 	@RequestMapping(value="/logout.do", method=RequestMethod.GET)
