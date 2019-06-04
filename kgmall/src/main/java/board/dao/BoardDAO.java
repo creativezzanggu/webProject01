@@ -40,6 +40,8 @@ public interface BoardDAO {
 
 	public void QAinsert(Map<String, String> map);
 
+	public void QAreplyUpdate(Map<String, String> map);
+
 
 
 }

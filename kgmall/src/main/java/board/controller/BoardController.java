@@ -173,7 +173,7 @@ public class BoardController {
 		return mav;		
 	}
 	
-	@RequestMapping(value="/QASelectList.do", method=RequestMethod.GET)
+	@RequestMapping(value="/QASelectList.do", method=RequestMethod.POST)
 	public ModelAndView QASelectList(@RequestParam(required=false,defaultValue="1") String pg,@RequestParam String category) {
 		int endNum = Integer.parseInt(pg)*5;
 		int startNum =  endNum-4;
@@ -213,15 +213,15 @@ public class BoardController {
 		if(endPage > totalP) endPage = totalP;
 		
 		if(startPage > pageBlock)
-			pagingHTML.append("<p><a href='/kgmall/board/QASelectList.do?pg="+(startPage-1)+"&category="+map.get("category")+"'><img src='../image/board_image/btn_pagingPrev_on.png' class='img_on' alt='prev'></a></p>");
+			pagingHTML.append("<p><a href='javascript:void(0);' onclick='qaSelectPaging("+(startPage-1)+")'><img src='../image/board_image/btn_pagingPrev_on.png' class='img_on' alt='prev'></a></p>");
 		for(int i=startPage; i<=endPage; i++) {
 			if(i==currentPage)
-				pagingHTML.append("<li><a id='change' href='/kgmall/board/QASelectList.do?pg="+i+"&category="+map.get("category")+"' class='this'>"+i+"</a></li>");
+				pagingHTML.append("<li><a id='change' href='javascript:void(0);' onclick='qaSelectPaging("+i+")' class='this'>"+i+"</a></li>");
 			else if(i<=endPage)
-				pagingHTML.append("<li><a id='change' href='/kgmall/board/QASelectList.do?pg="+i+"&category="+map.get("category")+"' class='this'>"+i+"</a></li></ol>");
+				pagingHTML.append("<li><a id='change' href='javascript:void(0);' onclick='qaSelectPaging("+i+")' class='this'>"+i+"</a></li></ol>");
 		}
 		if(totalP > endPage)
-			pagingHTML.append("<p><a href='/kgmall/board/QASelectList.do?pg="+(endPage+1)+"&category="+map.get("category")+"'><img src='../image/board_image/btn_pagingNext_on.png' class='img_on' alt='prev'></a></p>");
+			pagingHTML.append("<p><a href='javascript:void(0);' onclick='qaSelectPaging("+(endPage+1)+")'><img src='../image/board_image/btn_pagingNext_on.png' class='img_on' alt='prev'></a></p>");
 		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("pagingHTML",pagingHTML);
@@ -261,17 +261,16 @@ public class BoardController {
 		int startPage = (currentPage-1)/pageBlock*pageBlock+1;
 		int endPage = startPage+pageBlock-1;
 		if(endPage > totalP) endPage = totalP;
-		
 		if(startPage > pageBlock)
-			pagingHTML.append("<p><a href='/kgmall/board/QASearchPaging.do?pg="+(startPage-1)+"&category="+map.get("category")+"'><img src='../image/board_image/btn_pagingPrev_on.png' class='img_on' alt='prev'></a></p>");
+			pagingHTML.append("<p><a href='javascript:void(0);' onclick='qaSearchPaging("+(startPage-1)+")'><img src='../image/board_image/btn_pagingPrev_on.png' class='img_on' alt='prev'></a></p>");
 		for(int i=startPage; i<=endPage; i++) {
 			if(i==currentPage)
-				pagingHTML.append("<li><a href='/kgmall/board/QASearchPaging.do?pg="+i+"&category="+map.get("category")+"' class='this'>"+i+"</a></li>");
+				pagingHTML.append("<li><a id='change' href='javascript:void(0);' onclick='qaSearchPaging("+i+")' class='this'>"+i+"</a></li></ol>");
 			else if(i<=endPage)
-				pagingHTML.append("<li><a href='/kgmall/board/QASearchPaging.do?pg="+i+"&category="+map.get("category")+"' class='this'>"+i+"</a></li></ol>");
+				pagingHTML.append("<li><a id='change' href='javascript:void(0);' onclick='qaSearchPaging("+i+")' class='this'>"+i+"</a></li></ol>");
 		}
 		if(totalP > endPage)
-			pagingHTML.append("<p><a href='/kgmall/board/QASearchPaging.do?pg="+(endPage+1)+"&category="+map.get("category")+"'><img src='../image/board_image/btn_pagingNext_on.png' class='img_on' alt='prev'></a></p>");
+			pagingHTML.append("<p><a href='javascript:void(0);' onclick='qaSearchPaging("+(endPage+1)+")'><img src='../image/board_image/btn_pagingNext_on.png' class='img_on' alt='prev'></a></p>");
 		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("pagingHTML",pagingHTML);
@@ -355,6 +354,19 @@ public class BoardController {
 		model.addAttribute("id",session.getAttribute("id"));
 		return content;
 	}
+	
+	@RequestMapping(value="/QAreplyUpdate.do", method=RequestMethod.POST)
+	@ResponseBody
+	public String QAreplyUpdate(@RequestParam Map<String,String> map,Model model,HttpSession session) {
+		QADTO qa= boardDAO.getQA(map.get("seq"));
+		boardDAO.QAreplyUpdate(map);
+		
+		model.addAttribute("qa",qa);
+		model.addAttribute("seq",map.get("seq"));
+		model.addAttribute("id",session.getAttribute("id"));
+		return "ok";
+	}
+	
 	
 }
 
