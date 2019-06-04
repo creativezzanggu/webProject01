@@ -64,10 +64,7 @@ public class BoardController {
 	
 	@RequestMapping(value="/updateBoard.do", method=RequestMethod.POST)
 	public String updateBoard(@RequestParam Map<String,String> map,Model model,HttpSession session) {
-		map.put("id",(String) session.getAttribute("id"));
-		map.put("name",(String) session.getAttribute("name"));
-		map.put("email",(String) session.getAttribute("email"));
-		boardDAO.QAinsert(map);
+		boardDAO.QAupdate(map);
 		
 		return "redirect:/board/QA.do";
 	}
@@ -77,6 +74,7 @@ public class BoardController {
 		map.put("id",(String) session.getAttribute("id"));
 		map.put("name",(String) session.getAttribute("name"));
 		map.put("email",(String) session.getAttribute("email"));
+		
 		boardDAO.QAinsert(map);
 		
 		return "redirect:/board/QA.do";
@@ -92,7 +90,6 @@ public class BoardController {
 	@RequestMapping(value="/QAmodify.do", method=RequestMethod.POST)
 	public String QAmodify(@RequestParam Map<String,String> map,Model model,HttpSession session) {
 		QADTO qa = boardDAO.getQA(map.get("seq"));
-		
 		model.addAttribute("qa", qa);
 		model.addAttribute("display", "/board/QAmodify.jsp");
 		return "/main/index";

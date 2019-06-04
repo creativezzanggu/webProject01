@@ -106,5 +106,11 @@ public class BoardDAOMybatis implements BoardDAO {
 		
 	}
 
+	@Override
+	public void QAupdate(Map<String, String> map) {
+		sqlSession.update("BoardSQL.QAupdate",map);
+		
+	}
+
 
 }

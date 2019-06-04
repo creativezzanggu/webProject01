@@ -12,7 +12,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="myQAList" parameterType="java.util.Map" resultType="qa">
-		select * from qa where id=#{id} order by seq desc
+		select * from qa where id=#{id}
 	</select>
 	
 	<select id="QASelectList" parameterType="java.util.Map" resultType="qa">
@@ -114,6 +114,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<update id="QAreplyUpdate" parameterType="java.util.Map">
 		update qareply set content=#{content} where replyseq=#{replyseq}
+	</update>
+	
+	<update id="QAupdate" parameterType="java.util.Map">
+		update qa set content=#{editor},subject=#{subject},category=#{board_category},logtime=sysdate where seq=#{seq}
 	</update>
 	
 </mapper>
