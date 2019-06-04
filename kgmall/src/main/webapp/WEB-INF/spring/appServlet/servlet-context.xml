@@ -19,6 +19,7 @@
 	<resources mapping="/image/**" location="/image/" />
 	<resources mapping="/popup/**" location="/popup/" />
 	<resources mapping="/woff2/**" location="/woff2/" />
+	<resources mapping="/user/**" location="/user/" />
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -31,6 +32,7 @@
 	<context:component-scan base-package="user.controller"/>
 	<context:component-scan base-package="notice.controller"/>
 	<context:component-scan base-package="product.controller"/>
+	<context:component-scan base-package="cart.controller"/>
 	
 		
 	<beans:bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">

@@ -7,7 +7,6 @@
 .subject a{color:#2e2e2e;text-decoration: none;}
 .subject a:hover{color:#888;}
 </style>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width"><meta http-equiv="Cache-Control" content="no-cache"><meta http-equiv="Expires" content="0"><meta http-equiv="Pragma" content="no-cache">
 
 <link href="../css/myPageCss1.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="../css/myPageCss2.css">
@@ -16,7 +15,7 @@
 <meta name="keywords" content="BEAUTY INSIDE">
 </head>
 <body>
-
+<form id="myPage">
 <div id="container">
 <div id="contents">
 <div class="location-subpage">
@@ -147,8 +146,9 @@
 </div>
 
 <!-- 내 게시글 -->
-<div class="xans-element- xans-myshop xans-myshop-boardpackage section myBoard "><h3 class="title" id="myWrite">
-<span class="title"></span></h3>
+<div class="xans-element- xans-myshop xans-myshop-boardpackage section myBoard ">
+<div style="text-align:left; margin-bottom:-15px"><strong style="font-size:10pt;">내 게시글</strong></div>
+<div style="text-align:right; margin-bottom:15px;"><a href="#none" align="right" id="extend">더보기</a></div>
 <div class="xans-element- xans-myshop xans-myshop-boardlist content">
 
 <table id="myQA" width="100%" border="1">
@@ -171,10 +171,11 @@
 </tr></thead>
 </table>
 <p id="empty3" class="empty"></p>
+</form>
 </body>
 <script>
 $(function(){
-	//$('#empty3').attr("class","");
+	var a;
 	
 	if(${usergrade == 'bronze'}){
 		$('#member').css("color", "brown");
@@ -191,6 +192,11 @@ $(function(){
 		url : '/kgmall/board/myQAList.do',
 		dataType : 'json',
 		success : function(data){
+			if(data=="0"){
+				location.href="#";
+			}else{
+				$('#empty3').attr("class","");
+			
 			$.each(data.list, function(index, items){
 				$('<tr/>').append($('<td/>',{
 					align : 'center',
@@ -216,12 +222,22 @@ $(function(){
 					text : items.hit
 				})).appendTo($('#myQA'));
 				
+				if(index==2){
+					return false;
+				}
+				
+				
 			});
+			}
+			
 		}
 	});
 	
-	
-	
+});
+
+$('#extend').click(function(){
+	document.domain = "localhost"; 
+	window.open('/kgmall/user/myQA.jsp','myQA','scrollbars=yes,resizable=no,top=300,left=200,width=1400,height=400');
 });
 
 
