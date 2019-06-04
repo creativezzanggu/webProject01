@@ -16,9 +16,15 @@
 	<context:component-scan base-package="spring.conf"/>
 	<context:component-scan base-package="notice.bean"/>
 	<context:component-scan base-package="notice.dao"/>
+<<<<<<< HEAD
 	<context:component-scan base-package="main.dao"/>
+=======
+	<context:component-scan base-package="product.dao"/>
+	<context:component-scan base-package="product.bean"/>
+>>>>>>> branch 'develop' of https://github.com/creativezzanggu/webProject01.git
 	
-	<tx:annotation-driven transaction-manager="transactionManager"/>
+	
+	<tx:annotation-driven transaction-manager="transactionManager"/>	
 	
 	<!-- SqlSessionFactory -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
