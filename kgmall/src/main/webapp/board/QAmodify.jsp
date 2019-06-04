@@ -98,6 +98,7 @@
 						</div>
 						
 						<div class="btnArea btnAreaCustom ">
+							<input type="hidden" name="seq" id="seq" value="${qa.seq}">
 							<span class="left"><a href="/kgmall/board/QA.do" class="btn Normal Medium Wnormal">목록</a></span>
 							<input type="button" value="등록" name="updateBoard" id="updateBoard" class="btn Normal Dark Wnormal mL5">
 							<a href="/kgmall/board/QA.do" class="btn Normal Medium Wnormal mL5">취소</a>
