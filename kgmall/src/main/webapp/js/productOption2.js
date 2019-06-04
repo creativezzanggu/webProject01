@@ -1055,10 +1055,10 @@ var EC_SHOP_FRONT_PRODUCT_INFO_COUPON =  {
              }
 
           // 버튼으로 처리 했을때 선택이 모두 되어 있지 않다면 튕겨 내자
-             if (bButton === true && bItemSelected === false && aOption.length > 0) {
-                 alert(__('필수 옵션을 선택해주세요.'));
-                 bResult = false;
-             }
+//             if (bButton === true && bItemSelected === false && aOption.length > 0) {
+//                 alert(__('필수 옵션을 선택해주세요.'));
+//                 bResult = false;
+//             }
 
              // 추가입력옵션 체크!!
              if (bButton === true && checkAddOption() === false) {
@@ -7602,31 +7602,31 @@ var PRODUCTSUBMIT = {
                 }
                 // 독립형 일때
                 var oExistRequiredSelect = (option_type === 'F') ? $('select[id^="' + product_option_id + '"][required="true"]') : false;
-                var sMsg = __('필수 옵션을 선택해주세요.');
-                try {
-                    // 관련상품 체크 확인 유무
-                    if (NEWPRD_ADD_OPTION.checkRelationProduct(this.parent.oObject, this.parent.sType) === false) {
-                        return false;
-                    }
-
-                    if (oIndividualValidData.isValidInidual === false && EC_SHOP_FRONT_PRODUCT_OPTIONLAYER.setLayer(iProductNo, iCategoryNo, 'normal') === true) {
-                        return false;
-                    }
-
-                    if (Olnk.getOptionPushbutton($('#option_push_button')) === true ) {
-                        var bCheckOption = false;
-                        $('select[id^="' + product_option_id + '"]').each(function() {
-                            if (Boolean($(this).attr('required')) === true &&  Olnk.getCheckValue($(this).val(),'') === false) {
-                                bCheckOption = true;
-                                return false;
-                            }
-                        });
-                        if (bCheckOption === false) {
-                            sMsg = __('품목을 선택해 주세요.');
-                        }
-                    }
-                } catch (e) {
-                }
+//                var sMsg = __('필수 옵션을 선택해주세요.');
+//                try {
+//                    // 관련상품 체크 확인 유무
+//                    if (NEWPRD_ADD_OPTION.checkRelationProduct(this.parent.oObject, this.parent.sType) === false) {
+//                        return false;
+//                    }
+//
+//                    if (oIndividualValidData.isValidInidual === false && EC_SHOP_FRONT_PRODUCT_OPTIONLAYER.setLayer(iProductNo, iCategoryNo, 'normal') === true) {
+//                        return false;
+//                    }
+//
+//                    if (Olnk.getOptionPushbutton($('#option_push_button')) === true ) {
+//                        var bCheckOption = false;
+//                        $('select[id^="' + product_option_id + '"]').each(function() {
+//                            if (Boolean($(this).attr('required')) === true &&  Olnk.getCheckValue($(this).val(),'') === false) {
+//                                bCheckOption = true;
+//                                return false;
+//                            }
+//                        });
+//                        if (bCheckOption === false) {
+//                            sMsg = __('품목을 선택해 주세요.');
+//                        }
+//                    }
+//                } catch (e) {
+//                }
 
                 // 메인상품 품목데이터 확인
                 var isEmptyItemData = ITEM.getItemCode().length == false || ITEM.getItemCode() === false;
@@ -7638,15 +7638,15 @@ var PRODUCTSUBMIT = {
 
                 } else {
                     // 기존 유효성 검증 메세지
-                    var sOrginalValidMsg = NEWPRD_ADD_OPTION. checkExistingValidMessage(this.parent.oObject, oValidAddProductCount);
-                    //추가구성상품의 선택되어있으면서 본상품의 옵션이 선택 안되었을때
-                    sMsg = (sOrginalValidMsg === false) ? sMsg : sOrginalValidMsg;
-
-                    alert(sMsg);
-                    if (oExistRequiredSelect !== false) {
-                        oExistRequiredSelect.focus();
-                    }
-                    return false;
+//                    var sOrginalValidMsg = NEWPRD_ADD_OPTION. checkExistingValidMessage(this.parent.oObject, oValidAddProductCount);
+//                    //추가구성상품의 선택되어있으면서 본상품의 옵션이 선택 안되었을때
+//                    sMsg = (sOrginalValidMsg === false) ? sMsg : sOrginalValidMsg;
+//
+//                    alert(sMsg);
+//                    if (oExistRequiredSelect !== false) {
+//                        oExistRequiredSelect.focus();
+//                    }
+//                    return false;
                 }
             } else {
                 // 관련상품 체크 확인
@@ -7713,32 +7713,32 @@ var PRODUCTSUBMIT = {
                             if (ITEM.isOptionSelected(aOptionValue) === true) {
                                 sOptionValue = aOptionValue.join('#$%');
                                 aItemCode.push([$.parseJSON(aData.option_value_mapper)[sOptionValue],iQuantity]);
-                            } else {
-                                bCheckValidate = false;
-                                alert(__('필수 옵션을 선택해주세요.'));
-                                return false;
-                            }
+                            } //else {
+//                                bCheckValidate = false;
+//                                alert(__('필수 옵션을 선택해주세요.'));
+//                                return false;
+//                            }
                         } else {
                             var $eItemSelectbox = $('[name="addproduct_option_name_'+iProductNum+'"]');
 
                             if (ITEM.isOptionSelected($eItemSelectbox.val()) === true) {
                                 aItemCode.push([$eItemSelectbox.val(),iQuantity]);
-                            } else {
-                                bCheckValidate = false;
-                                $eItemSelectbox.focus();
-                                alert(__('필수 옵션을 선택해주세요.'));
-                                return false;
-                            }
+                            }// else {
+//                                bCheckValidate = false;
+//                                $eItemSelectbox.focus();
+//                                alert(__('필수 옵션을 선택해주세요.'));
+//                                return false;
+                         //   }
                         }
                     } else if (Olnk.isLinkageType(sOptionType) === true) {
                         $('[id^="addproduct_option_id_'+iProductNum+'"]').each(function() {
                             alert( $(this).val());
-                            if ($(this).attr('required') == true && ITEM.isOptionSelected($(this).val()) === false) {
-                                bCheckValidate = false;
-                                $(this).focus();
-                                alert(__('필수 옵션을 선택해주세요.'));
-                                return false;
-                            }
+//                            if ($(this).attr('required') == true && ITEM.isOptionSelected($(this).val()) === false) {
+//                                bCheckValidate = false;
+//                                $(this).focus();
+//                                alert(__('필수 옵션을 선택해주세요.'));
+//                                return false;
+//                            }
 
                             if (ITEM.isOptionSelected($(this).val()) === true) {
                                 aItemCode.push([$(this).val(),iQuantity]);
@@ -7746,12 +7746,12 @@ var PRODUCTSUBMIT = {
                         });
                     } else {
                         $('[id^="addproduct_option_id_'+iProductNum+'"]').each(function() {
-                            if ($(this).attr('required') == true && ITEM.isOptionSelected($(this).val()) === false) {
-                                bCheckValidate = false;
-                                $(this).focus();
-                                alert(__('필수 옵션을 선택해주세요.'));
-                                return false;
-                            }
+//                            if ($(this).attr('required') == true && ITEM.isOptionSelected($(this).val()) === false) {
+//                                bCheckValidate = false;
+//                                $(this).focus();
+//                                alert(__('필수 옵션을 선택해주세요.'));
+//                                return false;
+//                            }
                             if (ITEM.isOptionSelected($(this).val()) === true) {
                                 aItemCode.push([$(this).val(),iQuantity]);
                             }

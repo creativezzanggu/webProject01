@@ -855,12 +855,12 @@ var NEWPRD_ADD_OPTION = {
             var iQuantity = $('#'+sAddOptionId+'_quantity').val();
             var sItemCode = $(this).val();
             $('select[name="addproduct_option_name_'+iAddProductNo+'"][required="true"]:visible').each(function() {
-                if ($(this).val() == '*' || $(this).val() == '**') {
-                    sMsg = __('필수 옵션을 선택해주세요.');
-                    oObject = $(this);
-                    bReturn = false;
-                    return false;
-                }
+//                if ($(this).val() == '*' || $(this).val() == '**') {
+//                    sMsg = __('필수 옵션을 선택해주세요.');
+//                    oObject = $(this);
+//                    bReturn = false;
+//                    return false;
+//                }
             });
             if (bReturn === false) {
                 return false;
@@ -932,14 +932,15 @@ var NEWPRD_ADD_OPTION = {
                     var aOptionValue = new Array();
                     eOption.each(function() {
                         if ($(this).is('[required="true"]') === true && ($(this).val() == '*' || $(this).val() == '**')) {
-                            sMsg = __('필수 옵션을 선택해주세요.');
-                            NEWPRD_ADD_OPTION.checkVaildRelationProductObject(oObj, sMsg, bIsMainProductCheck, this);
-                            sFailType = 'sRequiredVaild';
-                            oObject = $(this);
-                            iCount++;
-                            bReturn = false;
-                            return false;
-                        } else {
+//                            sMsg = __('필수 옵션을 선택해주세요.');
+//                            NEWPRD_ADD_OPTION.checkVaildRelationProductObject(oObj, sMsg, bIsMainProductCheck, this);
+//                            sFailType = 'sRequiredVaild';
+//                            oObject = $(this);
+//                            iCount++;
+//                            bReturn = false;
+//                            return false;
+                        }
+                        else {
                             aOptionValue.push($(this).val());
                         }
                     });
@@ -947,15 +948,15 @@ var NEWPRD_ADD_OPTION = {
                     var sItemCode = aOptionMapper[sOptionValue];
                 } catch(e) {
                     eOption.each(function() {
-                        if ($(this).is('[required="true"]') === true && ($(this).val() == '*' || $(this).val() == '**')) {
-                            sMsg = __('필수 옵션을 선택해주세요.');
-                            NEWPRD_ADD_OPTION.checkVaildRelationProductObject(oObj, sMsg, bIsMainProductCheck, this);
-                            sFailType = 'sRequiredVaild';
-                            oObject = $(this);
-                            iCount++;
-                            bReturn = false;
-                            return false;
-                        }
+//                        if ($(this).is('[required="true"]') === true && ($(this).val() == '*' || $(this).val() == '**')) {
+//                            sMsg = __('필수 옵션을 선택해주세요.');
+//                            NEWPRD_ADD_OPTION.checkVaildRelationProductObject(oObj, sMsg, bIsMainProductCheck, this);
+//                            sFailType = 'sRequiredVaild';
+//                            oObject = $(this);
+//                            iCount++;
+//                            bReturn = false;
+//                            return false;
+//                        }
                     });
                     var sItemCode = eOption.val();
                 }

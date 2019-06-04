@@ -259,6 +259,20 @@ $(document).on('change', '.productCount', function() {
 
 
 </script>
+<script type="text/javascript">
+//구매하기
+function product_buy(){
+	if($('.productCount').length==0){
+		alert("구매하실 항목을 선택해 주세요");
+	}else{
+		
+	}
+}
+</script>
+
+
+
+
 <!-- 
             <script type="text/javascript">
                 var EC_FRONT_EXTERNAL_SCRIPT_VARIABLE_DATA = {"common_member_id_crypt":""};
@@ -557,8 +571,8 @@ Home</a></li>
 
 					<div class="xans-element- xans-product xans-product-action"><!--구매·장바구니·관심상품·품절 버튼 -->
 <div class="ec-base-button df-action-button">
-							<div class="ac-buy wrap"><a href="#none" class="df-btn buy " onclick="product_submit(1, '/exec/front/order/basket/', this)"><span id="btnBuy">바로구매</span><span class="displaynone" id="btnReserve">예약주문</span></a></div>
-							<div class="ac-basket wrap"><a href="#none" class="df-btn basket " onclick="product_submit(2, '/exec/front/order/basket/', this)">장바구니</a></div>
+							<div class="ac-buy wrap"><a href="#none" class="df-btn buy " onclick="product_buy()"><span id="btnBuy">바로구매</span><span class="displaynone" id="btnReserve">예약주문</span></a></div>
+							<div class="ac-basket wrap"><a href="#none" class="df-btn basket " onclick="">장바구니</a></div>
 							<div class="ac-soldout wrap displaynone"><span class="df-btn soldout">품절</span></div>
 						</div>
 
