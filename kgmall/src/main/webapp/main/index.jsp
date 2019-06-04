@@ -75,7 +75,7 @@
 
 </ul><!-- 커뮤니티(전체 게시판) 메뉴 --><ul class="xans-element- xans-layout xans-layout-boardinfo bnb">
 <li class="xans-record-">
-<a href="/board/free/list.html?board_no=1">CART</a> </li>
+<a href="/kgmall/cart/cart.do">CART</a> </li>
 <li class="xans-record-">
 <a href="/kgmall/notice/noticeForm.do?pg=1">NOTICE</a> </li>
 <li class="xans-record-">

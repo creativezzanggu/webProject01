@@ -5,8 +5,9 @@
 <link rel="stylesheet" type="text/css" href="../css/joinCss2.css" />
 
 <form id="joinForm" name="joinForm" action="/kgmall/user/write.do" method="post">
+<div id="container">
+<div id="contents">
 <div class="xans-element- xans-member xans-member-join">
-
 <br>
 <h2>&nbsp; 회원가입</h2><br>
 <div class="ec-base-box typeThinBg gStrong">
@@ -104,11 +105,11 @@
   <a href="#" class="df-btn big dark mr-3" id="joinBtn"> 회원가입</a>
   <a href="" class="df-btn big medium ml-3" id="cancelBtn">취소</a>
 </div>
+</div>
+</div>
 </form>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.4.0.min.js"></script>
 <script>
-
-
 $('#check1').click(function(){
 	if($("input:checkbox[id='check1']").is(":checked")){
 		if($("input:checkbox[id='check2']").is(":checked")){
@@ -192,7 +193,6 @@ $('#check2').click(function(){
 				}
 			});
 		}
-		
 	});
 	
 	$('#email2').focusout(function(){
@@ -260,10 +260,6 @@ $('#check2').click(function(){
 				$('#joinForm').submit();
 				alert("회원가입 완료");
 			}
-			
 		}
 	});
-	
-	
-	
 </script>
