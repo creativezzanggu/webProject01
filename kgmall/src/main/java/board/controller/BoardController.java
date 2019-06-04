@@ -126,13 +126,19 @@ public class BoardController {
 	
 	@RequestMapping(value="/myQAList.do", method=RequestMethod.GET)
 	public ModelAndView myQAList(HttpSession session) {
-		Map<String,String> map = new HashMap<String,String>();
-		map.put("id", session.getAttribute("id").toString());
-		List<QADTO> list = boardDAO.myQAList(map);
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("list",list);
-		mav.setViewName("jsonView");
-		return mav;
+		Map<String,String> map = new HashMap<String,String>();
+		if(map==null) {
+			mav.addObject("0", 0);
+			mav.setViewName("jsonView");
+			return mav;
+		}else {
+			map.put("id", session.getAttribute("id").toString());
+			List<QADTO> list = boardDAO.myQAList(map);
+			mav.addObject("list",list);
+			mav.setViewName("jsonView");
+			return mav;
+		}
 	}
 	
 	@RequestMapping(value="/QAPaging.do", method=RequestMethod.GET)

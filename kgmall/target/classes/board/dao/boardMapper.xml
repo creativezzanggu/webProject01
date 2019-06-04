@@ -12,7 +12,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="myQAList" parameterType="java.util.Map" resultType="qa">
-		select * from qa where id=#{id}
+		select * from qa where id=#{id} order by seq desc
 	</select>
 	
 	<select id="QASelectList" parameterType="java.util.Map" resultType="qa">
