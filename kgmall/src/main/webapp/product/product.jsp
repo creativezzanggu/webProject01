@@ -26,6 +26,8 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 </style>
 <%String name= request.getParameter("name");%>
+
+
 <script type="text/javascript">
 
 //comma
@@ -45,7 +47,7 @@ $(document).ready(function(){
 		data : "name="+name,
 		dataType : 'json',
 		success : function(data){
-			var discount = 0.3;
+			var discount = 0;
 			sale=(data.productDTO.price)-(data.productDTO.price*discount);
 			$(".big_img_size").attr("src", "../image/productImage/"+data.productDTO.imageLink).attr("alt",data.productDTO.name);
 			$('#headingAreaH2').append(data.productDTO.name);
@@ -83,24 +85,12 @@ $(document).ready(function(){
 				}else if(color[i]=="green"){
 					$('#headColor').append("<span style='background-color:#00ff00' class='chips xans-record-'></span>");					
 					$('#selectColor').append("<li class='licolor' id='greenli' option_value='화이트' link_image='' title='GREEN'><a id='green' href='javascript:colorFcn(green.id)' style='background-color:#00ff00'><span>초록</span></a></li>");
-				}else if(color[i]=="red"){
-					$('#headColor').append("<span style='background-color:#ff0000' class='chips xans-record-'></span>");				
-					$('#selectColor').append("<li class='licolor' id='redli' option_value='화이트' link_image='' title='RED'><a id='red' href='javascript:colorFcn(red.id)' style='background-color:#ff0000'><span>빨강</span></a></li>");	
 				}else if(color[i]=="blue"){
 					$('#headColor').append("<span style='background-color:#0000ff' class='chips xans-record-'></span>");					
 					$('#selectColor').append("<li class='licolor' id='blueli' option_value='화이트' link_image='' title='BLUE'><a id='blue' href='javascript:colorFcn(blue.id)' style='background-color:#0000ff'><span>파랑</span></a></li>");
-				}else if(color[i]=="purple"){
-					$('#headColor').append("<span style='background-color:#660099' class='chips xans-record-'></span>");					
-					$('#selectColor').append("<li class='licolor' id='purpleli' option_value='화이트' link_image='' title='PURPLE'><a id='purple' href='javascript:colorFcn(purple.id)' style='background-color:#660099'><span>보라</span></a></li>");
-				}else if(color[i]=="gray"){
-					$('#headColor').append("<span style='background-color:#bbbbbb' class='chips xans-record-'></span>");	
-					$('#selectColor').append("<li class='licolor' id='grayli' option_value='화이트' link_image='' title='GRAY'><a id='gray' href='javascript:colorFcn(gray.id)' style='background-color:#bbbbbb'><span>회색</span></a></li>");
-				}else if(color[i]=="orange"){
-					$('#headColor').append("<span style='background-color:#ffcc99' class='chips xans-record-'></span>");
-					$('#selectColor').append("<li class='licolor' id='orangeli'option_value='화이트' link_image='' title='ORANGE'><a id='orange' href='javascript:colorFcn(orange.id)' style='background-color:#ffcc99'><span>오렌지</span></a></li>");
-				}else if(color[i]=="navy"){
-					$('#headColor').append("<span style='background-color:#000033' class='chips xans-record-'></span>");				
-					$('#selectColor').append("<li class='licolor' id='navyli' option_value='화이트' link_image='' title='NAVY'><a id='navy' href='javascript:colorFcn(navy.id)' style='background-color:#000033'><span>남색</span></a></li>");
+				}else if(color[i]=="pink"){
+					$('#headColor').append("<span style='background-color:#FF007F' class='chips xans-record-'></span>");				
+					$('#selectColor').append("<li class='licolor' id='pinkli' option_value='화이트' link_image='' title='PINK'><a id='pink' href='javascript:colorFcn(pink.id)' style='background-color:#FF007F'><span>분홍</span></a></li>");
 				}
 			}
 		}
@@ -265,12 +255,59 @@ function product_buy(){
 	if($('.productCount').length==0){
 		alert("구매하실 항목을 선택해 주세요");
 	}else{
-		//db
+		var id = <%=(String)session.getAttribute("id")%>
+
+		if(id==null){
+			
+			alert("로그인을 해 주세요");
+			for(var i=0; i<$('.productCount').length; i++){
+				var productName = $('.productCount').eq(i).attr("id");
+				var number = parseInt($('.productCount').eq(i).val());
+				$.ajax({
+					type : 'POST',
+					url : '/kgmall/product/createCookie.do',
+					data : {'productName' : productName , 'number' : number}
+				});
+			}		
+			location.href="/kgmall/user/loginForm.do";
+		}else{
+			$.ajax({
+				type : 'POST',
+				url : '/kgmall/product/deleteCookie.do'
+			});
+			for(var i=0; i<$('.productCount').length; i++){
+				var productName = $('.productCount').eq(i).attr("id");
+				var number = parseInt($('.productCount').eq(i).val());
+				$.ajax({
+					type : 'POST',
+					url : '/kgmall/product/createCookie.do',
+					data : {'productName' : productName , 'number' : number}
+				});
+			}
+			location.href="/kgmall/product/order.do?name="+name+"&total="+total;
+		}
+	}
+}
+
+
+//장바구니
+function product_cart(){
+	if($('.productCount').length==0){
+		alert("구매하실 항목을 선택해 주세요");
+	}else{
+		for(var i=0; i<$('.productCount').length; i++){
+			var productName = $('.productCount').eq(i).parents("tr").attr("id");
+			var number = parseInt($('.productCount').eq(i).val());
+			$.ajax({
+				type : 'POST',
+				url : '/kgmall/product/createCookie.do',
+				data : {'productName' : productName , 'number' : number}
+			});
+		}
+		location.href="/kgmall/cart/cart.do";
 	}
 }
 </script>
-
-
 
 
 <!-- 
@@ -572,7 +609,7 @@ Home</a></li>
 					<div class="xans-element- xans-product xans-product-action"><!--구매·장바구니·관심상품·품절 버튼 -->
 <div class="ec-base-button df-action-button">
 							<div class="ac-buy wrap"><a href="#none" class="df-btn buy " onclick="product_buy()"><span id="btnBuy">바로구매</span><span class="displaynone" id="btnReserve">예약주문</span></a></div>
-							<div class="ac-basket wrap"><a href="#none" class="df-btn basket " onclick="">장바구니</a></div>
+							<div class="ac-basket wrap"><a href="#none" class="df-btn basket " onclick="product_cart()">장바구니</a></div>
 							<div class="ac-soldout wrap displaynone"><span class="df-btn soldout">품절</span></div>
 						</div>
 

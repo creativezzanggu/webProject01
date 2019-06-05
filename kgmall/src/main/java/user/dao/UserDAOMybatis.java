@@ -78,6 +78,16 @@ public class UserDAOMybatis implements UserDAO {
 	}
 
 
+	@Override
+	public void infoUpdate(Map<String, String> map) {
+		shaPasswordEncoderTest = new ShaPasswordEncoderTest();
+		String passwd = shaPasswordEncoderTest.PasswordEncoder(map.get("pwd"));
+		map.put("pwd",passwd);
+		sqlSession.update("userSQL.infoUpdate",map);
+		
+	}
+
+
 	
 	
 }

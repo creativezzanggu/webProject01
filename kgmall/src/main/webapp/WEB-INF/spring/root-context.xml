@@ -21,8 +21,16 @@
 	<context:component-scan base-package="product.bean"/>
 	<context:component-scan base-package="admin.dao" />
 	<context:component-scan base-package="admin.bean" />
+<<<<<<< HEAD
 	<context:component-scan base-package="list.dao" />
 	<context:component-scan base-package="list.bean" />
+=======
+	<context:component-scan base-package="cart.dao" />
+	<context:component-scan base-package="cart.bean" />
+	
+	
+	
+>>>>>>> branch 'develop' of https://github.com/creativezzanggu/webProject01.git
 	
 	<tx:annotation-driven transaction-manager="transactionManager"/>	
 	

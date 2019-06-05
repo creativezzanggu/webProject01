@@ -70,98 +70,106 @@
 
 </div>
 
-<!-- 비주얼 -->
-<!--
-  디자인플로어 라이센스 안내
-  대표전화: 1544-4941
-  홈페이지: http://www.dfloor.co.kr
-  특허청출원번호: 4120150030498
-  본 내용의 저작권은 디자인플로어에 있습니다. 1Copy 라이센스로 최초 적용된 호스팅(사이트 및 쇼핑몰)에서만 사용권을 부여합니다.
-  구매타입에 따른 커스터마이징 지원 범위를 초과하는 요청과 소스의 직접 수정, 타업체 수정등 최초의 소스에서 변형되는 경우 유/무
-  상의 여부와 관계없이 디자인플로어에서는 처리의무가 없으며 작업이 불가능할 수 있으니 주의해주시기 바랍니다.
--->
-
-
 
 <!-- 상품	 DB에서 가져오기 -->
 
-
 <div id="df-movelist" class="axis-y"><div><ul><li><a href="#none"><span>WEEKLY BEST<p>한 주간의 인기상품을 만나보세요</p></span></a></li><li><a href="#none"><span>NEW ARRIVALS<p>매일매일 업데이트되는 신상품을 확인하세요</p></span></a></li><li><a href="#none"><span><time></time>타임세일<p>메인화면·특정 카테고리 어디든 사용가능한 타임세일</p></span></a></li><li><a href="#none"><span>추가메인 상품분류<p>메인화면에 상품분류를 추가하거나 수정할 수 있습니다.</p></span></a></li><li><a href="#none"><span>PHOTO REVIEW</span></a></li></ul><div class="movebox"></div></div></div>
-
-
-
 
 <!-- 메인 상품분류별 배너 -->
 <!-- 배너관리 : 메인상품 분류별 배너 -->
 <ul id="df-divbanner" class="xans-element- xans-bannermanage2 xans-bannermanage2-display-3 xans-bannermanage2-display xans-bannermanage2-3">
 
-
 </ul>
 <!-- 메인 상품분류 목록 1 -->
-<div class="xans-element- xans-product xans-product-listmain-2 xans-product-listmain xans-product-2 content-wrap df-list-product"><!--
-        $count = 72
-        ※ 노출시킬 상품개수를 숫자로 설정할 수 있습니다. 개수가 너무 많으면 쇼핑몰에 부하가 발생할 수 있습니다.
-    -->
+<div class="xans-element- xans-product xans-product-listmain-2 xans-product-listmain xans-product-2 content-wrap df-list-product">
 <div class="tit-product-main">
 		<h2><span>신상품<p>새로 들어온 상품을 확인해보세요</p></span></h2>
 		<span style="display: none;"><img src="" class="imgtitle"></span>
 	</div>
 <ul class="prdList grid3">
-<li id="anchorBoxId_97" class="item xans-record-"><div class="box">
-	<span class="label-best">BEST</span>
-	<span class="label-new">NEW</span>
-	<div class="thumbnail">
-		<span class="chk"><input type="checkbox" class="ProductCompareClass xECPCNO_97 displaynone"></span>
-		
-		
-		<a href="#none" name="anchorBoxName_97" df-data-rolloverimg1="//ecudemo31431.cafe24.com/web/product/medium/df_sample_list15.jpg" df-data-rolloverimg2="//ecudemo31431.cafe24.com/web/product/tiny/df_sample_list15_on.jpg"><img src="//ecudemo31431.cafe24.com/web/product/medium/df_sample_list15.jpg" id="eListPrdImage97_3" alt="이거 하나면 끝!" class="thumb"><!-- 일반목록꾸미기아이콘 --><!-- 검색목록꾸미기아이콘 --></a>
-		
-		
-		
-		
-		
-		<div class="likeButton likePrd likePrd_97 ">
-			<button type="button"><img src="http://ecudemo31431.cafe24.com/web/upload/icon_201606070448230500.png" class="likePrdIcon" product_no="97" category_no="1" icon_status="off" alt="좋아요 등록 전"><strong class=""><span class="likePrdCount likePrdCount_97">10</span></strong></button><!-- 좋아요 개수 -->
-			<span class="bg-layer1"></span><span class="bg-layer2"></span><span class="bg-layer3"></span><span class="bg-layer4"></span>
-		</div>
-		<span class="discountrate" df-data-custom="10000" df-data-price="100"><!-- 자동으로 할인율 계산해줌 -->
-			<span class="rate">99</span>%
-			<span class="df-data-sale displaynone"></span>
-		<span>
-	</span></span>
+
+<!-- a -->
+
+<li id="anchorBoxId_97" class="item xans-record-">
+<div class="box">
+<span class="label-best">BEST</span>
+<span class="label-new">NEW</span>
+<div class="thumbnail">
+	<span class="chk"><input type="checkbox" class="ProductCompareClass xECPCNO_97 displaynone"></span>
+	<a href="#none" name="anchorBoxName_97" df-data-rolloverimg1="//ecudemo31431.cafe24.com/web/product/medium/df_sample_list15.jpg" df-data-rolloverimg2="//ecudemo31431.cafe24.com/web/product/tiny/df_sample_list15_on.jpg"><img src="//ecudemo31431.cafe24.com/web/product/medium/df_sample_list15.jpg" id="eListPrdImage97_3" alt="이거 하나면 끝!" class="thumb"><!-- 일반목록꾸미기아이콘 --><!-- 검색목록꾸미기아이콘 --></a>
+	<div class="likeButton likePrd likePrd_97 ">
+		<button type="button">
+		<img src="http://ecudemo31431.cafe24.com/web/upload/icon_201606070448230500.png" class="likePrdIcon" 
+			 product_no="97" category_no="1" icon_status="off" alt="좋아요 등록 전">
+		<strong class=""><span class="likePrdCount likePrdCount_97">10</span></strong></button><!-- 좋아요 개수 -->
+		<span class="bg-layer1"></span>
+		<span class="bg-layer2"></span>
+		<span class="bg-layer3"></span>
+		<span class="bg-layer4"></span>
+	</div>
+	<span class="discountrate" df-data-custom="1000" df-data-price="100"><!-- 자동으로 할인율 계산해줌 -->
+		<span class="rate"></span>%
+		<span></span>
+	</span>
 </div>
-	<div class="timesale" df-data-timesales="" df-data-timesalee="">
-<span class="before"></span><span class="ing"></span><span class="after"></span>
-</div>
-	<div class="timesaleSpace"></div>
-	<div class="description">
-		<div class="fadearea">
-			<div class="">
-				<div class="xans-element- xans-product xans-product-colorchip-2 xans-product-colorchip xans-product-2 colorList color"><span style="background-color:#E8E8E8" color_no="" displaygroup="3" class="chips xans-record-"></span>
-<span style="background-color:#61BA8E" color_no="" displaygroup="3" class="chips xans-record-"></span><span style="background-color:#629AD1" color_no="" displaygroup="3" class="chips xans-record-"></span></div>
+<div class="description">
+	<div class="fadearea">
+		<div class="">
+			<div class="xans-element- xans-product xans-product-colorchip-2 xans-product-colorchip xans-product-2 colorList color">
+				<span style="background-color:#E8E8E8" color_no="" displaygroup="3" class="chips xans-record-"></span>
+				<span style="background-color:#61BA8E" color_no="" displaygroup="3" class="chips xans-record-"></span>
+				<span style="background-color:#629AD1" color_no="" displaygroup="3" class="chips xans-record-"></span>
 			</div>
-			<p class="name">
-				<a href="/product/detail.html?product_no=97&amp;cate_no=1&amp;display_group=3" class=""><strong class="title displaynone"><span style="font-size:12px;color:#555555;">상품명</span> :</strong> <span style="font-size:12px;color:#555555;">이거 하나면 끝!</span></a>
-			</p>
-			<ul class="xans-element- xans-product xans-product-listitem-2 xans-product-listitem xans-product-2"><!-- 일반목록 상품정보 --><li item-title="상품요약정보" class=" xans-record-">
-<strong class="title displaynone"><span style="font-size:11px;color:#888888;">상품요약정보</span> :</strong> <span style="font-size:11px;color:#888888;">튼튼합니다.</span></li>
-<li item-title="모델" class=" xans-record-">
-<strong class="title displaynone"><span style="font-size:11px;color:#555555;">모델</span> :</strong> <span style="font-size:11px;color:#555555;">김태연</span></li>
-<li item-title="소비자가" class=" xans-record-">
-<strong class="title displaynone"><span style="font-size:12px;color:#999999;">소비자가</span> :</strong> <span style="font-size:12px;color:#999999;text-decoration:line-through;">10,000 won</span></li>
-<li item-title="판매가" class=" xans-record-">
-<strong class="title displaynone"><span style="font-size:12px;color:#333333;">판매가</span> :</strong> <span style="font-size:12px;color:#333333;">100 won</span><span id="span_product_tax_type_text" style=""> </span></li>
-</ul>
-<div class="icon">  <img src="http://ecudemo31431.cafe24.com/web/upload/icon_201601081108247400.gif" class="icon_img" alt="추천"> <img src="http://ecudemo31431.cafe24.com/web/upload/icon_201601081108285800.gif" class="icon_img" alt="New">   </div>
 		</div>
-		<a href="../product/select.do?name=product1" class="fadebox-link"></a>
+		<p class="name">
+		<a href="/product/detail.html?product_no=97&amp;cate_no=1&amp;display_group=3">
+			<span style="font-size:12px;color:#555555;">이거 하나면 끝!</span>
+		</a>
+		</p>
+		<ul class="xans-element- xans-product xans-product-listitem-2 xans-product-listitem xans-product-2"><!-- 일반목록 상품정보 -->
+			<li item-title="상품요약정보" class=" xans-record-">
+				<span style="font-size:11px;color:#888888;">튼튼합니다.</span>
+			</li>
+			<li item-title="모델" class=" xans-record-">
+				<span style="font-size:11px;color:#555555;">소의섭</span>
+			</li>
+			<li item-title="소비자가" class=" xans-record-">
+				<span style="font-size:12px;color:#999999;text-decoration:line-through;">1,000 won</span>
+			</li>
+			<li item-title="판매가" class=" xans-record-">
+				<span style="font-size:12px;color:#333333;">100 won</span>
+				<span id="span_product_tax_type_text"></span>
+			</li>
+		</ul>
+		<div class="icon">
+			<img src="http://ecudemo31431.cafe24.com/web/upload/icon_201601081108247400.gif" class="icon_img" alt="추천">
+			<img src="http://ecudemo31431.cafe24.com/web/upload/icon_201601081108285800.gif" class="icon_img" alt="New">
+		</div>
 	</div>
-	<div class="status">
-		 <div class="button">
-			<span class="option "><a onclick="optionPreview(this,'listmain-2',97,'T')" "=""><img src="http://ecudemo31431.cafe24.com/web/upload/icon_201606070448120000.png" id="btn_preview_listmain-297" class="option_preview" alt="옵션 미리보기  "></a></span><span class="basket "><img src="http://ecudemo31431.cafe24.com/web/upload/icon_201606070448018000.png" onclick="CAPP_SHOP_NEW_PRODUCT_OPTIONSELECT.selectOptionCommon(97,  1, 'basket', '')" alt="장바구니 담기" class="ec-admin-icon cart"></span><span class="wishIcon "><img src="http://ecudemo31431.cafe24.com/web/upload/icon_201606070448153300.png" class="icon_img ec-product-listwishicon" alt="관심상품 등록 전" productno="97" categoryno="1" icon_status="off" login_status="T" individual-set="F"></span><span class="newwindow use-targetblank"><a href="/product/detail.html?product_no=97&amp;cate_no=1&amp;display_group=3" target="_blank"><img src="http://ecudemo31431.cafe24.com/web/upload/dfloor_base/web/icon/ico_blank.png"></a></span>
-		 </div>
+	<a href="../product/select.do?name=product1" class="fadebox-link"></a>
+</div>
+
+<div class="status">
+	<div class="button">
+		<span class="option ">
+			<a onclick="optionPreview(this,'listmain-2',97,'T')" "="">
+				<img src="http://ecudemo31431.cafe24.com/web/upload/icon_201606070448120000.png" id="btn_preview_listmain-297" class="option_preview" alt="옵션 미리보기  ">
+			</a>
+		</span>
+		<span class="basket">
+			<img src="http://ecudemo31431.cafe24.com/web/upload/icon_201606070448018000.png" onclick="CAPP_SHOP_NEW_PRODUCT_OPTIONSELECT.selectOptionCommon(97,  1, 'basket', '')" alt="장바구니 담기" class="ec-admin-icon cart"></span>
+		<span class="wishIcon">
+			<img src="http://ecudemo31431.cafe24.com/web/upload/icon_201606070448153300.png" class="icon_img ec-product-listwishicon" alt="관심상품 등록 전" productno="97" categoryno="1" icon_status="off" login_status="T" individual-set="F"></span>
+		<span class="newwindow use-targetblank">
+			<a href="/product/detail.html?product_no=97&amp;cate_no=1&amp;display_group=3" target="_blank">
+				<img src="http://ecudemo31431.cafe24.com/web/upload/dfloor_base/web/icon/ico_blank.png">
+			</a></span>
 	</div>
-</div></li>
+</div>
+</div>
+</li>
+
+<!-- b -->
         <li id="anchorBoxId_98" class="item xans-record-"><div class="box">
 	<span class="label-best">BEST</span>
 	<span class="label-new">NEW</span>
@@ -172,13 +180,9 @@
 			<button type="button"><img src="http://ecudemo31431.cafe24.com/web/upload/icon_201606070448230500.png" class="likePrdIcon" product_no="98" category_no="1" icon_status="off" alt="좋아요 등록 전"><strong class=""><span class="likePrdCount likePrdCount_98">68</span></strong></button>
 			<span class="bg-layer1"></span><span class="bg-layer2"></span><span class="bg-layer3"></span><span class="bg-layer4"></span>
 		</div>
-		<span class="discountrate displaynone" df-data-custom="" df-data-price="47000" style="display: none;">
-			<span class="rate"></span>%
-			<span class="df-data-sale displaynone"></span>
-		<span>
-	</span></span>
+		<span class="rate"></span>
 </div>
-	<div class="timesale" df-data-timesales="" df-data-timesalee="">
+	<div class="timesale">
 <span class="before"></span><span class="ing"></span><span class="after"></span>
 </div>
 	<div class="timesaleSpace"></div>

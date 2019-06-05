@@ -147,7 +147,6 @@ $(function(){
 					$('#email1').focus();
 				}else{
 					$('#joinForm').submit();
-					alert("회원가입 완료");
 				}
 			}
 		});

@@ -17,4 +17,5 @@ public class ProductDTO {
 	private String productImage1;
 	private String productImage2;
 	private String productImage3;
+	private String logtime;
 }

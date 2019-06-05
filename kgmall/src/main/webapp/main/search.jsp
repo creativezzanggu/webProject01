@@ -76,7 +76,7 @@ Search</strong></li>
 </div>
     </div>
 <div class="searchResult">
-		<p class="record">Total <strong id="search_cnt">0</strong> items</p>
+		<p class="record">Total <strong id="search_cnt"></strong> items</p>
 		<ul class="xans-element- xans-search xans-search-orderby listType">
 <li rel="recent" style="" class="btn_order xans-record-">신상품</li>
 <li rel="name" style="" class="btn_order xans-record-">상품명</li>
@@ -99,7 +99,8 @@ Search</strong></li>
 <c:if test="${list != null}">
 <div class="xans-element- xans-search xans-search-result df-list-product">
 <ul class="prdList grid3" id="product_list">
-
+	
+	
     </ul>
 </div>
 

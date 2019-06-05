@@ -1,5 +1,6 @@
 package product.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -21,9 +22,21 @@ public class ProductDAOMybatis implements ProductDAO {
 
 	@Override
 	public List<String> getColor(String name) {
+		name=name+"_%";
+		List<String> colorList = new ArrayList<String>();
 		name = name+"_%";
 		List<String> list = sqlSession.selectList("productSQL.getColor", name);
-		return list;
+		for(String c : list) {
+			String str[] = c.split("_");
+			colorList.add(str[1]);
+		}//색 뽑아오기
+		List<String> resultList = new ArrayList<String>();
+		for (int i = 0; i < colorList.size(); i++) {
+		    if (!resultList.contains(colorList.get(i))) {
+		        resultList.add(colorList.get(i));
+		    }
+		}//중복제거
+		return resultList;
 	}
 
 }
