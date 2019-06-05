@@ -28,4 +28,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="checkEmail" parameterType="String" resultType="String">
 		select email from usertable where email=#{email}
 	</select>
+	<update id="infoUpdate" parameterType="java.util.Map">
+		update usertable set pwd=#{pwd}, name=#{name}, phone=#{phone1}||'-'||#{phone2}||'-'||#{phone3}, email=#{email1}||'@'||#{email2} where id=#{id}
+	</update>
 </mapper>

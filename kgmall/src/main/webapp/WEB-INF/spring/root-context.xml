@@ -19,6 +19,8 @@
 	<context:component-scan base-package="main.dao"/>
 	<context:component-scan base-package="product.dao"/>
 	<context:component-scan base-package="product.bean"/>
+	<context:component-scan base-package="admin.dao" />
+	<context:component-scan base-package="admin.bean" />
 	
 	
 	<tx:annotation-driven transaction-manager="transactionManager"/>	
