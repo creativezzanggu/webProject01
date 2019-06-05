@@ -1704,22 +1704,5 @@ $(document).ready(function(){
 		}
 	});
 	
-	
-	<%
-	Cookie[] getCookie = request.getCookies();
-	if(getCookie != null){	
-		for(int i=0; i<getCookie.length-3; i++){
-			Cookie c = getCookie[i];
-			String name1 = c.getName(); // 쿠키 이름 가져오기
-			String value = c.getValue(); // 쿠키 값 가져오기
-	%>
-			$('#productName ').append(data.productDTO.name);
-	<%
-			System.out.println(name1);
-			System.out.println(request.getParameter("name"));
-			System.out.println(request.getParameter("total"));
-		}
-	}
-	%>
 });
 </script>

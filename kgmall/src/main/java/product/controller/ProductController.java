@@ -1,8 +1,10 @@
 package product.controller;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -70,6 +72,43 @@ public class ProductController {
 	public String order(@RequestParam String name, String total, Model model) {
 		model.addAttribute("display", "../product/order.jsp");
 		return "/main/index";
+	}
+	
+	@RequestMapping(value="/selectCookie.do",method=RequestMethod.POST)
+	public ModelAndView selectCookie(HttpServletResponse response,HttpServletRequest request){
+		ModelAndView mav = new ModelAndView();
+		Map<String,String> map= new HashMap<String, String>();
+		
+		Cookie[] getCookie = request.getCookies();
+		if(getCookie != null){	
+			for(int i=0; i<getCookie.length-3; i++){
+				Cookie c = getCookie[i];
+				String name1 = c.getName(); // 쿠키 이름 가져오기
+				String value = c.getValue(); // 쿠키 값 가져오기
+				map.put(name1, value);
+				
+			}
+			for( String key : map.keySet() ){
+	        }
+
+		}		
+		mav.addObject("map", map);
+		mav.setViewName("jsonView");
+		return mav;
+	}
+	
+	@RequestMapping(value="/selectDeleteCookie.do", method=RequestMethod.POST)
+	public void selectDeleteCookie(@RequestParam String productName, HttpServletResponse response,HttpServletRequest request) {
+		Cookie[] cookies = request.getCookies();
+		if(cookies != null){
+			for(int i=0; i< cookies.length; i++){
+				if(cookies[i].getName().equals(productName)) {
+					System.out.println(cookies[i].getName());
+					cookies[i].setMaxAge(0); // 유효시간을 0으로 설정
+					response.addCookie(cookies[i]); // 응답 헤더에 추가
+				}
+			}
+		}
 	}
 	
 }

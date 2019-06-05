@@ -47,7 +47,7 @@ $(document).ready(function(){
 		data : "name="+name,
 		dataType : 'json',
 		success : function(data){
-			var discount = 0.3;
+			var discount = 0;
 			sale=(data.productDTO.price)-(data.productDTO.price*discount);
 			$(".big_img_size").attr("src", "../image/productImage/"+data.productDTO.imageLink).attr("alt",data.productDTO.name);
 			$('#headingAreaH2').append(data.productDTO.name);
@@ -301,6 +301,25 @@ function product_buy(){
 			}
 			location.href="/kgmall/product/order.do?name="+name+"&total="+total;
 		}
+	}
+}
+
+
+//장바구니
+function product_cart(){
+	if($('.productCount').length==0){
+		alert("구매하실 항목을 선택해 주세요");
+	}else{
+		for(var i=0; i<$('.productCount').length; i++){
+			var productName = $('.productCount').eq(i).parents("tr").attr("id");
+			var number = parseInt($('.productCount').eq(i).val());
+			$.ajax({
+				type : 'POST',
+				url : '/kgmall/product/createCookie.do',
+				data : {'productName' : productName , 'number' : number}
+			});
+		}
+		location.href="/kgmall/cart/cart.do";
 	}
 }
 </script>
@@ -605,7 +624,7 @@ Home</a></li>
 					<div class="xans-element- xans-product xans-product-action"><!--구매·장바구니·관심상품·품절 버튼 -->
 <div class="ec-base-button df-action-button">
 							<div class="ac-buy wrap"><a href="#none" class="df-btn buy " onclick="product_buy()"><span id="btnBuy">바로구매</span><span class="displaynone" id="btnReserve">예약주문</span></a></div>
-							<div class="ac-basket wrap"><a href="#none" class="df-btn basket " onclick="">장바구니</a></div>
+							<div class="ac-basket wrap"><a href="#none" class="df-btn basket " onclick="product_cart()">장바구니</a></div>
 							<div class="ac-soldout wrap displaynone"><span class="df-btn soldout">품절</span></div>
 						</div>
 
