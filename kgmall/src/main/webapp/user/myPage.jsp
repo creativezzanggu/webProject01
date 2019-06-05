@@ -192,42 +192,41 @@ $(function(){
 		url : '/kgmall/board/myQAList.do',
 		dataType : 'json',
 		success : function(data){
-			if(data=="0"){
-				location.href="#";
-			}else{
+			
+			if(data.list!=""){
 				$('#empty3').attr("class","");
 			
-			$.each(data.list, function(index, items){
-				$('<tr/>').append($('<td/>',{
-					align : 'center',
-					text : items.seq
-				})).append($('<td/>',{
-					align : 'center',
-					text : items.category
-				})).append($('<td/>',{
-					align : 'center',
-					class : 'subject'
-					}).append($('<a/>',{
-						href : '/kgmall/board/QAview.do?seq='+items.seq,
-						text : items.subject
-					}))
-				).append($('<td/>',{
-					align : 'center',
-					text : items.id
-				})).append($('<td/>',{
-					align : 'center',
-					text : items.logtime
-				})).append($('<td/>',{
-					align : 'center',
-					text : items.hit
-				})).appendTo($('#myQA'));
-				
-				if(index==2){
-					return false;
-				}
-				
-				
-			});
+				$.each(data.list, function(index, items){
+					$('<tr/>').append($('<td/>',{
+						align : 'center',
+						text : items.seq
+					})).append($('<td/>',{
+						align : 'center',
+						text : items.category
+					})).append($('<td/>',{
+						align : 'center',
+						class : 'subject'
+						}).append($('<a/>',{
+							href : '/kgmall/board/QAview.do?seq='+items.seq,
+							text : items.subject
+						}))
+					).append($('<td/>',{
+						align : 'center',
+						text : items.id
+					})).append($('<td/>',{
+						align : 'center',
+						text : items.logtime
+					})).append($('<td/>',{
+						align : 'center',
+						text : items.hit
+					})).appendTo($('#myQA'));
+					
+					if(index==2){
+						return false;
+					}
+					
+					
+				});
 			}
 			
 		}

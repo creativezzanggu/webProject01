@@ -61,9 +61,6 @@ ALTER TABLE thumbsup
 ADD CONSTRAINTS fk FOREIGN KEY (id)
 REFERENCES usertable(id);
 
-
-
-
 -- 상품 테이블
 create table product(
 majorcategory varchar2(30), --대분류
