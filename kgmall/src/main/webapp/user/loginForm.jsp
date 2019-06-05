@@ -1,8 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "//www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="//www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
-
 <link rel="stylesheet" type="text/css" href="../css/loginCss1.css">
 <link rel="stylesheet" type="text/css" href="../css/loginCss2.css">
 
@@ -31,38 +28,4 @@
 </form>
 </link>
 </link>
-<script>
-	$('#writeForm').click(function(){
-		location.href="/kgmall/user/writeForm.do";
-	});
-	
-	$('#login').click(function(){
-		$('#idDiv,#pwdDiv').empty();
-		
-		if($('#id2').val().length == 0 ){
-			$('#idDiv').text('아이디를 입력해주세요').css("font-size","8pt");
-			$('#id2').focus();
-		}else if($('#pwd2').val().length == 0 ){
-			$('#pwdDiv').text('비밀번호를 입력해주세요').css("font-size","8pt");
-			$('#pwd2').focus();
-		}else{
-			$.ajax({
-				type : 'POST',
-				url : '/kgmall/user/getUser.do',
-				data : {'id' : $('#id2').val() , 'pwd' : $('#pwd2').val()},
-				dataType : 'json',
-				success : function(data){
-					$.each(data,function(){
-						if(this.ID){
-							alert("로그인성공");
-							location.href="/kgmall/main/index.do";
-						}else alert("아이디 또는 비밀번호를 다시 확인해주세요");
-					});
-					
-				}
-			});
-		}
-	});
-	
-</script>
-</html>
+<script type="text/javascript" src="../js/login.js"></script>
