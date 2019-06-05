@@ -6,7 +6,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import product.bean.ColorDTO;
 import product.bean.ProductDTO;
 
 @Repository
@@ -22,6 +21,7 @@ public class ProductDAOMybatis implements ProductDAO {
 
 	@Override
 	public List<String> getColor(String name) {
+		name = name+"_%";
 		List<String> list = sqlSession.selectList("productSQL.getColor", name);
 		return list;
 	}
