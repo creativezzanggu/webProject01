@@ -367,46 +367,6 @@
 				<li class="ico-cert"><a href="#" target="_blank"><i class="fa fa-barcode" aria-hidden="true"></i><span>정품인증</span></a></li>
 				<li class="ico-shortcut"><a href="#" onclick="winPop(this.href); return false;"><i class="fa fa-desktop" aria-hidden="true"></i><span>바로가기</span></a></li>
 			</ul>
-<!-- 에스크로 --><p class="escrow"><!--
-	※ 하단 에스크로인증링크 ※
-	에스크로 인증링크는 필수 연동되어야 합니다. 자세한 내용은 디자인플로어의 운영매뉴얼을 참고해주시고
-	직접 설정할 수 없는 경우 디자인플로어 수정·유지보수란 으로 요청해주세요.
-
-	●이니시스●
-	-사이즈: 550*380
-	-파일명 중 브랜드명: inicis
-	-링크: 관리자페이지 통합결제 이용현황에서 확인
-
-	●올앳페이●
-	-사이즈: 800*700 (전체창으로 표시됨)
-	-파일명 중 브랜드명: allatpay
-	-링크: 관리자페이지 통합결제 이용현황에서 확인
-
-	●올더게이트●
-	-사이즈: 400*315 
-	-파일명 중 브랜드명: allthegate
-	-링크: 관리자페이지 통합결제 이용현황에서 확인
-
-	●케이시피●
-	-사이즈: 500*세로450
-	-파일명 중 브랜드명: kcp
-	-링크: http://admin.kcp.co.kr/Modules/escrow/kcp_pop.jsp?site_cd=아이디값
-
-	●엘지유플러스●
-	-사이즈: 460*520
-	-파일명 중 브랜드명: lguplus
-	-링크: https://pgweb.uplus.co.kr/ms/escrow/s_escrowYn.do?mertid=아이디값
-
-	●세틀뱅크●
-	-사이즈: 414*428
-	-파일명 중 브랜드명: settlebank
-	-링크: 관리자페이지 통합결제 이용현황에서 확인
-
-	●케이에스넷●
-	-사이즈: 750*340
-	-파일명 중 브랜드명: ksnet
-	-링크: 관리자페이지 통합결제 이용현황에서 확인
--->
 
 
 <a href="#none" onclick="popWin = window.open('https://www.inicis.com/','windows','width=550,height=620,scrollbars=auto'); popWin.focus(); return false;">
@@ -423,46 +383,6 @@
 				<li class="ico-cert"><a href="#none" target="_blank"><img src="http://ecudemo31431.cafe24.com/web/upload/dfloor_base/web/img/mark_connect_certification.png" class="img_on" alt="genuine product certification"></a></li>
 				<!-- 에스크로 -->
 				<li class="ico-escrow">
-<!--
-	※ 하단 에스크로인증링크 ※
-	에스크로 인증링크는 필수 연동되어야 합니다. 자세한 내용은 디자인플로어의 운영매뉴얼을 참고해주시고
-	직접 설정할 수 없는 경우 디자인플로어 수정·유지보수란 으로 요청해주세요.
-
-	●이니시스●
-	-사이즈: 550*380
-	-파일명 중 브랜드명: inicis
-	-링크: 관리자페이지 통합결제 이용현황에서 확인
-
-	●올앳페이●
-	-사이즈: 800*700 (전체창으로 표시됨)
-	-파일명 중 브랜드명: allatpay
-	-링크: 관리자페이지 통합결제 이용현황에서 확인
-
-	●올더게이트●
-	-사이즈: 400*315 
-	-파일명 중 브랜드명: allthegate
-	-링크: 관리자페이지 통합결제 이용현황에서 확인
-
-	●케이시피●
-	-사이즈: 500*세로450
-	-파일명 중 브랜드명: kcp
-	-링크: http://admin.kcp.co.kr/Modules/escrow/kcp_pop.jsp?site_cd=아이디값
-
-	●엘지유플러스●
-	-사이즈: 460*520
-	-파일명 중 브랜드명: lguplus
-	-링크: https://pgweb.uplus.co.kr/ms/escrow/s_escrowYn.do?mertid=아이디값
-
-	●세틀뱅크●
-	-사이즈: 414*428
-	-파일명 중 브랜드명: settlebank
-	-링크: 관리자페이지 통합결제 이용현황에서 확인
-
-	●케이에스넷●
-	-사이즈: 750*340
-	-파일명 중 브랜드명: ksnet
-	-링크: 관리자페이지 통합결제 이용현황에서 확인
--->
 
 
 <a href="#none" onclick="popWin = window.open('https://www.inicis.com/','windows','width=550,height=620,scrollbars=auto'); popWin.focus(); return false;">
