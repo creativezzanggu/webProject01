@@ -190,11 +190,7 @@ $(document).ready(function(){
 		}
 	});
 	
-	function qaSelectPaging(pg){
-		alert(pg);
-		$('#pg').val(pg);
-		$('#board_category').trigger('change','trigger');
-	}
+	
 	
 	$('#board_category').change(function(event,str){
 		if(str!='trigger')$('#pg').val(1);
@@ -250,7 +246,7 @@ $(document).ready(function(){
 				$.ajax({
 					type : 'GET',
 					url : '/kgmall/board/QASelectPaging.do',
-					data : {'currentPage':'1',
+					data : {'currentPage':$('#pg').val(),
 						'pageBlock':'3',
 						'pageSize':'5',
 						'totalA':$('#totalA').val(),
@@ -263,12 +259,6 @@ $(document).ready(function(){
 			}
 		});
 	});
-	
-	function qaSearchPaging(pg){
-		alert(pg);
-		$('#pg').val(pg);
-		$('#qaSearchBtn').trigger('click','trigger');
-	}
 	
 	$('#qaSearchBtn').click(function(event,str){
 		if(str!='trigger')$('#pg').val(1);
@@ -327,8 +317,8 @@ $(document).ready(function(){
 					$.ajax({
 						type : 'POST',
 						url : '/kgmall/board/QASearchPaging.do',
-						data : {'currentPage':'1',
-							'pageBlock':'2',
+						data : {'currentPage':$('#pg').val(),
+							'pageBlock':'3',
 							'pageSize':'5',
 							'date' : $("select[name=search_date]").val(),
 							'key' : $("select[name=search_key]").val(),
@@ -346,6 +336,15 @@ $(document).ready(function(){
 		});
 	});
 	
-	
 });
+
+function qaSelectPaging(pg){
+	$('#pg').val(pg);
+	$('#board_category').trigger('change','trigger');
+}
+
+function qaSearchPaging(pg){
+	$('#pg').val(pg);
+	$('#qaSearchBtn').trigger('click','trigger');
+}
 </script>

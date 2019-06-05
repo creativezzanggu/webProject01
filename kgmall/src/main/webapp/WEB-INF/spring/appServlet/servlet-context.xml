@@ -33,6 +33,7 @@
 	<context:component-scan base-package="notice.controller"/>
 	<context:component-scan base-package="product.controller"/>
 	<context:component-scan base-package="cart.controller"/>
+	<context:component-scan base-package="admin.controller"/>
 	
 		
 	<beans:bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">

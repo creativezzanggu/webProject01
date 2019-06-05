@@ -173,7 +173,7 @@ public class BoardController {
 			pagingHTML.append("<p><a href='/kgmall/board/QA.do?pg="+(startPage-1)+"'><img src='../image/board_image/btn_pagingPrev_on.png' class='img_on' alt='prev'></a></p>");
 		for(int i=startPage; i<=endPage; i++) {
 			if(i==currentPage)
-				pagingHTML.append("<li><a href='/kgmall/board/QA.do?pg="+i+"' class='this'>"+i+"</a></li>");
+				pagingHTML.append("<li><a href='/kgmall/board/QA.do?pg="+i+"' class='this' style='text-decoration: underline;'>"+i+"</a></li>");
 			else if(i<=endPage)
 				pagingHTML.append("<li><a href='/kgmall/board/QA.do?pg="+i+"' class='this'>"+i+"</a></li></ol>");
 		}
@@ -229,7 +229,7 @@ public class BoardController {
 			pagingHTML.append("<p><a href='javascript:void(0);' onclick='qaSelectPaging("+(startPage-1)+")'><img src='../image/board_image/btn_pagingPrev_on.png' class='img_on' alt='prev'></a></p>");
 		for(int i=startPage; i<=endPage; i++) {
 			if(i==currentPage)
-				pagingHTML.append("<li><a id='change' href='javascript:void(0);' onclick='qaSelectPaging("+i+")' class='this'>"+i+"</a></li>");
+				pagingHTML.append("<li><a id='change' style='text-decoration: underline;' href='javascript:void(0);' onclick='qaSelectPaging("+i+")' class='this'>"+i+"</a></li>");
 			else if(i<=endPage)
 				pagingHTML.append("<li><a id='change' href='javascript:void(0);' onclick='qaSelectPaging("+i+")' class='this'>"+i+"</a></li></ol>");
 		}
@@ -278,7 +278,7 @@ public class BoardController {
 			pagingHTML.append("<p><a href='javascript:void(0);' onclick='qaSearchPaging("+(startPage-1)+")'><img src='../image/board_image/btn_pagingPrev_on.png' class='img_on' alt='prev'></a></p>");
 		for(int i=startPage; i<=endPage; i++) {
 			if(i==currentPage)
-				pagingHTML.append("<li><a id='change' href='javascript:void(0);' onclick='qaSearchPaging("+i+")' class='this'>"+i+"</a></li></ol>");
+				pagingHTML.append("<li><a id='change' style='text-decoration: underline;' href='javascript:void(0);' onclick='qaSearchPaging("+i+")' class='this'>"+i+"</a></li></ol>");
 			else if(i<=endPage)
 				pagingHTML.append("<li><a id='change' href='javascript:void(0);' onclick='qaSearchPaging("+i+")' class='this'>"+i+"</a></li></ol>");
 		}
