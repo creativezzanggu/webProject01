@@ -1,6 +1,5 @@
 package main.controller;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -11,10 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import main.dao.MainDAO;
 import product.bean.ProductDTO;
 
@@ -41,7 +36,7 @@ public class MainController {
 		return "/main/index";
 	}
 	
-	@RequestMapping(value="/main/searchDetail.do", method=RequestMethod.GET)
+	@RequestMapping(value="/main/searchDetail.do", method=RequestMethod.POST)
 	public ModelAndView searchDetail(@RequestParam Map<String, String> map) {
 		List<ProductDTO> list = mainDAO.searchDetail(map);
 		

@@ -2,7 +2,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<<<<<<< HEAD
 
 <html xmlns="//www.w3.org/1999/xhtml">
 <head>
@@ -10,11 +9,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width">
 <!--PG크로스브라우징필수내용 시작--><meta http-equiv="Cache-Control" content="no-cache"><meta http-equiv="Expires" content="0"><meta http-equiv="Pragma" content="no-cache"><!--PG크로스브라우징필수내용 끝-->
 <link href="http://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
-=======
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "//www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width"><!--PG크로스브라우징필수내용 시작--><meta http-equiv="Cache-Control" content="no-cache"><meta http-equiv="Expires" content="0"><meta http-equiv="Pragma" content="no-cache"><!--PG크로스브라우징필수내용 끝--><link href="../css/mainCss1.css" rel="stylesheet">
->>>>>>> branch 'develop' of https://github.com/creativezzanggu/webProject01.git
 <meta name="naver-site-verification" content="dd85968ac57ed1d64007f8ef41ba2a6cf51dc33f">
 <link rel="canonical" href="http://ecudemo31431.cafe24.com/">
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.4.0.min.js"></script>
@@ -88,7 +85,7 @@
 					</c:if>
 					<c:if test="${id == 'admin'}">
 					<li class="myshop">
-					<a href="/kgamll/admin/productInsertForm.do">상품등록</a>
+					<a href="/kgmall/admin/productInsertForm.do">상품등록</a>
 					</li>
 					</c:if>						
 
@@ -382,46 +379,6 @@
 				<li class="ico-cert"><a href="#" target="_blank"><i class="fa fa-barcode" aria-hidden="true"></i><span>정품인증</span></a></li>
 				<li class="ico-shortcut"><a href="#" onclick="winPop(this.href); return false;"><i class="fa fa-desktop" aria-hidden="true"></i><span>바로가기</span></a></li>
 			</ul>
-<!-- 에스크로 --><p class="escrow"><!--
-	※ 하단 에스크로인증링크 ※
-	에스크로 인증링크는 필수 연동되어야 합니다. 자세한 내용은 디자인플로어의 운영매뉴얼을 참고해주시고
-	직접 설정할 수 없는 경우 디자인플로어 수정·유지보수란 으로 요청해주세요.
-
-	●이니시스●
-	-사이즈: 550*380
-	-파일명 중 브랜드명: inicis
-	-링크: 관리자페이지 통합결제 이용현황에서 확인
-
-	●올앳페이●
-	-사이즈: 800*700 (전체창으로 표시됨)
-	-파일명 중 브랜드명: allatpay
-	-링크: 관리자페이지 통합결제 이용현황에서 확인
-
-	●올더게이트●
-	-사이즈: 400*315 
-	-파일명 중 브랜드명: allthegate
-	-링크: 관리자페이지 통합결제 이용현황에서 확인
-
-	●케이시피●
-	-사이즈: 500*세로450
-	-파일명 중 브랜드명: kcp
-	-링크: http://admin.kcp.co.kr/Modules/escrow/kcp_pop.jsp?site_cd=아이디값
-
-	●엘지유플러스●
-	-사이즈: 460*520
-	-파일명 중 브랜드명: lguplus
-	-링크: https://pgweb.uplus.co.kr/ms/escrow/s_escrowYn.do?mertid=아이디값
-
-	●세틀뱅크●
-	-사이즈: 414*428
-	-파일명 중 브랜드명: settlebank
-	-링크: 관리자페이지 통합결제 이용현황에서 확인
-
-	●케이에스넷●
-	-사이즈: 750*340
-	-파일명 중 브랜드명: ksnet
-	-링크: 관리자페이지 통합결제 이용현황에서 확인
--->
 
 
 <a href="#none" onclick="popWin = window.open('https://www.inicis.com/','windows','width=550,height=620,scrollbars=auto'); popWin.focus(); return false;">
@@ -438,46 +395,6 @@
 				<li class="ico-cert"><a href="#none" target="_blank"><img src="http://ecudemo31431.cafe24.com/web/upload/dfloor_base/web/img/mark_connect_certification.png" class="img_on" alt="genuine product certification"></a></li>
 				<!-- 에스크로 -->
 				<li class="ico-escrow">
-<!--
-	※ 하단 에스크로인증링크 ※
-	에스크로 인증링크는 필수 연동되어야 합니다. 자세한 내용은 디자인플로어의 운영매뉴얼을 참고해주시고
-	직접 설정할 수 없는 경우 디자인플로어 수정·유지보수란 으로 요청해주세요.
-
-	●이니시스●
-	-사이즈: 550*380
-	-파일명 중 브랜드명: inicis
-	-링크: 관리자페이지 통합결제 이용현황에서 확인
-
-	●올앳페이●
-	-사이즈: 800*700 (전체창으로 표시됨)
-	-파일명 중 브랜드명: allatpay
-	-링크: 관리자페이지 통합결제 이용현황에서 확인
-
-	●올더게이트●
-	-사이즈: 400*315 
-	-파일명 중 브랜드명: allthegate
-	-링크: 관리자페이지 통합결제 이용현황에서 확인
-
-	●케이시피●
-	-사이즈: 500*세로450
-	-파일명 중 브랜드명: kcp
-	-링크: http://admin.kcp.co.kr/Modules/escrow/kcp_pop.jsp?site_cd=아이디값
-
-	●엘지유플러스●
-	-사이즈: 460*520
-	-파일명 중 브랜드명: lguplus
-	-링크: https://pgweb.uplus.co.kr/ms/escrow/s_escrowYn.do?mertid=아이디값
-
-	●세틀뱅크●
-	-사이즈: 414*428
-	-파일명 중 브랜드명: settlebank
-	-링크: 관리자페이지 통합결제 이용현황에서 확인
-
-	●케이에스넷●
-	-사이즈: 750*340
-	-파일명 중 브랜드명: ksnet
-	-링크: 관리자페이지 통합결제 이용현황에서 확인
--->
 
 
 <a href="#none" onclick="popWin = window.open('https://www.inicis.com/','windows','width=550,height=620,scrollbars=auto'); popWin.focus(); return false;">

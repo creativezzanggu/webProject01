@@ -11,7 +11,7 @@
 	</head>
 	<body>
 		<div class="container" style ="width: 500px; margin-top : 10px;">
-			<form method="post" id="productInsertForm" name="productInsertForm" action="/inside/admin/productInsert.do">
+			<form method="post" id="productInsertForm" name="productInsertForm" action="/kgmall/admin/productInsert.do">
 				<h3>상품 등록</h3>
 				<div class="row">
 					<div class="form-group col-md-6" style ="width: 220px; padding: 0px 0px 0px 15px;"><!-- 위 오른쪽 아래 왼쪽 -->
@@ -111,8 +111,8 @@
 				</div>
 				
 				<div class=".col-md-6" style="padding: 0px 0px 5px 0px;">
-					<label>상품링크</label>
-					<input type="text" class="form-control" id="imageLink" name="imageLink">
+					<label>메인이미지</label>
+					<input type="text" id="imageLink" name="imageLink">
 					<div id="imageLinkDiv" style="color : red;"></div>
 				</div>
 				
@@ -132,6 +132,7 @@
 			</form>
 		</div>
 	</body>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-3.4.0.min.js"></script>
 	<script type="text/javascript">
 	function category(){
 		form = document.productInsertForm;
@@ -212,10 +213,10 @@
 			var ncs = new Array();
 			for(var i=0; i<$('.productCount').length; i++){
 				var array = parseInt($('.productCount').eq(i).val()); //수량
-				ncs[i] = $('#name').val() + "_" +  $('#productColor option:selected').val() + "_" + $('#productSize option:selected').val();
+				ncs[i] = $('.productCount').eq(i).attr('id');
 				$.ajax({
 					type : 'POST',
-					url : '/inside/admin/detailProductInsert.do',
+					url : '/kgmall/admin/detailProductInsert.do',
 					data : {'ncs' : ncs[i],
 							'array' : array},
 					dataType : 'json',
@@ -232,13 +233,14 @@
 		var nameValue = $('#name').val();
 		var colorValue = $('#productColor option:selected').val();
 		var sizeValue = $('#productSize option:selected').val();
-		
+		var name = "'"+nameValue+"_"+colorValue+"_"+sizeValue+"'";
 		if(($('#productColor').val().length == 0)){
 			return false;
 		} else if(($('#productSize').val().length == 0)){
 			return false;
 		} else {
-			$('#totalTable').append("<tr class='' id="+nameValue+"_"+colorValue+"_"+sizeValue+"><td>"+nameValue+"_"+colorValue+"_"+sizeValue+"</td><td><span><input class='productCount' id='"+nameValue+"_"+colorValue+"_"+sizeValue+"_text"+"' style='width:33px;' value='1' min='1' type='number'></span><input type='button' class='btnRemove' value='삭제'></td></tr>");
+			$('#totalTable').append("<tr class='' id="+nameValue+"_"+colorValue+"_"+sizeValue+"><td>"+nameValue+"_"+colorValue+"_"+sizeValue+"</td><td><span><input class='productCount' id='"
+					+nameValue+"_"+colorValue+"_"+sizeValue+"' style='width:33px;' value='1' min='1' type='number'></span><input value='삭제' type='button' onclick=listDelete("+name+")></td></tr>");
 		}
 	});
 	
@@ -269,5 +271,10 @@
 		
 		$('#majorCategory').focus();
 	});
+	</script>
+	<script type="text/javascript">
+		function listDelete(name1){
+			$('#'+name1).remove();
+		}
 	</script>
 </html>

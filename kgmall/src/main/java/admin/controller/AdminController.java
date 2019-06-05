@@ -18,21 +18,22 @@ public class AdminController {
 	private AdminDAO adminDAO;
 	
 	@RequestMapping(value="/productInsertForm.do", method=RequestMethod.GET)
-	public String productInsertForm() {
-		
-		return "/admin/productInsertForm";
+	public String productInsertForm(Model model) {
+		model.addAttribute("display","/admin/productInsertForm.jsp");
+		return "/main/index";
 	}
 	
 	@RequestMapping(value="/productInsert.do", method=RequestMethod.POST)
 	public String productInsert(@RequestParam Map<String,String> map,Model model) {	
-		model.addAttribute("display","/admin/productInsertForm.jsp");
+		System.out.println("productInsert"+map);
 		adminDAO.productInsert(map);
-		
+		model.addAttribute("display","/admin/productInsertForm.jsp");
 		return "/main/index";
 	}
 	
 	@RequestMapping(value="/detailProductInsert.do", method=RequestMethod.POST)
 	public void detailProductInsert(@RequestParam Map<String,String> map,Model model) {
+		System.out.println("detailProductInsert"+map);
 		adminDAO.detailProductInsert(map);
 	}
 }
