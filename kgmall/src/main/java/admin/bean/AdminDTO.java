@@ -1,5 +1,7 @@
 package admin.bean;
 
+import java.util.Date;
+
 import org.springframework.stereotype.Component;
 
 import lombok.Data;
@@ -18,4 +20,5 @@ public class AdminDTO {
 	private String productImage1; //�긽�뭹 �씠誘몄�1
 	private String productImage2; //�긽�뭹 �씠誘몄�2
 	private String productImage3; //�긽�뭹 �씠誘몄�3
+	private Date logtiem;
 }
