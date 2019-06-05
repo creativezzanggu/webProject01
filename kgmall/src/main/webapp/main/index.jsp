@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<<<<<<< HEAD
 
 <html xmlns="//www.w3.org/1999/xhtml">
 <head>
@@ -9,6 +10,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width">
 <!--PG크로스브라우징필수내용 시작--><meta http-equiv="Cache-Control" content="no-cache"><meta http-equiv="Expires" content="0"><meta http-equiv="Pragma" content="no-cache"><!--PG크로스브라우징필수내용 끝-->
 <link href="http://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+=======
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "//www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width"><!--PG크로스브라우징필수내용 시작--><meta http-equiv="Cache-Control" content="no-cache"><meta http-equiv="Expires" content="0"><meta http-equiv="Pragma" content="no-cache"><!--PG크로스브라우징필수내용 끝--><link href="../css/mainCss1.css" rel="stylesheet">
+>>>>>>> branch 'develop' of https://github.com/creativezzanggu/webProject01.git
 <meta name="naver-site-verification" content="dd85968ac57ed1d64007f8ef41ba2a6cf51dc33f">
 <link rel="canonical" href="http://ecudemo31431.cafe24.com/">
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.4.0.min.js"></script>
@@ -88,7 +94,7 @@
 
 </ul><!-- 커뮤니티(전체 게시판) 메뉴 --><ul class="xans-element- xans-layout xans-layout-boardinfo bnb">
 <li class="xans-record-">
-<a href="/board/free/list.html?board_no=1">CART</a> </li>
+<a href="/kgmall/cart/cart.do">CART</a> </li>
 <li class="xans-record-">
 <a href="/kgmall/notice/noticeForm.do?pg=1">NOTICE</a> </li>
 <li class="xans-record-">
@@ -513,7 +519,8 @@
 
 			<!-- 상품검색 -->
 			<li class="tooltip ajax search" df-data-ajaxname="search"><a href="#none"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-
+			
+			
 			<!-- 주문·배송조회 로그오프 상태 -->
 			<li df-data-ajaxname="login" df-data-query="?noMemberOrder&amp;returnUrl=%2Fmyshop%2Forder%2Flist.html" class="xans-element- xans-layout xans-layout-statelogoff tooltip ajax login "><a href="#none"><i class="fa fa-truck" aria-hidden="true"></i></a>
 </li>

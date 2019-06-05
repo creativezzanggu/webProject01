@@ -57,9 +57,16 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value="/QAwrite.do", method=RequestMethod.GET)
-	public String QAwrite(@RequestParam Map<String,String> map,Model model) {
+	public String QAwrite(Model model) {
 		model.addAttribute("display", "/board/QAwrite.jsp");
 		return "/main/index";
+	}
+	
+	@RequestMapping(value="/updateBoard.do", method=RequestMethod.POST)
+	public String updateBoard(@RequestParam Map<String,String> map,Model model,HttpSession session) {
+		boardDAO.QAupdate(map);
+		
+		return "redirect:/board/QA.do";
 	}
 	
 	@RequestMapping(value="/insertBoard.do", method=RequestMethod.POST)
@@ -67,18 +74,24 @@ public class BoardController {
 		map.put("id",(String) session.getAttribute("id"));
 		map.put("name",(String) session.getAttribute("name"));
 		map.put("email",(String) session.getAttribute("email"));
+		
 		boardDAO.QAinsert(map);
 		
 		return "redirect:/board/QA.do";
 	}
 	
-	@RequestMapping(value="/QAdelete.do", method=RequestMethod.GET)
-	public String QAdelete(@RequestParam String seq,Model model) {
+	@RequestMapping(value="/QAdelete.do", method=RequestMethod.POST)
+	@ResponseBody
+	public String QAdelete(@RequestParam String seq) {
 		boardDAO.QAdelete(seq);
-		int totalA = boardDAO.getTotal();
-		model.addAttribute("pg", '1');
-		model.addAttribute("totalA", totalA);
-		model.addAttribute("display", "/board/QA.jsp");
+		return "ok";
+	}
+	
+	@RequestMapping(value="/QAmodify.do", method=RequestMethod.POST)
+	public String QAmodify(@RequestParam Map<String,String> map,Model model,HttpSession session) {
+		QADTO qa = boardDAO.getQA(map.get("seq"));
+		model.addAttribute("qa", qa);
+		model.addAttribute("display", "/board/QAmodify.jsp");
 		return "/main/index";
 	}
 	
@@ -126,13 +139,19 @@ public class BoardController {
 	
 	@RequestMapping(value="/myQAList.do", method=RequestMethod.GET)
 	public ModelAndView myQAList(HttpSession session) {
-		Map<String,String> map = new HashMap<String,String>();
-		map.put("id", session.getAttribute("id").toString());
-		List<QADTO> list = boardDAO.myQAList(map);
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("list",list);
-		mav.setViewName("jsonView");
-		return mav;
+		Map<String,String> map = new HashMap<String,String>();
+		if(map==null) {
+			mav.addObject("0", 0);
+			mav.setViewName("jsonView");
+			return mav;
+		}else {
+			map.put("id", session.getAttribute("id").toString());
+			List<QADTO> list = boardDAO.myQAList(map);
+			mav.addObject("list",list);
+			mav.setViewName("jsonView");
+			return mav;
+		}
 	}
 	
 	@RequestMapping(value="/QAPaging.do", method=RequestMethod.GET)

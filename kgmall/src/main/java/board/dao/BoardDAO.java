@@ -42,6 +42,8 @@ public interface BoardDAO {
 
 	public void QAreplyUpdate(Map<String, String> map);
 
+	public void QAupdate(Map<String, String> map);
+
 
 
 }
