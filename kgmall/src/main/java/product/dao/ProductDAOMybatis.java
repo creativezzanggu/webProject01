@@ -24,7 +24,6 @@ public class ProductDAOMybatis implements ProductDAO {
 	public List<String> getColor(String name) {
 		name=name+"_%";
 		List<String> colorList = new ArrayList<String>();
-		name = name+"_%";
 		List<String> list = sqlSession.selectList("productSQL.getColor", name);
 		for(String c : list) {
 			String str[] = c.split("_");
@@ -38,5 +37,4 @@ public class ProductDAOMybatis implements ProductDAO {
 		}//중복제거
 		return resultList;
 	}
-
 }
