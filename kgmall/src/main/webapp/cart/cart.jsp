@@ -122,7 +122,8 @@ function deleteTr(value){
 	$('#'+value).remove();
 	$.ajax({
 		type : 'POST',
-		data : {'productName' : value},
+		data : {'productName' : value,
+				'id' : <%=(String)session.getAttribute("id")%>},
 		url : '/kgmall/product/selectDeleteCookie.do'
 	});
 	location.reload();
@@ -165,10 +166,43 @@ $(document).ready(function(){
 							totalPrice = totalPrice+(value*data.productDTO.price);
 							$('#domestic_ship_fee_sum').text(addComma(totalPrice));
 						}
-					}); 
+					});
 				});
 			}
 		});
 	}//id가 널일 때
+	else{
+		$.ajax({
+			type : 'POST',
+			url : '/kgmall/product/insertCookie.do',
+			data : {'id':id},
+			dataType : 'json',
+			success : function(data){
+				var list = data.list2;
+				$.each(list, function(index, value){
+					var str = value.product.split("_");
+					name=str[0];
+					if(name!=1){
+						$('#emptyCart').addClass('displaynone');	
+					} 
+					$.ajax({
+						type : 'POST',
+						url : '/kgmall/product/getDTO.do',
+						data : "name="+name,
+						dataType : 'json',
+						success : function(data){
+							$("#tablebody").append("<tr class='alltr' id="+value.product+"><td class=''><button value="+value.product+" type='' onclick='javascript:deleteTr(this.value)'><img class='' style='height:10px; width:10px;' src='../image/x.png'></button></td><td class='thumb gClearLine'><a href='../product/product.do'><img id = 'productImage' src='../image/productImage/"+data.productDTO.imageLink+"' height='50px' width='50px' onerror='this.src=//img.echosting.cafe24.com/thumb/img_product_small.gif;' alt=''></a></td><td class='gClearLine'><a id='productName' href='../product/product.do'><strong>"+data.productDTO.name+"</strong>"+"_"+str[1]+"_"+str[2]+"</a></td><td class=''></td><td class='right'><div class=''><strong>"+addComma(data.productDTO.price)+" won</strong><p class='displaynone'></p></div></td><td>"+value.productCount+"개"+"</td><td><div class='txtInfo'>기본배송<br></div></td><td rowspan='1' class=''>[선택]</td><td class='right'><strong>"+addComma(value.productCount*data.productDTO.price)+" won</strong><div class='displaynone'></div></td></tr>");
+							totalPrice = totalPrice+(value.productCount*data.productDTO.price);
+							$('#domestic_ship_fee_sum').text(addComma(totalPrice));
+						}
+					}); 
+				});
+				$.ajax({
+					type : 'POST',
+					url : '/kgmall/product/deleteCookie.do'
+				});
+			}
+		});
+	}
 });
 </script>

@@ -116,4 +116,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update qareply set content=#{content} where replyseq=#{replyseq}
 	</update>
 	
+	<update id="QAupdate" parameterType="java.util.Map">
+		update qa set content=#{editor},subject=#{subject},category=#{board_category},logtime=sysdate where seq=#{seq}
+	</update>
+	
 </mapper>

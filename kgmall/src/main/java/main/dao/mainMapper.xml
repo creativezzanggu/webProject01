@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mainSQL">
+	<select id="search" parameterType="String" resultType="product.bean.ProductDTO">
+		select * from product where name like '%'||#{keyword}||'%'
+	</select>
+
+	<select id="searchDetail" parameterType="java.util.Map" resultType="product.bean.ProductDTO">
+		select * from product where ${search_type} like '%'||#{keyword}||'%'
+		<if test="majorcategory != ''">
+        AND MAJORCATEGORY = #{majorcategory}
+   		</if>
+   		<if test="product_price1 != '' or product_price2 != ''">
+   			<if test="product_price1 ==''">
+   				AND PRICE <![CDATA[<=]]> #{product_price2}
+   			</if><if test="product_price2 == ''">
+   				AND PRICE >= #{product_price1}
+   			</if><if test="product_price1 !='' and product_price2 != ''">
+   				AND PRICE <![CDATA[<=]]> #{product_price2} AND PRICE >= #{product_price1}
+   			</if>
+   		</if>
+   		<if test="order != ''">
+   			order by ${order} ${order_by}
+   		</if>
+	</select>
+</mapper>

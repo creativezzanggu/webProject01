@@ -57,9 +57,16 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value="/QAwrite.do", method=RequestMethod.GET)
-	public String QAwrite(@RequestParam Map<String,String> map,Model model) {
+	public String QAwrite(Model model) {
 		model.addAttribute("display", "/board/QAwrite.jsp");
 		return "/main/index";
+	}
+	
+	@RequestMapping(value="/updateBoard.do", method=RequestMethod.POST)
+	public String updateBoard(@RequestParam Map<String,String> map,Model model,HttpSession session) {
+		boardDAO.QAupdate(map);
+		
+		return "redirect:/board/QA.do";
 	}
 	
 	@RequestMapping(value="/insertBoard.do", method=RequestMethod.POST)
@@ -67,18 +74,24 @@ public class BoardController {
 		map.put("id",(String) session.getAttribute("id"));
 		map.put("name",(String) session.getAttribute("name"));
 		map.put("email",(String) session.getAttribute("email"));
+		
 		boardDAO.QAinsert(map);
 		
 		return "redirect:/board/QA.do";
 	}
 	
-	@RequestMapping(value="/QAdelete.do", method=RequestMethod.GET)
-	public String QAdelete(@RequestParam String seq,Model model) {
+	@RequestMapping(value="/QAdelete.do", method=RequestMethod.POST)
+	@ResponseBody
+	public String QAdelete(@RequestParam String seq) {
 		boardDAO.QAdelete(seq);
-		int totalA = boardDAO.getTotal();
-		model.addAttribute("pg", '1');
-		model.addAttribute("totalA", totalA);
-		model.addAttribute("display", "/board/QA.jsp");
+		return "ok";
+	}
+	
+	@RequestMapping(value="/QAmodify.do", method=RequestMethod.POST)
+	public String QAmodify(@RequestParam Map<String,String> map,Model model,HttpSession session) {
+		QADTO qa = boardDAO.getQA(map.get("seq"));
+		model.addAttribute("qa", qa);
+		model.addAttribute("display", "/board/QAmodify.jsp");
 		return "/main/index";
 	}
 	
@@ -128,13 +141,13 @@ public class BoardController {
 	public ModelAndView myQAList(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		Map<String,String> map = new HashMap<String,String>();
-		if(map==null) {
+		map.put("id", session.getAttribute("id").toString());
+		List<QADTO> list = boardDAO.myQAList(map);
+		if(list==null) {
 			mav.addObject("0", 0);
 			mav.setViewName("jsonView");
 			return mav;
 		}else {
-			map.put("id", session.getAttribute("id").toString());
-			List<QADTO> list = boardDAO.myQAList(map);
 			mav.addObject("list",list);
 			mav.setViewName("jsonView");
 			return mav;
@@ -160,7 +173,7 @@ public class BoardController {
 			pagingHTML.append("<p><a href='/kgmall/board/QA.do?pg="+(startPage-1)+"'><img src='../image/board_image/btn_pagingPrev_on.png' class='img_on' alt='prev'></a></p>");
 		for(int i=startPage; i<=endPage; i++) {
 			if(i==currentPage)
-				pagingHTML.append("<li><a href='/kgmall/board/QA.do?pg="+i+"' class='this'>"+i+"</a></li>");
+				pagingHTML.append("<li><a href='/kgmall/board/QA.do?pg="+i+"' class='this' style='text-decoration: underline;'>"+i+"</a></li>");
 			else if(i<=endPage)
 				pagingHTML.append("<li><a href='/kgmall/board/QA.do?pg="+i+"' class='this'>"+i+"</a></li></ol>");
 		}
@@ -216,7 +229,7 @@ public class BoardController {
 			pagingHTML.append("<p><a href='javascript:void(0);' onclick='qaSelectPaging("+(startPage-1)+")'><img src='../image/board_image/btn_pagingPrev_on.png' class='img_on' alt='prev'></a></p>");
 		for(int i=startPage; i<=endPage; i++) {
 			if(i==currentPage)
-				pagingHTML.append("<li><a id='change' href='javascript:void(0);' onclick='qaSelectPaging("+i+")' class='this'>"+i+"</a></li>");
+				pagingHTML.append("<li><a id='change' style='text-decoration: underline;' href='javascript:void(0);' onclick='qaSelectPaging("+i+")' class='this'>"+i+"</a></li>");
 			else if(i<=endPage)
 				pagingHTML.append("<li><a id='change' href='javascript:void(0);' onclick='qaSelectPaging("+i+")' class='this'>"+i+"</a></li></ol>");
 		}
@@ -265,7 +278,7 @@ public class BoardController {
 			pagingHTML.append("<p><a href='javascript:void(0);' onclick='qaSearchPaging("+(startPage-1)+")'><img src='../image/board_image/btn_pagingPrev_on.png' class='img_on' alt='prev'></a></p>");
 		for(int i=startPage; i<=endPage; i++) {
 			if(i==currentPage)
-				pagingHTML.append("<li><a id='change' href='javascript:void(0);' onclick='qaSearchPaging("+i+")' class='this'>"+i+"</a></li></ol>");
+				pagingHTML.append("<li><a id='change' style='text-decoration: underline;' href='javascript:void(0);' onclick='qaSearchPaging("+i+")' class='this'>"+i+"</a></li></ol>");
 			else if(i<=endPage)
 				pagingHTML.append("<li><a id='change' href='javascript:void(0);' onclick='qaSearchPaging("+i+")' class='this'>"+i+"</a></li></ol>");
 		}

@@ -85,24 +85,12 @@ $(document).ready(function(){
 				}else if(color[i]=="green"){
 					$('#headColor').append("<span style='background-color:#00ff00' class='chips xans-record-'></span>");					
 					$('#selectColor').append("<li class='licolor' id='greenli' option_value='화이트' link_image='' title='GREEN'><a id='green' href='javascript:colorFcn(green.id)' style='background-color:#00ff00'><span>초록</span></a></li>");
-				}else if(color[i]=="red"){
-					$('#headColor').append("<span style='background-color:#ff0000' class='chips xans-record-'></span>");				
-					$('#selectColor').append("<li class='licolor' id='redli' option_value='화이트' link_image='' title='RED'><a id='red' href='javascript:colorFcn(red.id)' style='background-color:#ff0000'><span>빨강</span></a></li>");	
 				}else if(color[i]=="blue"){
 					$('#headColor').append("<span style='background-color:#0000ff' class='chips xans-record-'></span>");					
 					$('#selectColor').append("<li class='licolor' id='blueli' option_value='화이트' link_image='' title='BLUE'><a id='blue' href='javascript:colorFcn(blue.id)' style='background-color:#0000ff'><span>파랑</span></a></li>");
-				}else if(color[i]=="purple"){
-					$('#headColor').append("<span style='background-color:#660099' class='chips xans-record-'></span>");					
-					$('#selectColor').append("<li class='licolor' id='purpleli' option_value='화이트' link_image='' title='PURPLE'><a id='purple' href='javascript:colorFcn(purple.id)' style='background-color:#660099'><span>보라</span></a></li>");
-				}else if(color[i]=="gray"){
-					$('#headColor').append("<span style='background-color:#bbbbbb' class='chips xans-record-'></span>");	
-					$('#selectColor').append("<li class='licolor' id='grayli' option_value='화이트' link_image='' title='GRAY'><a id='gray' href='javascript:colorFcn(gray.id)' style='background-color:#bbbbbb'><span>회색</span></a></li>");
-				}else if(color[i]=="orange"){
-					$('#headColor').append("<span style='background-color:#ffcc99' class='chips xans-record-'></span>");
-					$('#selectColor').append("<li class='licolor' id='orangeli'option_value='화이트' link_image='' title='ORANGE'><a id='orange' href='javascript:colorFcn(orange.id)' style='background-color:#ffcc99'><span>오렌지</span></a></li>");
-				}else if(color[i]=="navy"){
-					$('#headColor').append("<span style='background-color:#000033' class='chips xans-record-'></span>");				
-					$('#selectColor').append("<li class='licolor' id='navyli' option_value='화이트' link_image='' title='NAVY'><a id='navy' href='javascript:colorFcn(navy.id)' style='background-color:#000033'><span>남색</span></a></li>");
+				}else if(color[i]=="pink"){
+					$('#headColor').append("<span style='background-color:#FF007F' class='chips xans-record-'></span>");				
+					$('#selectColor').append("<li class='licolor' id='pinkli' option_value='화이트' link_image='' title='PINK'><a id='pink' href='javascript:colorFcn(pink.id)' style='background-color:#FF007F'><span>분홍</span></a></li>");
 				}
 			}
 		}
@@ -270,10 +258,7 @@ function product_buy(){
 		var id = <%=(String)session.getAttribute("id")%>
 
 		if(id==null){
-			$.ajax({
-				type : 'POST',
-				url : '/kgmall/product/deleteCookie.do'
-			});
+			
 			alert("로그인을 해 주세요");
 			for(var i=0; i<$('.productCount').length; i++){
 				var productName = $('.productCount').eq(i).attr("id");
