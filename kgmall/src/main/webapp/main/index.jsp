@@ -79,8 +79,12 @@
 					<li class="myshop">
 					<a href="../user/myPage.do">MY PAGE</a>
 					</li>
-					</c:if>							
-</li>
+					</c:if>
+					<c:if test="${id == 'admin'}">
+					<li class="myshop">
+					<a href="#">상품등록</a>
+					</li>
+					</c:if>						
 
 </ul><!-- 커뮤니티(전체 게시판) 메뉴 --><ul class="xans-element- xans-layout xans-layout-boardinfo bnb">
 <li class="xans-record-">

@@ -6,8 +6,7 @@ import java.util.Map;
 import product.bean.ProductDTO;
 
 public interface MainDAO {
-
-	public List<ProductDTO> search(Map map);
-	public List<ProductDTO> keywordSearch(Map map);
+	public List<ProductDTO> search(String keyword);
+	public List<ProductDTO> searchDetail(Map<String, String> map);
 	
 }
