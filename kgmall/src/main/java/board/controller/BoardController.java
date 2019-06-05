@@ -141,13 +141,13 @@ public class BoardController {
 	public ModelAndView myQAList(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		Map<String,String> map = new HashMap<String,String>();
-		if(map==null) {
+		map.put("id", session.getAttribute("id").toString());
+		List<QADTO> list = boardDAO.myQAList(map);
+		if(list==null) {
 			mav.addObject("0", 0);
 			mav.setViewName("jsonView");
 			return mav;
 		}else {
-			map.put("id", session.getAttribute("id").toString());
-			List<QADTO> list = boardDAO.myQAList(map);
 			mav.addObject("list",list);
 			mav.setViewName("jsonView");
 			return mav;

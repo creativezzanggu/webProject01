@@ -16,8 +16,11 @@
 	<context:component-scan base-package="spring.conf"/>
 	<context:component-scan base-package="notice.bean"/>
 	<context:component-scan base-package="notice.dao"/>
+	<context:component-scan base-package="main.dao"/>
 	<context:component-scan base-package="product.dao"/>
 	<context:component-scan base-package="product.bean"/>
+	<context:component-scan base-package="admin.dao" />
+	<context:component-scan base-package="admin.bean" />
 	
 	
 	<tx:annotation-driven transaction-manager="transactionManager"/>	

@@ -1,16 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "//www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<<<<<<< HEAD
+
+<html xmlns="//www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width">
+<!--PG크로스브라우징필수내용 시작--><meta http-equiv="Cache-Control" content="no-cache"><meta http-equiv="Expires" content="0"><meta http-equiv="Pragma" content="no-cache"><!--PG크로스브라우징필수내용 끝-->
+<link href="http://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+=======
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "//www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width"><!--PG크로스브라우징필수내용 시작--><meta http-equiv="Cache-Control" content="no-cache"><meta http-equiv="Expires" content="0"><meta http-equiv="Pragma" content="no-cache"><!--PG크로스브라우징필수내용 끝--><link href="../css/mainCss1.css" rel="stylesheet">
+>>>>>>> branch 'develop' of https://github.com/creativezzanggu/webProject01.git
 <meta name="naver-site-verification" content="dd85968ac57ed1d64007f8ef41ba2a6cf51dc33f">
 <link rel="canonical" href="http://ecudemo31431.cafe24.com/">
-<script type="text/javascript" id="www-widgetapi-script" src="https://s.ytimg.com/yts/jsbin/www-widgetapi-vfl99qXyH/www-widgetapi.js" async=""></script><script src="//www.youtube.com/iframe_api"></script><script type="text/javascript" src="../js/cid.generate.js?vs=3d0b473968a0ec4ec41e3bf59df3aa51"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.4.0.min.js"></script>
+<script type="text/javascript" src="../js/index.js"></script>
+<script src="//www.youtube.com/iframe_api"></script>
+<script type="text/javascript" src="http://ecudemo31431.cafe24.com/app/Eclog/js/cid.generate.js?vs=3d0b473968a0ec4ec41e3bf59df3aa51"></script>
 <script type="text/javascript">
-    var EC_FRONT_EXTERNAL_SCRIPT_VARIABLE_DATA = {"common_member_id_crypt":""};
+                var EC_FRONT_EXTERNAL_SCRIPT_VARIABLE_DATA = {"common_member_id_crypt":"d47ad2da115fbf00a88411f25370cdf1b6b6a43af3c577f9e248ba62f453463f"};
 </script>
-<script type="text/javascript">var EC_SDE_SHOP_NUM = 1;var SHOP = {getLanguage : function() { return "ko_KR"; },getCurrency : function() { return "KRW"; },getFlagCode : function() { return "KR"; },isMultiShop : function() { return true; },isDefaultShop : function() { return true; },isDefaultLanguageShop : function(sLanguageCode) { return SHOP.isDefaultShop() && SHOP.isLanguageShop(sLanguageCode); },isKR : function() { return true; },isUS : function() { return false; },isJP : function() { return false; },isCN : function() { return false; },isTW : function() { return false; },isES : function() { return false; },isPT : function() { return false; },isLanguageShop : function(sLanguageCode) { return sLanguageCode === "ko_KR"; },getDefaultShopNo : function() { return 1; },getProductVer : function() { return 2; },isSDE : function() { return true; }};var EC_COMMON_UTIL = {convertSslForString : function(sString) { return sString.replace(/http:/gi, '');},convertSslForHtml : function(sHtml) { return sHtml.replace(/((?:src|href)\s*=\s*['"])http:(\/\/(?:[a-z0-9\-_\.]+)\/)/ig, '$1$2');},getProtocol : function() { return 'http'; },moveSsl : function() { if (EC_COMMON_UTIL.getProtocol() === 'http') { var oLocation = jQuery(window.location); var sUrl = 'https://' + oLocation.attr('host') + oLocation.attr('pathname') + oLocation.attr('search'); window.location.replace(sUrl); } }};</script><script type="text/javascript">            var EC_ROOT_DOMAIN = "cafe24.com";
+<script type="text/javascript">var EC_SDE_SHOP_NUM = 1;var SHOP = {getLanguage : function() { return "ko_KR"; },getCurrency : function() { return "KRW"; },getFlagCode : function() { return "KR"; },isMultiShop : function() { return true; },isDefaultShop : function() { return true; },isDefaultLanguageShop : function(sLanguageCode) { return SHOP.isDefaultShop() && SHOP.isLanguageShop(sLanguageCode); },isKR : function() { return true; },isUS : function() { return false; },isJP : function() { return false; },isCN : function() { return false; },isTW : function() { return false; },isES : function() { return false; },isPT : function() { return false; },isLanguageShop : function(sLanguageCode) { return sLanguageCode === "ko_KR"; },getDefaultShopNo : function() { return 1; },getProductVer : function() { return 2; },isSDE : function() { return true; }};var EC_COMMON_UTIL = {convertSslForString : function(sString) { return sString.replace(/http:/gi, '');},convertSslForHtml : function(sHtml) { return sHtml.replace(/((?:src|href)\s*=\s*['"])http:(\/\/(?:[a-z0-9\-_\.]+)\/)/ig, '$1$2');},getProtocol : function() { return 'http'; },moveSsl : function() { if (EC_COMMON_UTIL.getProtocol() === 'http') { var oLocation = jQuery(window.location); var sUrl = 'https://' + oLocation.attr('host') + oLocation.attr('pathname') + oLocation.attr('search'); window.location.replace(sUrl); } }};</script>
+<script type="text/javascript">            
+			var EC_ROOT_DOMAIN = "cafe24.com";
             var EC_GLOBAL_INFO = (function() {
                 var oData = {"base_domain":"ecudemo31431.cafe24.com","root_domain":"cafe24.com","is_global":false,"country_code":"KR","language_code":"ko_KR"};
                 
@@ -36,9 +52,8 @@
                     }
                 };
             })();</script>
-<script type="text/javascript" src="http://code.jquery.com/jquery-3.4.0.min.js"></script>
-<link rel="stylesheet" type="text/css" href="../css/mainCss2.css">
-<link rel="stylesheet" type="text/css" href="../css/mainCss3.css">
+<link rel="stylesheet" type="text/css" href="http://ecudemo31431.cafe24.com/ind-script/optimizer.php?filename=tZTBbsMgDIbvaa97Djft9gI777Q3AOImbIAZNlv69iNqV0WqJk0dHKJgE39_BPYPE3mEfp8gJhqT8pCQKSeDYJjhmCgIGPKewrYkHuAv36PpmFwWS6HTNN9ZmEXuFXXqhOm-UlHa4S-lKkZ4JpUGeF1Dbo4HzSYzJi6LPKCnQ_946CFm7azZTOId8ICbAdmOAfjdhr6H4eiI0opXMl07cjkhytKCnG0TKmMLrFaMnVhx7eg3fVwXX3pzyEY6Z7nSdZ53Swo48PLsnuqAo8ujPfe1Ehwpndbrqho4d3pmZwdM8PaRseB_4to6bBI5p9VV6Jqoo1RMp_hUsSn1VUzHX3yrxN0lsfW2YnstZIagQvYjyWRNbXQiTUIt5qE4e6TA9rPJMJvMQr72JAhFrUIobboO_qmy_LgvtuAQzj4PPjuxPFF8aWETqJKZLq_dfsF_Aw&amp;type=css&amp;k=1f91cba0c3c4e11789a3392aef312faa33c9eb79&amp;t=1559179802">
+<link rel="stylesheet" type="text/css" href="http://ecudemo31431.cafe24.com/ind-script/optimizer.php?filename=rZBLDsIwDAX3LVvOYUVwE05QEre1cOwoTgq9PWHDR-ygG2ueZL-RDLNGBPR9NczWoAaMenDHg4NUz0y-n0tksIB9QKNJwC4kzkEYWTVD4jqRtNSNdDsPIpg_QlfWhG7nzfbws6tdQ9RQGYGHVWuBWLmQzZpOM6VEMm1u8CpLKyGV5P8s_3rVldoCt5E_09aeqAsyWXnnrR0ZF8Lrizbtx1tHYmUYEQM86aG4Aw&amp;type=css&amp;k=4de9394e8875e15150957694c6141523af0a50b4&amp;t=1556586844">
 
 <link rel="stylesheet" type="text/css" href="http://ecudemo31431.cafe24.com/ind-script/optimizer.php?filename=tZXhUsMgDMe_d_vqc8Q6fQPPB9AnoJC1OCCYgG5vL123c-f0zqv0Q3uQkt8_KSHAQB6hvWOITD0rD4xCmTWCFoEtU0igyXsK62K4gb-sR90IuZwshaaj_UzHnNJcUacOyPNck-oc_uKqYoSXgSI8XzKejoyyxmSdvnluixt-EO--ZLONSu_g9S0jHyC63NsgECnmOL1niHek2Fz4oV5lQZYyyAY9bdr7TQsxd87q1ZC8AzG4Mii2DyA7G9r2SPMlB4fnXMBgUtb9k2u2jojH8AXEK06MYz1hMCDsbML6cStj7LiZytVja8qRwlniscaf-SFyRqfGyOuRy1GgnMBnl6yU8nkZbIw29NUVNIX3AinBR12nZEaNqfUUS3PVhKqRpwSWIGe7CFVwCWynBJtkk1uOftXT6-JPp6hxVipt5_S1mEBKky7P7UMd8NT3j3WtEvZUroKLcVUN3DfdXpw1yKdbZ32ejzqf&type=css&k=00ecde62f9a09de2bbea9018362261d05a6ce239&t=1555846190">
 <link rel="stylesheet" type="text/css" href="http://ecudemo31431.cafe24.com/ind-script/optimizer.php?filename=tdLBUsQgDAbge9urzxHZ9TF8CUrTNgoJEtjdvv1SrTqeF08kPzNfMgywSkBA1xfFpLUoEwY5m5ezgVhGT65fc_CgE_YTKi0M-k5sDEyzF0kQfVmIAW-duiTejzbB20fBtA0_weBUn-DRSTZGhVk42yvqblX1s--OYAjEbUZ9ywpsuYRF8kquNZ1klCztVCchCNekS6hRWOmC_6G7olnCg_JOBpmKR_B2k5IhFJ9JV4mvpLnN3l-3NQJFm9x6HM-nNvzx9euTzHQbLTOmP02Xt4im9ayEF8Lrb7X7dw&type=css&k=0b74ca8685776a5715c458b48650fbc4cb864f21&t=1556586844">
@@ -70,8 +85,12 @@
 					<li class="myshop">
 					<a href="../user/myPage.do">MY PAGE</a>
 					</li>
-					</c:if>							
-</li>
+					</c:if>
+					<c:if test="${id == 'admin'}">
+					<li class="myshop">
+					<a href="/kgamll/admin/productInsertForm.do">상품등록</a>
+					</li>
+					</c:if>						
 
 </ul><!-- 커뮤니티(전체 게시판) 메뉴 --><ul class="xans-element- xans-layout xans-layout-boardinfo bnb">
 <li class="xans-record-">
@@ -147,21 +166,17 @@
 				
 				<!-- 바로가기 -->
 							</ul><div id="search-box">
-	<form id="searchBarForm" name="" action="/product/search.html" method="get" target="_self" enctype="multipart/form-data">
-<input id="banner_action" name="banner_action" value="" type="hidden"><div class="xans-element- xans-layout xans-layout-searchheader "><!--
-			$product_page=/product/detail.html
-			$category_page=/product/list.html
-		-->
+	<form id="searchBarForm" action="/kgmall/main/search.do" >
+<div class="xans-element- xans-layout xans-layout-searchheader ">
 <fieldset>
 <legend>검색</legend>
-			<input id="keyword" name="keyword" fw-filter="" fw-label="검색어" fw-msg="" class="inputTypeText" placeholder="" onmousedown="SEARCH_BANNER.clickSearchForm(this)" value="" type="text"><a href="#none" onclick="SEARCH_BANNER.submitSearchBanner(this); return false;"><i class="fa fa-search"></i></a>
+			<input id="keyword" name="keyword" fw-filter="" fw-label="검색어" fw-msg="" class="" placeholder="" value="" type="text"></input><a href="#none" id="searchKeyword" ><i class="fa fa-search"></i></a>
 		</fieldset>
 </div>
 </form></div>
 
 		</div>
 	</div>
-
 	<div style="height: 52px;"><!-- Fixed Area -->
 		<div id="lnb" df-fixed-id="menu"><!-- 헤더·카테고리 -->
 
@@ -614,7 +629,7 @@
 <script type="text/javascript" src="http://ecudemo31431.cafe24.com/ind-script/optimizer.php?filename=tVTdTuswDH6B3fIc1hAXXIMOV8AQEw_gJW6b1Y1znGTQ8_QnHRNiYvx0ZaqqKq6_z_7s2NBIRzA_V6gUO3oWbUEpSlZDsI7g5pd-to5n8JVfdgFNC-u_mbTffeazi_LsIYNKXcCwIW9FIdoWIunGGYqfRDdY0flFcTxM9N41BnU-Vd87WjG5I59uRLtr8UmFmfQwjt0Knl7FPb6jYPzXs6AdBepywuTEL1aD6JERg3BfOeaRraCXROqR484wW9VuC5rKY0RaN5nFutKIWGoSpzIRRufrqSwdJbSY8HBrMARYNhL2GnOj5QrBtXSd-KfkeDT0LnNysfy7dTGNRkdCNc1I3YFz7XyEDbIrcsso7vS_GSYTDqX1Nn4kLgyh9JtOF6EhDnRCBQ16y6cMUHaDq_rT8Zc9kn4hfxaDTNDK9yv3k3v1k8HCRLVo__VwXAmq3UMX62w1WEdHvKfn4X1QsdmkRRhW9pKYTDqKalf9dRR_bCoL9u1R2Nfk4c9LUtwSbc_b41LYSh4k_Qc&amp;type=js&amp;k=ba8d9975e19e826e792e7309c8cbad287d2c55ab&amp;t=1557687796"></script>
 <script type="text/javascript" src="http://ecudemo31431.cafe24.com/ind-script/optimizer.php?filename=rZVBbsIwEEUPANueY9TeoEArIUFBRO1-cIbExPZYY6dpbt8EUAtSQSXJIlbmK__529bEkLMleHwS8MKZoAX0HpKcPWwocCmKYB_gVdhFeKMKVj5qdvDyFQVb4VgfyrVoReN9eIABoXOL2eDQmQ7eYK0j2QHR8waXaJcZSsiQaqXhg0sDnmAoKPZh_1CnbG2_mGcoFwYBTbRLBwHNMOIgoA80OsXrB2r0Ft61R1VcAKelCDlVQ2imGvnr7fEvvzpVox2Lxdg3yVCYMmrTaZObZy2clioudIg9Ec_d2-0XkkRWRSfGQhcEE-EqkExR5dSd0qMjz_ynFd2NOflgRhG1gUnpUkONaLnz_m7oU1MV0RSn1ymX7kayZR3-hrWyb_6vc7fj6_Y1-_LS7VtlzJ5u5F-ia-6ZC1tFW8PZ3xY5-y6P1pCLOmoKd02AoXbqOHb2WbJbks72laQk6nAa3w&amp;type=js&amp;k=b7c36bfa1811014339712088b43bcc81a5effc18&amp;t=1558462804"></script>
 <script type="text/javascript" src="http://ecudemo31431.cafe24.com/ind-script/optimizer.php?filename=tZTNbtswEITvsa95DoqSLUvH1gHag4MGaYGeV8uVRYvisvxJobev4gZo2ktRMb2IB2m-nRGHFANPJGTphfN89jAJcE7cg4UziUcKnDySuAQBYbb487l9D2GkiDZuL-FWrCc4r5EyGQ-eVcL1To6cHNucLPfa0PJ-tf6OHAe9fv5XHQbklJHAE1KG_PEq_8IRzDHLxyevyK_vA1nqdW4nTzBnePjgQa1vwrsUeYKo8Yr5PPD39aVMJuoHdsmtR8wnPdLL-crb2JN-IqPtyDavGx91iOzntWYcxMGzoc0TGK1gQa1PxKD-Sez-vKciTe4qDGoUhEnRxJXcVfL567pu6q7pij3ui6puuwp3fUuyxVaqtpVSdLjDHvaNLMuyg67ucVe0bXloVCdlia1AOtQNlXDAQ4EKoZJtQU3VUV-qPcjyryN-OSXcpEA-_O7Spc5o3AxxMksE2igK-mxFGLVd_KneMPvnKMjT9HrfM2jOpLO24vItkZ9flhu5leW22k76f8ywfGTbL6r4JvBA8fWBzPuxqr8JMDlDbwjsIGhceD8A&amp;type=js&amp;k=1cc8ed9afc61cd5e4e1f4019492e35c2a7f55a20&amp;t=1558894315"></script>
-<script type="text/javascript" src="../js/optimizer_tZmxc.js"></script>
+<script type="text/javascript" src="http://ecudemo31431.cafe24.com/ind-script/optimizer.php?filename=tZMxcoQwDEV72Dbn0DCbm-QEgAWIyJZj2SzcPp7MApu0Md1_bp79LcEkFgH7OikGzSEZtHJv3u8N-NQx9fUULYMarA0qjQ70k1zTgBlYJIDnNJLLVPVtxFHC9ppvltxt1jcopMG16lZlMhhg_kqYDTtfoNI-CHPXHq7joLQsV-aDmNRHJo1_8AKZoaVrncstvkIx0aw_Q5A0ii188yj-vPkBhSUDrafkgCpuHpv_l5TbsflzGYHbTVIEmziSTuI_JvKe3Fj4OY-8H8-l-UUXDJaVBfcR3vMFmoAL4eNMFyw_OY3tgGjgSE_LNw&amp;type=js&amp;k=14244da5bfdc8baef95a32bf0bba0d5e375bc8b2&amp;t=1555848171"></script>
 <script>
 $('#mainLogo').click(function(){
 	location.href="/kgmall/main/index.do";

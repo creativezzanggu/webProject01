@@ -53,16 +53,13 @@ CREATE SEQUENCE replyseq NOCACHE NOCYCLE;
 
 
 -- 따봉 테이블
-create table tumbsup(
+create table thumbsup(
     id varchar2(30)
 );
 
 ALTER TABLE thumbsup
 ADD CONSTRAINTS fk FOREIGN KEY (id)
 REFERENCES usertable(id);
-
-
-
 
 -- 상품 테이블
 create table product(
