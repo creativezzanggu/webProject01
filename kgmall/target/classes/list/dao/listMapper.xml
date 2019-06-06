@@ -13,4 +13,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		(select * from product order by logtime desc)tt) 
  		where rn between  #{startNum} and #{endNum}
 	</select>
+	
+	<select id="getColor" parameterType="String" resultType="String">
+ 		select productName from productdetail where productname like #{name}
+ 	</select>
 </mapper>

@@ -11,4 +11,6 @@ public interface ListDAO {
 
 	public List<ListDTO> getProductList(Map<String, Integer> map);
 
+	public List<String> getColor(String name);
+
 }
