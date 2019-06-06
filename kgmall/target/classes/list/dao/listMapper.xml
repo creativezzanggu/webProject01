@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="listSQL">
+	<select id="getTotal" resultType="Integer">
+		select count(*) from product where MAJORCATEGORY='BOTTOM'
+	</select>
+	
+	<select id="getProductList" parameterType="java.util.Map" resultType="productlist">
+		select * from 
+		(select rownum rn,tt.* from 
+		(select * from product order by logtime desc)tt) 
+ 		where rn between  #{startNum} and #{endNum}
+	</select>
+</mapper>
