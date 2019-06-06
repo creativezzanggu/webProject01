@@ -127,7 +127,9 @@ public class ProductController {
 				CartDTO cartDTO = new CartDTO();
 				Cookie c = getCookie[i];
 				cartDTO.setProduct(c.getName()); // 쿠키 이름 가져오기
-				cartDTO.setProductCount(Integer.parseInt(c.getValue())); // 쿠키 값 가져오기
+				if(c.getValue().length()<10) {
+					cartDTO.setProductCount(Integer.parseInt(c.getValue())); // 쿠키 값 가져오기
+				}
 				cartDTO.setSellId(id);
 				list.add(cartDTO);
 			}
