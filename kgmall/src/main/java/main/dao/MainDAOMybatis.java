@@ -17,12 +17,8 @@ public class MainDAOMybatis implements MainDAO{
 	private SqlSession sqlSession;
 
 	@Override
-	public List<ProductDTO> search(String keyword) {
-		return sqlSession.selectList("mainSQL.search", keyword);
-	}
-
-	@Override
 	public List<ProductDTO> searchDetail(Map<String, String> map) {
+		System.out.println(map.get("keyword"));
 		return sqlSession.selectList("mainSQL.searchDetail", map);
 	}
 }

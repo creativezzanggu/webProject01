@@ -13,6 +13,7 @@ public class ProductDTO {
 	private String name;
 	private String code;
 	private int price;
+	private int thumbsup; //thumbsup 컬럼 추가 필요!
 	private String imageLink;
 	private String productImage1;
 	private String productImage2;
