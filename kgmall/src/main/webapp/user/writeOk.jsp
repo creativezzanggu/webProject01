@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<link rel="stylesheet" type="text/css" href="../css/loginCss1.css">
-<link rel="stylesheet" type="text/css" href="../css/loginCss2.css">
+<link rel="stylesheet" type="text/css" href="../css/loginCss1.css"/>
+<link rel="stylesheet" type="text/css" href="../css/loginCss2.css"/>
 
 <form id="loginForm" action="/kgmall/user/getUser.do" method="post">
 <div class="xans-element- xans-member xans-member-login ">
@@ -14,5 +14,4 @@
 </div></div>
 </fieldset>
 </form>
-</link>
-</link>
+
