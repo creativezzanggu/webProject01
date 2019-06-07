@@ -3,9 +3,6 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mainSQL">
-	<select id="search" parameterType="String" resultType="product.bean.ProductDTO">
-		select * from product where name like '%'||#{keyword}||'%'
-	</select>
 
 	<select id="searchDetail" parameterType="java.util.Map" resultType="product.bean.ProductDTO">
 		select * from product where ${search_type} like '%'||#{keyword}||'%'
@@ -25,4 +22,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    			order by ${order} ${order_by}
    		</if>
 	</select>
+	
+	
 </mapper>

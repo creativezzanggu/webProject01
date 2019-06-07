@@ -1,29 +1,21 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "//www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<<<<<<< HEAD
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-=======
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
->>>>>>> branch 'develop' of https://github.com/creativezzanggu/webProject01.git
+
 
 <html xmlns="//www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width">
 <!--PG크로스브라우징필수내용 시작--><meta http-equiv="Cache-Control" content="no-cache"><meta http-equiv="Expires" content="0"><meta http-equiv="Pragma" content="no-cache"><!--PG크로스브라우징필수내용 끝-->
-<<<<<<< HEAD
+
 <link href="http://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
-=======
-<link href="http://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
->>>>>>> branch 'develop' of https://github.com/creativezzanggu/webProject01.git
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "//www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
-<<<<<<< HEAD
 <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width"><!--PG크로스브라우징필수내용 시작--><meta http-equiv="Cache-Control" content="no-cache"><meta http-equiv="Expires" content="0"><meta http-equiv="Pragma" content="no-cache"><!--PG크로스브라우징필수내용 끝--><link href="../css/mainCss1.css" rel="stylesheet">
-=======
-<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width"><!--PG크로스브라우징필수내용 시작--><meta http-equiv="Cache-Control" content="no-cache"><meta http-equiv="Expires" content="0"><meta http-equiv="Pragma" content="no-cache"><!--PG크로스브라우징필수내용 끝--><link href="../css/mainCss1.css" rel="stylesheet">
->>>>>>> branch 'develop' of https://github.com/creativezzanggu/webProject01.git
+
 <meta name="naver-site-verification" content="dd85968ac57ed1d64007f8ef41ba2a6cf51dc33f">
 <link rel="canonical" href="http://ecudemo31431.cafe24.com/">
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.4.0.min.js"></script>
@@ -179,7 +171,7 @@
 <div class="xans-element- xans-layout xans-layout-searchheader ">
 <fieldset>
 <legend>검색</legend>
-			<input id="keyword" name="keyword" fw-filter="" fw-label="검색어" fw-msg="" class="" placeholder="" value="" type="text"></input><a href="#none" id="searchKeyword" ><i class="fa fa-search"></i></a>
+			<input id="keyword" name="keyword" fw-filter="" fw-label="검색어" fw-msg="" class="" placeholder="검색어를 입력해주세요" value="" type="text"></input><a href="#none" id="searchKeyword" ><i class="fa fa-search"></i></a>
 		</fieldset>
 </div>
 </form></div>
@@ -270,10 +262,6 @@
 		<!-- 콘텐츠가 들어갈 바디 -->
 		<div></div>
 		<jsp:include page="${display }"/>
-
-
-
-
 
 		</div>
 	</div>

@@ -1,4 +1,4 @@
-package notice.bean;
+package list.bean;
 
 import org.springframework.stereotype.Component;
 
@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Component
 @Data
-public class NoticePaging {
+public class ListPaging {
 	private int currentPage;
 	private int pageBlock;
 	private int pageSize;
@@ -23,17 +23,17 @@ public class NoticePaging {
 		if(endPage > totalP) endPage = totalP;
 		
 		if(startPage > pageBlock)
-			pagingHTML.append("[<a id=paging href='/kgmall/notice/noticeForm.do?pg="+(startPage-1)+"'>ï¿½ï¿½ï¿½ï¿½</a>]");
+			pagingHTML.append("[<a id=paging href='/kgmall/list/bottomListForm.do?pg="+(startPage-1)+"'>ÀÌÀü</a>]");
 		
 		for(int i=startPage; i<=endPage; i++) {
 			if(i==currentPage)
-				pagingHTML.append("[<a id=currentPaging href='/kgmall/notice/noticeForm.do?pg="+i+"'>"+i+"</a>]");
+				pagingHTML.append("[<a id=currentPaging href='/kgmall/list/bottomListForm.do?pg="+i+"'>"+i+"</a>]");
 			else
-				pagingHTML.append("[<a id=paging href='/kgmall/notice/noticeForm.do?pg="+i+"'>"+i+"</a>]");
+				pagingHTML.append("[<a id=paging href='/kgmall/list/bottomListForm.do?pg="+i+"'>"+i+"</a>]");
 		}
 		
 		if(totalP > endPage)
-			pagingHTML.append("[<a id=paging href='/kgmall/notice/noticeForm.do?pg="+(endPage+1)+"'>ï¿½ï¿½ï¿½ï¿½</a>]");
+			pagingHTML.append("[<a id=paging href='/kgmall/list/bottomListForm.do?pg="+(endPage+1)+"'>´ÙÀ½</a>]");
 	}
 
 	public void makeSearchPagingHTML() {
@@ -46,17 +46,17 @@ public class NoticePaging {
 		if(endPage > totalP) endPage = totalP;
 		
 		if(startPage > pageBlock)
-			pagingHTML.append("[<span id=paging onclick=noticeSearch("+(startPage-1)+")>ï¿½ï¿½ï¿½ï¿½</span>]");
+			pagingHTML.append("[<span id=paging onclick=bottomSearch("+(startPage-1)+")>ÀÌÀü</span>]");
 		
 		for(int i=startPage; i<=endPage; i++) {
 			if(i==currentPage)
-				pagingHTML.append("[<span id=currentPaging onclick=noticeSearch("+i+")>"+i+"</span>]");
+				pagingHTML.append("[<span id=currentPaging onclick=bottomSearch("+i+")>"+i+"</span>]");
 			else
-				pagingHTML.append("[<span id=paging onclick=noticeSearch("+i+")>"+i+"</span>]");
+				pagingHTML.append("[<span id=paging onclick=bottomSearch("+i+")>"+i+"</span>]");
 		}
 		
 		if(totalP > endPage)
-			pagingHTML.append("[<span id=paging onclick=noticeSearch("+(endPage+1)+")>ï¿½ï¿½ï¿½ï¿½</span>]");
+			pagingHTML.append("[<span id=paging onclick=bottomSearch("+(endPage+1)+")>´ÙÀ½</span>]");
 		
 	}
 

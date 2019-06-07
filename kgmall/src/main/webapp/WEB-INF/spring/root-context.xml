@@ -25,7 +25,10 @@
 	<context:component-scan base-package="list.bean" />
 	<context:component-scan base-package="cart.dao" />
 	<context:component-scan base-package="cart.bean" />
-		
+
+
+
+
 	<tx:annotation-driven transaction-manager="transactionManager"/>	
 	
 	<!-- SqlSessionFactory -->
