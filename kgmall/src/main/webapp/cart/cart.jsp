@@ -172,6 +172,7 @@ $(document).ready(function(){
 		});
 	}//id가 널일 때
 	else{
+		
 		$.ajax({
 			type : 'POST',
 			url : '/kgmall/product/insertCookie.do',

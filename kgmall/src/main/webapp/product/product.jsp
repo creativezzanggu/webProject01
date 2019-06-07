@@ -351,8 +351,7 @@ Home</a></li>
 <li class="xans-record-" style="display: none;"><div class="thumb"><img src="//ecudemo31431.cafe24.com/web/product/small/df_sample_list30.jpg" class="ThumbImage"></div></li>
 													</ul>
 </div>
-
-				</div>
+</div>
 </div>
 		</div>
 		<!-- //이미지 영역 종료 -->

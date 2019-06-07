@@ -20,6 +20,7 @@ public class CartDAOMybatis implements CartDAO {
 	@Override
 	public void insertCart(List<CartDTO> list) {
 		for(CartDTO cartDTO : list) {
+
 			sqlSession.insert("cartSQL.insertCart", cartDTO);
 		}
 	}

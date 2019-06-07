@@ -91,6 +91,9 @@
 					<li class="myshop">
 					<a href="/kgmall/admin/productInsertForm.do">상품등록</a>
 					</li>
+					<li class="myshop">
+					<a href="/kgmall/admin/productList.do">상품관리</a>
+					</li>
 					</c:if>						
 
 </ul><!-- 커뮤니티(전체 게시판) 메뉴 --><ul class="xans-element- xans-layout xans-layout-boardinfo bnb">
