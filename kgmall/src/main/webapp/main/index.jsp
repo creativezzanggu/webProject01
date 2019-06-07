@@ -2,8 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 
 <html xmlns="//www.w3.org/1999/xhtml">
 <head>
@@ -12,14 +11,9 @@
 <!--PG크로스브라우징필수내용 시작--><meta http-equiv="Cache-Control" content="no-cache"><meta http-equiv="Expires" content="0"><meta http-equiv="Pragma" content="no-cache"><!--PG크로스브라우징필수내용 끝-->
 
 <link href="http://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
-<link href="http://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
-<link href="http://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "//www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
-<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width"><!--PG크로스브라우징필수내용 시작--><meta http-equiv="Cache-Control" content="no-cache"><meta http-equiv="Expires" content="0"><meta http-equiv="Pragma" content="no-cache"><!--PG크로스브라우징필수내용 끝--><link href="../css/mainCss1.css" rel="stylesheet">
-
-<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width"><!--PG크로스브라우징필수내용 시작--><meta http-equiv="Cache-Control" content="no-cache"><meta http-equiv="Expires" content="0"><meta http-equiv="Pragma" content="no-cache"><!--PG크로스브라우징필수내용 끝--><link href="../css/mainCss1.css" rel="stylesheet">
-
 <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width"><!--PG크로스브라우징필수내용 시작--><meta http-equiv="Cache-Control" content="no-cache"><meta http-equiv="Expires" content="0"><meta http-equiv="Pragma" content="no-cache"><!--PG크로스브라우징필수내용 끝--><link href="../css/mainCss1.css" rel="stylesheet">
 
 <meta name="naver-site-verification" content="dd85968ac57ed1d64007f8ef41ba2a6cf51dc33f">
@@ -268,10 +262,6 @@
 		<!-- 콘텐츠가 들어갈 바디 -->
 		<div></div>
 		<jsp:include page="${display }"/>
-
-
-
-
 
 		</div>
 	</div>
