@@ -17,4 +17,6 @@ public interface ListDAO {
 
 	public int getSubcategoryTotal(String subcategory);
 
+	public List<ListDTO> getProductSelectOptionList(Map<String, String> map);
+
 }

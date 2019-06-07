@@ -28,4 +28,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		(select * from product where subcategory=#{subcategory} order by logtime desc)tt) 
  		where rn between  #{startNum} and #{endNum}
  	</select>
+ 	
+ 	<select id="getProductSelectOptionList" parameterType="java.util.Map" resultType="productlist">
+ 		select * from 
+		(select rownum rn,tt.* from 
+		<if test="option =='productName'">
+		(select * from product where majorcategory=#{majorcategory} order by name asc)tt) 
+		</if>
+		<if test="option =='lowPrice'">
+		(select * from product where majorcategory=#{majorcategory} order by price asc)tt) 
+		</if>
+		<if test="option =='highPrice'">
+		(select * from product where majorcategory=#{majorcategory} order by price desc)tt) 
+		</if>
+		<if test="option =='company'">
+		(select * from product where majorcategory=#{majorcategory} order by company asc)tt) 
+		</if>
+ 		where rn between  #{startNum} and #{endNum}
+ 	</select>
 </mapper>
