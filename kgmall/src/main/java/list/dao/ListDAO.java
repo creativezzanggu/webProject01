@@ -7,10 +7,12 @@ import list.bean.ListDTO;
 
 public interface ListDAO {
 
-	public int getTotal();
-
 	public List<ListDTO> getProductList(Map<String, Integer> map);
 
 	public List<String> getColor(String name);
+
+	public int getMajorCategoryTotal(String category);
+
+	public List<ListDTO> getProductSelectList(Map<String, String> map);
 
 }

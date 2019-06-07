@@ -34,7 +34,7 @@ public class ListController {
 	}
 	
 	@RequestMapping(value="/BottomList.do", method=RequestMethod.POST)
-	public ModelAndView BottomList(@RequestParam(required=false,defaultValue="1") int pg,Model model) {
+	public ModelAndView BottomList(@RequestParam(required=false,defaultValue="1") int pg) {
 		int endNum = pg*9;
 		int startNum = endNum-8;
 		StringBuffer pruductList = new StringBuffer();
@@ -72,7 +72,8 @@ public class ListController {
 					+"</div></div></div>");
 			colorForm.setLength(0);
 		}
-		int totalA = listDAO.getTotal();
+		String category = "BOTTOM";
+		int totalA = listDAO.getMajorCategoryTotal(category);
 		listPaging.setCurrentPage(pg);
 		listPaging.setPageBlock(5);
 		listPaging.setPageSize(9);
@@ -88,4 +89,22 @@ public class ListController {
 		return mav;
 	}
 
+	@RequestMapping(value="/bottomSelectListForm.do", method=RequestMethod.GET)
+	public String bottomSelectListForm(@RequestParam(required=false,defaultValue="1") int pg,@RequestParam String subcategory,Model model) {
+		System.out.println(subcategory);
+		int endNum = pg*9;
+		int startNum = endNum-8;
+		StringBuffer pruductList = new StringBuffer();
+		StringBuffer colorForm = new StringBuffer();
+		Map<String,String> map = new HashMap<String, String>();
+		map.put("startNum", startNum+"");
+		map.put("endNum", endNum+"");
+		map.put("subcategory", subcategory);
+		
+		List<ListDTO> list = listDAO.getProductSelectList(map);
+		System.out.println(list);
+		model.addAttribute("pg", pg);
+		model.addAttribute("display", "/list/bottomSelectListForm.jsp");
+		return "/main/index";
+	}
 }
