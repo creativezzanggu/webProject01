@@ -87,7 +87,7 @@
 				
 				<div class=".col-md-6" style="padding: 0px 0px 5px 0px;">
 					<!-- <label>수량</label> -->
-					<div id="totalProducts" class="" style="width: 100%; height:120px;overflow:scroll;" >
+					<div id="totalProducts" class="" style="width: 100%; height:200px;overflow:scroll;" >
 						<div class="thead-wrap" ></div>
 						<table border="1" summary="" >
 							<caption>상품 목록</caption>
@@ -113,8 +113,8 @@
 				
 				<div class=".col-md-6" style="padding: 0px 0px 5px 0px;">
 					<label>메인이미지</label>
-					<!-- <input type="text" id="imageLink" name="imageLink"> -->
-					<input type="file" id="imageLink" name="imageLink">
+					<input type="text" id="imageLink" name="imageLink">
+					<!-- <input type="file" id="imageLink" name="imageLink"> -->
 					<div id="imageLinkDiv" style="color : red;"></div>
 				</div>
 				

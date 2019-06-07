@@ -22,4 +22,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into productdetail values(#{ncs},#{array},sysdate)
 	</insert>
 	
+	<select id="productList" resultType="admin">
+		select * from product
+	</select>
+	<select id="detailProductList" resultType="detail">
+		select * from productdetail
+	</select>
 </mapper>

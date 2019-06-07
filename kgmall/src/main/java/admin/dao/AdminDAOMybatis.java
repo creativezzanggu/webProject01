@@ -27,7 +27,14 @@ public class AdminDAOMybatis implements AdminDAO {
 		sqlSession.insert("adminSQL.detailProductInsert",map);
 	}
 
+	@Override
+	public List<AdminDTO> productList() {
+		return sqlSession.selectList("adminSQL.productList");
+	}
 
+	@Override
+	public List<DetailProductDTO> detailProductList() {
+		return sqlSession.selectList("adminSQL.detailProductList");
+	}
 
-	
 }

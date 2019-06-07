@@ -11,4 +11,8 @@ public interface AdminDAO {
 	public void productInsert(Map<String, String> map);
 
 	public void detailProductInsert(Map<String, String> map);
+
+	public List<AdminDTO> productList();
+
+	public List<DetailProductDTO> detailProductList();
 }
