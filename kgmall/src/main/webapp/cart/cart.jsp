@@ -123,7 +123,7 @@ function deleteTr(value){
 	$.ajax({
 		type : 'POST',
 		data : {'productName' : value,
-				'id' : <%=(String)session.getAttribute("id")%>},
+				'id' : '${id}'},
 		url : '/kgmall/product/selectDeleteCookie.do'
 	});
 	location.reload();
@@ -142,7 +142,7 @@ $('#ing_shopping').click(function(){
 $(document).ready(function(){
 	var name=null;
 	var totalPrice=0;
-	var id = <%=(String)session.getAttribute("id")%>
+	var id = '${id}'
 	if(id==null){
 		$.ajax({
 			type : 'POST',
