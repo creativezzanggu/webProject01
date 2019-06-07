@@ -324,12 +324,6 @@ function product_cart(){
 	<div id="container">
 		<div id="contents">
 			
-<!-- 업데이트 2018-11-01 -->
-<!--
-    $category_page = /product/list.html
-    $project_page = /product/project.html
-    $jointbuy_page = /product/jointbuy.html
--->
 <div class="xans-element- xans-product xans-product-headcategory location-product "><div class="path-product">
 		<h2>현재 위치</h2>
 		<ol>
@@ -349,6 +343,12 @@ Home</a></li>
 </div>
 
 
+
+
+
+
+
+
 <!-- 상단 전체영역 시작  -->
 <div id="df-product-detail" df-data-custom="" df-data-price="" df-data-sale="" class="xans-element- xans-product xans-product-detail"><!-- 디테일전체 영역 시작 -->
 <div class="detailArea" style="height:900px;" >
@@ -361,18 +361,26 @@ Home</a></li>
 						<!-- 상품 상세이미지 -->
 						<span class="detail-image"><img class='big_img_size BigImage'><span id="zoomMouseGiude" style="display:block; position:relative; width:170px; margin:0 auto;"><img src="//img.echosting.cafe24.com/design/skin/admin/ko_KR/txt_product_zoom.gif" id="zoomGuideImage" alt="마우스를 올려보세요." style="position: absolute; top: -27px; right: 0px;"></span></span>
 						<div id="zoom_wrap"><p class="image_zoom_large" style="display: none;"><span class="image_zoom_large_relative"><img id="zoom_image" alt="확대 이미지" src="//ecudemo31431.cafe24.com/web/product/big/df_sample_detail14_1.jpg" style="width: 1240px; height: 1240px;"></span></p></div>
-
-					</div>
+						</div>
 
 					<!-- 상품 추가이미지-->
 					<div class="xans-element- xans-product xans-product-addimage listImg" style="display: block;"><ul>
-<li class="xans-record-" style="display: none;"><div class="thumb"><img src="//ecudemo31431.cafe24.com/web/product/small/df_sample_list30.jpg" class="ThumbImage"></div></li>
+<li class="xans-record-" style="display: none;">
+<div class="thumb"><img src="//ecudemo31431.cafe24.com/web/product/small/df_sample_list30.jpg" class="ThumbImage"></div></li>
 													</ul>
 </div>
 </div>
 </div>
-		</div>
+</div>
 		<!-- //이미지 영역 종료 -->
+
+
+
+
+
+
+
+
 
 
         <!-- 상품정보 영역 시작 -->
@@ -383,9 +391,10 @@ Home</a></li>
 				<div class="df-detail-fixed-box">
 
 					<!-- DF픽스박스(스크롤영역) -->
-					<div class="scroll-wrapper df-detail-fixed-scroll scrollbar-macosx" style="position: relative;"><div class="df-detail-fixed-scroll scrollbar-macosx scroll-content" style="height: auto; margin-bottom: 0px; margin-right: 0px; max-height: 645px;">
+					<div class="scroll-wrapper df-detail-fixed-scroll scrollbar-macosx" style="position: relative;">
+						<div class="df-detail-fixed-scroll scrollbar-macosx scroll-content" style="height: auto; margin-bottom: 0px; margin-right: 0px; max-height: 645px;">
 
-						<div class="headingArea ">
+						<div class="headingArea">
 							<span class="icon"><img src="http://ecudemo31431.cafe24.com/web/upload/icon_201601081108247400.gif" class="icon_img" alt="추천"></span>
 
 							<!-- 상품명 -->
@@ -399,7 +408,7 @@ Home</a></li>
 								<div class="xans-element- xans-product xans-product-colorchip" id="headColor">
 							</div>
 						</div>
-
+					</div>
 						<!-- 상품요약설명 -->
 						<div class="df-summary-desc"></div>
 
@@ -508,7 +517,17 @@ Home</a></li>
 								</ul></li>
 <!-- 파일첨부 옵션 -->
 </ul>
-<!-- //상품옵션 전체영역 끝 --><!-- 옵션추가 버튼 --><div class="displaynone add-option" id="">
+<!-- //상품옵션 전체영역 끝 -->
+
+
+
+
+
+
+
+
+
+<!-- 옵션추가 버튼 --><div class="displaynone add-option" id="">
 							<a href="#none" onclick=""><img src="//img.echosting.cafe24.com/skin/base_ko_KR/product/btn_manual_select.gif" alt="옵션 선택"></a>
 						</div>
 
@@ -566,17 +585,29 @@ Home</a></li>
 						<!-- //2017-05-25 업데이트 끝 -->
 
 
+
+
+
+
+
 					</div><div class="scroll-element scroll-x"><div class="scroll-element_outer"><div class="scroll-element_size"></div><div class="scroll-element_track"></div><div class="scroll-bar" style="width: 96px;"></div></div></div><div class="scroll-element scroll-y"><div class="scroll-element_outer"><div class="scroll-element_size"></div><div class="scroll-element_track"></div><div class="scroll-bar" style="height: 96px;"></div></div></div></div>
 					<!-- //DF픽스박스(스크롤영역 -->
+					
+					
+					
 
 					<!-- 2017-02-25 구매 & 예약구매 버튼확인할것 상품코드: P00000DI -->
 
-					<div class="xans-element- xans-product xans-product-action"><!--구매·장바구니·관심상품·품절 버튼 -->
-<div class="ec-base-button df-action-button">
+					<div class="xans-element- xans-product xans-product-action">
+					<!--구매·장바구니·관심상품·품절 버튼 -->
+							<div class="ec-base-button df-action-button">
 							<div class="ac-buy wrap"><a href="#none" class="df-btn buy " onclick="product_buy()"><span id="btnBuy">바로구매</span><span class="displaynone" id="btnReserve">예약주문</span></a></div>
 							<div class="ac-basket wrap"><a href="#none" class="df-btn basket " onclick="product_cart()">장바구니</a></div>
 							<div class="ac-soldout wrap displaynone"><span class="df-btn soldout">품절</span></div>
 						</div>
+						
+						
+						
 
 
 <!-- 공통이벤트-B 상품이미지 옆 -->
@@ -599,6 +630,10 @@ Home</a></li>
 <!-- //공급사:판매사정보 -->
 </div>
 <!-- //상단 전체영역 종료  -->
+
+
+
+
 
 
 
@@ -803,25 +838,15 @@ Home</a></li>
 	<div class="btnArea">
 		<a href="#none" df-data-href="/board/review/write.html?board_no=4&amp;product_no=82&amp;cate_no=1&amp;display_group=2" class="df-review-btn review-write">리뷰작성</a>
 		<a href="/board/review/list.html?board_no=4" class="df-review-btn review-viewall">모두보기</a>
-	</div>
-</div>
+				</div>
+			</div>
 
-			        </div>
+		</div>
     </div>
+    <!-- 상품후기 종료 -->
 </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
+</div>
 
 
 
@@ -920,4 +945,3 @@ $('.xans-srlite-display > .srlite-remote').hide();
 var EC_FRONT_JS_CONFIG_SHOP = {"bECUseItemSalePrice":false,"sCouponDownloadPage":"\/coupon\/coupon_productdetail.html","aOptionColorchip":{"#FFFFFF":"","#C2C2C2":"","#6694CC":"","#4D4D4D":""}};
 var EC_FRONT_JS_CONFIG_MANAGE = {"sWebLogEventFlag":"F"};
 </script>
-<div id="image_zoom_small" style="width: 150px; height: 150px; display: none;"></div><iframe src="http://ecudemo31431.cafe24.com/exec/front/eclog/main/?product_no=82&amp;cate_no=1&amp;isplay_group=2&amp;rloc=http%3A//ecudemo31431.cafe24.com/product/detail.html%3Fproduct_no%3D82%26cate_no%3D1%26display_group%3D2&amp;rref=http%3A//ecudemo31431.cafe24.com/&amp;udim=1440*900&amp;rserv=null&amp;cid=CID066a5ce356a88de48d416ebd40ade8bf&amp;role_path=PRODUCT_DETAIL" id="log_realtime" style="display: none;"></iframe><div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"><div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div></div></body></html>
