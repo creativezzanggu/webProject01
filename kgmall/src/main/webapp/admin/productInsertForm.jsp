@@ -137,22 +137,46 @@
 	function category(){
 		form = document.productInsertForm;
 		
-		if(document.productInsertForm.majorCategory.value == "TOP"){
-			form.subCategory.length = 1;
-			form.subCategory.options[1] = new Option("TEE SHIRT");
-			form.subCategory.options[1].value = "TEE SHIRT";
-		}
-		
-		if(document.productInsertForm.majorCategory.value == "BOTTOM"){
-			form.subCategory.length = 1;
-			form.subCategory.options[1] = new Option("PANTS");
-			form.subCategory.options[1].value = "PANTS";
-		}
-		
 		if(document.productInsertForm.majorCategory.value == "OUTER"){
 			form.subCategory.length = 1;
 			form.subCategory.options[1] = new Option("JACKET");
 			form.subCategory.options[1].value = "JACKET";
+			form.subCategory.options[1] = new Option("JUMPER");
+			form.subCategory.options[1].value = "JUMPER";
+			form.subCategory.options[1] = new Option("CADIGAN");
+			form.subCategory.options[1].value = "CADIGAN";
+		}
+		
+		if(document.productInsertForm.majorCategory.value == "TOP"){
+			form.subCategory.length = 1;
+			form.subCategory.options[1] = new Option("TEE SHIRT");
+			form.subCategory.options[1].value = "TEE SHIRT";
+			form.subCategory.options[2] = new Option("BLOUSE");
+			form.subCategory.options[2].value = "BLOUSE";
+			form.subCategory.options[3] = new Option("KNIT");
+			form.subCategory.options[3].value = "KNIT";
+			form.subCategory.options[4] = new Option("CAMI");
+			form.subCategory.options[4].value = "CAMI";
+		}
+		
+		if(document.productInsertForm.majorCategory.value == "BOTTOM"){
+			form.subCategory.length = 1;
+			form.subCategory.options[1] = new Option("SKIRT");
+			form.subCategory.options[1].value = "SKIRT";
+			form.subCategory.options[2] = new Option("LEGGINGS");
+			form.subCategory.options[2].value = "LEGGINGS";
+			form.subCategory.options[3] = new Option("PANTS");
+			form.subCategory.options[3].value = "PANTS";
+			form.subCategory.options[4] = new Option("DENIM");
+			form.subCategory.options[4].value = "DENIM";
+		}
+		
+		if(document.productInsertForm.majorCategory.value == "SHOES & BAG"){
+			form.subCategory.length = 1;
+			form.subCategory.options[1] = new Option("SHOES");
+			form.subCategory.options[1].value = "SHOES";
+			form.subCategory.options[2] = new Option("BAG");
+			form.subCategory.options[2].value = "BAG";
 		}
 	}
 	</script>
@@ -206,9 +230,6 @@
 			$('#productSizeDiv').text("사이즈를 선택해주세요.");
 			$('#productSize').focus();
 			return false;
-		} else if($('#imageLink').val().length == 0){
-			$('#imageLinkDiv').text("상품링크를 입력해주세요.");
-			$('#imageLink').focus();
 		} else {
 			var ncs = new Array();
 			for(var i=0; i<$('.productCount').length; i++){
@@ -225,6 +246,7 @@
 					}
 				});
 			}//for
+			alert($('#productImage1').val());
 			$('#productInsertForm').submit();
 		}
 	});

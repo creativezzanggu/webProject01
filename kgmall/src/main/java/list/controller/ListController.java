@@ -39,9 +39,10 @@ public class ListController {
 		int startNum = endNum-8;
 		StringBuffer pruductList = new StringBuffer();
 		StringBuffer colorForm = new StringBuffer();
-		Map<String,Integer> map = new HashMap<String, Integer>();
-		map.put("startNum", startNum);
-		map.put("endNum", endNum);
+		Map<String,String> map = new HashMap<String, String>();
+		map.put("startNum", startNum+"");
+		map.put("endNum", endNum+"");
+		map.put("majorcategory", "BOTTOM");
 		
 		
 		List<ListDTO> list = listDAO.getProductList(map);

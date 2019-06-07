@@ -90,6 +90,7 @@
 </div>
 </div>
 
+<!-- 주문내역 -->
 <div class="xans-element- xans-myshop xans-myshop-orderhistorylistitem section orderList" id="productList">
 <h3 class="title">주문 상품 정보<a href="/myshop/order/list.html"></a></h3>
 <div class="content">
@@ -104,11 +105,12 @@
 <col style="width:140px;">
 </colgroup>
 <thead><tr>
-<th scope="col" class="no"></th>
-<th scope="col" class="image"></th>
-<th scope="col" class="product"></th>
-<th scope="col" class="quantity"></th>
-<th scope="col" class="price"></th>					
+<th scope="col">주문번호</th>
+<th scope="col">이미지</th>
+<th scope="col">상품명</th>
+<th scope="col">수량</th>
+<th scope="col">상품구매금액</th>	
+<th scope="col">주문상태</th>				
 </tr></thead>
 </table>
 <p id="empty1" class="empty"></p>

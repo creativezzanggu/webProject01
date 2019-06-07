@@ -24,7 +24,7 @@ public class ListDAOMybatis implements ListDAO {
 
 	
 	@Override
-	public List<ListDTO> getProductList(Map<String, Integer> map) {
+	public List<ListDTO> getProductList(Map<String, String> map) {
 		return sqlSession.selectList("listSQL.getProductList",map);
 	}
 

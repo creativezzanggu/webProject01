@@ -36,4 +36,10 @@ public class AdminController {
 		System.out.println("detailProductInsert"+map);
 		adminDAO.detailProductInsert(map);
 	}
+	
+	@RequestMapping(value="/productList.do", method=RequestMethod.GET)
+	public String productList(Model model) {
+		model.addAttribute("display","/admin/productList.jsp");
+		return "/main/index";
+	}
 }

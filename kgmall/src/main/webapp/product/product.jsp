@@ -60,6 +60,12 @@ $(document).ready(function(){
 			$(".image1").attr("src", "../image/productImage/"+data.productDTO.productImage1);
 			$(".image2").attr("src", "../image/productImage/"+data.productDTO.productImage2);
 			$(".image3").attr("src", "../image/productImage/"+data.productDTO.productImage3);
+			
+			$('img').each(function(n){
+				$(this).error(function(){
+			         $(this).attr("src", "../image/productImage/"+data.productDTO.imageLink);
+			    });
+			});
 		}
 	});
 	$.ajax({
@@ -256,34 +262,19 @@ function product_buy(){
 		alert("구매하실 항목을 선택해 주세요");
 	}else{
 		var id = <%=(String)session.getAttribute("id")%>
-
-		if(id==null){
-			
-			alert("로그인을 해 주세요");
-			for(var i=0; i<$('.productCount').length; i++){
-				var productName = $('.productCount').eq(i).attr("id");
-				var number = parseInt($('.productCount').eq(i).val());
-				$.ajax({
-					type : 'POST',
-					url : '/kgmall/product/createCookie.do',
-					data : {'productName' : productName , 'number' : number}
-				});
-			}		
-			location.href="/kgmall/user/loginForm.do";
-		}else{
+		
+		for(var i=0; i<$('.productCount').length; i++){
+			var productName = $('.productCount').eq(i).attr("id");
+			var number = parseInt($('.productCount').eq(i).val());
 			$.ajax({
 				type : 'POST',
-				url : '/kgmall/product/deleteCookie.do'
+				url : '/kgmall/product/createCookie.do',
+				data : {'productName' : productName , 'number' : number}
 			});
-			for(var i=0; i<$('.productCount').length; i++){
-				var productName = $('.productCount').eq(i).attr("id");
-				var number = parseInt($('.productCount').eq(i).val());
-				$.ajax({
-					type : 'POST',
-					url : '/kgmall/product/createCookie.do',
-					data : {'productName' : productName , 'number' : number}
-				});
-			}
+		}	
+		if(id==null){
+			location.href="/kgmall/user/loginForm.do?sell=sell";
+		}else{
 			location.href="/kgmall/product/order.do?name="+name+"&total="+total;
 		}
 	}
@@ -389,12 +380,6 @@ Home</a></li>
 						<span class="detail-image"><img class='big_img_size BigImage'><span id="zoomMouseGiude" style="display:block; position:relative; width:170px; margin:0 auto;"><img src="//img.echosting.cafe24.com/design/skin/admin/ko_KR/txt_product_zoom.gif" id="zoomGuideImage" alt="마우스를 올려보세요." style="position: absolute; top: -27px; right: 0px;"></span></span>
 						<div id="zoom_wrap"><p class="image_zoom_large" style="display: none;"><span class="image_zoom_large_relative"><img id="zoom_image" alt="확대 이미지" src="//ecudemo31431.cafe24.com/web/product/big/df_sample_detail14_1.jpg" style="width: 1240px; height: 1240px;"></span></p></div>
 
-						<!-- 좋아요 -->
-						<div class="likeButton btn-effect likePrd likePrd_82">
-							<button type="button"><span class="title">LIKE</span><img src="http://ecudemo31431.cafe24.com/web/upload/icon_201606070448230500.png" class="likePrdIcon" product_no="82" category_no="77" icon_status="off" alt="좋아요 등록 전"><span class="count "><span class="likePrdCount likePrdCount_82">3</span></span></button>
-							<span class="bg-layer1"></span><span class="bg-layer2"></span><span class="bg-layer3"></span><span class="bg-layer4"></span>
-						</div>
-
 
 					</div>
 
@@ -403,8 +388,7 @@ Home</a></li>
 <li class="xans-record-" style="display: none;"><div class="thumb"><img src="//ecudemo31431.cafe24.com/web/product/small/df_sample_list30.jpg" class="ThumbImage"></div></li>
 													</ul>
 </div>
-
-				</div>
+</div>
 </div>
 		</div>
 		<!-- //이미지 영역 종료 -->

@@ -7,7 +7,7 @@ import list.bean.ListDTO;
 
 public interface ListDAO {
 
-	public List<ListDTO> getProductList(Map<String, Integer> map);
+	public List<ListDTO> getProductList(Map<String, String> map);
 
 	public List<String> getColor(String name);
 

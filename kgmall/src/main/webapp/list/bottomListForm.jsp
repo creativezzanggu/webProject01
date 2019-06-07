@@ -92,16 +92,7 @@ $(document).ready(function(){
 		}
 	});
 	
-	$('#SKIRT').click(function(){
-		type : 'POST',
-		url : '/kgmall/list/bottomSelectListForm.do',
-		data : {'pg' : 1,
-				'subcategory' : 'SKIRT'},
-		dataType : 'json',
-		success : function(data){
-			
-		}
-	});
+	
 });
 </script>
 </html>
