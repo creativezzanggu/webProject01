@@ -60,6 +60,12 @@ $(document).ready(function(){
 			$(".image1").attr("src", "../image/productImage/"+data.productDTO.productImage1);
 			$(".image2").attr("src", "../image/productImage/"+data.productDTO.productImage2);
 			$(".image3").attr("src", "../image/productImage/"+data.productDTO.productImage3);
+			
+			$('img').each(function(n){
+				$(this).error(function(){
+			         $(this).attr("src", "../image/productImage/"+data.productDTO.imageLink);
+			    });
+			});
 		}
 	});
 	$.ajax({
@@ -373,7 +379,6 @@ Home</a></li>
 						<!-- 상품 상세이미지 -->
 						<span class="detail-image"><img class='big_img_size BigImage'><span id="zoomMouseGiude" style="display:block; position:relative; width:170px; margin:0 auto;"><img src="//img.echosting.cafe24.com/design/skin/admin/ko_KR/txt_product_zoom.gif" id="zoomGuideImage" alt="마우스를 올려보세요." style="position: absolute; top: -27px; right: 0px;"></span></span>
 						<div id="zoom_wrap"><p class="image_zoom_large" style="display: none;"><span class="image_zoom_large_relative"><img id="zoom_image" alt="확대 이미지" src="//ecudemo31431.cafe24.com/web/product/big/df_sample_detail14_1.jpg" style="width: 1240px; height: 1240px;"></span></p></div>
-
 
 
 					</div>
