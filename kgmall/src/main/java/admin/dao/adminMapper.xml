@@ -4,7 +4,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="adminSQL">
 	<insert id="productInsert" parameterType="java.util.Map">
-		insert into product11 values(#{majorCategory}
+		insert into product values(#{majorCategory}
 							   ,#{subCategory}
 							   ,#{company}
 							   ,#{name}
@@ -13,11 +13,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 							   ,#{imageLink}
 							   ,#{productImage1}
 							   ,#{productImage2}
-							   ,#{productImage3})
+							   ,#{productImage3}
+							   ,sysdate)
 	</insert>
 	
 	<insert id="detailProductInsert" parameterType="admin">
-		insert into detailproduct11 values(#{ncs},#{array})
+		insert into productdetail values(#{ncs},#{array},sysdate)
 	</insert>
 	
 </mapper>

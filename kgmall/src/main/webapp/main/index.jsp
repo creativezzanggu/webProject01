@@ -88,7 +88,7 @@
 					</c:if>
 					<c:if test="${id == 'admin'}">
 					<li class="myshop">
-					<a href="/kgamll/admin/productInsertForm.do">상품등록</a>
+					<a href="/kgmall/admin/productInsertForm.do">상품등록</a>
 					</li>
 					</c:if>						
 
