@@ -68,28 +68,17 @@
                     
                     <tbody class="xans-element- xans-order xans-order-normallist center" id="tablebody">
                     
-              
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+            
 </tbody>
 </table>
 </div>
 
-<!-- 주문 버튼 -->
-<div class="xans-element- xans-order xans-order-totalorder df-base-button justify fs-0">
-<a href="#none" class="df-btn highlight big mr-3">상품주문</a>
-<span><a href="#" class="df-btn light big" id="ing_shopping">쇼핑계속하기</a></span>
-</div></div>
+	<!-- 주문 버튼 -->
+	<div class="xans-element- xans-order xans-order-totalorder df-base-button justify fs-0">
+		<a href="#none" class="df-btn highlight big mr-3">상품주문</a>
+		<span><a href="#" class="df-btn light big" id="ing_shopping">쇼핑계속하기</a></span>
+	</div>
+</div>
 
 <!-- 이용안내 -->
 <div class="xans-element- xans-order xans-order-basketguide df-base-help ">
@@ -143,7 +132,7 @@ $(document).ready(function(){
 	var name=null;
 	var totalPrice=0;
 	var id = '${id}'
-	if(id==null){
+	if(id==""){
 		$.ajax({
 			type : 'POST',
 			url : '/kgmall/product/selectCookie.do',

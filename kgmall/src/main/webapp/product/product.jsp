@@ -264,7 +264,7 @@ function product_buy(){
 	if($('.productCount').length==0){
 		alert("구매하실 항목을 선택해 주세요");
 	}else{
-		var id = <%=(String)session.getAttribute("id")%>
+		var id = '${id}'
 		for(var i=0; i<$('.productCount').length; i++){
 			var productName = $('.productCount').eq(i).attr("id");
 			var number = parseInt($('.productCount').eq(i).val());
@@ -274,7 +274,7 @@ function product_buy(){
 				data : {'productName' : productName , 'number' : number}
 			});
 		}	
-		if(id==null){
+		if(id==""){
 			location.href="/kgmall/user/loginForm.do?sell=sell";
 		}else{
 			location.href="/kgmall/product/order.do?name="+name+"&total="+total;
@@ -302,6 +302,24 @@ function product_cart(){
 }
 </script>
 </head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	<div id="container">
 		<div id="contents">
@@ -792,6 +810,20 @@ Home</a></li>
     </div>
 </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <script type="text/javascript">var sAuthSSLDomain = "login2.cafe24ssl.com";</script><script type="text/javascript" src="https://login2.cafe24ssl.com/crypt/AuthSSLManager.js"></script><script type="text/javascript" src="https://login2.cafe24ssl.com/crypt/AuthSSLManager.plugin.js"></script>
 
