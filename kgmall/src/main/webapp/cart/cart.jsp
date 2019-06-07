@@ -23,8 +23,6 @@
 <p><img src="../image/search.png"/><br><br>장바구니가 비어 있습니다.</p>
 </div>
 
-
-
 <!-- 국내배송상품 주문내역 -->
 <div class="orderListArea ">
         <div class="title">
@@ -131,8 +129,14 @@ $('#ing_shopping').click(function(){
 $(document).ready(function(){
 	var name=null;
 	var totalPrice=0;
+<<<<<<< HEAD
+	var id = '${id}';
+	
+	if(id==''){
+=======
 	var id = '${id}'
 	if(id==""){
+>>>>>>> branch 'develop' of https://github.com/creativezzanggu/webProject01.git
 		$.ajax({
 			type : 'POST',
 			url : '/kgmall/product/selectCookie.do',
@@ -161,7 +165,6 @@ $(document).ready(function(){
 		});
 	}//id가 널일 때
 	else{
-		
 		$.ajax({
 			type : 'POST',
 			url : '/kgmall/product/insertCookie.do',
