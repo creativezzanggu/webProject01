@@ -8,58 +8,38 @@
 <body>
 <input type="hidden" id="pg" name="pg" value="${pg }">
 
-<div class="xans-element- xans-product xans-product-menupackage ">
-	<div class="location-product">
-		<div class="xans-element- xans-product xans-product-headcategory path-product">
-		<h2>현재 위치</h2>
-		<ol>
-		<li>Home</li>
-		<li>BOTTOM</li>
-		</ol>
-		</div>
-		<div class="xans-element- xans-product xans-product-headcategory tit-product ">
-		<p class="img"><img src="/web/upload/dfloor_base/web/sample/top_img_category_1260.jpg"></p>
-		<h2><span>TOP</span></h2>
-		<div class="likeButton btn-effect likeCate likeCate_54">
-		<button type="button">LIKE<img src="/web/upload/icon_201606070448230500.png" class="likeCateIcon" category_no="54" icon_status="off">
-		<strong class=""><span class="likeCateCount likeCateCount_54">2</span></strong>
-		</button>
-		</div>
-		</div>
-	</div>
-	<div class="df-sub-menu type-box grid6">
-		<ul class="depth1">
-		<li class="xans-element- xans-product xans-product-headcategory view-all displaynone "><a href="/product/list.html?cate_no=54"></a></li>
-		<li style="display:;" class="xans-element- xans-product xans-product-displaycategory  xans-record-">
-			<a href="/product/list.html?cate_no=55">
-			<p class="name">TEE SHIRT<span class="count displaynone">()</span></p>
-			<i class="fa fa-angle-down icon displaynone" aria-hidden="true"></i>
-			</a>
-		</li>
-		<li style="display:;" class="xans-element- xans-product xans-product-displaycategory  xans-record-"><a href="/product/list.html?cate_no=56">
-		<p class="name">BLOUSE<span class="count displaynone">()</span></p>
-		<i class="fa fa-angle-down icon displaynone" aria-hidden="true"></i>
-		</a>
-		<div class="depth2">
-		</div>
-		</li>
-		<li style="display:;" class="xans-element- xans-product xans-product-displaycategory  xans-record-"><a href="/product/list.html?cate_no=57">
-		<p class="name">KNIT<span class="count displaynone">()</span></p>
-		<i class="fa fa-angle-down icon displaynone" aria-hidden="true"></i>
-		</a>
-		<div class="depth2">
-		</div>
-		</li>
-		<li style="display:;" class="xans-element- xans-product xans-product-displaycategory  xans-record-"><a href="/product/list.html?cate_no=58">
-		<p class="name">CAMI<span class="count displaynone">()</span></p>
-		<i class="fa fa-angle-down icon displaynone" aria-hidden="true"></i>
-		</a>
-		<div class="depth2">
-		</div>
-		</li>
-		</ul>
+<div class="xans-element- xans-product xans-product-menupackage" style="margin-left: 322px;">
+		<div class="location-product">
+	<div class="xans-element- xans-product xans-product-headcategory tit-product "style="margin-top: 30px;">
+		<h2><span>BOTTOM</span></h2>
 	</div>
 </div>
+		<div class="df-sub-menu type-box grid6">
+			<ul class="depth1">
+				<li class="xans-element- xans-product xans-product-headcategory view-all displaynone "><a href="/product/list.html?cate_no=54"></a></li>
+				<li style="display:;" class="xans-element- xans-product xans-product-displaycategory  xans-record-">
+					<a href="#">
+					<p class="name" id="SKIRT">SKIRT</p>
+					</a>
+				</li>
+				<li style="display:;" class="xans-element- xans-product xans-product-displaycategory  xans-record-">
+					<a href="#">
+						<p class="name" id="LEGGINGS">LEGGINGS</p>
+					</a>
+				</li>
+				<li style="display:;" class="xans-element- xans-product xans-product-displaycategory  xans-record-">
+					<a href="#">
+						<p class="name" id="PANTS">PANTS</p>
+					</a>
+				</li>
+				<li style="display:;" class="xans-element- xans-product xans-product-displaycategory  xans-record-">
+				<a href="#">
+					<p class="name" id="DENIM">DENIM</p>
+				</a>
+				</li>
+			</ul>
+		</div>
+	</div>
 
 <div id="wrap">
 	<div id="container">
@@ -111,7 +91,77 @@ $(document).ready(function(){
 			$('#paging').html(data.listPaging.pagingHTML);
 		}
 	});
+	
+	$('#SKIRT').click(function(event,str){
+		if(str!='trigger')$('#pg').val(1);
+		$.ajax({
+			type : 'POST',
+			url : '/kgmall/list/bottomSelectListForm.do',
+			data : {'pg' : $('#pg').val(),
+					'subcategory' : 'SKIRT'},
+			dataType : 'json',
+			success : function(data){
+				$('#total').text(data.totalA);
+				$('.prdList').html(data.pruductList);
+				$('#paging').html(data.listPaging.pagingHTML);
+			}
+		});
+	});
+	
+	$('#PANTS').click(function(event,str){
+		if(str!='trigger')$('#pg').val(1);
+		$.ajax({
+			type : 'POST',
+			url : '/kgmall/list/bottomSelectListForm.do',
+			data : {'pg' : $('#pg').val(),
+					'subcategory' : 'PANTS'},
+			dataType : 'json',
+			success : function(data){
+				$('#total').text(data.totalA);
+				$('.prdList').html(data.pruductList);
+				$('#paging').html(data.listPaging.pagingHTML);
+			}
+		});
+	});
+	
+	$('#LEGGINGS').click(function(event,str){
+		if(str!='trigger')$('#pg').val(1);
+		$.ajax({
+			type : 'POST',
+			url : '/kgmall/list/bottomSelectListForm.do',
+			data : {'pg' : $('#pg').val(),
+					'subcategory' : 'LEGGINGS'},
+			dataType : 'json',
+			success : function(data){
+				$('#total').text(data.totalA);
+				$('.prdList').html(data.pruductList);
+				$('#paging').html(data.listPaging.pagingHTML);
+			}
+		});
+	});
+	
+	$('#DENIM').click(function(event,str){
+		if(str!='trigger')$('#pg').val(1);
+		$.ajax({
+			type : 'POST',
+			url : '/kgmall/list/bottomSelectListForm.do',
+			data : {'pg' : $('#pg').val(),
+					'subcategory' : 'DENIM'},
+			dataType : 'json',
+			success : function(data){
+				$('#total').text(data.totalA);
+				$('.prdList').html(data.pruductList);
+				$('#paging').html(data.listPaging.pagingHTML);
+			}
+		});
+	});
+	
 });
+
+function bottomSelect(pg){
+	$('#pg').val(pg);
+	$('#SKIRT').trigger('click','trigger');
+}
 </script>
 </html>
 

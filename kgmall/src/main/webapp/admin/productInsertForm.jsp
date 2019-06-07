@@ -11,7 +11,7 @@
 	</head>
 	<body>
 		<div class="container" style ="width: 500px; margin-top : 10px;">
-			<form method="post" id="productInsertForm" name="productInsertForm" enctype="multipart/form-data" action="/kgmall/admin/productInsert.do">
+			<form method="post" id="productInsertForm" name="productInsertForm" action="/kgmall/admin/productInsert.do">
 				<h3>상품 등록</h3>
 				<div class="row">
 					<div class="form-group col-md-6" style ="width: 220px; padding: 0px 0px 0px 15px;"><!-- 위 오른쪽 아래 왼쪽 -->
@@ -21,7 +21,6 @@
 							<option value="TOP">TOP</option>
 							<option value="BOTTOM">BOTTOM</option>
 							<option value="OUTER">OUTER</option>
-							<option value="SHOES & BAG">SHOES & BAG</option>
 						</select>
 					</div>
 					
@@ -113,8 +112,7 @@
 				
 				<div class=".col-md-6" style="padding: 0px 0px 5px 0px;">
 					<label>메인이미지</label>
-					<!-- <input type="text" id="imageLink" name="imageLink"> -->
-					<input type="file" id="imageLink" name="imageLink">
+					<input type="text" id="imageLink" name="imageLink">
 					<div id="imageLinkDiv" style="color : red;"></div>
 				</div>
 				
@@ -232,23 +230,6 @@
 			$('#productSizeDiv').text("사이즈를 선택해주세요.");
 			$('#productSize').focus();
 			return false;
-		} else if($('#imageLink').val().length == 0){
-			$('#imageLinkDiv').text("상품링크를 입력해주세요.");
-			$('#imageLink').focus();
-		/*} else if($('#productImage1').val() != ""){
-			var ext1 = $('#productImage1').val().split('.').pop().toLowerCase();
-			var ext2 = $('#productImage2').val().split('.').pop().toLowerCase();
-			var ext3 = $('#productImage3').val().split('.').pop().toLowerCase();
-			if($.inArray(ext1, ['gif','png','jpg','jpeg']) == -1) {
-				alert('gif,png,jpg,jpeg 파일만 업로드 할수 있습니다.');
-				return;
-			} else if($.inArray(ext2, ['gif','png','jpg','jpeg']) == -1) {
-				alert('gif,png,jpg,jpeg 파일만 업로드 할수 있습니다.');
-				return;
-			} else if($.inArray(ext3, ['gif','png','jpg','jpeg']) == -1) {
-				alert('gif,png,jpg,jpeg 파일만 업로드 할수 있습니다.');
-				return;
-			}*/
 		} else {
 			var ncs = new Array();
 			for(var i=0; i<$('.productCount').length; i++){
@@ -265,6 +246,7 @@
 					}
 				});
 			}//for
+			alert($('#productImage1').val());
 			$('#productInsertForm').submit();
 		}
 	});

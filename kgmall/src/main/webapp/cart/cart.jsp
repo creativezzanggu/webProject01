@@ -66,28 +66,17 @@
                     
                     <tbody class="xans-element- xans-order xans-order-normallist center" id="tablebody">
                     
-              
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+            
 </tbody>
 </table>
 </div>
 
-<!-- 주문 버튼 -->
-<div class="xans-element- xans-order xans-order-totalorder df-base-button justify fs-0">
-<a href="#none" class="df-btn highlight big mr-3">상품주문</a>
-<span><a href="#" class="df-btn light big" id="ing_shopping">쇼핑계속하기</a></span>
-</div></div>
+	<!-- 주문 버튼 -->
+	<div class="xans-element- xans-order xans-order-totalorder df-base-button justify fs-0">
+		<a href="#none" class="df-btn highlight big mr-3">상품주문</a>
+		<span><a href="#" class="df-btn light big" id="ing_shopping">쇼핑계속하기</a></span>
+	</div>
+</div>
 
 <!-- 이용안내 -->
 <div class="xans-element- xans-order xans-order-basketguide df-base-help ">
@@ -140,9 +129,14 @@ $('#ing_shopping').click(function(){
 $(document).ready(function(){
 	var name=null;
 	var totalPrice=0;
+<<<<<<< HEAD
 	var id = '${id}';
 	
 	if(id==''){
+=======
+	var id = '${id}'
+	if(id==""){
+>>>>>>> branch 'develop' of https://github.com/creativezzanggu/webProject01.git
 		$.ajax({
 			type : 'POST',
 			url : '/kgmall/product/selectCookie.do',
