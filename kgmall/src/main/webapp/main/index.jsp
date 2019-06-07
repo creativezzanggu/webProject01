@@ -2,19 +2,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<<<<<<< HEAD
+
 
 <html xmlns="//www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width">
 <!--PG크로스브라우징필수내용 시작--><meta http-equiv="Cache-Control" content="no-cache"><meta http-equiv="Expires" content="0"><meta http-equiv="Pragma" content="no-cache"><!--PG크로스브라우징필수내용 끝-->
+
 <link href="http://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
-=======
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "//www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width"><!--PG크로스브라우징필수내용 시작--><meta http-equiv="Cache-Control" content="no-cache"><meta http-equiv="Expires" content="0"><meta http-equiv="Pragma" content="no-cache"><!--PG크로스브라우징필수내용 끝--><link href="../css/mainCss1.css" rel="stylesheet">
->>>>>>> branch 'develop' of https://github.com/creativezzanggu/webProject01.git
+
 <meta name="naver-site-verification" content="dd85968ac57ed1d64007f8ef41ba2a6cf51dc33f">
 <link rel="canonical" href="http://ecudemo31431.cafe24.com/">
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.4.0.min.js"></script>
@@ -89,6 +90,9 @@
 					<c:if test="${id == 'admin'}">
 					<li class="myshop">
 					<a href="/kgmall/admin/productInsertForm.do">상품등록</a>
+					</li>
+					<li class="myshop">
+					<a href="/kgmall/admin/productList.do">상품관리</a>
 					</li>
 					</c:if>						
 
@@ -170,7 +174,7 @@
 <div class="xans-element- xans-layout xans-layout-searchheader ">
 <fieldset>
 <legend>검색</legend>
-			<input id="keyword" name="keyword" fw-filter="" fw-label="검색어" fw-msg="" class="" placeholder="" value="" type="text"></input><a href="#none" id="searchKeyword" ><i class="fa fa-search"></i></a>
+			<input id="keyword" name="keyword" fw-filter="" fw-label="검색어" fw-msg="" class="" placeholder="검색어를 입력해주세요" value="" type="text"></input><a href="#none" id="searchKeyword" ><i class="fa fa-search"></i></a>
 		</fieldset>
 </div>
 </form></div>
@@ -240,7 +244,7 @@
 <li df-cate-no="42" df-cate-depth="1" class="d1 xans-record-" style="margin-left: 5px; margin-right: 5px;"><a href="/product/list.html?cate_no=42"><span>BEST 6</span></a><div class="m2" style="margin-left: 255px;"><ul><li df-cate-no="43" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=43">한주간 베스트</a></li><li df-cate-no="44" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=44">이달의 베스트</a></li><li df-cate-no="45" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=45">MD'S 초이스</a></li></ul><div class="menuImg"><a href="#none"><img class="banner_image" alt="BEST 50" rel="145-10" src="//app-storage-005.cafe24.com/bannermanage2/ecudemo31431/2019/04/01/754aabcb687e8b214258c68638b2f99a.jpg"></a></div></div></li>
 <li df-cate-no="49" df-cate-depth="1" class="d1 xans-record-" style="margin-left: 5px; margin-right: 5px;"><a href="/product/list.html?cate_no=49"><span>OUTER</span></a><div class="m2" style="margin-left: 230px; display: none;"><ul><li df-cate-no="50" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=50">COAT &amp; TERNCH<i class="fa fa-angle-right"></i></a><div class="m3"><ul><li df-cate-no="82" class="d3" df-cate-depth="3"><a href="/product/list.html?cate_no=82">COAT</a></li><li df-cate-no="83" class="d3" df-cate-depth="3"><a href="/product/list.html?cate_no=83">TRENCH</a></li></ul></div></li><li df-cate-no="51" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=51">JACKET</a></li><li df-cate-no="52" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=52">JUMPER</a></li><li df-cate-no="53" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=53">CADIGAN</a></li></ul><div class="menuImg"><a href="#none"><img class="banner_image" alt="OUTER" rel="147-10" src="//app-storage-005.cafe24.com/bannermanage2/ecudemo31431/2019/04/01/396c3b5987be025dea136313d8fe2694.jpg"></a></div></div></li>
 <li df-cate-no="54" df-cate-depth="1" class="d1 xans-record-" style="margin-left: 5px; margin-right: 5px;"><a href="/product/list.html?cate_no=54"><span>TOP</span></a><div class="m2" style="margin-left: 135px; display: none;"><ul><li df-cate-no="55" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=55">TEE SHIRT</a></li><li df-cate-no="56" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=56">BLOUSE</a></li><li df-cate-no="57" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=57">KNIT</a></li><li df-cate-no="58" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=58">CAMI</a></li></ul><div class="menuImg"><a href="#none"><img class="banner_image" alt="TOP" rel="148-10" src="//app-storage-005.cafe24.com/bannermanage2/ecudemo31431/2019/04/01/5fd957237ec382d2da17dc91229ba020.jpg"></a></div></div></li>
-<li df-cate-no="59" df-cate-depth="1" class="d1 xans-record-" style="margin-left: 5px; margin-right: 5px;"><a href="/product/list.html?cate_no=59"><span>BOTTOM</span></a><div class="m2" style="margin-left: 135px; display: none;"><ul><li df-cate-no="60" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=60">SKIRT</a></li><li df-cate-no="61" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=61">LEGGINGS</a></li><li df-cate-no="62" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=62">PANTS</a></li><li df-cate-no="63" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=63">DENIM</a></li></ul><div class="menuImg"><a href="#none"><img class="banner_image" alt="BOTTOM" rel="149-10" src="//app-storage-005.cafe24.com/bannermanage2/ecudemo31431/2019/04/01/b803ca4d03d223ccdccae19195d85a15.jpg"></a></div></div></li>
+<li df-cate-no="59" df-cate-depth="1" class="d1 xans-record-" style="margin-left: 5px; margin-right: 5px;"><a href="/kgmall/list/bottomListForm.do?pg=1"><span>BOTTOM</span></a><div class="m2" style="margin-left: 135px; display: none;"><ul><li df-cate-no="60" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=60">SKIRT</a></li><li df-cate-no="61" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=61">LEGGINGS</a></li><li df-cate-no="62" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=62">PANTS</a></li><li df-cate-no="63" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=63">DENIM</a></li></ul><div class="menuImg"><a href="#none"><img class="banner_image" alt="BOTTOM" rel="149-10" src="//app-storage-005.cafe24.com/bannermanage2/ecudemo31431/2019/04/01/b803ca4d03d223ccdccae19195d85a15.jpg"></a></div></div></li>
 <li df-cate-no="64" df-cate-depth="1" class="d1 xans-record-" style="margin-left: 5px; margin-right: 5px;"><a href="/product/list.html?cate_no=64"><span>SHOES &amp; BAG</span></a><div class="m2" style="margin-left: 135px;"><ul><li df-cate-no="65" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=65">SHOES</a></li><li df-cate-no="66" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=66">BAG</a></li></ul><div class="menuImg"><a href="#none"><img class="banner_image" alt="SHOES &amp; BAG" rel="150-10" src="//app-storage-005.cafe24.com/bannermanage2/ecudemo31431/2019/04/01/1178f1d8d4955e3ae01154771aae66eb.jpg"></a></div></div></li>
 </ul>
 </div>
@@ -261,10 +265,6 @@
 		<!-- 콘텐츠가 들어갈 바디 -->
 		<div></div>
 		<jsp:include page="${display }"/>
-
-
-
-
 
 		</div>
 	</div>
@@ -382,46 +382,6 @@
 				<li class="ico-cert"><a href="#" target="_blank"><i class="fa fa-barcode" aria-hidden="true"></i><span>정품인증</span></a></li>
 				<li class="ico-shortcut"><a href="#" onclick="winPop(this.href); return false;"><i class="fa fa-desktop" aria-hidden="true"></i><span>바로가기</span></a></li>
 			</ul>
-<!-- 에스크로 --><p class="escrow"><!--
-	※ 하단 에스크로인증링크 ※
-	에스크로 인증링크는 필수 연동되어야 합니다. 자세한 내용은 디자인플로어의 운영매뉴얼을 참고해주시고
-	직접 설정할 수 없는 경우 디자인플로어 수정·유지보수란 으로 요청해주세요.
-
-	●이니시스●
-	-사이즈: 550*380
-	-파일명 중 브랜드명: inicis
-	-링크: 관리자페이지 통합결제 이용현황에서 확인
-
-	●올앳페이●
-	-사이즈: 800*700 (전체창으로 표시됨)
-	-파일명 중 브랜드명: allatpay
-	-링크: 관리자페이지 통합결제 이용현황에서 확인
-
-	●올더게이트●
-	-사이즈: 400*315 
-	-파일명 중 브랜드명: allthegate
-	-링크: 관리자페이지 통합결제 이용현황에서 확인
-
-	●케이시피●
-	-사이즈: 500*세로450
-	-파일명 중 브랜드명: kcp
-	-링크: http://admin.kcp.co.kr/Modules/escrow/kcp_pop.jsp?site_cd=아이디값
-
-	●엘지유플러스●
-	-사이즈: 460*520
-	-파일명 중 브랜드명: lguplus
-	-링크: https://pgweb.uplus.co.kr/ms/escrow/s_escrowYn.do?mertid=아이디값
-
-	●세틀뱅크●
-	-사이즈: 414*428
-	-파일명 중 브랜드명: settlebank
-	-링크: 관리자페이지 통합결제 이용현황에서 확인
-
-	●케이에스넷●
-	-사이즈: 750*340
-	-파일명 중 브랜드명: ksnet
-	-링크: 관리자페이지 통합결제 이용현황에서 확인
--->
 
 
 <a href="#none" onclick="popWin = window.open('https://www.inicis.com/','windows','width=550,height=620,scrollbars=auto'); popWin.focus(); return false;">
@@ -438,46 +398,6 @@
 				<li class="ico-cert"><a href="#none" target="_blank"><img src="http://ecudemo31431.cafe24.com/web/upload/dfloor_base/web/img/mark_connect_certification.png" class="img_on" alt="genuine product certification"></a></li>
 				<!-- 에스크로 -->
 				<li class="ico-escrow">
-<!--
-	※ 하단 에스크로인증링크 ※
-	에스크로 인증링크는 필수 연동되어야 합니다. 자세한 내용은 디자인플로어의 운영매뉴얼을 참고해주시고
-	직접 설정할 수 없는 경우 디자인플로어 수정·유지보수란 으로 요청해주세요.
-
-	●이니시스●
-	-사이즈: 550*380
-	-파일명 중 브랜드명: inicis
-	-링크: 관리자페이지 통합결제 이용현황에서 확인
-
-	●올앳페이●
-	-사이즈: 800*700 (전체창으로 표시됨)
-	-파일명 중 브랜드명: allatpay
-	-링크: 관리자페이지 통합결제 이용현황에서 확인
-
-	●올더게이트●
-	-사이즈: 400*315 
-	-파일명 중 브랜드명: allthegate
-	-링크: 관리자페이지 통합결제 이용현황에서 확인
-
-	●케이시피●
-	-사이즈: 500*세로450
-	-파일명 중 브랜드명: kcp
-	-링크: http://admin.kcp.co.kr/Modules/escrow/kcp_pop.jsp?site_cd=아이디값
-
-	●엘지유플러스●
-	-사이즈: 460*520
-	-파일명 중 브랜드명: lguplus
-	-링크: https://pgweb.uplus.co.kr/ms/escrow/s_escrowYn.do?mertid=아이디값
-
-	●세틀뱅크●
-	-사이즈: 414*428
-	-파일명 중 브랜드명: settlebank
-	-링크: 관리자페이지 통합결제 이용현황에서 확인
-
-	●케이에스넷●
-	-사이즈: 750*340
-	-파일명 중 브랜드명: ksnet
-	-링크: 관리자페이지 통합결제 이용현황에서 확인
--->
 
 
 <a href="#none" onclick="popWin = window.open('https://www.inicis.com/','windows','width=550,height=620,scrollbars=auto'); popWin.focus(); return false;">

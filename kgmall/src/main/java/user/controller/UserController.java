@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.Properties;
 
 import javax.mail.Session;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -57,7 +58,22 @@ public class UserController {
 		userDAO.write(userDTO);
 		model.addAttribute("display", "../user/writeOk.jsp");
 		return "/main/index";
-		
+	}
+	
+	@RequestMapping(value="/infoUpdateForm.do", method=RequestMethod.GET)
+	public String infoUpdateForm(Model model) {
+		model.addAttribute("display", "../user/infoUpdate.jsp");
+		return "/main/index";
+	}
+	
+	@RequestMapping(value="/infoUpdate.do", method=RequestMethod.GET)
+	public String infoUpdate(@RequestParam Map<String,String> map, Model model, HttpSession session) {
+		userDAO.infoUpdate(map);
+		session.setAttribute("pwd", map.get("pwd"));
+		session.setAttribute("email", map.get("email1")+"@"+map.get("email2"));
+		session.setAttribute("phone", map.get("phone1")+"-"+map.get("phone2")+"-"+map.get("phone3"));
+		model.addAttribute("display", "../user/myPage.jsp");
+		return "/main/index";
 	}
 	
 	@RequestMapping(value="/searchId.do", method=RequestMethod.GET)
@@ -96,6 +112,7 @@ public class UserController {
 		session.setAttribute("id", map2.get("ID"));
 		session.setAttribute("name", map2.get("NAME"));
 		session.setAttribute("email", map2.get("EMAIL"));
+		session.setAttribute("phone", map2.get("PHONE"));
 		session.setAttribute("usergrade", map2.get("USERGRADE"));
 		mav.addObject("map", map2);
 		mav.setViewName("jsonView");
@@ -105,9 +122,16 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/logout.do", method=RequestMethod.GET)
-	public String logout(Model model, HttpSession session) {
+	public String logout(Model model, HttpSession session, HttpServletRequest request, HttpServletResponse response) {
 		model.addAttribute("display", "../template/body.jsp");
 		session.invalidate();
+		Cookie[] cookies = request.getCookies();
+		if(cookies != null){
+			for(int i=0; i< cookies.length; i++){
+				cookies[i].setMaxAge(0); // 유효시간을 0으로 설정
+				response.addCookie(cookies[i]); // 응답 헤더에 추가
+			}
+		}
 		return "/main/index";
 	}
 	
@@ -200,7 +224,7 @@ public class UserController {
 	@RequestMapping(value="/updatePwd.do", method=RequestMethod.POST)
 	public String updatePwd(@RequestParam Map<String,String> map, Model model, HttpSession session) {
 		userDAO.pwdUpdate(map);
-		model.addAttribute("display", "../template/body.jsp");
+		model.addAttribute("display", "../user/loginForm.jsp");
 		session.invalidate();
 		return "/main/index";
 	}

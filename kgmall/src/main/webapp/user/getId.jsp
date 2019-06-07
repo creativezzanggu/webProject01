@@ -20,7 +20,7 @@ $(function(){
 });
 
 $('#toLoginBtn').click(function(){
-	location.href="/kgmall/main/index.do";
+	location.href="/kgmall/user/loginForm.do";
 });
 </script>
 </html>

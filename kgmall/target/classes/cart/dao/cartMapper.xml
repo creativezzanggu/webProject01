@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cartSQL">
+	<insert id="insertCart" parameterType="cart.bean.CartDTO">
+		insert into cart values(#{product},#{productCount},#{sellId})
+	</insert>
+	<select id="getCartList" parameterType="String" resultType="cart">
+		select * from cart where SELLID=#{id}
+	</select>
+	<delete id="deleteCart" parameterType="java.util.Map">
+		delete from cart where sellid=#{sellid} and product=#{product}
+	</delete>
+</mapper>

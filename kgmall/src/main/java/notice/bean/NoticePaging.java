@@ -7,17 +7,16 @@ import lombok.Data;
 @Component
 @Data
 public class NoticePaging {
-	private int currentPage;//����������
-	private int pageBlock;//[����][1][2][3][����]
-	private int pageSize;//1�������� 5����
-	private int totalA;//�ѱۼ�
+	private int currentPage;
+	private int pageBlock;
+	private int pageSize;
+	private int totalA;
 	private StringBuffer pagingHTML;
 	
 	public void makePagingHTML(){
 		pagingHTML = new StringBuffer();
 		
-		int totalP = (totalA+pageSize-1)/pageSize;//�� ������ ��
-		//int totalP = (totalA-1)/pageSize+1;
+		int totalP = (totalA+pageSize-1)/pageSize;
 		
 		int startPage = (currentPage-1)/pageBlock*pageBlock+1;
 		int endPage = startPage+pageBlock-1;
@@ -40,8 +39,7 @@ public class NoticePaging {
 	public void makeSearchPagingHTML() {
 		pagingHTML = new StringBuffer();
 		
-		int totalP = (totalA+pageSize-1)/pageSize;//�� ������ ��
-		//int totalP = (totalA-1)/pageSize+1;
+		int totalP = (totalA+pageSize-1)/pageSize;
 		
 		int startPage = (currentPage-1)/pageBlock*pageBlock+1;
 		int endPage = startPage+pageBlock-1;
