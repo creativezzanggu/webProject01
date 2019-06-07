@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <html xmlns="//www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
-<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width"><!--PG크로스브라우징필수내용 시작--><meta http-equiv="Cache-Control" content="no-cache"><meta http-equiv="Expires" content="0"><meta http-equiv="Pragma" content="no-cache">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width"><!--PG크로스브라우징필수내용 시작--><meta http-equiv="Cache-Control" content="no-cache"><meta http-equiv="Expires" content="0"><meta http-equiv="Pragma" content="no-cache">
 
 <link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
 <meta name="naver-site-verification" content="dd85968ac57ed1d64007f8ef41ba2a6cf51dc33f">
@@ -15,6 +16,7 @@
 <meta property="product:price:currency" content="KRW">
 <meta property="product:sale_price:amount" content="53000">
 <meta property="product:sale_price:currency" content="KRW">
+
 <!-- <script type="text/javascript" src="http://ecudemo31431.cafe24.com/app/Eclog/js/cid.generate.js?vs=3d0b473968a0ec4ec41e3bf59df3aa51"></script>
  --><script type="text/javascript" src="http://code.jquery.com/jquery-3.4.0.min.js"></script>
 
@@ -25,6 +27,7 @@ input[type="number"]::-webkit-inner-spin-button {
     margin: 0;
 }
 </style>
+
 <%String name= request.getParameter("name");%>
 
 
@@ -79,22 +82,22 @@ $(document).ready(function(){
 				color.push(data.list[i]);
 			}
 			for(var i=0;i<5;i++){
-				if(color[i]=="black"){
+				if(color[i].toLowerCase()=="black"){
 					$('#headColor').append("<span style='background-color:#000000' class='chips xans-record-'></span>");
 					$('#selectColor').append("<li class='licolor' id='blackli' option_value='블랙' link_image='' title='BLACK' ><a id='black' href='javascript:colorFcn(black.id)' style='background-color:#000000'><span>블랙</span></a></li>");
-				}else if(color[i]=="white"){
+				}else if(color[i].toLowerCase()=="white"){
 					$('#headColor').append("<span style='background-color:#ffffff' class='chips xans-record-'></span>");
 					$('#selectColor').append("<li class='licolor' id='whiteli' option_value='화이트' link_image='' title='WHITE'><a id='white' href='javascript:colorFcn(white.id)' style='background-color:#ffffff'><span>화이트</span></a></li>");
-				}else if(color[i]=="yellow"){
+				}else if(color[i].toLowerCase()=="yellow"){
 					$('#headColor').append("<span style='background-color:#ffd700' class='chips xans-record-'></span>");
 					$('#selectColor').append("<li class='licolor' id='yellowli' option_value='화이트' link_image='' title='YELLOW' ><a id='yellow' href='javascript:colorFcn(yellow.id)' style='background-color:#ffd700'><span>노랑</span></a></li>");
-				}else if(color[i]=="green"){
+				}else if(color[i].toLowerCase()=="green"){
 					$('#headColor').append("<span style='background-color:#00ff00' class='chips xans-record-'></span>");					
 					$('#selectColor').append("<li class='licolor' id='greenli' option_value='화이트' link_image='' title='GREEN'><a id='green' href='javascript:colorFcn(green.id)' style='background-color:#00ff00'><span>초록</span></a></li>");
-				}else if(color[i]=="blue"){
+				}else if(color[i].toLowerCase()=="blue"){
 					$('#headColor').append("<span style='background-color:#0000ff' class='chips xans-record-'></span>");					
 					$('#selectColor').append("<li class='licolor' id='blueli' option_value='화이트' link_image='' title='BLUE'><a id='blue' href='javascript:colorFcn(blue.id)' style='background-color:#0000ff'><span>파랑</span></a></li>");
-				}else if(color[i]=="pink"){
+				}else if(color[i].toLowerCase()=="pink"){
 					$('#headColor').append("<span style='background-color:#FF007F' class='chips xans-record-'></span>");				
 					$('#selectColor').append("<li class='licolor' id='pinkli' option_value='화이트' link_image='' title='PINK'><a id='pink' href='javascript:colorFcn(pink.id)' style='background-color:#FF007F'><span>분홍</span></a></li>");
 				}
@@ -261,8 +264,7 @@ function product_buy(){
 	if($('.productCount').length==0){
 		alert("구매하실 항목을 선택해 주세요");
 	}else{
-		var id = <%=(String)session.getAttribute("id")%>
-		
+		var id = '${id}'
 		for(var i=0; i<$('.productCount').length; i++){
 			var productName = $('.productCount').eq(i).attr("id");
 			var number = parseInt($('.productCount').eq(i).val());
@@ -272,7 +274,7 @@ function product_buy(){
 				data : {'productName' : productName , 'number' : number}
 			});
 		}	
-		if(id==null){
+		if(id==""){
 			location.href="/kgmall/user/loginForm.do?sell=sell";
 		}else{
 			location.href="/kgmall/product/order.do?name="+name+"&total="+total;
@@ -299,55 +301,29 @@ function product_cart(){
 	}
 }
 </script>
+</head>
 
 
-<!-- 
-            <script type="text/javascript">
-                var EC_FRONT_EXTERNAL_SCRIPT_VARIABLE_DATA = {"common_member_id_crypt":""};
-            </script>
-            
-<script type="text/javascript">var EC_SDE_SHOP_NUM = 1;var SHOP = {getLanguage : function() { return "ko_KR"; },getCurrency : function() { return "KRW"; },getFlagCode : function() { return "KR"; },isMultiShop : function() { return true; },isDefaultShop : function() { return true; },isDefaultLanguageShop : function(sLanguageCode) { return SHOP.isDefaultShop() && SHOP.isLanguageShop(sLanguageCode); },isKR : function() { return true; },isUS : function() { return false; },isJP : function() { return false; },isCN : function() { return false; },isTW : function() { return false; },isES : function() { return false; },isPT : function() { return false; },isLanguageShop : function(sLanguageCode) { return sLanguageCode === "ko_KR"; },getDefaultShopNo : function() { return 1; },getProductVer : function() { return 2; },isSDE : function() { return true; }};var EC_COMMON_UTIL = {convertSslForString : function(sString) { return sString.replace(/http:/gi, '');},convertSslForHtml : function(sHtml) { return sHtml.replace(/((?:src|href)\s*=\s*['"])http:(\/\/(?:[a-z0-9\-_\.]+)\/)/ig, '$1$2');},getProtocol : function() { return 'http'; },moveSsl : function() { if (EC_COMMON_UTIL.getProtocol() === 'http') { var oLocation = jQuery(window.location); var sUrl = 'https://' + oLocation.attr('host') + oLocation.attr('pathname') + oLocation.attr('search'); window.location.replace(sUrl); } }};</script><script type="text/javascript">            var EC_ROOT_DOMAIN = "cafe24.com";
-            var EC_GLOBAL_INFO = (function() {
-                var oData = {"base_domain":"ecudemo31431.cafe24.com","root_domain":"cafe24.com","is_global":false,"country_code":"KR","language_code":"ko_KR"};
-                
-                return {
-                    getBaseDomain: function() {
-                        return oData['base_domain'];
-                    },
 
-                    getRootDomain: function() {
-                        return oData['root_domain'];
-                    },
 
-                    isGlobal: function() {
-                        return oData['is_global'];
-                    },
 
-                    getCountryCode: function() {
-                        return oData['country_code'];
-                    },
 
-                    getLanguageCode: function() {
-                        return oData['language_code'];
-                    }
-                };
-            })();</script>
- --><!-- 
-<link rel="stylesheet" type="text/css" href="http://ecudemo31431.cafe24.com/ind-script/optimizer.php?filename=tZXhUsMgDMe_d_vqc8Q6fQPPB9AnoJC1OCCYgG5vL123c-f0zqv0Q3uQkt8_KSHAQB6hvWOITD0rD4xCmTWCFoEtU0igyXsK62K4gb-sR90IuZwshaaj_UzHnNJcUacOyPNck-oc_uKqYoSXgSI8XzKejoyyxmSdvnluixt-EO--ZLONSu_g9S0jHyC63NsgECnmOL1niHek2Fz4oV5lQZYyyAY9bdr7TQsxd87q1ZC8AzG4Mii2DyA7G9r2SPMlB4fnXMBgUtb9k2u2jojH8AXEK06MYz1hMCDsbML6cStj7LiZytVja8qRwlniscaf-SFyRqfGyOuRy1GgnMBnl6yU8nkZbIw29NUVNIX3AinBR12nZEaNqfUUS3PVhKqRpwSWIGe7CFVwCWynBJtkk1uOftXT6-JPp6hxVipt5_S1mEBKky7P7UMd8NT3j3WtEvZUroKLcVUN3DfdXpw1yKdbZ32ejzqf&type=css&k=00ecde62f9a09de2bbea9018362261d05a6ce239&t=1555846190">
-<link rel="stylesheet" type="text/css" href="http://ecudemo31431.cafe24.com/ind-script/optimizer.php?filename=tdLBUsQgDAbge9urzxHZ9TF8CUrTNgoJEtjdvv1SrTqeF08kPzNfMgywSkBA1xfFpLUoEwY5m5ezgVhGT65fc_CgE_YTKi0M-k5sDEyzF0kQfVmIAW-duiTejzbB20fBtA0_weBUn-DRSTZGhVk42yvqblX1s--OYAjEbUZ9ywpsuYRF8kquNZ1klCztVCchCNekS6hRWOmC_6G7olnCg_JOBpmKR_B2k5IhFJ9JV4mvpLnN3l-3NQJFm9x6HM-nNvzx9euTzHQbLTOmP02Xt4im9ayEF8Lrb7X7dw&type=css&k=0b74ca8685776a5715c458b48650fbc4cb864f21&t=1556586844">
-  -->
 
-	
+
+
+
+
+
+
+
+
+
+
+
 
 	<div id="container">
 		<div id="contents">
 			
-<!-- 업데이트 2018-11-01 -->
-<!--
-    $category_page = /product/list.html
-    $project_page = /product/project.html
-    $jointbuy_page = /product/jointbuy.html
--->
 <div class="xans-element- xans-product xans-product-headcategory location-product "><div class="path-product">
 		<h2>현재 위치</h2>
 		<ol>
@@ -367,6 +343,12 @@ Home</a></li>
 </div>
 
 
+
+
+
+
+
+
 <!-- 상단 전체영역 시작  -->
 <div id="df-product-detail" df-data-custom="" df-data-price="" df-data-sale="" class="xans-element- xans-product xans-product-detail"><!-- 디테일전체 영역 시작 -->
 <div class="detailArea" style="height:900px;" >
@@ -379,19 +361,26 @@ Home</a></li>
 						<!-- 상품 상세이미지 -->
 						<span class="detail-image"><img class='big_img_size BigImage'><span id="zoomMouseGiude" style="display:block; position:relative; width:170px; margin:0 auto;"><img src="//img.echosting.cafe24.com/design/skin/admin/ko_KR/txt_product_zoom.gif" id="zoomGuideImage" alt="마우스를 올려보세요." style="position: absolute; top: -27px; right: 0px;"></span></span>
 						<div id="zoom_wrap"><p class="image_zoom_large" style="display: none;"><span class="image_zoom_large_relative"><img id="zoom_image" alt="확대 이미지" src="//ecudemo31431.cafe24.com/web/product/big/df_sample_detail14_1.jpg" style="width: 1240px; height: 1240px;"></span></p></div>
-
-
-					</div>
+						</div>
 
 					<!-- 상품 추가이미지-->
 					<div class="xans-element- xans-product xans-product-addimage listImg" style="display: block;"><ul>
-<li class="xans-record-" style="display: none;"><div class="thumb"><img src="//ecudemo31431.cafe24.com/web/product/small/df_sample_list30.jpg" class="ThumbImage"></div></li>
+<li class="xans-record-" style="display: none;">
+<div class="thumb"><img src="//ecudemo31431.cafe24.com/web/product/small/df_sample_list30.jpg" class="ThumbImage"></div></li>
 													</ul>
 </div>
 </div>
 </div>
-		</div>
+</div>
 		<!-- //이미지 영역 종료 -->
+
+
+
+
+
+
+
+
 
 
         <!-- 상품정보 영역 시작 -->
@@ -402,9 +391,10 @@ Home</a></li>
 				<div class="df-detail-fixed-box">
 
 					<!-- DF픽스박스(스크롤영역) -->
-					<div class="scroll-wrapper df-detail-fixed-scroll scrollbar-macosx" style="position: relative;"><div class="df-detail-fixed-scroll scrollbar-macosx scroll-content" style="height: auto; margin-bottom: 0px; margin-right: 0px; max-height: 645px;">
+					<div class="scroll-wrapper df-detail-fixed-scroll scrollbar-macosx" style="position: relative;">
+						<div class="df-detail-fixed-scroll scrollbar-macosx scroll-content" style="height: auto; margin-bottom: 0px; margin-right: 0px; max-height: 645px;">
 
-						<div class="headingArea ">
+						<div class="headingArea">
 							<span class="icon"><img src="http://ecudemo31431.cafe24.com/web/upload/icon_201601081108247400.gif" class="icon_img" alt="추천"></span>
 
 							<!-- 상품명 -->
@@ -418,7 +408,7 @@ Home</a></li>
 								<div class="xans-element- xans-product xans-product-colorchip" id="headColor">
 							</div>
 						</div>
-
+					</div>
 						<!-- 상품요약설명 -->
 						<div class="df-summary-desc"></div>
 
@@ -527,7 +517,17 @@ Home</a></li>
 								</ul></li>
 <!-- 파일첨부 옵션 -->
 </ul>
-<!-- //상품옵션 전체영역 끝 --><!-- 옵션추가 버튼 --><div class="displaynone add-option" id="">
+<!-- //상품옵션 전체영역 끝 -->
+
+
+
+
+
+
+
+
+
+<!-- 옵션추가 버튼 --><div class="displaynone add-option" id="">
 							<a href="#none" onclick=""><img src="//img.echosting.cafe24.com/skin/base_ko_KR/product/btn_manual_select.gif" alt="옵션 선택"></a>
 						</div>
 
@@ -585,17 +585,29 @@ Home</a></li>
 						<!-- //2017-05-25 업데이트 끝 -->
 
 
+
+
+
+
+
 					</div><div class="scroll-element scroll-x"><div class="scroll-element_outer"><div class="scroll-element_size"></div><div class="scroll-element_track"></div><div class="scroll-bar" style="width: 96px;"></div></div></div><div class="scroll-element scroll-y"><div class="scroll-element_outer"><div class="scroll-element_size"></div><div class="scroll-element_track"></div><div class="scroll-bar" style="height: 96px;"></div></div></div></div>
 					<!-- //DF픽스박스(스크롤영역 -->
+					
+					
+					
 
 					<!-- 2017-02-25 구매 & 예약구매 버튼확인할것 상품코드: P00000DI -->
 
-					<div class="xans-element- xans-product xans-product-action"><!--구매·장바구니·관심상품·품절 버튼 -->
-<div class="ec-base-button df-action-button">
+					<div class="xans-element- xans-product xans-product-action">
+					<!--구매·장바구니·관심상품·품절 버튼 -->
+							<div class="ec-base-button df-action-button">
 							<div class="ac-buy wrap"><a href="#none" class="df-btn buy " onclick="product_buy()"><span id="btnBuy">바로구매</span><span class="displaynone" id="btnReserve">예약주문</span></a></div>
 							<div class="ac-basket wrap"><a href="#none" class="df-btn basket " onclick="product_cart()">장바구니</a></div>
 							<div class="ac-soldout wrap displaynone"><span class="df-btn soldout">품절</span></div>
 						</div>
+						
+						
+						
 
 
 <!-- 공통이벤트-B 상품이미지 옆 -->
@@ -618,6 +630,10 @@ Home</a></li>
 <!-- //공급사:판매사정보 -->
 </div>
 <!-- //상단 전체영역 종료  -->
+
+
+
+
 
 
 
@@ -736,7 +752,6 @@ Home</a></li>
 
 
 
-
 <!-- 상품사용후기 시작 -->
 <div id="prdReview" class="df-prd-detail-tab grid5 use-review ">
         <ul class="menu">
@@ -752,12 +767,12 @@ Home</a></li>
 
 <div id="df-review" class="list detail" df-review-act="detail" style="display: block; visibility: visible; opacity: 1;">
 	<div class="xans-element- xans-product xans-product-review"><a name="use_review"></a>
-<p class="noAccess displaynone">글읽기 권한이 없습니다.</p>
-<div class="minor displaynone">
+		<p class="noAccess displaynone">글읽기 권한이 없습니다.</p>
+		<div class="minor displaynone">
 			<p><img src="//img.echosting.cafe24.com/skin/base_ko_KR/product/ico_under19.gif" alt=""> &nbsp;<strong>"19세 미만의 미성년자"</strong>는 출입을 금합니다!</p>
 			<p class="button"><a href="/intro/board.html"><img src="//img.echosting.cafe24.com/skin/base_ko_KR/product/btn_adult_certification.gif" alt="성인인증 하기"></a></p>
 		</div>
-<div class="notice">
+		<div class="notice">
 			<ul class="list-notice"><li df-data-href="?no=23&amp;board_no=4&amp;spread_flag=T" class="box xans-record-" no="23">
 				<div class="chk"><img src="http://ecudemo31431.cafe24.com/web/upload/ico_board_notice.png" alt="공지"></div>
 				<div class="product-thumb"><a href="/product/detail.html" class="displaynone"></a></div>
@@ -766,7 +781,7 @@ Home</a></li>
 				
 				<div class="point "><span class="point0"></span></div>
 				<div class="writer">
-<span class="icon-mobile displaynone"><i class="fa fa-mobile" aria-hidden="true"></i></span>디자인플로어</div>
+				<span class="icon-mobile displaynone"><i class="fa fa-mobile" aria-hidden="true"></i></span>디자인플로어</div>
 				<div class="date ">2016-01-08</div>
 				<div class="vote "><div>
 <a href="#none" class="df-review-btn btn-vote"></a> <span class="vote-num">10</span>
@@ -823,22 +838,19 @@ Home</a></li>
 	<div class="btnArea">
 		<a href="#none" df-data-href="/board/review/write.html?board_no=4&amp;product_no=82&amp;cate_no=1&amp;display_group=2" class="df-review-btn review-write">리뷰작성</a>
 		<a href="/board/review/list.html?board_no=4" class="df-review-btn review-viewall">모두보기</a>
-	</div>
+				</div>
+			</div>
 
-	<div class="xans-element- xans-layout xans-layout-footer companyname ">디자인 플로어</div>
-
+		</div>
+    </div>
+    <!-- 상품후기 종료 -->
+</div>
+</div>
 </div>
 
 
-			        </div>
-    </div>
-<!-- //상품사용후기 종료 -->
 
-<div id="multi_option" style="display:none;"></div>
-<form id="frm_image_zoom" style="display:none;"></form>
 <script type="text/javascript">var sAuthSSLDomain = "login2.cafe24ssl.com";</script><script type="text/javascript" src="https://login2.cafe24ssl.com/crypt/AuthSSLManager.js"></script><script type="text/javascript" src="https://login2.cafe24ssl.com/crypt/AuthSSLManager.plugin.js"></script>
-
-
 
 <script type="text/javascript" src="../js/productOption.js"></script>
 <script type="text/javascript" src="../js/productOption2.js"></script>
@@ -846,8 +858,6 @@ Home</a></li>
 <script type="text/javascript" src="../js/detailProduct.js"></script>
 <!-- <script type="text/javascript" src="../js/banner2.js"></script>
  --> 
-
-
 
 
 <script type="text/javascript">
@@ -935,4 +945,3 @@ $('.xans-srlite-display > .srlite-remote').hide();
 var EC_FRONT_JS_CONFIG_SHOP = {"bECUseItemSalePrice":false,"sCouponDownloadPage":"\/coupon\/coupon_productdetail.html","aOptionColorchip":{"#FFFFFF":"","#C2C2C2":"","#6694CC":"","#4D4D4D":""}};
 var EC_FRONT_JS_CONFIG_MANAGE = {"sWebLogEventFlag":"F"};
 </script>
-<div id="image_zoom_small" style="width: 150px; height: 150px; display: none;"></div><iframe src="http://ecudemo31431.cafe24.com/exec/front/eclog/main/?product_no=82&amp;cate_no=1&amp;isplay_group=2&amp;rloc=http%3A//ecudemo31431.cafe24.com/product/detail.html%3Fproduct_no%3D82%26cate_no%3D1%26display_group%3D2&amp;rref=http%3A//ecudemo31431.cafe24.com/&amp;udim=1440*900&amp;rserv=null&amp;cid=CID066a5ce356a88de48d416ebd40ade8bf&amp;role_path=PRODUCT_DETAIL" id="log_realtime" style="display: none;"></iframe><div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"><div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div></div></body></html>

@@ -68,28 +68,17 @@
                     
                     <tbody class="xans-element- xans-order xans-order-normallist center" id="tablebody">
                     
-              
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+            
 </tbody>
 </table>
 </div>
 
-<!-- 주문 버튼 -->
-<div class="xans-element- xans-order xans-order-totalorder df-base-button justify fs-0">
-<a href="#none" class="df-btn highlight big mr-3">상품주문</a>
-<span><a href="#" class="df-btn light big" id="ing_shopping">쇼핑계속하기</a></span>
-</div></div>
+	<!-- 주문 버튼 -->
+	<div class="xans-element- xans-order xans-order-totalorder df-base-button justify fs-0">
+		<a href="#none" class="df-btn highlight big mr-3">상품주문</a>
+		<span><a href="#" class="df-btn light big" id="ing_shopping">쇼핑계속하기</a></span>
+	</div>
+</div>
 
 <!-- 이용안내 -->
 <div class="xans-element- xans-order xans-order-basketguide df-base-help ">
@@ -123,7 +112,7 @@ function deleteTr(value){
 	$.ajax({
 		type : 'POST',
 		data : {'productName' : value,
-				'id' : <%=(String)session.getAttribute("id")%>},
+				'id' : '${id}'},
 		url : '/kgmall/product/selectDeleteCookie.do'
 	});
 	location.reload();
@@ -142,8 +131,8 @@ $('#ing_shopping').click(function(){
 $(document).ready(function(){
 	var name=null;
 	var totalPrice=0;
-	var id = <%=(String)session.getAttribute("id")%>
-	if(id==null){
+	var id = '${id}'
+	if(id==""){
 		$.ajax({
 			type : 'POST',
 			url : '/kgmall/product/selectCookie.do',
@@ -172,6 +161,7 @@ $(document).ready(function(){
 		});
 	}//id가 널일 때
 	else{
+		
 		$.ajax({
 			type : 'POST',
 			url : '/kgmall/product/insertCookie.do',
