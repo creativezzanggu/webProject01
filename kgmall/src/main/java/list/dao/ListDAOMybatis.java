@@ -21,7 +21,11 @@ public class ListDAOMybatis implements ListDAO {
 	public int getMajorCategoryTotal(String category) {
 		return sqlSession.selectOne("listSQL.getMajorCategoryTotal",category);
 	}
-
+	
+	@Override
+	public int getSubcategoryTotal(String subcategory) {
+		return sqlSession.selectOne("listSQL.getSubcategoryTotal",subcategory);
+	}
 	
 	@Override
 	public List<ListDTO> getProductList(Map<String, String> map) {
@@ -51,7 +55,6 @@ public class ListDAOMybatis implements ListDAO {
 	public List<ListDTO> getProductSelectList(Map<String, String> map) {
 		return sqlSession.selectList("listSQL.getProductSelectList", map);
 	}
-
 	
 
 }

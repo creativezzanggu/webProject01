@@ -7,6 +7,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select count(*) from product where MAJORCATEGORY=#{category}
 	</select>
 	
+	<select id="getSubcategoryTotal" parameterType="String" resultType="Integer">
+		select count(*) from product where SUBCATEGORY=#{subcategory}
+	</select>
+	
 	<select id="getProductList" parameterType="java.util.Map" resultType="productlist">
 		select * from 
 		(select rownum rn,tt.* from 

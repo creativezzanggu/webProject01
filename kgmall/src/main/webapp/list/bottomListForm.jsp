@@ -92,8 +92,76 @@ $(document).ready(function(){
 		}
 	});
 	
+	$('#SKIRT').click(function(event,str){
+		if(str!='trigger')$('#pg').val(1);
+		$.ajax({
+			type : 'POST',
+			url : '/kgmall/list/bottomSelectListForm.do',
+			data : {'pg' : $('#pg').val(),
+					'subcategory' : 'SKIRT'},
+			dataType : 'json',
+			success : function(data){
+				$('#total').text(data.totalA);
+				$('.prdList').html(data.pruductList);
+				$('#paging').html(data.listPaging.pagingHTML);
+			}
+		});
+	});
+	
+	$('#PANTS').click(function(event,str){
+		if(str!='trigger')$('#pg').val(1);
+		$.ajax({
+			type : 'POST',
+			url : '/kgmall/list/bottomSelectListForm.do',
+			data : {'pg' : $('#pg').val(),
+					'subcategory' : 'PANTS'},
+			dataType : 'json',
+			success : function(data){
+				$('#total').text(data.totalA);
+				$('.prdList').html(data.pruductList);
+				$('#paging').html(data.listPaging.pagingHTML);
+			}
+		});
+	});
+	
+	$('#LEGGINGS').click(function(event,str){
+		if(str!='trigger')$('#pg').val(1);
+		$.ajax({
+			type : 'POST',
+			url : '/kgmall/list/bottomSelectListForm.do',
+			data : {'pg' : $('#pg').val(),
+					'subcategory' : 'LEGGINGS'},
+			dataType : 'json',
+			success : function(data){
+				$('#total').text(data.totalA);
+				$('.prdList').html(data.pruductList);
+				$('#paging').html(data.listPaging.pagingHTML);
+			}
+		});
+	});
+	
+	$('#DENIM').click(function(event,str){
+		if(str!='trigger')$('#pg').val(1);
+		$.ajax({
+			type : 'POST',
+			url : '/kgmall/list/bottomSelectListForm.do',
+			data : {'pg' : $('#pg').val(),
+					'subcategory' : 'DENIM'},
+			dataType : 'json',
+			success : function(data){
+				$('#total').text(data.totalA);
+				$('.prdList').html(data.pruductList);
+				$('#paging').html(data.listPaging.pagingHTML);
+			}
+		});
+	});
 	
 });
+
+function bottomSelect(pg){
+	$('#pg').val(pg);
+	$('#SKIRT').trigger('click','trigger');
+}
 </script>
 </html>
 
