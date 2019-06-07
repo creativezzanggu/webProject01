@@ -9,6 +9,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  	</select>
 
 	<select id="getColor" parameterType="String" resultType="String">
- 		select productname from productdetail where productname like #{name}
+ 		select productName from productdetail where productname like #{name}
  	</select>
 </mapper>

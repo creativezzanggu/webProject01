@@ -15,14 +15,74 @@
 </div>
 
 <div class="xans-element- xans-order xans-order-basketpackage">
-<div class="xans-element- xans-order xans-order-tabinfo df-base-tab typeLight"><ul class="menu">
-<li class="selected "><a href="#none">국내배송상품 (0)</a></li>
-</ul>
+<div class="xans-element- xans-order xans-order-tabinfo df-base-tab typeLight">
 </div>
 
 <!-- 장바구니 비어있을 때 -->
-<div class="xans-element- xans-order xans-order-empty ">
+<div class="xans-element- xans-order xans-order-empty" id="emptyCart">
 <p><img src="../image/search.png"/><br><br>장바구니가 비어 있습니다.</p>
+</div>
+
+
+
+<!-- 국내배송상품 주문내역 -->
+<div class="orderListArea ">
+        <div class="title">
+            <h3>장바구니</h3>
+        </div>
+
+        <!-- 기본배송 -->
+        <div class="ec-base-table typeList ">
+            <table border="1" summary="">
+<caption>기본배송</caption>
+                <colgroup>
+<col style="width:27px" class="">
+<col style="width:92px">
+<col style="width:auto">
+<col style="width:98px">
+<col style="width:75px">
+<col style="width:98px">
+<col style="width:98px">
+<col style="width:85px">
+<col style="width:98px">
+</colgroup>
+<thead><tr>
+<th scope="col" class=""></th>
+                        <th scope="col">이미지</th>
+                        <th scope="col">상품정보</th>
+                        <th scope="col"></th>
+                        <th scope="col">판매가</th>
+                        <th scope="col">수량</th>
+                        <th scope="col">배송구분</th>
+                        <th scope="col">배송비</th>
+                        <th scope="col">합계</th>
+                    </tr></thead>
+<tfoot class="right"><tr>
+<td class=""></td>
+                        <td colspan="8">
+<span class="gLeft"></span> 합계 : <strong class="txtEm gIndent10"><span id="domestic_ship_fee_sum" class="txt18">0</span> won</strong> <span class="displaynone"></span>
+</td>
+                    </tr></tfoot>
+                    
+                    
+                    
+                    <tbody class="xans-element- xans-order xans-order-normallist center" id="tablebody">
+                    
+              
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+</tbody>
+</table>
 </div>
 
 <!-- 주문 버튼 -->
@@ -56,7 +116,93 @@
 </div>
 </div>
 <script>
+//지우기
+function deleteTr(value){
+	var totalPrice=0;
+	$('#'+value).remove();
+	$.ajax({
+		type : 'POST',
+		data : {'productName' : value,
+				'id' : <%=(String)session.getAttribute("id")%>},
+		url : '/kgmall/product/selectDeleteCookie.do'
+	});
+	location.reload();
+}
+
+//comma
+function addComma(num) {
+	  var regexp = /\B(?=(\d{3})+(?!\d))/g;
+	  return num.toString().replace(regexp, ',');
+}
+
 $('#ing_shopping').click(function(){
 	location.href="/kgmall/main/index.do";
+});
+
+$(document).ready(function(){
+	var name=null;
+	var totalPrice=0;
+	var id = <%=(String)session.getAttribute("id")%>
+	if(id==null){
+		$.ajax({
+			type : 'POST',
+			url : '/kgmall/product/selectCookie.do',
+			dataType : 'json',
+			success : function(data){
+				var map = data.map;
+				$.each(map, function(index, value){
+					var str = index.split("_");
+					name=str[0];
+					if(name!=1){
+						$('#emptyCart').addClass('displaynone');	
+					}
+					$.ajax({
+						type : 'POST',
+						url : '/kgmall/product/getDTO.do',
+						data : "name="+name,
+						dataType : 'json',
+						success : function(data){
+							$("#tablebody").append("<tr class='alltr' id="+index+"><td class=''><button value="+index+" type='' onclick='javascript:deleteTr(this.value)'><img class='' style='height:10px; width:10px;' src='../image/x.png'></button></td><td class='thumb gClearLine'><a href='../product/product.do'><img id = 'productImage' src='../image/productImage/"+data.productDTO.imageLink+"' height='50px' width='50px' onerror='this.src=//img.echosting.cafe24.com/thumb/img_product_small.gif;' alt=''></a></td><td class='gClearLine'><a id='productName' href='../product/product.do'><strong>"+data.productDTO.name+"</strong>"+"_"+str[1]+"_"+str[2]+"</a></td><td class=''></td><td class='right'><div class=''><strong>"+addComma(data.productDTO.price)+" won</strong><p class='displaynone'></p></div></td><td>"+value+"개"+"</td><td><div class='txtInfo'>기본배송<br></div></td><td rowspan='1' class=''>[선택]</td><td class='right'><strong>"+addComma(value*data.productDTO.price)+" won</strong><div class='displaynone'></div></td></tr>");
+							totalPrice = totalPrice+(value*data.productDTO.price);
+							$('#domestic_ship_fee_sum').text(addComma(totalPrice));
+						}
+					});
+				});
+			}
+		});
+	}//id가 널일 때
+	else{
+		$.ajax({
+			type : 'POST',
+			url : '/kgmall/product/insertCookie.do',
+			data : {'id':id},
+			dataType : 'json',
+			success : function(data){
+				var list = data.list2;
+				$.each(list, function(index, value){
+					var str = value.product.split("_");
+					name=str[0];
+					if(name!=1){
+						$('#emptyCart').addClass('displaynone');	
+					} 
+					$.ajax({
+						type : 'POST',
+						url : '/kgmall/product/getDTO.do',
+						data : "name="+name,
+						dataType : 'json',
+						success : function(data){
+							$("#tablebody").append("<tr class='alltr' id="+value.product+"><td class=''><button value="+value.product+" type='' onclick='javascript:deleteTr(this.value)'><img class='' style='height:10px; width:10px;' src='../image/x.png'></button></td><td class='thumb gClearLine'><a href='../product/product.do'><img id = 'productImage' src='../image/productImage/"+data.productDTO.imageLink+"' height='50px' width='50px' onerror='this.src=//img.echosting.cafe24.com/thumb/img_product_small.gif;' alt=''></a></td><td class='gClearLine'><a id='productName' href='../product/product.do'><strong>"+data.productDTO.name+"</strong>"+"_"+str[1]+"_"+str[2]+"</a></td><td class=''></td><td class='right'><div class=''><strong>"+addComma(data.productDTO.price)+" won</strong><p class='displaynone'></p></div></td><td>"+value.productCount+"개"+"</td><td><div class='txtInfo'>기본배송<br></div></td><td rowspan='1' class=''>[선택]</td><td class='right'><strong>"+addComma(value.productCount*data.productDTO.price)+" won</strong><div class='displaynone'></div></td></tr>");
+							totalPrice = totalPrice+(value.productCount*data.productDTO.price);
+							$('#domestic_ship_fee_sum').text(addComma(totalPrice));
+						}
+					}); 
+				});
+				$.ajax({
+					type : 'POST',
+					url : '/kgmall/product/deleteCookie.do'
+				});
+			}
+		});
+	}
 });
 </script>

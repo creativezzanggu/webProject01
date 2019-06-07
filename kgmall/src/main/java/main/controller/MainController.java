@@ -1,6 +1,5 @@
 package main.controller;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -11,10 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import main.dao.MainDAO;
 import product.bean.ProductDTO;
 
@@ -31,18 +26,17 @@ public class MainController {
 	}
 	
 	@RequestMapping(value="/main/search.do", method=RequestMethod.GET)
-	public String search(@RequestParam String keyword, Model model) {		
-		 List<ProductDTO> list = mainDAO.search(keyword);
-		//DB 접근 해서 해당 키워드의 product 가져오기
+	public String search(@RequestParam String keyword, Model model) {
+		System.out.println("키워드 : "+keyword);
+		
+		model.addAttribute("keyword", keyword.trim());
 		model.addAttribute("display", "../main/search.jsp");
-		model.addAttribute("list", list);
-		model.addAttribute("keyword", keyword);
-		model.addAttribute("pageMoved", "yes");
 		return "/main/index";
 	}
 	
-	@RequestMapping(value="/main/searchDetail.do", method=RequestMethod.GET)
+	@RequestMapping(value="/main/searchDetail.do", method=RequestMethod.POST)
 	public ModelAndView searchDetail(@RequestParam Map<String, String> map) {
+		System.out.println("상세검색 : "+map.get("keyword"));
 		List<ProductDTO> list = mainDAO.searchDetail(map);
 		
 		ModelAndView mav = new ModelAndView();
