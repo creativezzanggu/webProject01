@@ -60,6 +60,12 @@ $(document).ready(function(){
 			$(".image1").attr("src", "../image/productImage/"+data.productDTO.productImage1);
 			$(".image2").attr("src", "../image/productImage/"+data.productDTO.productImage2);
 			$(".image3").attr("src", "../image/productImage/"+data.productDTO.productImage3);
+			
+			$('img').each(function(n){
+				$(this).error(function(){
+			         $(this).attr("src", "../image/productImage/"+data.productDTO.imageLink);
+			    });
+			});
 		}
 	});
 	$.ajax({
@@ -375,7 +381,6 @@ Home</a></li>
 						<div id="zoom_wrap"><p class="image_zoom_large" style="display: none;"><span class="image_zoom_large_relative"><img id="zoom_image" alt="확대 이미지" src="//ecudemo31431.cafe24.com/web/product/big/df_sample_detail14_1.jpg" style="width: 1240px; height: 1240px;"></span></p></div>
 
 
-
 					</div>
 
 					<!-- 상품 추가이미지-->
@@ -383,8 +388,7 @@ Home</a></li>
 <li class="xans-record-" style="display: none;"><div class="thumb"><img src="//ecudemo31431.cafe24.com/web/product/small/df_sample_list30.jpg" class="ThumbImage"></div></li>
 													</ul>
 </div>
-
-				</div>
+</div>
 </div>
 		</div>
 		<!-- //이미지 영역 종료 -->
