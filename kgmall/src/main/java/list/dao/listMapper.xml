@@ -35,8 +35,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<if test="category =='MAJORCATEGORY'">
 			 (select * from product where majorcategory='${sub}'
 		</if>
+<<<<<<< HEAD
 		<if test="category =='SUBCATEGORY'">
 			 (select * from product where subcategory='${subcategory}'
+=======
+		<if test="category !='MAJORCATEGORY'">
+			 (select * from product where SUBCATEGORY='${subcategory}'
+>>>>>>> branch 'develop' of https://github.com/creativezzanggu/webProject01.git
 		</if>
 		<if test="option =='productName'">
 			 order by name asc)tt)

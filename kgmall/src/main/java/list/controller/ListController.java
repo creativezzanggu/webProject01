@@ -121,7 +121,7 @@ public class ListController {
 	@RequestMapping(value="/SelectOptionForm.do", method=RequestMethod.POST)
 	public ModelAndView SelectOptionForm(@RequestParam(required=false,defaultValue="1") int pg,@RequestParam Map<String,String>map) {
 		if(map.get("category").equals("MAJORCATEGORY")) {
-			map.put("majorcategory", "BOTTOM");
+			map.put("majorcategory",map.get("sub"));
 		}else {
 			map.put("subcategory", map.get("category"));
 			map.put("category", "SUBCATEGORY");
@@ -151,7 +151,7 @@ public class ListController {
 			}
 			pruductList.append("<li id='"+dto.getCode()+"' class='item xans-record-'>"
 					+"<div class='box'><div class='thumbnail'>"
-					+"<a><img src='../image/bottom.jpg' id='eListPrdImage111_1' class='thumb'></a>"
+					+"<a href='/kgmall/product/select.do?name="+dto.getName()+"'><img src='../image/"+dto.getImageLink()+"' class='thumb'></a>"
 					+"</div><div class='description'><div class='fadearea'>"
 					+"<div class='xans-element- xans-product colorList color'>"+colorForm+"</div>"
 					+"<p class='name'>"
@@ -205,7 +205,7 @@ public class ListController {
 			}
 			pruductList.append("<li id='"+dto.getCode()+"' class='item xans-record-'>"
 					+"<div class='box'><div class='thumbnail'>"
-					+"<a><img src='../image/bottom.jpg' id='eListPrdImage111_1' class='thumb'></a>"
+					+"<a href='/kgmall/product/select.do?name="+dto.getName()+"'><img src='../image/"+dto.getImageLink()+"' class='thumb'></a>"
 					+"</div><div class='description'><div class='fadearea'>"
 					+"<div class='xans-element- xans-product colorList color'>"+colorForm+"</div>"
 					+"<p class='name'>"
