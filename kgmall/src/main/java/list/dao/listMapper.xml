@@ -32,7 +32,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  	<select id="getProductSelectOptionList" parameterType="java.util.Map" resultType="productlist">
  		select * from
 		 (select rownum rn,tt.* from
-		 (select * from product where majorcategory='${sub}'
+		<if test="category =='MAJORCATEGORY'">
+			 (select * from product where majorcategory='${sub}'
+		</if>
+		<if test="category !='MAJORCATEGORY'">
+			 (select * from product where SUBCATEGORY='${subcategory}'
+		</if>
 		<if test="option =='productName'">
 			 order by name asc)tt)
 		</if>
