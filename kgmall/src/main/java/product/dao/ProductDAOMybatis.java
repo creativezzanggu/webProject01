@@ -37,4 +37,9 @@ public class ProductDAOMybatis implements ProductDAO {
 		}//중복제거
 		return resultList;
 	}
+
+	@Override
+	public List<ProductDTO> thumb() {
+		return sqlSession.selectList("productSQL.getThumb");
+	}
 }

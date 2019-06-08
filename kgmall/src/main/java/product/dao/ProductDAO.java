@@ -10,4 +10,6 @@ public interface ProductDAO {
 
 	List<String> getColor(String name);
 
+	List<ProductDTO> thumb();
+
 }

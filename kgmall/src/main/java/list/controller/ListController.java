@@ -163,7 +163,12 @@ public class ListController {
 					+"</div></div></div>");
 			colorForm.setLength(0);
 		}
-		int totalA = listDAO.getMajorCategoryTotal(map.get("majorcategory"));
+		int totalA = 0;
+		if(map.get("category").equals("SUBCATEGORY")) {
+			totalA = listDAO.getSubcategoryTotal(map.get("subcategory"));
+		}else {
+			totalA = listDAO.getMajorCategoryTotal(map.get("majorcategory"));
+		}
 		listPaging.setCurrentPage(pg);
 		listPaging.setPageBlock(5);
 		listPaging.setPageSize(9);
