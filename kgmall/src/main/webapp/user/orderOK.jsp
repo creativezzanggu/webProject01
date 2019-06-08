@@ -7,9 +7,9 @@
 <form id="loginForm" action="/kgmall/user/getUser.do" method="post">
 <div class="xans-element- xans-member xans-member-login ">
 <div class="login">
-<h3>회원가입을 축하드립니다!</h3>
+<h3>주문이 완료되었습니다.</h3>
 <fieldset>
-<legend>회원가입 완료</legend>
+<legend>주문 완료</legend>
 <p class="link"><a href="/kgmall/main/index.do" class="btn Join">메인으로</a></p>
 </div></div>
 </fieldset>
