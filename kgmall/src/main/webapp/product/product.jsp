@@ -275,9 +275,13 @@ function product_buy(){
 			});
 		}	
 		if(id==""){
-			location.href="/kgmall/user/loginForm.do?sell=sell";
+			$.ajax({
+				type : 'POST',
+				url : '/kgmall/product/deleteCookie.do'
+			});
+			location.href="/kgmall/user/loginForm.do";
 		}else{
-			location.href="/kgmall/product/order.do?name="+name+"&total="+total;
+			location.href="/kgmall/order/order.do?name="+name;
 		}
 	}
 }
@@ -293,7 +297,7 @@ function product_cart(){
 			var number = parseInt($('.productCount').eq(i).val());
 			$.ajax({
 				type : 'POST',
-				url : '/kgmall/product/createCookie.do',
+				url : '/kgmall/cart/createCookie.do',
 				data : {'productName' : productName , 'number' : number}
 			});
 		}

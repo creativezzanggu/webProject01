@@ -111,7 +111,7 @@ function deleteTr(value){
 		type : 'POST',
 		data : {'productName' : value,
 				'id' : '${id}'},
-		url : '/kgmall/product/selectDeleteCookie.do'
+		url : '/kgmall/cart/selectDeleteCookie.do'
 	});
 	location.reload();
 }
@@ -129,17 +129,11 @@ $('#ing_shopping').click(function(){
 $(document).ready(function(){
 	var name=null;
 	var totalPrice=0;
-<<<<<<< HEAD
 	var id = '${id}';
-	
-	if(id==''){
-=======
-	var id = '${id}'
 	if(id==""){
->>>>>>> branch 'develop' of https://github.com/creativezzanggu/webProject01.git
 		$.ajax({
 			type : 'POST',
-			url : '/kgmall/product/selectCookie.do',
+			url : '/kgmall/cart/selectCookie.do',
 			dataType : 'json',
 			success : function(data){
 				var map = data.map;
@@ -167,7 +161,7 @@ $(document).ready(function(){
 	else{
 		$.ajax({
 			type : 'POST',
-			url : '/kgmall/product/insertCookie.do',
+			url : '/kgmall/cart/insertCookie.do',
 			data : {'id':id},
 			dataType : 'json',
 			success : function(data){
@@ -175,9 +169,9 @@ $(document).ready(function(){
 				$.each(list, function(index, value){
 					var str = value.product.split("_");
 					name=str[0];
-					if(name!=1){
+					if(str[2]!=null){
 						$('#emptyCart').addClass('displaynone');	
-					} 
+					}
 					$.ajax({
 						type : 'POST',
 						url : '/kgmall/product/getDTO.do',
@@ -192,7 +186,7 @@ $(document).ready(function(){
 				});
 				$.ajax({
 					type : 'POST',
-					url : '/kgmall/product/deleteCookie.do'
+					url : '/kgmall/cart/deleteCookie.do'
 				});
 			}
 		});
