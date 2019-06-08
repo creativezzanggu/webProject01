@@ -1090,3 +1090,21 @@
 </div>
 
 <script type="text/javascript" src="../js/body.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.4.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$.ajax({
+		type : 'POST',
+		url : '/kgmall/main/newListForm.do',
+		data : {'pg' : '1'},
+		dataType : 'json',
+		success : function(data){
+			
+			$('#category').val('MAJORCATEGORY');
+			$('#total').text(data.totalA);
+			$('.prdList').html(data.pruductList);
+			$('#paging').html(data.listPaging.pagingHTML);
+		}
+	});
+});
+</script>

@@ -29,7 +29,7 @@ import board.dao.BoardDAO;
 @RequestMapping("/board")
 public class BoardController {
 	@Autowired
-	private BoardDAO boardDAO;
+	BoardDAO boardDAO;
 	
 	
 	@RequestMapping(value="/board.do", method=RequestMethod.GET)

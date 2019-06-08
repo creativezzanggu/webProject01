@@ -27,6 +27,8 @@
 	<context:component-scan base-package="cart.bean" />
 	<context:component-scan base-package="order.bean" />
 	<context:component-scan base-package="order.dao" />
+	<context:component-scan base-package="review.bean" />
+	<context:component-scan base-package="review.dao" />
 	
 
 
