@@ -1,7 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "//www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 
 <html xmlns="//www.w3.org/1999/xhtml">
 <head>
@@ -10,6 +13,7 @@
 <!--PG크로스브라우징필수내용 시작--><meta http-equiv="Cache-Control" content="no-cache"><meta http-equiv="Expires" content="0"><meta http-equiv="Pragma" content="no-cache"><!--PG크로스브라우징필수내용 끝-->
 
 <link href="http://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "//www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width"><!--PG크로스브라우징필수내용 시작--><meta http-equiv="Cache-Control" content="no-cache"><meta http-equiv="Expires" content="0"><meta http-equiv="Pragma" content="no-cache"><!--PG크로스브라우징필수내용 끝--><link href="../css/mainCss1.css" rel="stylesheet">
@@ -88,6 +92,9 @@
 					<c:if test="${id == 'admin'}">
 					<li class="myshop">
 					<a href="/kgmall/admin/productInsertForm.do">상품등록</a>
+					</li>
+					<li class="myshop">
+					<a href="/kgmall/admin/productList.do">상품관리</a>
 					</li>
 					</c:if>						
 
@@ -234,11 +241,11 @@
 				<div id="cnb" style="opacity: 1; visibility: visible;">
 					<div class="m1">
 						<ul class="xans-element- xans-layout xans-layout-category">
-<li df-cate-no="42" df-cate-depth="1" class="d1 xans-record-" style="margin-left: 5px; margin-right: 5px;"><a href="/product/list.html?cate_no=42"><span>BEST 6</span></a><div class="m2" style="margin-left: 255px;"><ul><li df-cate-no="43" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=43">한주간 베스트</a></li><li df-cate-no="44" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=44">이달의 베스트</a></li><li df-cate-no="45" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=45">MD'S 초이스</a></li></ul><div class="menuImg"><a href="#none"><img class="banner_image" alt="BEST 50" rel="145-10" src="//app-storage-005.cafe24.com/bannermanage2/ecudemo31431/2019/04/01/754aabcb687e8b214258c68638b2f99a.jpg"></a></div></div></li>
-<li df-cate-no="49" df-cate-depth="1" class="d1 xans-record-" style="margin-left: 5px; margin-right: 5px;"><a href="/product/list.html?cate_no=49"><span>OUTER</span></a><div class="m2" style="margin-left: 230px; display: none;"><ul><li df-cate-no="50" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=50">COAT &amp; TERNCH<i class="fa fa-angle-right"></i></a><div class="m3"><ul><li df-cate-no="82" class="d3" df-cate-depth="3"><a href="/product/list.html?cate_no=82">COAT</a></li><li df-cate-no="83" class="d3" df-cate-depth="3"><a href="/product/list.html?cate_no=83">TRENCH</a></li></ul></div></li><li df-cate-no="51" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=51">JACKET</a></li><li df-cate-no="52" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=52">JUMPER</a></li><li df-cate-no="53" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=53">CADIGAN</a></li></ul><div class="menuImg"><a href="#none"><img class="banner_image" alt="OUTER" rel="147-10" src="//app-storage-005.cafe24.com/bannermanage2/ecudemo31431/2019/04/01/396c3b5987be025dea136313d8fe2694.jpg"></a></div></div></li>
-<li df-cate-no="54" df-cate-depth="1" class="d1 xans-record-" style="margin-left: 5px; margin-right: 5px;"><a href="/product/list.html?cate_no=54"><span>TOP</span></a><div class="m2" style="margin-left: 135px; display: none;"><ul><li df-cate-no="55" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=55">TEE SHIRT</a></li><li df-cate-no="56" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=56">BLOUSE</a></li><li df-cate-no="57" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=57">KNIT</a></li><li df-cate-no="58" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=58">CAMI</a></li></ul><div class="menuImg"><a href="#none"><img class="banner_image" alt="TOP" rel="148-10" src="//app-storage-005.cafe24.com/bannermanage2/ecudemo31431/2019/04/01/5fd957237ec382d2da17dc91229ba020.jpg"></a></div></div></li>
+<li df-cate-no="42" df-cate-depth="1" class="d1 xans-record-" style="margin-left: 5px; margin-right: 5px;"><a href="/kgmall/list/bestListForm.do?pg=1"><span>BEST 6</span></a><div class="m2" style="margin-left: 255px;"><ul><li df-cate-no="43" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=43">한주간 베스트</a></li><li df-cate-no="44" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=44">이달의 베스트</a></li><li df-cate-no="45" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=45">MD'S 초이스</a></li></ul><div class="menuImg"><a href="#none"><img class="banner_image" alt="BEST 50" rel="145-10" src="//app-storage-005.cafe24.com/bannermanage2/ecudemo31431/2019/04/01/754aabcb687e8b214258c68638b2f99a.jpg"></a></div></div></li>
+<li df-cate-no="49" df-cate-depth="1" class="d1 xans-record-" style="margin-left: 5px; margin-right: 5px;"><a href="/kgmall/list/outerListForm.do?pg=1"><span>OUTER</span></a><div class="m2" style="margin-left: 230px; display: none;"><ul><li df-cate-no="50" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=50">COAT &amp; TERNCH<i class="fa fa-angle-right"></i></a><div class="m3"><ul><li df-cate-no="82" class="d3" df-cate-depth="3"><a href="/product/list.html?cate_no=82">COAT</a></li><li df-cate-no="83" class="d3" df-cate-depth="3"><a href="/product/list.html?cate_no=83">TRENCH</a></li></ul></div></li><li df-cate-no="51" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=51">JACKET</a></li><li df-cate-no="52" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=52">JUMPER</a></li><li df-cate-no="53" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=53">CADIGAN</a></li></ul><div class="menuImg"><a href="#none"><img class="banner_image" alt="OUTER" rel="147-10" src="//app-storage-005.cafe24.com/bannermanage2/ecudemo31431/2019/04/01/396c3b5987be025dea136313d8fe2694.jpg"></a></div></div></li>
+<li df-cate-no="54" df-cate-depth="1" class="d1 xans-record-" style="margin-left: 5px; margin-right: 5px;"><a href="/kgmall/list/topListForm.do?pg=1"><span>TOP</span></a><div class="m2" style="margin-left: 135px; display: none;"><ul><li df-cate-no="55" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=55">TEE SHIRT</a></li><li df-cate-no="56" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=56">BLOUSE</a></li><li df-cate-no="57" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=57">KNIT</a></li><li df-cate-no="58" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=58">CAMI</a></li></ul><div class="menuImg"><a href="#none"><img class="banner_image" alt="TOP" rel="148-10" src="//app-storage-005.cafe24.com/bannermanage2/ecudemo31431/2019/04/01/5fd957237ec382d2da17dc91229ba020.jpg"></a></div></div></li>
 <li df-cate-no="59" df-cate-depth="1" class="d1 xans-record-" style="margin-left: 5px; margin-right: 5px;"><a href="/kgmall/list/bottomListForm.do?pg=1"><span>BOTTOM</span></a><div class="m2" style="margin-left: 135px; display: none;"><ul><li df-cate-no="60" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=60">SKIRT</a></li><li df-cate-no="61" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=61">LEGGINGS</a></li><li df-cate-no="62" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=62">PANTS</a></li><li df-cate-no="63" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=63">DENIM</a></li></ul><div class="menuImg"><a href="#none"><img class="banner_image" alt="BOTTOM" rel="149-10" src="//app-storage-005.cafe24.com/bannermanage2/ecudemo31431/2019/04/01/b803ca4d03d223ccdccae19195d85a15.jpg"></a></div></div></li>
-<li df-cate-no="64" df-cate-depth="1" class="d1 xans-record-" style="margin-left: 5px; margin-right: 5px;"><a href="/product/list.html?cate_no=64"><span>SHOES &amp; BAG</span></a><div class="m2" style="margin-left: 135px;"><ul><li df-cate-no="65" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=65">SHOES</a></li><li df-cate-no="66" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=66">BAG</a></li></ul><div class="menuImg"><a href="#none"><img class="banner_image" alt="SHOES &amp; BAG" rel="150-10" src="//app-storage-005.cafe24.com/bannermanage2/ecudemo31431/2019/04/01/1178f1d8d4955e3ae01154771aae66eb.jpg"></a></div></div></li>
+<li df-cate-no="64" df-cate-depth="1" class="d1 xans-record-" style="margin-left: 5px; margin-right: 5px;"><a href="/kgmall/list/shoseBagListForm.do?pg=1"><span>SHOES &amp; BAG</span></a><div class="m2" style="margin-left: 135px;"><ul><li df-cate-no="65" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=65">SHOES</a></li><li df-cate-no="66" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=66">BAG</a></li></ul><div class="menuImg"><a href="#none"><img class="banner_image" alt="SHOES &amp; BAG" rel="150-10" src="//app-storage-005.cafe24.com/bannermanage2/ecudemo31431/2019/04/01/1178f1d8d4955e3ae01154771aae66eb.jpg"></a></div></div></li>
 </ul>
 </div>
 				</div>
@@ -258,10 +265,6 @@
 		<!-- 콘텐츠가 들어갈 바디 -->
 		<div></div>
 		<jsp:include page="${display }"/>
-
-
-
-
 
 		</div>
 	</div>

@@ -10,6 +10,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 							   ,#{name}
 							   ,#{code}
 							   ,#{price}
+							   ,0
 							   ,#{imageLink}
 							   ,#{productImage1}
 							   ,#{productImage2}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="orderSQL">
+	<select id="getSEQ" resultType="Integer">
+		select last_number from user_sequences WHERE SEQUENCE_NAME = UPPER('orders')
+	</select>
+	<insert id="insertOrderList" parameterType="order">
+		insert into ordertable(seq,image,productName,sell,quantity,total,orderState,orderId,logtime) values(orders.nextval,#{image},#{productName},#{sell},#{quantity},#{total},#{orderState},#{orderId},sysdate)
+	</insert>
+</mapper>

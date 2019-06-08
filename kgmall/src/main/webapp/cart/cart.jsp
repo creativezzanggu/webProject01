@@ -23,8 +23,6 @@
 <p><img src="../image/search.png"/><br><br>장바구니가 비어 있습니다.</p>
 </div>
 
-
-
 <!-- 국내배송상품 주문내역 -->
 <div class="orderListArea ">
         <div class="title">
@@ -68,28 +66,17 @@
                     
                     <tbody class="xans-element- xans-order xans-order-normallist center" id="tablebody">
                     
-              
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+            
 </tbody>
 </table>
 </div>
 
-<!-- 주문 버튼 -->
-<div class="xans-element- xans-order xans-order-totalorder df-base-button justify fs-0">
-<a href="#none" class="df-btn highlight big mr-3">상품주문</a>
-<span><a href="#" class="df-btn light big" id="ing_shopping">쇼핑계속하기</a></span>
-</div></div>
+	<!-- 주문 버튼 -->
+	<div class="xans-element- xans-order xans-order-totalorder df-base-button justify fs-0">
+		<a href="#none" class="df-btn highlight big mr-3">상품주문</a>
+		<span><a href="#" class="df-btn light big" id="ing_shopping">쇼핑계속하기</a></span>
+	</div>
+</div>
 
 <!-- 이용안내 -->
 <div class="xans-element- xans-order xans-order-basketguide df-base-help ">
@@ -123,8 +110,8 @@ function deleteTr(value){
 	$.ajax({
 		type : 'POST',
 		data : {'productName' : value,
-				'id' : <%=(String)session.getAttribute("id")%>},
-		url : '/kgmall/product/selectDeleteCookie.do'
+				'id' : '${id}'},
+		url : '/kgmall/cart/selectDeleteCookie.do'
 	});
 	location.reload();
 }
@@ -142,11 +129,11 @@ $('#ing_shopping').click(function(){
 $(document).ready(function(){
 	var name=null;
 	var totalPrice=0;
-	var id = <%=(String)session.getAttribute("id")%>
-	if(id==null){
+	var id = '${id}';
+	if(id==""){
 		$.ajax({
 			type : 'POST',
-			url : '/kgmall/product/selectCookie.do',
+			url : '/kgmall/cart/selectCookie.do',
 			dataType : 'json',
 			success : function(data){
 				var map = data.map;
@@ -174,7 +161,7 @@ $(document).ready(function(){
 	else{
 		$.ajax({
 			type : 'POST',
-			url : '/kgmall/product/insertCookie.do',
+			url : '/kgmall/cart/insertCookie.do',
 			data : {'id':id},
 			dataType : 'json',
 			success : function(data){
@@ -182,9 +169,9 @@ $(document).ready(function(){
 				$.each(list, function(index, value){
 					var str = value.product.split("_");
 					name=str[0];
-					if(name!=1){
+					if(str[2]!=null){
 						$('#emptyCart').addClass('displaynone');	
-					} 
+					}
 					$.ajax({
 						type : 'POST',
 						url : '/kgmall/product/getDTO.do',
@@ -199,7 +186,7 @@ $(document).ready(function(){
 				});
 				$.ajax({
 					type : 'POST',
-					url : '/kgmall/product/deleteCookie.do'
+					url : '/kgmall/cart/deleteCookie.do'
 				});
 			}
 		});

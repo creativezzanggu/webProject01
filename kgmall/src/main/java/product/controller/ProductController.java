@@ -21,6 +21,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import cart.bean.CartDTO;
 import cart.dao.CartDAO;
+import order.bean.OrderDTO;
+import order.dao.OrderDAO;
 import product.bean.ProductDTO;
 import product.dao.ProductDAO;
 
@@ -31,6 +33,8 @@ public class ProductController {
 	private ProductDAO productDAO;
 	@Autowired
 	private CartDAO cartDAO;
+	@Autowired
+	private OrderDAO orderDAO;
 	
 	@RequestMapping(value="/select.do", method=RequestMethod.GET)
 	public String select(@RequestParam String name, Model model) {		
@@ -56,6 +60,8 @@ public class ProductController {
 		mav.setViewName("jsonView");
 		return mav;
 	}
+	
+	
 	@RequestMapping(value="/createCookie.do", method=RequestMethod.POST)
 	public void createCookie(@RequestParam String productName, String number, HttpServletResponse response,HttpServletRequest request) {
 		Cookie setCookie = new Cookie(productName, number);
@@ -71,11 +77,6 @@ public class ProductController {
 				response.addCookie(cookies[i]); // 응답 헤더에 추가
 			}
 		}
-	}
-	@RequestMapping(value="/order.do", method=RequestMethod.GET)
-	public String order(@RequestParam String name, String total, Model model) {
-		model.addAttribute("display", "../product/order.jsp");
-		return "/main/index";
 	}
 	
 	@RequestMapping(value="/selectCookie.do",method=RequestMethod.POST)
@@ -107,7 +108,6 @@ public class ProductController {
 		if(cookies != null){
 			for(int i=0; i< cookies.length; i++){
 				if(cookies[i].getName().equals(productName)) {
-					System.out.println(cookies[i].getName());
 					cookies[i].setMaxAge(0); // 유효시간을 0으로 설정
 					response.addCookie(cookies[i]); // 응답 헤더에 추가
 				}
@@ -139,6 +139,32 @@ public class ProductController {
 		mav.addObject("list2", list2);
 		mav.setViewName("jsonView");
 		return mav;
+	}
+	
+	@RequestMapping(value="/insertOrderCookie.do",method=RequestMethod.POST)
+	public void insertOrderCookie(@RequestParam String id, HttpServletResponse response,HttpServletRequest request){
+		Cookie[] getCookie = request.getCookies();
+		if(getCookie != null){	
+			for(int i=0; i<getCookie.length-3; i++){
+				Cookie c = getCookie[i];
+
+				String[] str = c.getName().split("_");
+				OrderDTO orderDTO = new OrderDTO();
+				orderDTO.setSeq(orderDAO.getSEQ());
+				orderDTO.setProductName(str[0]+"_"+str[1]+"_"+str[2]); // 쿠키 이름 가져오기
+				if(c.getValue().length()<10) {
+					orderDTO.setQuantity(Integer.parseInt(c.getValue())); // 쿠키 값 가져오기
+				}
+				ProductDTO productDTO = productDAO.getDTO(str[0]);
+
+				orderDTO.setOrderId(id);
+				orderDTO.setImage(productDTO.getImageLink());
+				orderDTO.setOrderState("상품 준비 중");
+				orderDTO.setTotal(Integer.parseInt(c.getValue())*productDTO.getPrice());
+				orderDTO.setSell(productDTO.getPrice());
+				orderDAO.insertOrderList(orderDTO);
+			}
+		}
 	}
 	
 }

@@ -7,6 +7,8 @@
 <div class="xans-element- xans-member xans-member-login ">
 <div class="login">
 <h3>MEMBER LOGIN</h3>
+<%String sell= request.getParameter("sell");%>
+
 <fieldset>
 <legend>회원로그인</legend>
 	<label class="id"><span>ID</span><input type="text" id="id2" name="id2" autocomplete="off"></label>
