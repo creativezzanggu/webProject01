@@ -12,5 +12,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="admin.bean.AdminDTO" alias="admin"/>
 		<typeAlias type="list.bean.ListDTO" alias="productlist"/>
 		<typeAlias type="cart.bean.CartDTO" alias="cart"/>
+		<typeAlias type="order.bean.OrderDTO" alias="order"/>
+
 	</typeAliases>
 </configuration>
