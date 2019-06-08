@@ -83,3 +83,19 @@ productname varchar2(100),
 productCount number,
 logtime date DEFAULT sysdate
 );
+
+
+--order table
+create table ordertable(
+Seq number not null,
+image varchar2(50),
+productName varchar2(30),
+sell number,
+quantity number,
+total number,
+orderState varchar2(20),
+orderId varchar2(30),
+logtime date DEFAULT SYSDATE);
+Create sequence orders nocache nocycle;
+
+insert into ordertable(seq)values(orders.nextval);

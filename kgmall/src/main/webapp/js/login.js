@@ -4,6 +4,7 @@ $(function(){
 	});
 	
 	$('#login').click(function(){
+		
 		$('#idDiv,#pwdDiv').empty();
 		
 		if($('#id2').val().length == 0 ){
