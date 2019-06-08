@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="mainSQL">
 
 	<select id="searchDetail" parameterType="java.util.Map" resultType="product.bean.ProductDTO">
-		select * from product where ${search_type} like '%'||#{keyword}||'%'
+		select * from(select rownum rn, p.* from(select * from product where ${search_type} like '%'||#{keyword}||'%'
 		<if test="majorcategory != ''">
         AND MAJORCATEGORY = #{majorcategory}
    		</if>
@@ -21,7 +21,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    		<if test="order != ''">
    			order by ${order} ${order_by}
    		</if>
+   		)p) where rn >= #{startP} and rn <![CDATA[<=]]> #{endP}
 	</select>
 	
-	
+	<select id="countItems" parameterType="java.util.Map" resultType="int">
+		select count(*) from(select rownum from(select * from product where ${search_type} like '%'||#{keyword}||'%'
+		<if test="majorcategory != ''">
+        AND MAJORCATEGORY = #{majorcategory}
+   		</if>
+   		<if test="product_price1 != '' or product_price2 != ''">
+   			<if test="product_price1 ==''">
+   				AND PRICE <![CDATA[<=]]> #{product_price2}
+   			</if><if test="product_price2 == ''">
+   				AND PRICE >= #{product_price1}
+   			</if><if test="product_price1 !='' and product_price2 != ''">
+   				AND PRICE <![CDATA[<=]]> #{product_price2} AND PRICE >= #{product_price1}
+   			</if>
+   		</if>
+   		<if test="order != ''">
+   			order by ${order} ${order_by}
+   		</if>
+   		))
+	</select>
 </mapper>

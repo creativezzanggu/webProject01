@@ -2,8 +2,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <html xmlns="//www.w3.org/1999/xhtml">
 <head>
@@ -12,14 +10,8 @@
 <!--PG크로스브라우징필수내용 시작--><meta http-equiv="Cache-Control" content="no-cache"><meta http-equiv="Expires" content="0"><meta http-equiv="Pragma" content="no-cache"><!--PG크로스브라우징필수내용 끝-->
 
 <link href="http://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
-<link href="http://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
-<link href="http://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "//www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
-<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width"><!--PG크로스브라우징필수내용 시작--><meta http-equiv="Cache-Control" content="no-cache"><meta http-equiv="Expires" content="0"><meta http-equiv="Pragma" content="no-cache"><!--PG크로스브라우징필수내용 끝--><link href="../css/mainCss1.css" rel="stylesheet">
-
-<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width"><!--PG크로스브라우징필수내용 시작--><meta http-equiv="Cache-Control" content="no-cache"><meta http-equiv="Expires" content="0"><meta http-equiv="Pragma" content="no-cache"><!--PG크로스브라우징필수내용 끝--><link href="../css/mainCss1.css" rel="stylesheet">
-
 <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width"><!--PG크로스브라우징필수내용 시작--><meta http-equiv="Cache-Control" content="no-cache"><meta http-equiv="Expires" content="0"><meta http-equiv="Pragma" content="no-cache"><!--PG크로스브라우징필수내용 끝--><link href="../css/mainCss1.css" rel="stylesheet">
 
 <meta name="naver-site-verification" content="dd85968ac57ed1d64007f8ef41ba2a6cf51dc33f">
@@ -175,10 +167,8 @@
 							</ul><div id="search-box">
 	<form id="searchBarForm" action="/kgmall/main/search.do" >
 <div class="xans-element- xans-layout xans-layout-searchheader ">
-<fieldset>
-<legend>검색</legend>
-			<input id="keyword" name="keyword" fw-filter="" fw-label="검색어" fw-msg="" class="" placeholder="검색어를 입력해주세요" value="" type="text"></input><a href="#none" id="searchKeyword" ><i class="fa fa-search"></i></a>
-		</fieldset>
+	<input type="hidden" name="pg" val="1"/>
+	<input id="keyword" name="keyword" placeholder="검색어를 입력해주세요" value="" type="text"/><img src="../image/search.png" id="searchKeyword" width="15" height="15"/>
 </div>
 </form></div>
 
@@ -557,10 +547,5 @@
 <script type="text/javascript" src="http://ecudemo31431.cafe24.com/ind-script/optimizer.php?filename=rZVBbsIwEEUPANueY9TeoEArIUFBRO1-cIbExPZYY6dpbt8EUAtSQSXJIlbmK__529bEkLMleHwS8MKZoAX0HpKcPWwocCmKYB_gVdhFeKMKVj5qdvDyFQVb4VgfyrVoReN9eIABoXOL2eDQmQ7eYK0j2QHR8waXaJcZSsiQaqXhg0sDnmAoKPZh_1CnbG2_mGcoFwYBTbRLBwHNMOIgoA80OsXrB2r0Ft61R1VcAKelCDlVQ2imGvnr7fEvvzpVox2Lxdg3yVCYMmrTaZObZy2clioudIg9Ec_d2-0XkkRWRSfGQhcEE-EqkExR5dSd0qMjz_ynFd2NOflgRhG1gUnpUkONaLnz_m7oU1MV0RSn1ymX7kayZR3-hrWyb_6vc7fj6_Y1-_LS7VtlzJ5u5F-ia-6ZC1tFW8PZ3xY5-y6P1pCLOmoKd02AoXbqOHb2WbJbks72laQk6nAa3w&amp;type=js&amp;k=b7c36bfa1811014339712088b43bcc81a5effc18&amp;t=1558462804"></script>
 <script type="text/javascript" src="http://ecudemo31431.cafe24.com/ind-script/optimizer.php?filename=tZTNbtswEITvsa95DoqSLUvH1gHag4MGaYGeV8uVRYvisvxJobev4gZo2ktRMb2IB2m-nRGHFANPJGTphfN89jAJcE7cg4UziUcKnDySuAQBYbb487l9D2GkiDZuL-FWrCc4r5EyGQ-eVcL1To6cHNucLPfa0PJ-tf6OHAe9fv5XHQbklJHAE1KG_PEq_8IRzDHLxyevyK_vA1nqdW4nTzBnePjgQa1vwrsUeYKo8Yr5PPD39aVMJuoHdsmtR8wnPdLL-crb2JN-IqPtyDavGx91iOzntWYcxMGzoc0TGK1gQa1PxKD-Sez-vKciTe4qDGoUhEnRxJXcVfL567pu6q7pij3ui6puuwp3fUuyxVaqtpVSdLjDHvaNLMuyg67ucVe0bXloVCdlia1AOtQNlXDAQ4EKoZJtQU3VUV-qPcjyryN-OSXcpEA-_O7Spc5o3AxxMksE2igK-mxFGLVd_KneMPvnKMjT9HrfM2jOpLO24vItkZ9flhu5leW22k76f8ywfGTbL6r4JvBA8fWBzPuxqr8JMDlDbwjsIGhceD8A&amp;type=js&amp;k=1cc8ed9afc61cd5e4e1f4019492e35c2a7f55a20&amp;t=1558894315"></script>
 <script type="text/javascript" src="http://ecudemo31431.cafe24.com/ind-script/optimizer.php?filename=tZMxcoQwDEV72Dbn0DCbm-QEgAWIyJZj2SzcPp7MApu0Md1_bp79LcEkFgH7OikGzSEZtHJv3u8N-NQx9fUULYMarA0qjQ70k1zTgBlYJIDnNJLLVPVtxFHC9ppvltxt1jcopMG16lZlMhhg_kqYDTtfoNI-CHPXHq7joLQsV-aDmNRHJo1_8AKZoaVrncstvkIx0aw_Q5A0ii188yj-vPkBhSUDrafkgCpuHpv_l5TbsflzGYHbTVIEmziSTuI_JvKe3Fj4OY-8H8-l-UUXDJaVBfcR3vMFmoAL4eNMFyw_OY3tgGjgSE_LNw&amp;type=js&amp;k=14244da5bfdc8baef95a32bf0bba0d5e375bc8b2&amp;t=1555848171"></script>
-<script>
-$('#mainLogo').click(function(){
-	location.href="/kgmall/main/index.do";
-});
-</script>
 
 </body></html>

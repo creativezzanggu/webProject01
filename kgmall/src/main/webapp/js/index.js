@@ -1,6 +1,15 @@
 $(function(){
-	$('#searchKeyword').click(function(){
-		var keyword = $('#keyword').val();
-		location.href="/kgmall/main/search.do?keyword="+keyword;
+	$('#mainLogo').click(function(){
+		location.href="/kgmall/main/index.do";
 	});
 });
+	$('#searchKeyword').click(function(){
+		$('#searchBarForm').submit();
+	});
+	
+	$('#keyword').keydown(function(key) {
+		//엔터키 이벤트
+		if (key.keyCode == 13) {
+			$('#searchBarForm').submit();
+		}
+	});

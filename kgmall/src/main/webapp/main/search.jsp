@@ -26,7 +26,7 @@ Search</strong></li>
 			<fieldset>
 <legend>상품 검색</legend>
 				<div class="item">
-
+<input type="hidden" id="pg" value="${pg}">
 <!-- 상품분류(majorcategory) -->
 <strong>상품분류</strong> <select id="majorcategory" name="majorcategory" fw-filter="" fw-label="" fw-msg="">
 <option value="" selected="selected">상품분류 선택</option>
@@ -50,8 +50,8 @@ Search</strong></li>
 				
 <!-- 판매가격대(product_price1, product_price2)-->
 <strong>판매가격대</strong> 
-<input id="product_price1" name="product_price1" fw-filter="isNumber" fw-label="최소판매가격" fw-msg="" class="input01" placeholder="" size="15" value="" type="text"> ~ 
-<input id="product_price2" name="product_price2" fw-filter="isNumber" fw-label="최대판매가격" fw-msg="" class="input01" placeholder="" size="15" value="" type="text"></div>
+<input id="product_price1" name="product_price1" fw-filter="isNumber" fw-label="최소판매가격" fw-msg="" class="input01" placeholder="" size="15" value="${search_paging.product_price1}" type="text"> ~ 
+<input id="product_price2" name="product_price2" fw-filter="isNumber" fw-label="최대판매가격" fw-msg="" class="input01" placeholder="" size="15" value="${search_paging.product_price2}" type="text"></div>
 				<div class="item">
 				
 <!-- 검색정렬기준(order)-->
@@ -93,15 +93,8 @@ Search</strong></li>
 </div>
 
 	<!-- 페이징 처리 -->
-<div class="xans-element- xans-search xans-search-paging df-base-paging"><p class="first"><a href="#none"><img src="http://ecudemo31431.cafe24.com/web/upload/dfloor_base/web/button/btn_pagingFirst.png" class="img_on" alt="first"></a></p>
-<p><a href="#none"><img src="http://ecudemo31431.cafe24.com/web/upload/dfloor_base/web/button/btn_pagingPrev.png" class="img_on" alt="prev"></a></p>
-<ol>
-<li class="xans-record-"><a href="?banner_action=&amp;keyword=%EC%83%88&amp;page=1" class="this">1</a></li>
-<li class="xans-record-"><a href="?banner_action=&amp;keyword=%EC%83%88&amp;page=2" class="this">2</a></li>
-<li class="xans-record-"><a href="?banner_action=&amp;keyword=%EC%83%88&amp;page=3" class="this">3</a></li>
-            </ol>
-<p><a href="#none"><img src="http://ecudemo31431.cafe24.com/web/upload/dfloor_base/web/button/btn_pagingNext.png" class="img_on" alt="next"></a></p>
-<p class="last"><a href="#none"><img src="http://ecudemo31431.cafe24.com/web/upload/dfloor_base/web/button/btn_pagingLast.png" class="img_on" alt="last"></a></p>
+<div class="xans-element- xans-search xans-search-paging df-base-paging" id="paging">
+
 </div>
 
 </div>
@@ -112,4 +105,10 @@ Search</strong></li>
 
 </div>
 </div>
+<script type="text/javascript">
+	$('#majorcategory').val('${search_paging.majorcategory}');
+	$('#search_type').val('${search_paging.search_type}');
+	$('#order').val('${search_paging.order}');
+	$('#order_by').val('${search_paging.order_by}');
+</script>
 <script type="text/javascript" src="../js/search.js"></script>
