@@ -7,5 +7,6 @@ import product.bean.ProductDTO;
 
 public interface MainDAO {
 	public List<ProductDTO> searchDetail(Map<String, String> map);
+	public int countItems(Map<String, String> map);
 	
 }

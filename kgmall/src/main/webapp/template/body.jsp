@@ -854,4 +854,26 @@ for(var i=0; i<5; i++){
 		<li df-data-username="design_floor"><a href="https://www.instagram.com/p/ByFHVEiFlSr/?utm_source=ig_web_copy_link" target="_blank"><span style="background-image:url(//scontent-icn1-1.cdninstagram.com/vp/4a931b65b7a0b8caeec72b8bfae37be4/5D8E0CB6/t51.2885-15/e35/60401863_300214234261778_4045802214429586496_n.jpg?_nc_ht=scontent-icn1-1.cdninstagram.com)"></span></a></li></ul></div>
 </div>
 
+<<<<<<< HEAD
 <script type="text/javascript" src="../js/body.js"></script>
+=======
+<script type="text/javascript" src="../js/body.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.4.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$.ajax({
+		type : 'POST',
+		url : '/kgmall/main/newListForm.do',
+		data : {'pg' : '1'},
+		dataType : 'json',
+		success : function(data){
+			
+			$('#category').val('MAJORCATEGORY');
+			$('#total').text(data.totalA);
+			$('.prdList').html(data.pruductList);
+			$('#paging').html(data.listPaging.pagingHTML);
+		}
+	});
+});
+</script>
+>>>>>>> branch 'develop' of https://github.com/creativezzanggu/webProject01.git
