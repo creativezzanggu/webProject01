@@ -12,7 +12,7 @@
 <div class="xans-element- xans-product xans-product-menupackage" style="margin-left: 322px;">
 		<div class="location-product">
 	<div class="xans-element- xans-product xans-product-headcategory tit-product "style="margin-top: 30px;">
-		<h2><span>BOTTOM</span></h2>
+		<h2><span>TOP</span></h2>
 	</div>
 </div>
 		<div class="df-sub-menu type-box grid6">
@@ -20,23 +20,23 @@
 				<li class="xans-element- xans-product xans-product-headcategory view-all displaynone "><a href="/product/list.html?cate_no=54"></a></li>
 				<li style="display:;" class="xans-element- xans-product xans-product-displaycategory  xans-record-">
 					<a href="#">
-					<p class="name" onclick="Bottom('SKIRT')">SKIRT</p>
+					<p class="name" onclick="Top('TEESHIRT')">TEESHIRT</p>
 					</a>
 				</li>
 				<li style="display:;" class="xans-element- xans-product xans-product-displaycategory  xans-record-">
 					<a href="#">
-						<p class="name" onclick="Bottom('LEGGINGS')">LEGGINGS</p>
+						<p class="name" onclick="Top('BLOUSE')">BLOUSE</p>
 					</a>
 				</li>
 				<li style="display:;" class="xans-element- xans-product xans-product-displaycategory  xans-record-">
 					<a href="#">
-						<p class="name" onclick="Bottom('PANTS')">PANTS</p>
+						<p class="name" onclick="Top('KNIT')">KNIT</p>
 					</a>
 				</li>
 				<li style="display:;" class="xans-element- xans-product xans-product-displaycategory  xans-record-">
-				<a href="#">
-					<p class="name" onclick="Bottom('DENIM')">DENIM</p>
-				</a>
+					<a href="#">
+						<p class="name" onclick="Top('CAMI')">CAMI</p>
+					</a>
 				</li>
 			</ul>
 		</div>
@@ -50,10 +50,10 @@
 					<div class="function">
 						<p class="prdCount">Total <strong id="total"> </strong> items </p>
 						<ul id="type" class="xans-element- xans-product xans-product-orderby">
-							<li class="xans-record-"><a href="javascript:void(0);" onclick="BottomOption('productName')" id="productName">상품명</a></li>
-							<li class="xans-record-"><a href="javascript:void(0);" onclick="BottomOption('lowPrice')" id="lowPrice">낮은가격</a></li>
-							<li class="xans-record-"><a href="javascript:void(0);" onclick="BottomOption('highPrice')" id="highPrice">높은가격</a></li>
-							<li class="xans-record-"><a href="javascript:void(0);" onclick="BottomOption('company')" id="company">제조사</a></li>
+							<li class="xans-record-"><a href="javascript:void(0);" onclick="TopOption('productName')" id="productName">상품명</a></li>
+							<li class="xans-record-"><a href="javascript:void(0);" onclick="TopOption('lowPrice')" id="lowPrice">낮은가격</a></li>
+							<li class="xans-record-"><a href="javascript:void(0);" onclick="TopOption('highPrice')" id="highPrice">높은가격</a></li>
+							<li class="xans-record-"><a href="javascript:void(0);" onclick="TopOption('company')" id="company">제조사</a></li>
 						</ul>
 					</div>
 				</div>
@@ -74,7 +74,7 @@ $(document).ready(function(){
 		type : 'POST',
 		url : '/kgmall/list/ListForm.do',
 		data : {'pg' : $('#pg').val(),
-				'majorcategory': 'BOTTOM'},
+				'majorcategory': 'TOP'},
 		dataType : 'json',
 		success : function(data){
 			$('#category').val('MAJORCATEGORY');
@@ -85,12 +85,12 @@ $(document).ready(function(){
 	});
 	
 });
-function Bottom(name){
+function Top(name){
 	$.ajax({
 		type : 'POST',
 		url : '/kgmall/list/SelectListForm.do',
 		data : {'pg' : $('#pg').val(),
-				'majorcategory':'BOTTOM',
+				'majorcategory':'TOP',
 				'subcategory' : name},
 		dataType : 'json',
 		success : function(data){
@@ -105,12 +105,12 @@ function Bottom(name){
 	});//ajax
 }	
 
-function BottomOption(option){
+function TopOption(option){
 	$.ajax({
 		type : 'POST',
 		url : '/kgmall/list/SelectOptionForm.do',
 		data : {'pg' : $('#pg').val(),
-				'sub' : 'BOTTOM',
+				'sub' : 'TOP',
 				'category' : $('#category').val(),
 				'option' : option},
 		dataType : 'json',
