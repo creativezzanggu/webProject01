@@ -46,4 +46,9 @@ public class ProductDAOMybatis implements ProductDAO {
 			}
 		return count;
 	}
+	@Override
+	public List<ProductDTO> thumb() {
+		return sqlSession.selectList("productSQL.getThumb");
+	}
 }
+

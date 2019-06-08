@@ -177,4 +177,13 @@ public class ProductController {
 		return mav;
 	}
 	
+	@RequestMapping(value="/best.do",method=RequestMethod.GET)
+	public ModelAndView best6() {
+		ModelAndView mav = new ModelAndView();
+		List<ProductDTO> list= productDAO.thumb();
+		mav.addObject("list", list);
+		mav.setViewName("jsonView");
+		return mav;
+	}
+	
 }

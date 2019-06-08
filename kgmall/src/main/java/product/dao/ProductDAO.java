@@ -6,10 +6,12 @@ import product.bean.ProductDTO;
 
 public interface ProductDAO {
 
-	ProductDTO getDTO(String name);
+	public ProductDTO getDTO(String name);
 
-	List<String> getColor(String name);
+	public List<String> getColor(String name);
 
-	int getCount(String name);
+	public int getCount(String name);
+	
+	public List<ProductDTO> thumb();
 
 }

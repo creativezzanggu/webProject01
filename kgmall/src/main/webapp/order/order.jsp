@@ -133,13 +133,13 @@ Home</a></li>
 </colgroup>
 <thead><tr>
 <th scope="col" class=""></th>
-                        <th scope="col">주문번호</th>
-                        <th scope="col">이미지</th>
-                        <th scope="col">상품정보</th>
-                        <th scope="col">판매가</th>
-                        <th scope="col">수량</th>
-                        <th scope="col">합계</th>
-                    </tr></thead>
+<th scope="col">주문번호</th>
+<th scope="col">이미지</th>
+<th scope="col">상품정보</th>
+<th scope="col">판매가</th>
+<th scope="col">수량</th>
+<th scope="col">합계</th>
+</tr></thead>
 <tfoot class="right"><tr>
 <td class=""></td>
                         <td colspan="8">
@@ -147,28 +147,21 @@ Home</a></li>
 </td>
                     </tr></tfoot>
                     <tbody class="xans-element- xans-order xans-order-normallist center" id="tablebody">
-                    
-                    
-                    
-                    
-                     
+                 
 </tbody>
 </table>
 </div>
-
 
 <!-- 선택상품 제어 버튼 --><div class="ec-base-button">
         <span class="gRight">
             <a href="javascript:window.history.back();" class="df-btn normal light">이전페이지</a>
         </span>
     </div>
-    
-
 </div>
-
-</form>		</div>
+</form>		
+</div>
 	<div class="ec-base-button fs-0">
-	  <a href="" class="df-btn big dark mr-3" id="orderBtn"> 주문하기</a>
+	  <a href="" class="df-btn big dark mr-3" id="orderBtn">주문하기</a>
 	  <a href="" class="df-btn big medium ml-3" id="cancelBtn">취소</a>
 	</div>
 

@@ -21,6 +21,7 @@
 							<option value="TOP">TOP</option>
 							<option value="BOTTOM">BOTTOM</option>
 							<option value="OUTER">OUTER</option>
+							<option value="SHOES&BAG">SHOES&BAG</option>
 						</select>
 					</div>
 					
@@ -149,8 +150,8 @@
 		
 		if(document.productInsertForm.majorCategory.value == "TOP"){
 			form.subCategory.length = 1;
-			form.subCategory.options[1] = new Option("TEE SHIRT");
-			form.subCategory.options[1].value = "TEE SHIRT";
+			form.subCategory.options[1] = new Option("TEE-SHIRT");
+			form.subCategory.options[1].value = "TEE-SHIRT";
 			form.subCategory.options[2] = new Option("BLOUSE");
 			form.subCategory.options[2].value = "BLOUSE";
 			form.subCategory.options[3] = new Option("KNIT");
@@ -171,7 +172,7 @@
 			form.subCategory.options[4].value = "DENIM";
 		}
 		
-		if(document.productInsertForm.majorCategory.value == "SHOES & BAG"){
+		if(document.productInsertForm.majorCategory.value == "SHOES&BAG"){
 			form.subCategory.length = 1;
 			form.subCategory.options[1] = new Option("SHOES");
 			form.subCategory.options[1].value = "SHOES";

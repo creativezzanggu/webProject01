@@ -1,6 +1,5 @@
 package list.controller;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -24,6 +23,13 @@ public class ListController {
 	@Autowired
 	ListPaging listPaging;
 	
+	@RequestMapping(value="/bestListForm.do", method=RequestMethod.GET)
+	public String bestListForm(@RequestParam(required=false,defaultValue="1") String pg,Model model) {
+		
+		model.addAttribute("pg", pg);
+		model.addAttribute("display", "/list/bottomListForm.jsp");
+		return "/main/index";
+	}
 	
 	@RequestMapping(value="/bottomListForm.do", method=RequestMethod.GET)
 	public String bottomListForm(@RequestParam(required=false,defaultValue="1") String pg,Model model) {
@@ -33,17 +39,38 @@ public class ListController {
 		return "/main/index";
 	}
 	
-	@RequestMapping(value="/BottomList.do", method=RequestMethod.POST)
-	public ModelAndView BottomList(@RequestParam(required=false,defaultValue="1") int pg) {
+	@RequestMapping(value="/outerListForm.do", method=RequestMethod.GET)
+	public String outerListForm(@RequestParam(required=false,defaultValue="1") String pg,Model model) {
+		
+		model.addAttribute("pg", pg);
+		model.addAttribute("display", "/list/outerListForm.jsp");
+		return "/main/index";
+	}
+	
+	@RequestMapping(value="/topListForm.do", method=RequestMethod.GET)
+	public String topListForm(@RequestParam(required=false,defaultValue="1") String pg,Model model) {
+		
+		model.addAttribute("pg", pg);
+		model.addAttribute("display", "/list/topListForm.jsp");
+		return "/main/index";
+	}
+	
+	@RequestMapping(value="/shoseBagListForm.do", method=RequestMethod.GET)
+	public String shoseBagListForm(@RequestParam(required=false,defaultValue="1") String pg,Model model) {
+		
+		model.addAttribute("pg", pg);
+		model.addAttribute("display", "/list/shoseBagListForm.jsp");
+		return "/main/index";
+	}
+	
+	@RequestMapping(value="/ListForm.do", method=RequestMethod.POST)
+	public ModelAndView ListForm(@RequestParam(required=false,defaultValue="1") int pg,@RequestParam Map<String,String> map) {
 		int endNum = pg*9;
 		int startNum = endNum-8;
 		StringBuffer pruductList = new StringBuffer();
 		StringBuffer colorForm = new StringBuffer();
-		Map<String,String> map = new HashMap<String, String>();
 		map.put("startNum", startNum+"");
 		map.put("endNum", endNum+"");
-		map.put("majorcategory", "BOTTOM");
-		
 		
 		List<ListDTO> list = listDAO.getProductList(map);
 		for(ListDTO dto : list) {
@@ -61,7 +88,7 @@ public class ListController {
 			}
 			pruductList.append("<li id='"+dto.getCode()+"' class='item xans-record-'>"
 					+"<div class='box'><div class='thumbnail'>"
-					+"<a><img src='../image/bottom.jpg' id='eListPrdImage111_1' class='thumb'></a>"
+					+"<a href='/kgmall/product/select.do?name="+dto.getName()+"'><img src='../image/"+dto.getImageLink()+"' class='thumb'></a>"
 					+"</div><div class='description'><div class='fadearea'>"
 					+"<div class='xans-element- xans-product colorList color'>"+colorForm+"</div>"
 					+"<p class='name'>"
@@ -74,7 +101,7 @@ public class ListController {
 			colorForm.setLength(0);
 		}
 		String category = "BOTTOM";
-		int totalA = listDAO.getMajorCategoryTotal(category);
+		int totalA = listDAO.getMajorCategoryTotal("majorcategory");
 		listPaging.setCurrentPage(pg);
 		listPaging.setPageBlock(5);
 		listPaging.setPageSize(9);
@@ -90,14 +117,22 @@ public class ListController {
 		return mav;
 	}
 	
-	@RequestMapping(value="/bottomSelectOptionForm.do", method=RequestMethod.POST)
-	public ModelAndView bottomSelectOptionForm(@RequestParam(required=false,defaultValue="1") int pg,@RequestParam Map<String,String>map) {
+	@RequestMapping(value="/SelectOptionForm.do", method=RequestMethod.POST)
+	public ModelAndView SelectOptionForm(@RequestParam(required=false,defaultValue="1") int pg,@RequestParam Map<String,String>map) {
+		if(map.get("category").equals("MAJORCATEGORY")) {
+			map.put("majorcategory",map.get("sub"));
+		}else {
+			map.put("subcategory", map.get("category"));
+			map.put("category", "SUBCATEGORY");
+		}
 		int endNum = pg*9;
 		int startNum = endNum-8;
 		StringBuffer pruductList = new StringBuffer();
 		StringBuffer colorForm = new StringBuffer();
 		map.put("startNum", startNum+"");
 		map.put("endNum", endNum+"");
+		
+		System.out.println(map);
 		
 		List<ListDTO> list = listDAO.getProductSelectOptionList(map);
 		for(ListDTO dto : list) {
@@ -115,7 +150,7 @@ public class ListController {
 			}
 			pruductList.append("<li id='"+dto.getCode()+"' class='item xans-record-'>"
 					+"<div class='box'><div class='thumbnail'>"
-					+"<a><img src='../image/bottom.jpg' id='eListPrdImage111_1' class='thumb'></a>"
+					+"<a href='/kgmall/product/select.do?name="+dto.getName()+"'><img src='../image/"+dto.getImageLink()+"' class='thumb'></a>"
 					+"</div><div class='description'><div class='fadearea'>"
 					+"<div class='xans-element- xans-product colorList color'>"+colorForm+"</div>"
 					+"<p class='name'>"
@@ -127,7 +162,12 @@ public class ListController {
 					+"</div></div></div>");
 			colorForm.setLength(0);
 		}
-		int totalA = listDAO.getMajorCategoryTotal(map.get("majorcategory"));
+		int totalA = 0;
+		if(map.get("category").equals("SUBCATEGORY")) {
+			totalA = listDAO.getSubcategoryTotal(map.get("subcategory"));
+		}else {
+			totalA = listDAO.getMajorCategoryTotal(map.get("majorcategory"));
+		}
 		listPaging.setCurrentPage(pg);
 		listPaging.setPageBlock(5);
 		listPaging.setPageSize(9);
@@ -143,17 +183,15 @@ public class ListController {
 		return mav;
 		
 	}
-	@RequestMapping(value="/bottomSelectListForm.do", method=RequestMethod.POST)
-	public ModelAndView bottomSelectListForm(@RequestParam(required=false,defaultValue="1") int pg,@RequestParam String subcategory) {
+	
+	@RequestMapping(value="/SelectListForm.do", method=RequestMethod.POST)
+	public ModelAndView SelectListForm(@RequestParam(required=false,defaultValue="1") int pg,@RequestParam Map<String,String>map) {
 		int endNum = pg*9;
 		int startNum = endNum-8;
 		StringBuffer pruductList = new StringBuffer();
 		StringBuffer colorForm = new StringBuffer();
-		Map<String,String> map = new HashMap<String, String>();
 		map.put("startNum", startNum+"");
 		map.put("endNum", endNum+"");
-		map.put("subcategory", subcategory);
-		
 		
 		List<ListDTO> list = listDAO.getProductSelectList(map);
 		for(ListDTO dto : list) {
@@ -171,7 +209,7 @@ public class ListController {
 			}
 			pruductList.append("<li id='"+dto.getCode()+"' class='item xans-record-'>"
 					+"<div class='box'><div class='thumbnail'>"
-					+"<a><img src='../image/bottom.jpg' id='eListPrdImage111_1' class='thumb'></a>"
+					+"<a href='/kgmall/product/select.do?name="+dto.getName()+"'><img src='../image/"+dto.getImageLink()+"' class='thumb'></a>"
 					+"</div><div class='description'><div class='fadearea'>"
 					+"<div class='xans-element- xans-product colorList color'>"+colorForm+"</div>"
 					+"<p class='name'>"
@@ -184,7 +222,7 @@ public class ListController {
 			colorForm.setLength(0);
 		}
 		
-		int totalA = listDAO.getSubcategoryTotal(subcategory);
+		int totalA = listDAO.getSubcategoryTotal(map.get("subcategory"));
 		listPaging.setCurrentPage(pg);
 		listPaging.setPageBlock(5);
 		listPaging.setPageSize(9);

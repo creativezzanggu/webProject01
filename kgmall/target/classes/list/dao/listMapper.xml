@@ -30,20 +30,35 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  	</select>
  	
  	<select id="getProductSelectOptionList" parameterType="java.util.Map" resultType="productlist">
- 		select * from 
-		(select rownum rn,tt.* from 
+ 		select * from
+		 (select rownum rn, tt.* from
+		<if test="category =='MAJORCATEGORY'">
+<<<<<<< HEAD
+			 (select * from product where majorcategory=#{sub}
+=======
+			 (select * from product where majorcategory='${sub}'
+>>>>>>> branch 'develop' of https://github.com/creativezzanggu/webProject01.git
+		</if>
+		<if test="category =='SUBCATEGORY'">
+<<<<<<< HEAD
+			 (select * from product where subcategory=#{subcategory}
+=======
+			 (select * from product where subcategory='${subcategory}'
+>>>>>>> branch 'develop' of https://github.com/creativezzanggu/webProject01.git
+		</if>
 		<if test="option =='productName'">
-		(select * from product where majorcategory=#{majorcategory} order by name asc)tt) 
+			 order by name asc)tt)
 		</if>
 		<if test="option =='lowPrice'">
-		(select * from product where majorcategory=#{majorcategory} order by price asc)tt) 
+			 order by price asc)tt)
 		</if>
 		<if test="option =='highPrice'">
-		(select * from product where majorcategory=#{majorcategory} order by price desc)tt) 
+			 order by price desc)tt)
 		</if>
 		<if test="option =='company'">
-		(select * from product where majorcategory=#{majorcategory} order by company asc)tt) 
+			 order by company asc)tt)
 		</if>
- 		where rn between  #{startNum} and #{endNum}
+ 		 where rn between #{startNum} and #{endNum}
  	</select>
+ 	
 </mapper>

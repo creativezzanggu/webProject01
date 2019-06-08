@@ -15,4 +15,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  	<select id="getCount" parameterType="String" resultType="Int">
  		select sum(productcount) from productdetail where productname=#{name}
  	</select>
+ 	<select id="getThumb" resultType="product">
+ 		select * from product where thumbsup <![CDATA[>=]]> 0
+ 	</select>
 </mapper>

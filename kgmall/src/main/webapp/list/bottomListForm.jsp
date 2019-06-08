@@ -7,7 +7,7 @@
 </head>
 <body>
 <input type="hidden" id="pg" name="pg" value="${pg }">
-<input type="button" id="category" name="category" value="">
+<input type="hidden" id="category" name="category" value="">
 
 <div class="xans-element- xans-product xans-product-menupackage" style="margin-left: 322px;">
 		<div class="location-product">
@@ -50,7 +50,7 @@
 					<div class="function">
 						<p class="prdCount">Total <strong id="total"> </strong> items </p>
 						<ul id="type" class="xans-element- xans-product xans-product-orderby">
-							<li class="xans-record-"><a href="javascript:void(0);" onclick="BottomOption('productName',"")" id="productName">상품명</a></li>
+							<li class="xans-record-"><a href="javascript:void(0);" onclick="BottomOption('productName')" id="productName">상품명</a></li>
 							<li class="xans-record-"><a href="javascript:void(0);" onclick="BottomOption('lowPrice')" id="lowPrice">낮은가격</a></li>
 							<li class="xans-record-"><a href="javascript:void(0);" onclick="BottomOption('highPrice')" id="highPrice">높은가격</a></li>
 							<li class="xans-record-"><a href="javascript:void(0);" onclick="BottomOption('company')" id="company">제조사</a></li>
@@ -72,11 +72,12 @@
 $(document).ready(function(){
 	$.ajax({
 		type : 'POST',
-		url : '/kgmall/list/BottomList.do',
-		data : 'pg='+$('#pg').val(),
+		url : '/kgmall/list/ListForm.do',
+		data : {'pg' : $('#pg').val(),
+				'majorcategory': 'BOTTOM'},
 		dataType : 'json',
 		success : function(data){
-			$('#category').val('BOTTOM');
+			$('#category').val('MAJORCATEGORY');
 			$('#total').text(data.totalA);
 			$('.prdList').html(data.pruductList);
 			$('#paging').html(data.listPaging.pagingHTML);
@@ -87,8 +88,9 @@ $(document).ready(function(){
 function Bottom(name){
 	$.ajax({
 		type : 'POST',
-		url : '/kgmall/list/bottomSelectListForm.do',
+		url : '/kgmall/list/SelectListForm.do',
 		data : {'pg' : $('#pg').val(),
+				'majorcategory':'BOTTOM',
 				'subcategory' : name},
 		dataType : 'json',
 		success : function(data){
@@ -106,9 +108,10 @@ function Bottom(name){
 function BottomOption(option){
 	$.ajax({
 		type : 'POST',
-		url : '/kgmall/list/bottomSelectOptionForm.do',
+		url : '/kgmall/list/SelectOptionForm.do',
 		data : {'pg' : $('#pg').val(),
-				'majorcategory' : 'BOTTOM',
+				'sub' : 'BOTTOM',
+				'category' : $('#category').val(),
 				'option' : option},
 		dataType : 'json',
 		success : function(data){
@@ -118,12 +121,5 @@ function BottomOption(option){
 		}
 	});
 }
-
-function bottomSelect(pg){
-	$('#pg').val(pg);
-	$('#SKIRT').trigger('click','trigger');
-}
 </script>
 </html>
-
-						
