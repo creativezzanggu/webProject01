@@ -124,7 +124,7 @@ public class ListController {
 			map.put("majorcategory", "BOTTOM");
 		}else {
 			map.put("subcategory", map.get("category"));
-			//map.put("category", "SUBCATEGORY");
+			map.put("category", "SUBCATEGORY");
 		}
 		int endNum = pg*9;
 		int startNum = endNum-8;
