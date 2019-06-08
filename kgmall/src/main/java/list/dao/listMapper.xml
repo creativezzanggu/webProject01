@@ -33,18 +33,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  		select * from
 		 (select rownum rn, tt.* from
 		<if test="category =='MAJORCATEGORY'">
-<<<<<<< HEAD
 			 (select * from product where majorcategory=#{sub}
-=======
 			 (select * from product where majorcategory='${sub}'
->>>>>>> branch 'develop' of https://github.com/creativezzanggu/webProject01.git
 		</if>
 		<if test="category =='SUBCATEGORY'">
-<<<<<<< HEAD
 			 (select * from product where subcategory=#{subcategory}
-=======
 			 (select * from product where subcategory='${subcategory}'
->>>>>>> branch 'develop' of https://github.com/creativezzanggu/webProject01.git
 		</if>
 		<if test="option =='productName'">
 			 order by name asc)tt)
