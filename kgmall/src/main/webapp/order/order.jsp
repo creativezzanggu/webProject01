@@ -174,6 +174,8 @@ Home</a></li>
 
 
 <script type="text/javascript">
+var check=0;//장바구니를 통해서 들어온 값인지 확인
+
 //comma
 function addComma(num) {
 	  var regexp = /\B(?=(\d{3})+(?!\d))/g;
@@ -181,16 +183,48 @@ function addComma(num) {
 }
 
 $(document).ready(function(){
-	$.ajax({
+	var name = '${param.name}';
+	if(name!=null){
+		$.ajax({
+			type : 'POST',
+			url : '/kgmall/product/selectCookie.do',
+			dataType : 'json',
+			success : function(data){
+				var totalPrice=0;
+				var map = data.map;
+				var cnt =1;
+				$.each(map, function(index, value){
+					var str = index.split("_");
+					name=str[0];
+					$.ajax({
+						type : 'POST',
+						url : '/kgmall/product/getDTO.do',
+						data : "name="+name,
+						dataType : 'json',
+						success : function(data){
+							$("#tablebody").append("<tr class='xans-record-'><td class=''></td><td class=''>"+cnt+"</td><td class='thumb gClearLine'><a href='../product/select.do?name="+data.productDTO.name+"'><img id = '' src='../image/productImage/"+data.productDTO.imageLink+"' alt='' height='50px' width='50px'></a></td><td class='gClearLine'><a id='' href='../product/select.do?name="+data.productDTO.name+"'><strong>"+data.productDTO.name+"</strong>"+"_"+str[1]+"_"+str[2]+"</a></td><td class='right'><div class=''><strong>"+addComma(data.productDTO.price)+" won</strong></div></td><td>"+value+"개"+"</td><td class='right'><strong>"+addComma(value*data.productDTO.price)+" won</strong><div class='displaynone'></div></td><td><div class='txtInfo'><br></div></td><td rowspan='1' class=''></td></tr>");
+							cnt++;
+							totalPrice = totalPrice+(value*data.productDTO.price);
+							$('#domestic_ship_fee_sum').text(addComma(totalPrice));
+						}
+					});
+				});
+			}
+		});	
+	}
+	if(name==""){
+		check=1;//장바구니를 통해서 들어온 값인지 확인
+		$.ajax({
 		type : 'POST',
-		url : '/kgmall/product/selectCookie.do',
+		url : '/kgmall/cart/selectCart.do',
+		data : {'id' : '${id}'},
 		dataType : 'json',
 		success : function(data){
+			var list = data.list;
 			var totalPrice=0;
-			var map = data.map;
 			var cnt =1;
-			$.each(map, function(index, value){
-				var str = index.split("_");
+			$.each(list, function(index, value){
+				var str = value.product.split("_");
 				name=str[0];
 				$.ajax({
 					type : 'POST',
@@ -198,29 +232,43 @@ $(document).ready(function(){
 					data : "name="+name,
 					dataType : 'json',
 					success : function(data){
-						$("#tablebody").append("<tr class='xans-record-'><td class=''></td><td class=''>"+cnt+"</td><td class='thumb gClearLine'><a href='../product/select.do?name="+data.productDTO.name+"'><img id = '' src='../image/productImage/"+data.productDTO.imageLink+"' alt='' height='50px' width='50px'></a></td><td class='gClearLine'><a id='' href='../product/select.do?name="+data.productDTO.name+"'><strong>"+data.productDTO.name+"</strong>"+"_"+str[1]+"_"+str[2]+"</a></td><td class='right'><div class=''><strong>"+addComma(data.productDTO.price)+" won</strong></div></td><td>"+value+"개"+"</td><td class='right'><strong>"+addComma(value*data.productDTO.price)+" won</strong><div class='displaynone'></div></td><td><div class='txtInfo'><br></div></td><td rowspan='1' class=''></td></tr>");
+						$("#tablebody").append("<tr class='xans-record-'><td class=''></td><td class=''>"+cnt+"</td><td class='thumb gClearLine'><a href='../product/select.do?name="+data.productDTO.name+"'><img id = '' src='../image/productImage/"+data.productDTO.imageLink+"' alt='' height='50px' width='50px'></a></td><td class='gClearLine'><a id='' href='../product/select.do?name="+data.productDTO.name+"'><strong>"+data.productDTO.name+"</strong>"+"_"+str[1]+"_"+str[2]+"</a></td><td class='right'><div class=''><strong>"+addComma(data.productDTO.price)+" won</strong></div></td><td>"+value.productCount+"개"+"</td><td class='right'><strong>"+addComma(value.productCount*data.productDTO.price)+" won</strong><div class='displaynone'></div></td><td><div class='txtInfo'><br></div></td><td rowspan='1' class=''></td></tr>");
+
+						//$("#tablebody").append("<tr class='alltr' id="+value.product+"><td class=''></td><td class=''></td><td class='thumb gClearLine'><a href='../product/select.do?name="+name+"'><img id = 'productImage' src='../image/productImage/"+data.productDTO.imageLink+"' height='50px' width='50px' onerror='this.src=//img.echosting.cafe24.com/thumb/img_product_small.gif;' alt=''></a></td><td class='gClearLine'><a id='productName' href='../product/select.do?name="+name+"'><strong>"+data.productDTO.name+"</strong>"+"_"+str[1]+"_"+str[2]+"</a></td><td class='right'><div class=''><strong>"+addComma(data.productDTO.price)+" won</strong><p class='displaynone'></p></div></td><td>"+value.productCount+"개"+"</td><td class='right'><strong>"+addComma(value.productCount*data.productDTO.price)+" won</strong><div class='displaynone'></div></td></tr>");
 						cnt++;
-						totalPrice = totalPrice+(value*data.productDTO.price);
+						totalPrice = totalPrice+(value.productCount*data.productDTO.price);
 						$('#domestic_ship_fee_sum').text(addComma(totalPrice));
 					}
-				});
+				}); 
 			});
 		}
 	});
+		
+	}
 });
 
 $('#orderBtn').click(function(){
 	var id = '${id}';
-	$.ajax({
-		type : 'POST',
-		data : {'id':id},
-		url : '/kgmall/product/insertOrderCookie.do'
-	});
-	$.ajax({
-		type : 'POST',
-		url : '/kgmall/product/deleteCookie.do'
-	});
-	
+	if(check==0){
+		$.ajax({
+			type : 'POST',
+			data : {'id':id},
+			url : '/kgmall/product/insertOrderCookie.do'
+		});
+		$.ajax({
+			type : 'POST',
+			url : '/kgmall/product/deleteCookie.do'
+		});
+	}
+	else if(check==1){//장바구니를 통해서 결제를 했을 때
+		$.ajax({
+			type : 'POST',
+			data : {'id':id},
+			url : '/kgmall/cart/insertCartOrder.do'
+		});
+	}
+	//order 버튼 눌렀을 때 이동 경로 적어주세요
+	//	location.href='/kgmall/?????????/??????.do'
 });
 $('#cancelBtn').click(function(){
 	$.ajax({
