@@ -35,8 +35,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<if test="category =='MAJORCATEGORY'">
 			 (select * from product where majorcategory='${sub}'
 		</if>
-		<if test="category !='MAJORCATEGORY'">
-			 (select * from product where SUBCATEGORY='${subcategory}'
+		<if test="category =='SUBCATEGORY'">
+			 (select * from product where subcategory='${subcategory}'
 		</if>
 		<if test="option =='productName'">
 			 order by name asc)tt)
