@@ -25,7 +25,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="countItems" parameterType="java.util.Map" resultType="int">
-		select count(*) from(select rownum from(select * from product where ${search_type} like '%'||#{keyword}||'%'
+		select count(*) from(select * from product where ${search_type} like '%'||#{keyword}||'%'
 		<if test="majorcategory != ''">
         AND MAJORCATEGORY = #{majorcategory}
    		</if>
@@ -38,9 +38,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    				AND PRICE <![CDATA[<=]]> #{product_price2} AND PRICE >= #{product_price1}
    			</if>
    		</if>
-   		<if test="order != ''">
-   			order by ${order} ${order_by}
-   		</if>
-   		))
+   		)
 	</select>
 </mapper>

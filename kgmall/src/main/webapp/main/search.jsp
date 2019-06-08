@@ -39,7 +39,7 @@ Search</strong></li>
 	
 <!-- 상품검색 (search_type)-->
 <strong>검색조건</strong><select id="search_type" name="search_type" fw-filter="" fw-label="상품검색" fw-msg="">
-<option value="name">상품명</option>
+<option value="name" selected="selected">상품명</option>
 <option value="code">상품코드</option>
 <option value="company">제조사</option>
 </select>				
@@ -64,7 +64,7 @@ Search</strong></li>
 <!-- 오름/내림차순(order_by) -->
 				<div class="item">
 <strong>오름/내림차순</strong> <select id="order_by" name="order_by" fw-filter="" fw-label="오름/내림차순" fw-msg="">
-<option value="asc">오름차순</option>
+<option value="asc" selected="selected">오름차순</option>
 <option value="desc">내림차순</option>
 </select></div>
  
@@ -106,6 +106,7 @@ Search</strong></li>
 </div>
 </div>
 <script type="text/javascript">
+	alert("search_type : "+'${search_paging.search_type}');
 	$('#majorcategory').val('${search_paging.majorcategory}');
 	$('#search_type').val('${search_paging.search_type}');
 	$('#order').val('${search_paging.order}');

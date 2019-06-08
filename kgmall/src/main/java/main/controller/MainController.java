@@ -36,7 +36,7 @@ public class MainController {
 		}else {
 			search_paging.setMajorcategory(map.get("majorcategory"));
 		}if(map.get("search_type")==null) {
-			search_paging.setSearch_type("");
+			search_paging.setSearch_type("name");
 		}else {
 			search_paging.setSearch_type(map.get("search_type"));
 		}
@@ -57,7 +57,7 @@ public class MainController {
 			search_paging.setOrder(map.get("order"));
 		}
 		if(map.get("order_by")==null) {
-			search_paging.setOrder_by("");
+			search_paging.setOrder_by("asc");
 		}else {
 			search_paging.setOrder_by(map.get("order_by"));
 		}

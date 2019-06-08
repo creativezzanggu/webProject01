@@ -27,6 +27,8 @@
 	<context:component-scan base-package="list.bean" />
 	<context:component-scan base-package="cart.dao" />
 	<context:component-scan base-package="cart.bean" />
+	<context:component-scan base-package="order.bean" />
+	<context:component-scan base-package="order.dao" />
 	
 	
 	<tx:annotation-driven transaction-manager="transactionManager"/>	
