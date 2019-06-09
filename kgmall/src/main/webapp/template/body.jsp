@@ -115,6 +115,9 @@
     </ul>
 </div>
 
+
+
+
 <!-- //메인 상품분류 목록 2 끝 -->
 <ul class="df-divbanner"><li class="xans-record-"><a href="#none" alt="배너">
 <img class="banner_image" alt="배너" rel="74-3" src="../image/banner/pikachu.jpg" usemap="#001" id="pikachu_banner" width="1260" height="350">
@@ -128,10 +131,7 @@
 
 
 <!-- 메인 상품분류 목록 2 -->
-<div class="xans-element- xans-product xans-product-listmain-2 xans-product-listmain xans-product-2 content-wrap df-list-product"><!--
-        $count = 72
-        ※ 노출시킬 상품개수를 숫자로 설정할 수 있습니다. 개수가 너무 많으면 쇼핑몰에 부하가 발생할 수 있습니다.
-    -->
+<div class="xans-element- xans-product xans-product-listmain-2 xans-product-listmain xans-product-2 content-wrap df-list-product">
 <div class="tit-product-main">
 		<h2><span>BEST 6<p>가장 인기있는 상품을 확인해보세요</p></span></h2>
 		<span style="display: none;"><img src="" class="imgtitle"></span>
@@ -172,6 +172,55 @@
 <span style="font-size:12px;color:#333333;">100 won</span>
 <span id="span_product_tax_type_text"></span>
 </li>
+<ul class="prdList grid3" id="best">
+<script>
+
+$.ajax({
+	type : 'GET',
+	url : '/kgmall/product/best.do',
+	dataType : 'json',
+	success : function(data){
+		$.each(data.list, function(index,items){
+			
+			$('#best').append("<li id='anchorBoxId_100' class='item xans-record-'><div class='box'>"
+					  + "<span class='label-best'>BEST</span><span class='label-new'>NEW</span><div class='thumbnail'>"
+					  + "<a href='/kgmall/product/select.do?name="+items.name+"' name='anchorBoxName_100' df-data-rolloverimg1='//ecudemo31431.cafe24.com/web/product/medium/df_sample_list12.jpg' df-data-rolloverimg2='//ecudemo31431.cafe24.com/web/product/tiny/df_sample_list12_on.jpg'><img src='../image/productImage/"+items.imageLink+"' id='eListPrdImage100_3' class='thumb'></a>"
+					  + "</div><div class='description'><div class='fadearea'><p class='name'><a href='#none' class=''><span style='font-size:12px;color:#555555;'>"+items.name+"</span></a>"
+					  + "</p><ul class='xans-element- xans-product xans-product-listitem-2 xans-product-listitem xans-product-2'>"
+					  + "<li item-title='모델' class=' xans-record-'><span style='font-size:11px;color:#555555;'>"+items.company+"</span></li><li item-title='판매가' class=' xans-record-'>"
+					  + "<span style='font-size:12px;color:#333333;'>179,000 won</span><span id='span_product_tax_type_text' style=''> </span></li></ul>"
+					  + "<div class='icon'><img src='http://ecudemo31431.cafe24.com/web/upload/icon_201601081108247400.gif' class='icon_img' alt='추천'><img src='http://ecudemo31431.cafe24.com/web/upload/icon_201601081108285800.gif' class='icon_img' alt='New'>"
+					  + "</div></div><a href='#' class='fadebox-link'></a></div>"
+					  + "<div class='status'><div class='button' id='cart"+items.code+"'><span class='basket'><img src='http://ecudemo31431.cafe24.com/web/upload/icon_201606070448018000.png' alt='장바구니 담기' class='ec-admin-icon cart'></span>"
+					  + "</div></div></div></li>");
+			
+			$('#cart'+items.code).click(function(){
+				
+					for(var i=0; i<$('.productCount').length; i++){
+						var productName = $('.productCount').eq(i).parents("tr").attr("id");
+						var number = parseInt($('.productCount').eq(i).val());
+						$.ajax({
+							type : 'POST',
+							url : '/kgmall/cart/createCookie.do',
+							data : {'productName' : productName , 'number' : number}
+						});
+					}
+					location.href="/kgmall/cart/cart.do";
+				
+			});
+			
+			if(index==5){
+				return false;
+			}
+		});
+		
+	}
+});
+for(var i=0; i<5; i++){
+	
+}
+
+</script>
 </ul>
 <div class="icon">
 <img src="http://ecudemo31431.cafe24.com/web/upload/icon_201601081108247400.gif" class="icon_img" alt="추천">
@@ -519,4 +568,7 @@
 		<li df-data-username="design_floor"><a href="https://www.instagram.com/p/ByFHVEiFlSr/?utm_source=ig_web_copy_link" target="_blank"><span style="background-image:url(//scontent-icn1-1.cdninstagram.com/vp/4a931b65b7a0b8caeec72b8bfae37be4/5D8E0CB6/t51.2885-15/e35/60401863_300214234261778_4045802214429586496_n.jpg?_nc_ht=scontent-icn1-1.cdninstagram.com)"></span></a></li></ul></div>
 </div>
 
+
 <script type="text/javascript" src="../js/body.js"></script>
+
+

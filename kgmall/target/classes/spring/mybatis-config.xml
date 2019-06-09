@@ -13,6 +13,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="list.bean.ListDTO" alias="productlist"/>
 		<typeAlias type="cart.bean.CartDTO" alias="cart"/>
 		<typeAlias type="order.bean.OrderDTO" alias="order"/>
-
+		<typeAlias type="review.bean.ReviewDTO" alias="reviewlist"/>
+		<typeAlias type="review.bean.ReviewReplyDTO" alias="reviewreply"/>
 	</typeAliases>
 </configuration>

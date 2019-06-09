@@ -19,11 +19,19 @@ import org.springframework.web.servlet.ModelAndView;
 
 import cart.bean.CartDTO;
 import cart.dao.CartDAO;
+import order.bean.OrderDTO;
+import order.dao.OrderDAO;
+import product.bean.ProductDTO;
+import product.dao.ProductDAO;
 
 @Controller
 public class CartController {
 	@Autowired
+	private ProductDAO productDAO;
+	@Autowired
 	private CartDAO cartDAO;
+	@Autowired
+	private OrderDAO orderDAO;
 	
 	@RequestMapping(value="/cart/cart.do", method=RequestMethod.GET)
 	public String cart(Model model) {
@@ -109,5 +117,35 @@ public class CartController {
 		mav.setViewName("jsonView");
 		return mav;
 	}
-	
+	@RequestMapping(value="/cart/selectCart.do",method=RequestMethod.POST)
+	public ModelAndView selectCart(@RequestParam String id){
+		ModelAndView mav = new ModelAndView();
+
+		List<CartDTO> list = cartDAO.getCartList(id);
+		mav.addObject("list", list);
+		mav.setViewName("jsonView");
+		return mav;
+	}
+	@RequestMapping(value="/cart/insertCartOrder.do",method=RequestMethod.POST)
+	public void insertCartOrder(@RequestParam String id){
+		List<CartDTO> list = cartDAO.getCartList(id);
+		for(CartDTO cartDTO : list) {
+			String[] str = cartDTO.getProduct().split("_");
+			OrderDTO orderDTO = new OrderDTO();
+			orderDTO.setSeq(orderDAO.getSEQ());
+			orderDTO.setProductName(str[0]+"_"+str[1]+"_"+str[2]); 
+			orderDTO.setQuantity(cartDTO.getProductCount()); 
+			ProductDTO productDTO = productDAO.getDTO(str[0]);
+
+			orderDTO.setOrderId(id);
+			orderDTO.setImage(productDTO.getImageLink());
+			orderDTO.setOrderState("상품 준비 중");
+			orderDTO.setTotal(cartDTO.getProductCount()*productDTO.getPrice());
+			orderDTO.setSell(productDTO.getPrice());
+			orderDAO.insertOrderList(orderDTO);
+			productDAO.orderCountDown(str[0]+"_"+str[1]+"_"+str[2], cartDTO.getProductCount());
+		}
+		cartDAO.deleteCartList(id);
+		
+	}
 }

@@ -31,11 +31,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  	
  	<select id="getProductSelectOptionList" parameterType="java.util.Map" resultType="productlist">
  		select * from
-		 (select rownum rn,tt.* from
+		 (select rownum rn, tt.* from
 		<if test="category =='MAJORCATEGORY'">
+			 (select * from product where majorcategory=#{sub}
 			 (select * from product where majorcategory='${sub}'
 		</if>
 		<if test="category =='SUBCATEGORY'">
+			 (select * from product where subcategory=#{subcategory}
 			 (select * from product where subcategory='${subcategory}'
 		</if>
 		<if test="option =='productName'">
@@ -50,7 +52,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<if test="option =='company'">
 			 order by company asc)tt)
 		</if>
- 		 where rn between ${startNum} and ${endNum}
+ 		 where rn between #{startNum} and #{endNum}
  	</select>
  	
 </mapper>

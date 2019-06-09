@@ -162,9 +162,29 @@ public class ProductController {
 				orderDTO.setOrderState("상품 준비 중");
 				orderDTO.setTotal(Integer.parseInt(c.getValue())*productDTO.getPrice());
 				orderDTO.setSell(productDTO.getPrice());
+				productDAO.orderCountDown(str[0]+"_"+str[1]+"_"+str[2], Integer.parseInt(c.getValue()));
 				orderDAO.insertOrderList(orderDTO);
 			}
 		}
+	}
+	@RequestMapping(value="/getCount.do", method=RequestMethod.POST)
+	public ModelAndView getCount(@RequestParam String name) {
+		ModelAndView mav = new ModelAndView();
+		name = name.toLowerCase();
+		System.out.println(name);
+		int count = productDAO.getCount(name);
+		mav.addObject("count", count);
+		mav.setViewName("jsonView");
+		return mav;
+	}
+	
+	@RequestMapping(value="/best.do",method=RequestMethod.GET)
+	public ModelAndView best6() {
+		ModelAndView mav = new ModelAndView();
+		List<ProductDTO> list= productDAO.thumb();
+		mav.addObject("list", list);
+		mav.setViewName("jsonView");
+		return mav;
 	}
 	
 }

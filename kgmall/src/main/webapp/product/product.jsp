@@ -21,11 +21,11 @@
  --><script type="text/javascript" src="http://code.jquery.com/jquery-3.4.0.min.js"></script>
 
 <style type="text/css">
-input[type="number"]::-webkit-outer-spin-button,
+/* input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
-}
+} */
 </style>
 
 <%String name= request.getParameter("name");%>
@@ -173,11 +173,27 @@ function selectS(){
 			return;
 		}
 		if($('#productColor').text().length<7){
-			$('#sizeS').addClass('ec-product-selected');
-			$('#totalTable').append("<tr class='' id="+name+"_"+color+"_"+size+"><td>"+name+"_"+color+"_"+size+"</td><td ><span><input class='productCount' id='"+name+"_"+color+"_"+size+"_text"+"' style='width:33px;'  value='1' min='1' type='number'></span><button value="+name+"_"+color+"_"+size+" type='' onclick='javascript:deleteTr(this.value)'><img class='' style='height:10px; width:10px;' src='../image/x.png' ></button></td><td class='right'><span class='quantity_price'>"+addComma(sale)+"</span></td></tr>");
-			$('#sizeValue').addClass('ec-product-value').text('S');
-			total = total+sale;
-			$('#totalp').text(addComma(total));
+			var count=0;
+			$.ajax({
+				type : 'POST',
+				url : '/kgmall/product/getCount.do',
+				data : {"name" : name+"_"+color+"_"+size},
+				dataType : 'json',
+				success : function(data){
+					count = data.count;
+					if(count==0){
+						alert("품절된 상품입니다.");
+						$('#sizeValue').removeClass('ec-product-value').text('옵션을 선택해 주세요');
+					}
+					else{
+						$('#sizeS').addClass('ec-product-selected');
+						$('#totalTable').append("<tr class='' id="+name+"_"+color+"_"+size+"><td>"+name+"_"+color+"_"+size+"</td><td><div>남은수량 "+count+"</div><span><input class='productCount' id='"+name+"_"+color+"_"+size+"_text"+"' style='width:33px;'  value='1' min='1' max='"+count+"' type='number' oninput='maxCheck(this)' ></span><button value="+name+"_"+color+"_"+size+" type='' onclick='javascript:deleteTr(this.value)'><img class='' style='height:10px; width:10px;' src='../image/x.png' ></button></td><td class='right'><span class='quantity_price'>"+addComma(sale)+"</span></td></tr>");
+						$('#sizeValue').addClass('ec-product-value').text('S');
+						total = total+sale;
+						$('#totalp').text(addComma(total));		
+					}
+				}
+			});
 		}
 }
 function selectM(){
@@ -191,11 +207,27 @@ function selectM(){
 			return;
 		}
 		if($('#productColor').text().length<7){
-			$('#sizeM').addClass('ec-product-selected');
-			$('#totalTable').append("<tr class='' id="+name+"_"+color+"_"+size+"><td>"+name+"_"+color+"_"+size+"</td><td><span><input class='productCount' id='"+name+"_"+color+"_"+size+"_text"+"'  style='width:33px;' value='1' min='1' type='number'></span><button value="+name+"_"+color+"_"+size+" type='' onclick='javascript:deleteTr(this.value)'><img class='' style='height:10px; width:10px;' src='../image/x.png' ></button></td><td class='right'><span class='quantity_price'>"+addComma(sale)+"</span></td></tr>");
-			$('#sizeValue').addClass('ec-product-value').text('M');
-			total = total+sale;
-			$('#totalp').text(addComma(total));
+			var count=0;
+			$.ajax({
+				type : 'POST',
+				url : '/kgmall/product/getCount.do',
+				data : {"name" : name+"_"+color+"_"+size},
+				dataType : 'json',
+				success : function(data){
+					count = data.count;
+					if(count==0){
+						alert("품절된 상품입니다.");
+						$('#sizeValue').removeClass('ec-product-value').text('옵션을 선택해 주세요');
+					}
+					else{
+						$('#sizeM').addClass('ec-product-selected');
+						$('#totalTable').append("<tr class='' id="+name+"_"+color+"_"+size+"><td>"+name+"_"+color+"_"+size+"</td><td><div>남은수량 "+count+"</div><span><input class='productCount' id='"+name+"_"+color+"_"+size+"_text"+"'  style='width:33px;' value='1' min='1' max='"+count+"' type='number'></span><button value="+name+"_"+color+"_"+size+" type='' onclick='javascript:deleteTr(this.value)'><img class='' style='height:10px; width:10px;' src='../image/x.png' ></button></td><td class='right'><span class='quantity_price'>"+addComma(sale)+"</span></td></tr>");
+						$('#sizeValue').addClass('ec-product-value').text('M');
+						total = total+sale;
+						$('#totalp').text(addComma(total));
+					}
+				}
+			});
 		}
 }
 function selectL(){
@@ -209,11 +241,27 @@ function selectL(){
 			return;
 		}
 		if($('#productColor').text().length<7){
-			$('#sizeL').addClass('ec-product-selected');
-			$('#totalTable').append("<tr class='' id="+name+"_"+color+"_"+size+"><td>"+name+"_"+color+"_"+size+"</td><td><span><input class='productCount' id='"+name+"_"+color+"_"+size+"_text"+"' style='width:33px;' value='1' min='1' type='number'></span><button value="+name+"_"+color+"_"+size+" type='' onclick='javascript:deleteTr(this.value)'><img class='' style='height:10px; width:10px;' src='../image/x.png' ></button></td><td class='right'><span class='quantity_price'>"+addComma(sale)+"</span></td></tr>");
-			$('#sizeValue').addClass('ec-product-value').text('L');
-			total = total+sale;
-			$('#totalp').text(addComma(total));
+			var count=0;
+			$.ajax({
+				type : 'POST',
+				url : '/kgmall/product/getCount.do',
+				data : {"name" : name+"_"+color+"_"+size},
+				dataType : 'json',
+				success : function(data){
+					count = data.count;
+					if(count==0){
+						alert("품절된 상품입니다.");
+						$('#sizeValue').removeClass('ec-product-value').text('옵션을 선택해 주세요');
+					}
+					else{
+						$('#sizeL').addClass('ec-product-selected');
+						$('#totalTable').append("<tr class='' id="+name+"_"+color+"_"+size+"><td>"+name+"_"+color+"_"+size+"</td><td><div>남은수량 "+count+"</div><span><input class='productCount' id='"+name+"_"+color+"_"+size+"_text"+"' style='width:33px;' value='1' min='1' max='"+count+"' type='number'></span><button value="+name+"_"+color+"_"+size+" type='' onclick='javascript:deleteTr(this.value)'><img class='' style='height:10px; width:10px;' src='../image/x.png' ></button></td><td class='right'><span class='quantity_price'>"+addComma(sale)+"</span></td></tr>");
+						$('#sizeValue').addClass('ec-product-value').text('L');
+						total = total+sale;
+						$('#totalp').text(addComma(total));
+					}
+				}
+			});
 		}
 }
 function selectXL(){
@@ -227,17 +275,40 @@ function selectXL(){
 			return;
 		}
 		if($('#productColor').text().length<7){
-			$('#sizeXL').addClass('ec-product-selected');
-			$('#totalTable').append("<tr class='' id="+name+"_"+color+"_"+size+"><td>"+name+"_"+color+"_"+size+"</td><td><span><input class='productCount' id='"+name+"_"+color+"_"+size+"_text"+"' style='width:33px;' value='1' min='1' type='number'></span><button value="+name+"_"+color+"_"+size+" type='' onclick='javascript:deleteTr(this.value)'><img class='' style='height:10px; width:10px;' src='../image/x.png' ></button></td><td class='right'><span class='quantity_price'>"+addComma(sale)+"</span></td></tr>");
-			$('#sizeValue').addClass('ec-product-value').text('XL');
-			total = total+sale;
-			$('#totalp').text(addComma(total));
+			var count=0;
+			$.ajax({
+				type : 'POST',
+				url : '/kgmall/product/getCount.do',
+				data : {"name" : name+"_"+color+"_"+size},
+				dataType : 'json',
+				success : function(data){
+					count = data.count;
+					if(count==0){
+						alert("품절된 상품입니다.");
+						$('#sizeValue').removeClass('ec-product-value').text('옵션을 선택해 주세요');
+					}
+					else{
+						$('#sizeXL').addClass('ec-product-selected');
+						$('#totalTable').append("<tr class='' id="+name+"_"+color+"_"+size+"><td>"+name+"_"+color+"_"+size+"</td><td><div>남은수량 "+count+"</div><span><input class='productCount' id='"+name+"_"+color+"_"+size+"_text"+"' style='width:33px;' value='1' min='1' max='"+count+"' type='number'></span><button value="+name+"_"+color+"_"+size+" type='' onclick='javascript:deleteTr(this.value)'><img class='' style='height:10px; width:10px;' src='../image/x.png' ></button></td><td class='right'><span class='quantity_price'>"+addComma(sale)+"</span></td></tr>");
+						$('#sizeValue').addClass('ec-product-value').text('XL');
+						total = total+sale;
+						$('#totalp').text(addComma(total));
+					}
+				}
+			});
 		}
 }
 /* 사이즈 구하기 종료 */
 
 //합계구하기
 $(document).on('change', '.productCount', function() {
+	currentVal = $(this).val();
+	maxVal = $(this).attr("max");
+	if(currentVal>maxVal){
+		$(this).val(maxVal);
+	}else if(currentVal<1){
+		$(this).val(1);
+	}
 	var totalCount=0;
 	for(var i=0; i<$('.productCount').length; i++){
 		totalCount = totalCount + parseInt($('.productCount').eq(i).val());
@@ -345,7 +416,6 @@ Home</a></li>
 		</ol>
 </div>
 </div>
-
 
 
 

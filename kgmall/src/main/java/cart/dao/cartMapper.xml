@@ -12,4 +12,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="deleteCart" parameterType="java.util.Map">
 		delete from cart where sellid=#{sellid} and product=#{product}
 	</delete>
+	<delete id="deleteCartList" parameterType="String">
+		delete from cart where sellid=#{id}
+	</delete>
 </mapper>

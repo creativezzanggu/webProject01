@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import list.bean.ListDTO;
+import list.dao.ListDAO;
+
 import main.bean.Search_paging;
 import main.dao.MainDAO;
 import product.bean.ProductDTO;
@@ -20,6 +23,8 @@ import product.bean.ProductDTO;
 public class MainController {
 	@Autowired
 	MainDAO mainDAO;
+	@Autowired
+	ListDAO listDAO;
 	
 	@RequestMapping(value="/main/index.do", method=RequestMethod.GET)
 	public String index(Model model) {
