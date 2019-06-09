@@ -103,6 +103,8 @@
 <a href="/kgmall/notice/noticeForm.do?pg=1">NOTICE</a> </li>
 <li class="xans-record-">
 <a href="/kgmall/board/QA.do?pg=1">Q &amp; A</a> </li>
+<li class="xans-record-">
+<a href="/kgmall/review/reviewForm.do?pg=1">REVIEW</a> </li>
 <!-- 1:1 문의게시판 -->
 <li class="xans-element- xans-myshop xans-myshop-main displaynone "><a href="/board/consult/list.html">1:1 문의란</a>
 </li>

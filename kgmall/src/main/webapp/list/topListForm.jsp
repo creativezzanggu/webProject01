@@ -20,7 +20,7 @@
 				<li class="xans-element- xans-product xans-product-headcategory view-all displaynone "><a href="/product/list.html?cate_no=54"></a></li>
 				<li style="display:;" class="xans-element- xans-product xans-product-displaycategory  xans-record-">
 					<a href="#">
-					<p class="name" onclick="Top('TEESHIRT')">TEESHIRT</p>
+					<p class="name" onclick="Top('TEE-SHIRT')">TEE-SHIRT</p>
 					</a>
 				</li>
 				<li style="display:;" class="xans-element- xans-product xans-product-displaycategory  xans-record-">
