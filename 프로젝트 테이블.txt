@@ -98,4 +98,3 @@ orderId varchar2(30),
 logtime date DEFAULT SYSDATE);
 Create sequence orders nocache nocycle;
 
-insert into ordertable(seq)values(orders.nextval);
