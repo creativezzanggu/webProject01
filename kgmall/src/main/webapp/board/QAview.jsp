@@ -216,8 +216,9 @@ function qaReplyModify(replyseq,id,seq) {
 				url : '/kgmall/board/QAreplyGetContent.do',
 				data : {'replyseq' : replyseq,
 						'seq' : seq},
+				dataType : 'json',
 				success : function(data){
-					$('#comment_modify').val(data);
+					$('#comment_modify').text(data.content);
 				}
 			});//ajax QAreplyGetContent
 			$('#comment_modify').focus();

@@ -36,6 +36,7 @@
 	<context:component-scan base-package="admin.controller"/>
 	<context:component-scan base-package="list.controller"/>
 	<context:component-scan base-package="order.controller"/>
+	<context:component-scan base-package="review.controller"/>
 	
 		
 	<beans:bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">

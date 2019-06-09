@@ -82,7 +82,6 @@ background: #fafafa;margin: 0;-moz-box-sizing: border-box;-webkit-box-sizing: bo
 		<thead>
 			<tr>
 				<th width="70px">글번호</th>
-				<th width="77px">상품이미지</th>
 				<th width="135px">카테고리</th>
 				<th width="auto">제목</th>
 				<th width="105px">작성자</th>
@@ -143,13 +142,6 @@ $(document).ready(function(){
 					text : items.seq,
 					class : 'no'
 				})).append($('<td/>',{
-					align : 'center',
-					class : 'thumb'
-					}).append($('<img/>',{
-						src : '../image/board_image/apple.png',
-						border : '0'
-					}))
-				).append($('<td/>',{
 					align : 'center',
 					text : items.category
 				})).append($('<td/>',{
