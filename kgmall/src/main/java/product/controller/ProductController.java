@@ -162,6 +162,7 @@ public class ProductController {
 				orderDTO.setOrderState("상품 준비 중");
 				orderDTO.setTotal(Integer.parseInt(c.getValue())*productDTO.getPrice());
 				orderDTO.setSell(productDTO.getPrice());
+				productDAO.orderCountDown(str[0]+"_"+str[1]+"_"+str[2], Integer.parseInt(c.getValue()));
 				orderDAO.insertOrderList(orderDTO);
 			}
 		}

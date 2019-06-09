@@ -143,6 +143,7 @@ public class CartController {
 			orderDTO.setTotal(cartDTO.getProductCount()*productDTO.getPrice());
 			orderDTO.setSell(productDTO.getPrice());
 			orderDAO.insertOrderList(orderDTO);
+			productDAO.orderCountDown(str[0]+"_"+str[1]+"_"+str[2], cartDTO.getProductCount());
 		}
 		cartDAO.deleteCartList(id);
 		

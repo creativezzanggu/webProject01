@@ -1,7 +1,11 @@
 package product.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import javax.print.attribute.HashAttributeSet;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +53,15 @@ public class ProductDAOMybatis implements ProductDAO {
 	@Override
 	public List<ProductDTO> thumb() {
 		return sqlSession.selectList("productSQL.getThumb");
+	}
+
+	@Override
+	public void orderCountDown(String name, int count) {
+		Map <String,String> map = new HashMap<String, String>();
+		System.out.println(name);
+		map.put("name",name.toLowerCase());
+		map.put("count", Integer.toString(count));
+		sqlSession.update("productSQL.orderCountDown",map);
 	}
 }
 

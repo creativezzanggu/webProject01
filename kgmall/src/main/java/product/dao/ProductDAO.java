@@ -14,4 +14,6 @@ public interface ProductDAO {
 	
 	public List<ProductDTO> thumb();
 
+	public void orderCountDown(String name, int count);
+
 }
