@@ -37,4 +37,18 @@ public class ProductDAOMybatis implements ProductDAO {
 		}//중복제거
 		return resultList;
 	}
+
+	@Override
+	public int getCount(String name) {
+		int count =0;
+			if(sqlSession.selectOne("productSQL.getCount", name)!=null) {
+				count=sqlSession.selectOne("productSQL.getCount", name);
+			}
+		return count;
+	}
+	@Override
+	public List<ProductDTO> thumb() {
+		return sqlSession.selectList("productSQL.getThumb");
+	}
 }
+

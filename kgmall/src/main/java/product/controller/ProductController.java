@@ -166,5 +166,24 @@ public class ProductController {
 			}
 		}
 	}
+	@RequestMapping(value="/getCount.do", method=RequestMethod.POST)
+	public ModelAndView getCount(@RequestParam String name) {
+		ModelAndView mav = new ModelAndView();
+		name = name.toLowerCase();
+		System.out.println(name);
+		int count = productDAO.getCount(name);
+		mav.addObject("count", count);
+		mav.setViewName("jsonView");
+		return mav;
+	}
+	
+	@RequestMapping(value="/best.do",method=RequestMethod.GET)
+	public ModelAndView best6() {
+		ModelAndView mav = new ModelAndView();
+		List<ProductDTO> list= productDAO.thumb();
+		mav.addObject("list", list);
+		mav.setViewName("jsonView");
+		return mav;
+	}
 	
 }
