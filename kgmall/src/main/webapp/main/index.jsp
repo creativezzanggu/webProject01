@@ -19,7 +19,6 @@
 <meta name="naver-site-verification" content="dd85968ac57ed1d64007f8ef41ba2a6cf51dc33f">
 <link rel="canonical" href="http://ecudemo31431.cafe24.com/">
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.4.0.min.js"></script>
-<script type="text/javascript" src="../js/index.js"></script>
 <script src="//www.youtube.com/iframe_api"></script>
 <script type="text/javascript" src="http://ecudemo31431.cafe24.com/app/Eclog/js/cid.generate.js?vs=3d0b473968a0ec4ec41e3bf59df3aa51"></script>
 <script type="text/javascript">
@@ -543,6 +542,7 @@
 </div>
 
 </div>
+<script type="text/javascript" src="../js/index.js"></script>
 <script type="text/javascript" src="//ecudemo31431.cafe24.com/ind-script/i18n.php?lang=ko_KR&amp;domain=front&amp;v=1905231058" charset="utf-8"></script>
 <script type="text/javascript" src="http://ecudemo31431.cafe24.com/ind-script/optimizer.php?filename=tVTdTuswDH6B3fIc1hAXXIMOV8AQEw_gJW6b1Y1znGTQ8_QnHRNiYvx0ZaqqKq6_z_7s2NBIRzA_V6gUO3oWbUEpSlZDsI7g5pd-to5n8JVfdgFNC-u_mbTffeazi_LsIYNKXcCwIW9FIdoWIunGGYqfRDdY0flFcTxM9N41BnU-Vd87WjG5I59uRLtr8UmFmfQwjt0Knl7FPb6jYPzXs6AdBepywuTEL1aD6JERg3BfOeaRraCXROqR484wW9VuC5rKY0RaN5nFutKIWGoSpzIRRufrqSwdJbSY8HBrMARYNhL2GnOj5QrBtXSd-KfkeDT0LnNysfy7dTGNRkdCNc1I3YFz7XyEDbIrcsso7vS_GSYTDqX1Nn4kLgyh9JtOF6EhDnRCBQ16y6cMUHaDq_rT8Zc9kn4hfxaDTNDK9yv3k3v1k8HCRLVo__VwXAmq3UMX62w1WEdHvKfn4X1QsdmkRRhW9pKYTDqKalf9dRR_bCoL9u1R2Nfk4c9LUtwSbc_b41LYSh4k_Qc&amp;type=js&amp;k=ba8d9975e19e826e792e7309c8cbad287d2c55ab&amp;t=1557687796"></script>
 <script type="text/javascript" src="http://ecudemo31431.cafe24.com/ind-script/optimizer.php?filename=rZVBbsIwEEUPANueY9TeoEArIUFBRO1-cIbExPZYY6dpbt8EUAtSQSXJIlbmK__529bEkLMleHwS8MKZoAX0HpKcPWwocCmKYB_gVdhFeKMKVj5qdvDyFQVb4VgfyrVoReN9eIABoXOL2eDQmQ7eYK0j2QHR8waXaJcZSsiQaqXhg0sDnmAoKPZh_1CnbG2_mGcoFwYBTbRLBwHNMOIgoA80OsXrB2r0Ft61R1VcAKelCDlVQ2imGvnr7fEvvzpVox2Lxdg3yVCYMmrTaZObZy2clioudIg9Ec_d2-0XkkRWRSfGQhcEE-EqkExR5dSd0qMjz_ynFd2NOflgRhG1gUnpUkONaLnz_m7oU1MV0RSn1ymX7kayZR3-hrWyb_6vc7fj6_Y1-_LS7VtlzJ5u5F-ia-6ZC1tFW8PZ3xY5-y6P1pCLOmoKd02AoXbqOHb2WbJbks72laQk6nAa3w&amp;type=js&amp;k=b7c36bfa1811014339712088b43bcc81a5effc18&amp;t=1558462804"></script>

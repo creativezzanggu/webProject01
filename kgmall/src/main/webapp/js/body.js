@@ -81,6 +81,6 @@ $(function(){
 		$('#pikachu_banner').attr("src","../image/gif/pikachu_runAway.gif");
 		$('#pikachu_banner').attr("usemap","#none");
 	});
-	
 
 });
+

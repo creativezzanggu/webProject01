@@ -98,4 +98,15 @@ public class MainController {
 		return mav;
 	}
 	
+	
+	@RequestMapping(value="/main/getNewItemList.do", method=RequestMethod.POST)
+	public ModelAndView getNewItemList() {
+		List<ProductDTO> list = mainDAO.getNewItemList();
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("list", list);
+		mav.setViewName("jsonView");
+		return mav;
+	}
+	
 }

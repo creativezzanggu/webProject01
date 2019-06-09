@@ -1,5 +1,10 @@
 package main.dao;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -24,5 +29,10 @@ public class MainDAOMybatis implements MainDAO{
 	@Override
 	public int countItems(Map<String, String> map) {
 		return sqlSession.selectOne("mainSQL.countItems", map);
+	}
+
+	@Override
+	public List<ProductDTO> getNewItemList() {
+		return sqlSession.selectList("mainSQL.getNewItemList");
 	}
 }
