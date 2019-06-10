@@ -39,4 +39,8 @@ public interface ReviewDAO {
 
 	public void updateReview(Map<String, String> map);
 
+	public List<ReviewDTO> getReviewSelectList(Map<String, String> map);
+
+	public int getReviewSelectTotal(String string);
+
 }

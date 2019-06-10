@@ -17,6 +17,31 @@
 				<p>상품 사용후기입니다.</p>
 			</div>
 		</div>
+		<div class="df-sub-menu type-box grid6">
+			<ul class="depth1">
+				<li class="xans-element- xans-product xans-product-headcategory view-all displaynone "><a href="/product/list.html?cate_no=54"></a></li>
+				<li style="display:;" class="xans-element- xans-product xans-product-displaycategory  xans-record-">
+					<a href="#">
+					<p class="name" id='OUTER' onclick="ReviewSearch('OUTER')">OUTER</p>
+					</a>
+				</li>
+				<li style="display:;" class="xans-element- xans-product xans-product-displaycategory  xans-record-">
+					<a href="#">
+						<p class="name" id='TOP' onclick="ReviewSearch('TOP')">TOP</p>
+					</a>
+				</li>
+				<li style="display:;" class="xans-element- xans-product xans-product-displaycategory  xans-record-">
+					<a href="#">
+						<p class="name" id='BOTTOM' onclick="ReviewSearch('BOTTOM')">BOTTOM</p>
+					</a>
+				</li>
+				<li style="display:;" class="xans-element- xans-product xans-product-displaycategory  xans-record-">
+				<a href="#">
+					<p class="name" id='SHOES&BAG' onclick="ReviewSearch('SHOES&BAG')">SHOES&BAG</p>
+				</a>
+				</li>
+			</ul>
+		</div>
 </div>
 
 <div id="wrap">
@@ -45,17 +70,39 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	$.ajax({
-		type : 'POST',
+		type : 'GET',
 		url : '/kgmall/review/reviewListForm.do',
 		data : {'pg' : $('#pg').val()},
 		dataType : 'json',
 		success : function(data){
 			$('#total').text(data.totalA);
 			$('.prdList').html(data.reviewList);
-			$('#paging').html(data.listPaging.pagingHTML);
-		}
-	});
-	
+			$('#paging').html(data.reviewPaging.pagingHTML);
+		}//success
+	});//ajax
 });
+function ReviewSearch(name){
+	$('#'+name).click(function(){
+		$.ajax({
+			type : 'POST',
+			url : '/kgmall/review/reviewSelectListForm.do',
+			data : {'pg' : $('#pg').val(),
+					'majorcategory':name},
+			dataType : 'json',
+			success : function(data){
+				$('#category').val(name);
+				$('#total').text(data.totalA);
+				$('.prdList').html(data.reviewList);
+				$('#paging').html(data.listPaging.pagingHTML);
+			}//success
+		});//ajax
+	});
+}
+
+function reviewSelect(pg){
+	$('#pg').val(pg);
+	$(ReviewSearch).trigger('onclick','trigger');
+}
+
 </script>
 </html>
