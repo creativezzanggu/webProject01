@@ -60,18 +60,22 @@ public class CartController {
 	public ModelAndView selectCookie(HttpServletResponse response,HttpServletRequest request){
 		ModelAndView mav = new ModelAndView();
 		Map<String,String> map= new HashMap<String, String>();
-		
+		String str[];
 		Cookie[] getCookie = request.getCookies();
 		if(getCookie != null){	
-			for(int i=0; i<getCookie.length-3; i++){
+			for(int i=0; i<getCookie.length; i++){
 				Cookie c = getCookie[i];
-				String name1 = c.getName(); // 쿠키 이름 가져오기
-				String value = c.getValue(); // 쿠키 값 가져오기
-				map.put(name1, value);
-				
+				str = c.getName().split("_");
+				try {
+					if(str[2]!=""){
+						String name1 = c.getName(); // 쿠키 이름 가져오기
+						String value = c.getValue(); // 쿠키 값 가져오기
+						map.put(name1, value);
+					}
+				}catch(ArrayIndexOutOfBoundsException e) {
+					//e.printStackTrace();
+				}
 			}
-			for( String key : map.keySet() ){
-	        }
 
 		}		
 		mav.addObject("map", map);
@@ -97,18 +101,25 @@ public class CartController {
 	@RequestMapping(value="/cart/insertCookie.do",method=RequestMethod.POST)
 	public ModelAndView insertCookie(@RequestParam String id,HttpServletResponse response,HttpServletRequest request){
 		ModelAndView mav = new ModelAndView();
+		String str[];
 		List<CartDTO> list= new ArrayList<CartDTO>();
 		Cookie[] getCookie = request.getCookies();
 		if(getCookie != null){	
-			for(int i=0; i<getCookie.length-3; i++){
+			for(int i=0; i<getCookie.length; i++){
 				CartDTO cartDTO = new CartDTO();
 				Cookie c = getCookie[i];
-				cartDTO.setProduct(c.getName()); // 쿠키 이름 가져오기
-				if(c.getValue().length()<10) {
-					cartDTO.setProductCount(Integer.parseInt(c.getValue())); // 쿠키 값 가져오기
+				str = c.getName().split("_");
+				try {
+					if(str[2]!=""){
+						System.out.println("sdf"+str[2]);
+						cartDTO.setProduct(c.getName()); // 쿠키 이름 가져오기
+						cartDTO.setProductCount(Integer.parseInt(c.getValue())); // 쿠키 값 가져오기
+						cartDTO.setSellId(id);
+						list.add(cartDTO);
+					}
+				}catch(ArrayIndexOutOfBoundsException e) {
+					//e.printStackTrace();
 				}
-				cartDTO.setSellId(id);
-				list.add(cartDTO);
 			}
 		}
 		cartDAO.insertCart(list);
