@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import list.bean.ListDTO;
@@ -106,8 +107,16 @@ public class MainController {
 	
 	@RequestMapping(value="/main/getNewItemList.do", method=RequestMethod.POST)
 	public ModelAndView getNewItemList() {
-		List<ProductDTO> list = mainDAO.getNewItemList();
-		
+		List<ProductDTO> list = mainDAO.getNewItemList();	
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("list", list);
+		mav.setViewName("jsonView");
+		return mav;
+	}
+	
+	@RequestMapping(value="/main/getNewItemDetail.do", method=RequestMethod.POST)
+	public @ResponseBody ModelAndView getNewItemDetail(@RequestParam String productname) {
+		List<String> list = mainDAO.getColor(productname);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("list", list);
 		mav.setViewName("jsonView");

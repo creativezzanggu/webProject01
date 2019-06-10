@@ -35,4 +35,9 @@ public class MainDAOMybatis implements MainDAO{
 	public List<ProductDTO> getNewItemList() {
 		return sqlSession.selectList("mainSQL.getNewItemList");
 	}
+
+	@Override
+	public List<String> getColor(String productname) {
+		return sqlSession.selectList("mainSQL.getColor", productname);
+	}
 }
