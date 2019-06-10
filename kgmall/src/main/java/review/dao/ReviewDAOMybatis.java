@@ -94,4 +94,15 @@ public class ReviewDAOMybatis implements ReviewDAO{
 	public void updateReview(Map<String, String> map) {
 		sqlSession.update("reviewSQL.updateReview",map);
 	}
+
+	@Override
+	public List<ReviewDTO> getReviewSelectList(Map<String, String> map) {
+		return sqlSession.selectList("reviewSQL.getReviewSelectList",map);
+	}
+
+	@Override
+	public int getReviewSelectTotal(String majorcategory) {
+		return sqlSession.selectOne("reviewSQL.getReviewSelectTotal",majorcategory);
+	}
+
 }

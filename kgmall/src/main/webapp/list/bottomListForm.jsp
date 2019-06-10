@@ -11,10 +11,10 @@
 
 <div class="xans-element- xans-product xans-product-menupackage" style="margin-left: 322px;">
 		<div class="location-product">
-	<div class="xans-element- xans-product xans-product-headcategory tit-product "style="margin-top: 30px;">
-		<h2><span>BOTTOM</span></h2>
-	</div>
-</div>
+			<div class="xans-element- xans-product xans-product-headcategory tit-product "style="margin-top: 30px;">
+				<h2><span>BOTTOM</span></h2>
+			</div>
+		</div>
 		<div class="df-sub-menu type-box grid6">
 			<ul class="depth1">
 				<li class="xans-element- xans-product xans-product-headcategory view-all displaynone "><a href="/product/list.html?cate_no=54"></a></li>
@@ -40,7 +40,7 @@
 				</li>
 			</ul>
 		</div>
-	</div>
+</div>
 
 <div id="wrap">
 	<div id="container">
