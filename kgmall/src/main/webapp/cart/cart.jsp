@@ -151,7 +151,7 @@ $(document).ready(function(){
 				$.each(map, function(index, value){
 					var str = index.split("_");
 					name=str[0];
-					if(name!=1){
+					if(str[2]!=null){
 						$('#emptyCart').addClass('displaynone');	
 					}
 					$.ajax({
