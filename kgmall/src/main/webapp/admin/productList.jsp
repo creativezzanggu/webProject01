@@ -37,7 +37,7 @@
 										<th>수정버튼</th>
 									</tr>
 								</thead>
-								<tbody>
+								<tbody id="productList">
 								
 								</tbody>
 							</table>
@@ -47,4 +47,41 @@
 			</div>
 		</div>
 	</body>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-3.4.0.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$.ajax({
+			type : 'GET',
+			url : '/kgmall/admin/productList.do',
+			dataType : 'json',
+			success : function(data){
+				$('#productList').html(data.productList);
+			}
+		});
+	});
+	function countModify(productname){
+		$.ajax({
+			type : 'POST',
+			url : '/kgmall/admin/countUpdate.do',
+			data : {'productname': productname,
+					'productcount' :$('#input'+productname).val()},
+			dataType : 'json',
+			success : function(data){
+			}
+		});
+	}
+	function countDelete(productname){
+		$.ajax({
+			type : 'POST',
+			url : '/kgmall/admin/countDelete.do',
+			data : {'productname': productname},
+			dataType : 'text',
+			success : function(data){
+				if(data='yes'){
+					$('#tr'+productname).remove();
+				}
+			}
+		});
+	}
+	</script>
 </html>

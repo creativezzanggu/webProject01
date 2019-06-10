@@ -19,12 +19,12 @@ public class AdminDAOMybatis implements AdminDAO {
 
 	@Override
 	public void productInsert(Map<String, String> map) {
-		sqlSession.insert("adminSQL.productInsert",map);
+		sqlSession.insert("adminSQL.productInsert", map);
 	}
 
 	@Override
 	public void detailProductInsert(Map<String, String> map) {
-		sqlSession.insert("adminSQL.detailProductInsert",map);
+		sqlSession.insert("adminSQL.detailProductInsert", map);
 	}
 
 	@Override
@@ -36,5 +36,34 @@ public class AdminDAOMybatis implements AdminDAO {
 	public List<DetailProductDTO> detailProductList() {
 		return sqlSession.selectList("adminSQL.detailProductList");
 	}
+
+	@Override
+	public List<DetailProductDTO> detailProductListCount(String name) {
+		name = name+"_%";
+		return sqlSession.selectList("adminSQL.detailProductListCount", name);
+	}
+
+	@Override
+	public void countUpdate(Map<String, String> map) {
+		sqlSession.update("adminSQL.countUpdate", map);
+	}
+
+	@Override
+	public int checkProduct(String name) {
+		name=name+"_%";
+		return sqlSession.selectOne("adminSQL.checkProduct", name);
+	}
+
+	@Override
+	public void countDelete(Map<String, String> map) {
+		sqlSession.delete("adminSQL.countDelete", map);
+	}
+
+	@Override
+	public void productDelete(String name) {
+		sqlSession.delete("adminSQL.productDelete", name);
+	}
+
+
 
 }
