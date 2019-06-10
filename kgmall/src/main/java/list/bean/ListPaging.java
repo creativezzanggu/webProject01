@@ -12,6 +12,8 @@ public class ListPaging {
 	private int pageSize;
 	private int totalA;
 	private StringBuffer pagingHTML;
+	private String category;
+	private String category2;
 	
 	public void makePagingHTML(){
 		pagingHTML = new StringBuffer();
@@ -23,17 +25,17 @@ public class ListPaging {
 		if(endPage > totalP) endPage = totalP;
 		
 		if(startPage > pageBlock)
-			pagingHTML.append("[<a id=paging href='/kgmall/list/bottomListForm.do?pg="+(startPage-1)+"'>이전</a>]");
+			pagingHTML.append("[<a id=paging href='#' onclick=ListForm('"+(startPage-1)+"','"+getCategory()+"')>이전</a>]");
 		
 		for(int i=startPage; i<=endPage; i++) {
 			if(i==currentPage)
-				pagingHTML.append("[<a id=currentPaging href='/kgmall/list/bottomListForm.do?pg="+i+"'>"+i+"</a>]");
+				pagingHTML.append("[<a id=currentPaging href='#' onclick=ListForm('"+i+"','"+getCategory()+"')>"+i+"</a>]");
 			else
-				pagingHTML.append("[<a id=paging href='/kgmall/list/bottomListForm.do?pg="+i+"'>"+i+"</a>]");
+				pagingHTML.append("[<a id=paging href='#' onclick=ListForm('"+i+"','"+getCategory()+"')>"+i+"</a>]");
 		}
 		
 		if(totalP > endPage)
-			pagingHTML.append("[<a id=paging href='/kgmall/list/bottomListForm.do?pg="+(endPage+1)+"'>다음</a>]");
+			pagingHTML.append("[<a id=paging href='#' onclick=ListForm'('"+(endPage+1)+"','"+getCategory()+"')>다음</a>]");
 	}
 
 	public void makeSelectPagingHTML() {
@@ -46,17 +48,17 @@ public class ListPaging {
 		if(endPage > totalP) endPage = totalP;
 		
 		if(startPage > pageBlock)
-			pagingHTML.append("[<span id=paging onclick=bottomSelect("+(startPage-1)+")>이전</span>]");
+			pagingHTML.append("[<span id=paging onclick=ListSelectForm("+(startPage-1)+",'"+getCategory()+"','"+getCategory2()+"')>이전</span>]");
 		
 		for(int i=startPage; i<=endPage; i++) {
 			if(i==currentPage)
-				pagingHTML.append("[<span id=currentPaging onclick=bottomSelect("+i+")>"+i+"</span>]");
+				pagingHTML.append("[<span id=currentPaging onclick=ListSelectForm("+i+",'"+getCategory()+"','"+getCategory2()+"')>"+i+"</span>]");
 			else
-				pagingHTML.append("[<span id=paging onclick=bottomSelect("+i+")>"+i+"</span>]");
+				pagingHTML.append("[<span id=paging onclick=ListSelectForm("+i+",'"+getCategory()+",'"+getCategory2()+"')>"+i+"</span>]");
 		}
 		
 		if(totalP > endPage)
-			pagingHTML.append("[<span id=paging onclick=bottomSelect("+(endPage+1)+")>다음</span>]");
+			pagingHTML.append("[<span id=paging onclick=ListSelectForm("+(endPage+1)+",'"+getCategory()+"','"+getCategory2()+"')>다음</span>]");
 		
 	}
 
