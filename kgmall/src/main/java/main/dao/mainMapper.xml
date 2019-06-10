@@ -45,8 +45,4 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getNewItemList" parameterType="java.util.Map" resultType="product.bean.ProductDTO">
 		select * from(select rownum rn, p.* from(select * from product order by logtime desc)p )where rn<![CDATA[<=]]>12
 	</select>
-	
-	<select id="getColor" parameterType = "String" resultType = "String">
-		select distinct color from productDetail where productname = #{productname}
-	</select>
 </mapper>

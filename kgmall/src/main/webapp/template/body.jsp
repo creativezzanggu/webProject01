@@ -73,7 +73,6 @@
 
 <!-- 상품	 DB에서 가져오기 -->
 
-<div id="df-movelist" class="axis-y"><div><ul><li><a href="#none"><span>WEEKLY BEST<p>한 주간의 인기상품을 만나보세요</p></span></a></li><li><a href="#none"><span>NEW ARRIVALS<p>매일매일 업데이트되는 신상품을 확인하세요</p></span></a></li><li><a href="#none"><span><time></time>타임세일<p>메인화면·특정 카테고리 어디든 사용가능한 타임세일</p></span></a></li><li><a href="#none"><span>추가메인 상품분류<p>메인화면에 상품분류를 추가하거나 수정할 수 있습니다.</p></span></a></li><li><a href="#none"><span>PHOTO REVIEW</span></a></li></ul><div class="movebox"></div></div></div>
 
 <!-- 메인 상품분류별 배너 -->
 <!-- 배너관리 : 메인상품 분류별 배너 -->
@@ -83,49 +82,15 @@
 <!-- 메인 상품분류 목록 1 -->
 <div class="xans-element- xans-product xans-product-listmain-2 xans-product-listmain xans-product-2 content-wrap df-list-product">
 <div class="tit-product-main">
-		<h2><span>신상품<p>새로 들어온 상품을 확인해보세요</p></span></h2>
+		<h2><span>신상품<p>최신 상품들을 확인해보세요</p></span></h2>
 		<span style="display: none;"><img src="" class="imgtitle"></span>
 	</div>
 <ul class="prdList grid3" id="new_product_list">
 <!-- 신 상 품 들어가는 곳 -->
-<script>
-//신상품 불러 오기!!
-alert("원래 ajax");
-	$.ajax({
-		type : 'POST',
-		url : '/kgmall/main/getNewItemList.do',
-		dataType : 'json',
-		success : function(data){
-			var cnt=0;
-			$.each(data.list, function(index, items){
-				$('#new_product_list').append("<li class='item xans-record-'> <div class='box' style='width: calc(33.333% - 11.3333px); margin-top: 0px; margin-right: calc(17px); display: inline-block; text-align: center; opacity: 1;'><div class='thumbnail'><a href='../product/select.do?name="+items.name+"' name='anchorBoxName_97'><img src='../image/productImage/"+items.imageLink+"' height='300' alt='이거 하나면 끝!' class='thumb'></a>"
-				+"<div class='likeButton likePrd likePrd_97 ' style='opacity: 0; bottom: -10px;'><button type='button'><img src='http://ecudemo31431.cafe24.com/web/upload/icon_201606070448230500.png' class='likePrdIcon' product_no='97' category_no='1' icon_status='off' alt='좋아요 등록 전'>"
-				+"<strong class=''><span class='likePrdCount likePrdCount_97'>"+items.thumbsup+"</span></strong></button></div></div><div class='description'><div class='fadearea'><div class=''><div class='xans-element- xans-product xans-product-colorchip-2 xans-product-colorchip xans-product-2 colorList color' id='new_item_color_"+cnt+"'>"
-				+"</div></div><p class='name'><a href='../product/select.do?name="+items.name+"'><span style='font-size:12px;color:#555555;'>"+items.name+"</span></a></p><ul class='xans-element- xans-product xans-product-listitem-2 xans-product-listitem xans-product-2'>"
-				+"<li item-title='제조사' class=' xans-record-'><span style='font-size:11px;color:#555555;'>"+items.company+"</span></li><li item-title='판매가' class=' xans-record-'><span style='font-size:12px;color:#333333;'>"+items.price+" won</span></li></ul></div><a href='../product/select.do?name="+items.name+"' class='fadebox-link'></a></div></div></li>");
-				$.ajax({
-					type : 'POST',
-					url : '/kgmall/main/getNewItemDetail.do',
-					data : {productname : items.name},
-					dataType : 'json',
-					success : function(data){
-						$.each(data.list, function(idx, val){
-							alert(val);
-							$("#new_item_color_"+cnt).append("<span style='background-color:"+val+"' color_no='' displaygroup='3' class='chips xans-record-'></span>");
-						});//내부each
-					}//내부 success
-				});//내부 ajax
-				cnt++;
-			});//each
-			$('#new_product_list').html().trigger("create");
-			//$(document).on('pageshow', '#new_product_list',function(event){
-			//});
-		}//sucess
-	});//ajax의 끝
-</script>
+
     </ul>
 </div>
-
+<!-- 메인 상품 분류 목록 1 끝 -->
 
 
 
@@ -282,5 +247,55 @@ for(var i=0; i<5; i++){
 
 
 <script type="text/javascript" src="../js/body.js"></script>
-
+<script>
+//신상품 불러 오기!!
+$.ajax({
+	type : 'POST',
+	url : '/kgmall/main/getNewItemList.do',
+	dataType : 'json',
+	success : function(data){
+		var cnt=0;
+		$.each(data.list, function(index, items){
+			var txt="new_item_color_"+cnt;
+			$('#new_product_list').append("<li class='item xans-record-'> <div class='box' style='width: calc(33.333% - 11.3333px); margin-top: 0px; margin-right: calc(17px); display: inline-block; text-align: center; opacity: 1;'><div class='thumbnail'><a href='../product/select.do?name="+items.name+"' name='anchorBoxName_97'><img src='../image/productImage/"+items.imageLink+"' height='300' alt='이거 하나면 끝!' class='thumb'></a>"
+			+"<div class='likeButton likePrd likePrd_97 ' style='opacity: 0; bottom: -10px;'><button type='button'><img src='http://ecudemo31431.cafe24.com/web/upload/icon_201606070448230500.png' class='likePrdIcon' product_no='97' category_no='1' icon_status='off' alt='좋아요 등록 전'>"
+			+"<strong class=''><span class='likePrdCount likePrdCount_97'>"+items.thumbsup+"</span></strong></button></div></div><div class='description'><div class='fadearea'><div class=''><div class='xans-element- xans-product xans-product-colorchip-2 xans-product-colorchip xans-product-2 colorList color' id='new_item_color_"+cnt+"'>"
+			+"</div></div><p class='name'><a href='../product/select.do?name="+items.name+"'><span style='font-size:12px;color:#555555;'>"+items.name+"</span></a></p><ul class='xans-element- xans-product xans-product-listitem-2 xans-product-listitem xans-product-2'>"
+			+"<li item-title='제조사' class=' xans-record-'><span style='font-size:11px;color:#555555;'>"+items.company+"</span></li><li item-title='판매가' class=' xans-record-'><span style='font-size:12px;color:#333333;'>"+items.price+" won</span></li></ul></div><a href='../product/select.do?name="+items.name+"' class='fadebox-link'></a></div></div></li>");
+			$.ajax({
+				type : 'POST',
+				url : '/kgmall/product/getColor.do',
+				data : {name : items.name},
+				dataType : 'json',
+				success : function(data){
+					var color = new Array();
+					for(var i=0;i<data.list.length;i++){
+						color.push(data.list[i]);
+					}
+					for(var i=0;i<5;i++){
+						if(color[i].toLowerCase()=="black"){
+							$('#'+txt).append("<span style='background-color:black' color_no='' displaygroup='3' class='chips xans-record-'></span>");
+						}else if(color[i].toLowerCase()=="white"){
+							$('#'+txt).append("<span style='background-color:white' color_no='' displaygroup='3' class='chips xans-record-'></span>");
+						}else if(color[i].toLowerCase()=="yellow"){
+							$('#'+txt).append("<span style='background-color:yellow' color_no='' displaygroup='3' class='chips xans-record-'></span>");
+						}else if(color[i].toLowerCase()=="green"){
+							$('#'+txt).append("<span style='background-color:green' color_no='' displaygroup='3' class='chips xans-record-'></span>");
+						}else if(color[i].toLowerCase()=="blue"){
+							$('#'+txt).append("<span style='background-color:blue' color_no='' displaygroup='3' class='chips xans-record-'></span>");
+						}else if(color[i].toLowerCase()=="pink"){
+							$('#'+txt).append("<span style='background-color:pink' color_no='' displaygroup='3' class='chips xans-record-'></span>");
+						}
+					}
+				}
+			});
+			cnt++;
+		});//each
+		
+		$('#new_product_list').html().trigger("create");
+		//$(document).on('pageshow', '#new_product_list',function(event){
+		//});
+	}//sucess
+});//ajax의 끝
+</script>
 
