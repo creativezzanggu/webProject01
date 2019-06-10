@@ -48,4 +48,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="productDelete" parameterType="String">
 		delete from product where name=#{name}
 	</delete>
+	
+	<select id="orderList" resultType="order">
+		select * from ordertable order by logtime asc, seq asc, orderstate desc
+	</select>
+	
+	<update id="orderOK" parameterType="Integer">
+		update ordertable  set ORDERSTATE="상품 주문 완료" where seq=#{seq}
+	</update>
+	
+	<select id="checkOrder" parameterType="Integer" resultType="Integer">
+		select count(*) from ordertable where seq=#{seq} and ORDERSTATE=#{state}
+	</select>
 </mapper>

@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import admin.bean.AdminDTO;
 import admin.bean.DetailProductDTO;
+import order.bean.OrderDTO;
 
 @Transactional
 @Repository
@@ -63,6 +64,23 @@ public class AdminDAOMybatis implements AdminDAO {
 	public void productDelete(String name) {
 		sqlSession.delete("adminSQL.productDelete", name);
 	}
+
+	@Override
+	public List<OrderDTO> orderList() {
+		return sqlSession.selectList("adminSQL.orderList");
+	}
+
+	@Override
+	public void orderOK(int seq) {
+		sqlSession.update("adminSQL.orderOK",seq);
+	}
+
+	@Override
+	public int checkOrder(int seq) {
+		return sqlSession.selectOne("adminSQL.checkOrder",seq);
+	}
+
+
 
 
 

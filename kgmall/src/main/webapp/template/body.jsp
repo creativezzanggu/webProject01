@@ -294,8 +294,6 @@ $.ajax({
 		});//each
 		
 		$('#new_product_list').html().trigger("create");
-		//$(document).on('pageshow', '#new_product_list',function(event){
-		//});
 	}//sucess
 });//ajax의 끝
 </script>
