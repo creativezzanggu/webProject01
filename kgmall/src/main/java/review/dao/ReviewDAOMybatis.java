@@ -1,45 +1,97 @@
 package review.dao;
 
+import java.util.List;
 import java.util.Map;
-
-import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+
+import product.bean.ProductDTO;
+import review.bean.ReviewDTO;
+import review.bean.ReviewReplyDTO;
 
 @Transactional
 @Component
 public class ReviewDAOMybatis implements ReviewDAO{
 	@Autowired
 	private SqlSession sqlSession;
-	
-	@RequestMapping(value="/reviewForm.do", method=RequestMethod.GET)
-	public String reviewForm(@RequestParam(required=false,defaultValue="1") String pg,Model model) {
-		model.addAttribute("pg", pg);
-		model.addAttribute("display", "/review/reviewForm.jsp");
-		return "/main/index";
+
+	@Override
+	public ProductDTO getProduct(String productname) {
+		return sqlSession.selectOne("reviewSQL.getProduct",productname);
 	}
-	
-	@RequestMapping(value="/reviewWriteForm.do", method=RequestMethod.GET)
-	public String reviewWriteForm(Model model) {
-		model.addAttribute("display", "/review/reviewWriteForm.jsp");
-		return "/main/index";
+
+	@Override
+	public void insertReview(Map<String, String> map) {
+		sqlSession.insert("reviewSQL.insertReview",map);
 	}
-	
-	@RequestMapping(value="/insertReveiw.do", method=RequestMethod.POST)
-	public String QAwriteInsert(@RequestParam Map<String,String> map,Model model,HttpSession session) {
-		map.put("id",(String) session.getAttribute("id"));
-		map.put("name",(String) session.getAttribute("name"));
-		map.put("email",(String) session.getAttribute("email"));
+
+	@Override
+	public ProductDTO getProductCheck(Map<String, String> map) {
+		return sqlSession.selectOne("reviewSQL.getProductCheck",map);
+	}
+
+	@Override
+	public List<ReviewDTO> getReviewList(Map<String, String> map) {
+		return sqlSession.selectList("reviewSQL.getReviewList",map);
+	}
+
+	@Override
+	public int getReviewTotal() {
+		return sqlSession.selectOne("reviewSQL.getReviewTotal");
+	}
+
+	@Override
+	public ReviewDTO getReview(int seq) {
+		return sqlSession.selectOne("reviewSQL.getReview",seq);
+	}
+
+	@Override
+	public void hitUp(int seq) {
+		sqlSession.update("reviewSQL.hitUp",seq);
 		
-		//reviewDAO.insert(map);
+	}
+
+	@Override
+	public void reviewDelete(String seq) {
+		sqlSession.delete("reviewSQL.reviewDelete",seq);
+	}
+
+	@Override
+	public ReviewReplyDTO reviewReplyInsertCheck(Map<String, String> map) {
+		return sqlSession.selectOne("reviewSQL.reviewReplyInsertCheck",map);
+	}
+
+	@Override
+	public void reviewReplyInsert(Map<String, String> map) {
+		sqlSession.insert("reviewSQL.reviewReplyInsert",map);
+	}
+
+	@Override
+	public List<ReviewReplyDTO> getReply(int seq) {
+		return sqlSession.selectList("reviewSQL.getReply",seq);
+	}
+
+	@Override
+	public void reviewReplyDelete(int replyseq) {
+		sqlSession.delete("reviewSQL.reviewReplyDelete",replyseq);
 		
-		return "redirect:/review/reviewForm.do";
+	}
+
+	@Override
+	public String reviewReplyGetContent(Map<String, String> map) {
+		return sqlSession.selectOne("reviewSQL.reviewReplyGetContent",map);
+	}
+
+	@Override
+	public void reviewReplyUpdate(Map<String, String> map) {
+		sqlSession.update("reviewSQL.reviewReplyUpdate",map);
+	}
+
+	@Override
+	public void updateReview(Map<String, String> map) {
+		sqlSession.update("reviewSQL.updateReview",map);
 	}
 }

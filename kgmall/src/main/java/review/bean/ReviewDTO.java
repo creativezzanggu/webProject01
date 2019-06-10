@@ -12,8 +12,9 @@ import lombok.Data;
 @Data
 public class ReviewDTO {
 	private int seq;
-	private String img;
-	private String category;
+	private String imgName;
+	private String imgSrc;
+	private String majorcategory;
 	private String id;
 	private String name;
 	private String email;

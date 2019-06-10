@@ -13,6 +13,7 @@
 <script src="https://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript" src="../resources/editor/js/HuskyEZCreator.js" charset="utf-8"></script>
 </head>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.4.0.min.js"></script>
 <script type="text/javascript">
     $(function(){
         //전역변수
@@ -33,15 +34,51 @@
         });
         //전송버튼
         $("#insertReveiwBtn").click(function(){
-        	
-        	
-            //id가 smarteditor인 textarea에 에디터에서 대입
-            obj.getById["editor"].exec("UPDATE_CONTENTS_FIELD", []);
-            //폼 submit
-            $("#insertReveiwForm").submit();
+        	$('#subjectDiv').empty();
+    		$('#editorDiv').empty();
+    		$('#productnameDiv').empty();
+        	if($('#subject').val()==''){
+        		$('#subjectDiv').text('제목을 입력하세요').css('color','red').css('font-size','10pt');
+        		$('#subject').focus();
+        	}else if($('#productname').val()==''){
+        		$('#productname').focus();
+        		return false;
+        	}else if($('#check').val()=='no'){
+        		$('#productname').focus();
+        		return false;
+        	}else if($('#check').val()=='yes'){
+        		//id가 smarteditor인 textarea에 에디터에서 대입
+                obj.getById["editor"].exec("UPDATE_CONTENTS_FIELD", []);
+                //폼 submit
+        		 $("#insertReveiwForm").submit();
+        	}
         });
+        
+        $('#productname').focusout(function(){
+        	$('#productnameDiv').empty();
+        	$.ajax({
+        		type : 'POST',
+				url : '/kgmall/review/getProduct.do',
+				data : {'productname' : $('#productname').val(),
+						'product_category':$('#product_category option:selected').val()},
+				dataType : 'text',
+				success:function(data){
+					if($('#productname').val()==''){
+						$('#productnameDiv').empty();
+					}else if(data=="no"){
+						$('#productnameDiv').text('존재하지 않는 상품입니다.').css('color','red').css('font-size','10pt');
+						$('#check').val("no");
+					}else if(data=="yes"){
+						$('#productnameDiv').text('존재하는 상품입니다.').css('color','red').css('font-size','10pt');
+						$('#check').val("yes");
+					}
+				}
+        	});//ajax
+        });//productname 포커스 아웃시
+        
     });
     $('#insertReveiw').hide();
+    
 </script>
 
 <body>
@@ -80,28 +117,37 @@
 						<div class="boardWrite">
 							<table width="100%" border="1" summary="">
 								<caption>글쓰기 폼</caption>
-								<tbody>
 									<tr class="first">
 										<th scope="row" class="thead txtLess">SUBJECT</th>
 										<td>
-											<input id="subject" name="subject" id="subject" class="inputTypeText" placeholder="" maxLength="125" type="text"/>	
+											<select id="product_category" name="product_category">
+												<option value="TOP">OUTER</option>
+												<option value="TOP">TOP</option>
+												<option value="BOTTOM">BOTTOM</option>
+												<option value="SHOES&BAG">SHOES&BAG</option>
+											</select>
+											<input id="subject" name="subject" id="subject" class="inputTypeText" placeholder="" maxLength="125" type="text"/>
+											<div id="subjectDiv"></div>
 										</td>
 									</tr>
 									<tr>
 										<td colspan="2" class="write">
 									    	<textarea name="editor" id="editor" style="width: 700px; height: 400px;"></textarea>
+									    	<div id="editorDiv"></div>
 										</td>
 									</tr>
 							</table>
 						</div>
 						
 						<div style="margin-top: 10px;">
-							<input type="text"  name="productname" id="productname" placeholder="상품명을 입력하세요" style="padding:8px 20px;">
+							<input type="text"  name="productname" id="productname" placeholder="상품명을 입력하세요" style="padding:8px 20px"/>
+							<input type="hidden" name="check" id="check" value="no"/>
+							<div id="productnameDiv"></div>
 						</div>
 						
 						<div class="btnArea btnAreaCustom " style="margin-top: 10px;">
 							<span class="left"><a href="/kgmall/review/reviewForm.do" class="btn Normal Medium Wnormal">목록</a></span>
-							<input type="button" value="등록" name="insertReveiwBtn" id="insertReveiwBtn" class="btn Normal Dark Wnormal mL5">
+							<input type="button" value="등록" name="insertReveiwBtn" id="insertReveiwBtn" class="btn Normal Dark Wnormal mL5"/>
 							<a href="#" class="btn Normal Medium Wnormal mL5">취소</a>
 						</div>
 						
@@ -111,11 +157,5 @@
 		</div>
 </div>
 </body>
-<script type="text/javascript" src="http://code.jquery.com/jquery-3.4.0.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){
-	
-});
-</script>
 </html>
     

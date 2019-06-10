@@ -75,7 +75,6 @@
 						<div class="boardWrite">
 							<table width="100%" border="1" summary="">
 								<caption>글쓰기 폼</caption>
-								<tbody>
 									<tr class="first">
 										<th scope="row" class="thead txtLess">SUBJECT</th>
 										<td>

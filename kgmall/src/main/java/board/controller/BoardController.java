@@ -357,15 +357,17 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value="/QAreplyGetContent.do", method=RequestMethod.POST)
-	@ResponseBody
-	public String QAreplyGetContent(@RequestParam Map<String,String> map,Model model,HttpSession session) {
+	public ModelAndView QAreplyGetContent(@RequestParam Map<String,String> map,Model model,HttpSession session) {
 		String content = boardDAO.QAreplyGetContent(map);
 		QADTO qa= boardDAO.getQA(map.get("seq"));
 
 		model.addAttribute("qa",qa);
 		model.addAttribute("seq",map.get("seq"));
 		model.addAttribute("id",session.getAttribute("id"));
-		return content;
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("content",content);
+		mav.setViewName("jsonView");
+		return mav;
 	}
 	
 	@RequestMapping(value="/QAreplyUpdate.do", method=RequestMethod.POST)

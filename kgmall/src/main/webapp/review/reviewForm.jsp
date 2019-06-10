@@ -33,9 +33,9 @@
 					</ul>
 				</div>
 				<div id="paging" style="float: left; text-align: center; width:100%;"></div>
-				<c:if test="${id != null}"></c:if>
-				<a id="qawrite" href="/kgmall/review/reviewWriteForm.do" class="btn Normal Wnormal Dark ">쓰기</a>
-				
+				<c:if test="${id != null}">
+					<a id="qawrite" href="/kgmall/review/reviewWriteForm.do" class="btn Normal Wnormal Dark ">쓰기</a>
+				</c:if>
 			</div>
 		</div>
 	</div>
@@ -44,6 +44,17 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.4.0.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
+	$.ajax({
+		type : 'POST',
+		url : '/kgmall/review/reviewListForm.do',
+		data : {'pg' : $('#pg').val()},
+		dataType : 'json',
+		success : function(data){
+			$('#total').text(data.totalA);
+			$('.prdList').html(data.reviewList);
+			$('#paging').html(data.listPaging.pagingHTML);
+		}
+	});
 	
 });
 </script>

@@ -88,11 +88,11 @@ public class ListController {
 			}
 			pruductList.append("<li id='"+dto.getCode()+"' class='item xans-record-'>"
 					+"<div class='box'><div class='thumbnail'>"
-					+"<a href='/kgmall/product/select.do?name="+dto.getName()+"'><img src='../image/"+dto.getImageLink()+"' class='thumb'></a>"
+					+"<a href='/kgmall/product/select.do?name="+dto.getName()+"'><img src='../image/productImage/"+dto.getImageLink()+"' class='thumb'></a>"
 					+"</div><div class='description'><div class='fadearea'>"
 					+"<div class='xans-element- xans-product colorList color'>"+colorForm+"</div>"
 					+"<p class='name'>"
-					+"<a href=''>"
+					+"<a href='/kgmall/product/select.do?name="+dto.getName()+"'>"
 					+"<span style='font-size:12px;color:#555555;'>"+dto.getName()+"</span></a></p>"
 					+"<ul class='xans-element- xans-product'>"
 					+"<li class='xans-record-'><span style='font-size:11px;color:#555555;'>"+dto.getCompany()+"</span></li>" 

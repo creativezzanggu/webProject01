@@ -13,6 +13,7 @@
 <script src="https://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript" src="../resources/editor/js/HuskyEZCreator.js" charset="utf-8"></script>
 </head>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.4.0.min.js"></script>
 <script type="text/javascript">
     $(function(){
         //전역변수
@@ -32,14 +33,54 @@
             }
         });
         //전송버튼
-        $("#updateBoard").click(function(){
-            //id가 smarteditor인 textarea에 에디터에서 대입
-            obj.getById["editor"].exec("UPDATE_CONTENTS_FIELD", []);
-            //폼 submit
-            $("#updateBoardFrm").submit();
+        $("#updateReveiwBtn").click(function(){
+        	$('#subjectDiv').empty();
+    		$('#editorDiv').empty();
+        	if($('#subject').val()==''){
+        		$('#subjectDiv').text('제목을 입력하세요').css('color','red').css('font-size','10pt');
+        		$('#subject').focus();
+        	}else if($('#productname').val()==''){
+        		$('#productname').focus();
+        		return false;
+        	}else if($('#check').val()=='no'){
+        		$('#productname').focus();
+        		return false;
+        	}else if($('#check').val()=='yes'){
+        		//id가 smarteditor인 textarea에 에디터에서 대입
+                obj.getById["editor"].exec("UPDATE_CONTENTS_FIELD", []);
+                //폼 submit
+        		 $("#updateReveiwForm").submit();
+        	}
         });
+        
+        $('#productname').focusout(function(){
+        	$('#productnameDiv').empty();
+        	$.ajax({
+        		type : 'POST',
+				url : '/kgmall/review/getProduct.do',
+				data : {'productname' : $('#productname').val(),
+						'product_category':$('#product_category option:selected').val()},
+				dataType : 'text',
+				success:function(data){
+					if(data=="no"){
+						if($('#productname').val()==''){
+							$('#productnameDiv').empty();
+						}
+						else{
+							$('#productnameDiv').text('존재하지 않는 상품입니다.').css('color','red').css('font-size','10pt');
+							$('#check').val("no");
+						}
+						
+					}
+					else {
+						$('#productnameDiv').text('존재하는 상품입니다.').css('color','red').css('font-size','10pt');
+						$('#check').val("yes");
+					}
+				}
+        	});//ajax
+        });//productname 포커스 아웃시
+        
     });
-    $('#insertBoard').hide();
 </script>
 
 <body>
@@ -57,10 +98,13 @@
 						</ol>
 					</div>
 					
-					<div class="tit-board">
-						<h2><font color="333333">Q & A</font></h2>
-						<p class="info">상품 Q&A입니다.</p>
+					<div id="title" style="margin-bottom: 20px;">
+						<h2>PHOTO REVIEW</h2>
+						<p>상품 사용후기입니다.</p>
 					</div>
+					
+					
+					
 				</div>
 				
 				<style>
@@ -70,32 +114,38 @@
 				.board-nav-style1 li a:hover { border:1px solid #434343; background:#434343; color:#fff }
 				</style>
 				
-				<form name="updateBoardFrm" id="updateBoardFrm" action="/kgmall/board/updateBoard.do" method="post" enctype="multipart/form-data" >
+				<form id="updateReveiwForm" name="updateReveiwForm" action="/kgmall/review/updateReveiw.do" method="post" enctype="multipart/form-data" >
 					<div class="xans-board xans-board-write">
 						<div class="boardWrite">
 							<table width="100%" border="1" summary="">
 								<caption>글쓰기 폼</caption>
-								<tbody>
 									<tr class="first">
 										<th scope="row" class="thead txtLess">SUBJECT</th>
 										<td>
-											<input id="board_category" name="board_category"  value="${qa.category}" readonly="readonly" type="text"/>	
-											<input id="subject" name="subject" fw-filter="isFill" fw-label="제목" fw-msg="" class="inputTypeText" value="${qa.subject}" maxLength="125" type="text"/>	
+											<input id="product_category" name="product_category" value="${review.majorcategory}" type="text" readonly="readonly"/>
+											<input id="subject" name="subject" class="inputTypeText" value="${review.subject}" maxLength="125" type="text"/>
+											<div id="subjectDiv"></div>
 										</td>
 									</tr>
 									<tr>
 										<td colspan="2" class="write">
-									        <textarea name="editor" id="editor" style="width: 700px; height: 400px;">${qa.content}</textarea>
+									    	<textarea name="editor" id="editor" style="width: 700px; height: 400px;">${review.content}</textarea>
+									    	<div id="editorDiv"></div>
 										</td>
 									</tr>
 							</table>
 						</div>
 						
-						<div class="btnArea btnAreaCustom ">
-							<input type="hidden" name="seq" id="seq" value="${qa.seq}">
-							<span class="left"><a href="/kgmall/board/QA.do" class="btn Normal Medium Wnormal">목록</a></span>
-							<input type="button" value="등록" name="updateBoard" id="updateBoard" class="btn Normal Dark Wnormal mL5">
-							<a href="/kgmall/board/QA.do" class="btn Normal Medium Wnormal mL5">취소</a>
+						<div style="margin-top: 10px;">
+							<input type="text"  name="productname" id="productname" placeholder="상품명을 입력하세요" value="${review.name}" style="padding:8px 20px"/>
+							<input type="hidden" name="check" id="check" value="no"/>
+							<div id="productnameDiv"></div>
+						</div>
+						
+						<div class="btnArea btnAreaCustom " style="margin-top: 10px;">
+							<span class="left"><a href="/kgmall/review/reviewForm.do" class="btn Normal Medium Wnormal">목록</a></span>
+							<input type="button" value="등록" name="updateReveiwBtn" id="updateReveiwBtn" class="btn Normal Dark Wnormal mL5"/>
+							<a href="#" class="btn Normal Medium Wnormal mL5">취소</a>
 						</div>
 						
 					</div>
@@ -105,3 +155,4 @@
 </div>
 </body>
 </html>
+    
