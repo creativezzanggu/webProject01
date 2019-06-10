@@ -95,6 +95,11 @@
 					<li class="myshop">
 					<a href="/kgmall/admin/productListForm.do">상품관리</a>
 					</li>
+					</c:if>	
+					<c:if test="${id == 'admin'}">
+					<li class="myshop">
+					<a href="/kgmall/admin/orderListForm.do">주문관리</a>
+					</li>
 					</c:if>						
 
 </ul><!-- 커뮤니티(전체 게시판) 메뉴 --><ul class="xans-element- xans-layout xans-layout-boardinfo bnb">

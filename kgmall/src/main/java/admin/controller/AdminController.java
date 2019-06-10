@@ -1,5 +1,6 @@
 package admin.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Map;
 
@@ -15,12 +16,15 @@ import org.springframework.web.servlet.ModelAndView;
 import admin.bean.AdminDTO;
 import admin.bean.DetailProductDTO;
 import admin.dao.AdminDAO;
+import lombok.Data;
+import order.bean.OrderDTO;
 
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
 	@Autowired
 	private AdminDAO adminDAO;
+	
 	
 	@RequestMapping(value="/productInsertForm.do", method=RequestMethod.GET)
 	public String productInsertForm(Model model) {
@@ -100,6 +104,46 @@ public class AdminController {
 		}
 		return "yes";
 	}
+	@RequestMapping(value="/orderListForm.do", method=RequestMethod.GET)
+	public String orderListForm(Model model) {
+		model.addAttribute("display","/admin/orderList.jsp");
+		return "/main/index";
+	}
+	
+	@RequestMapping(value="/orderList.do", method=RequestMethod.GET)
+	public ModelAndView orderList() {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		StringBuffer orderlist = new StringBuffer();
+		List<OrderDTO> list = adminDAO.orderList();
+		for(OrderDTO dto : list) {
+			orderlist.append("<tr><td>"+dto.getSeq()+"</td>"
+					+"<td><img width='50' height='50' src='../image/productImage/"+dto.getImage()+"'></td>"
+					+"<td>"+dto.getProductName()+"</td>"
+					+"<td>"+dto.getSell()+"</td>"
+					+"<td>"+dto.getQuantity()+"</td>"
+					+"<td>"+dto.getTotal()+"</td>"
+					+"<td>"+dto.getOrderState()+"</td>"
+					+"<td>"+dto.getOrderId()+"</td>"
+					+"<td>"+sdf.format(dto.getLogtime())+"</td>"
+					+"<td><input type='button'  onclick=orderOK('"+dto.getSeq()+"') value='주문확인' size='5'>&nbsp;"
+					+"<input type='button' onclick=orderCansle('"+dto.getSeq()+"') value='주문취소' size='5'></td></tr>");
+		}
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("orderlist",orderlist);
+		mav.setViewName("jsonView");
+		return mav;
+	}
+	@RequestMapping(value="/orderOK.do", method=RequestMethod.POST)
+
+	public void orderOK(@RequestParam int seq) {
+		System.out.println(seq);
+		int check = adminDAO.checkOrder(seq);
+		if(check==0) {
+			adminDAO.orderOK(seq);
+		}
+	}
+	
 }
 
 
