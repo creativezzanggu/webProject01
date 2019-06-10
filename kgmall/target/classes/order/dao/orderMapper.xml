@@ -9,4 +9,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="insertOrderList" parameterType="order">
 		insert into ordertable(seq,image,productName,sell,quantity,total,orderState,orderId,logtime) values(orders.nextval,#{image},#{productName},#{sell},#{quantity},#{total},#{orderState},#{orderId},sysdate)
 	</insert>
+	<select id="userGetOrderList" parameterType="String" resultType="order">
+		select * from ordertable where orderid=#{id} order by seq desc
+	</select>
 </mapper>
