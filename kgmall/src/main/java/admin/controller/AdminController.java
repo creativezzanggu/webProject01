@@ -122,11 +122,10 @@ public class AdminController {
 					+"<td>"+dto.getSell()+"</td>"
 					+"<td>"+dto.getQuantity()+"</td>"
 					+"<td>"+dto.getTotal()+"</td>"
-					+"<td>"+dto.getOrderState()+"</td>"
+					+"<td id='order"+dto.getSeq()+"'>"+dto.getOrderState()+"</td>"
 					+"<td>"+dto.getOrderId()+"</td>"
 					+"<td>"+sdf.format(dto.getLogtime())+"</td>"
-					+"<td><input type='button'  onclick=orderOK('"+dto.getSeq()+"') value='주문확인' size='5'>&nbsp;"
-					+"<input type='button' onclick=orderCansle('"+dto.getSeq()+"') value='주문취소' size='5'></td></tr>");
+					+"<td><input type='button'  onclick=orderOK('"+dto.getSeq()+"') value='주문확인' size='5'>&nbsp;</tr>");
 		}
 		
 		ModelAndView mav = new ModelAndView();
@@ -135,13 +134,21 @@ public class AdminController {
 		return mav;
 	}
 	@RequestMapping(value="/orderOK.do", method=RequestMethod.POST)
-
-	public void orderOK(@RequestParam int seq) {
-		System.out.println(seq);
-		int check = adminDAO.checkOrder(seq);
+	public ModelAndView orderOK(@RequestParam Map<String,String> map) {
+		map.put("state", "상픔 주문 완료");
+		int check = adminDAO.checkOrder(map);
+		String check2 = null;
 		if(check==0) {
-			adminDAO.orderOK(seq);
+			adminDAO.orderOK(map);
+			check2="상픔 주문 완료";
+		}else {
+			check2=null;
 		}
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("check2",check2);
+		mav.setViewName("jsonView");
+		return mav;
 	}
 	
 }

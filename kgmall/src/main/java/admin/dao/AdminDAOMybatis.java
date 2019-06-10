@@ -71,13 +71,13 @@ public class AdminDAOMybatis implements AdminDAO {
 	}
 
 	@Override
-	public void orderOK(int seq) {
-		sqlSession.update("adminSQL.orderOK",seq);
+	public void orderOK(Map<String, String> map) {
+		sqlSession.update("adminSQL.orderOK",map);
 	}
 
 	@Override
-	public int checkOrder(int seq) {
-		return sqlSession.selectOne("adminSQL.checkOrder",seq);
+	public int checkOrder(Map<String, String> map) {
+		return sqlSession.selectOne("adminSQL.checkOrder",map);
 	}
 
 
