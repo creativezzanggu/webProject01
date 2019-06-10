@@ -33,6 +33,7 @@ public class AdminController {
 	
 	@RequestMapping(value="/detailProductInsert.do", method=RequestMethod.POST)
 	public void detailProductInsert(@RequestParam Map<String,String> map,Model model) {
+		map.put("ncs", map.get("ncs").toUpperCase());
 		System.out.println("detailProductInsert"+map);
 		adminDAO.detailProductInsert(map);
 	}

@@ -83,9 +83,4 @@ $(function(){
 		$('#pikachu_banner').attr("usemap","#none");
 	});
 	
-	
-
 });
-
-
-

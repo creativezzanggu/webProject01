@@ -84,7 +84,6 @@ productCount number,
 logtime date DEFAULT sysdate
 );
 
-
 --order table
 create table ordertable(
 Seq number not null,
@@ -98,3 +97,38 @@ orderId varchar2(30),
 logtime date DEFAULT SYSDATE);
 Create sequence orders nocache nocycle;
 
+
+--리뷰 게시판
+CREATE TABLE review(
+seq number NOT NULL,
+imgname varchar2(500) NOT NULL,
+imgsrc varchar2(500) NOT NULL,
+majorcategory varchar2(100) NOT NULL,
+id varchar2(40) NOT NULL,
+name varchar2(40) NOT NULL,
+email varchar2(100) NOT NULL,
+subject varchar2(300) NOT NULL,
+content varchar2(4000) NOT NULL,
+
+ref NUMBER NOT NULL,
+lev NUMBER DEFAULT 0 NOT NULL, 
+step NUMBER DEFAULT 0 NOT NULL,
+pseq NUMBER DEFAULT 0 NOT NULL,  
+reply NUMBER DEFAULT 0 NOT NULL,
+hit NUMBER DEFAULT 0,
+logtime DATE DEFAULT SYSDATE
+);
+
+
+--리뷰 게시판 댓
+CREATE TABLE reviewreply(
+seq number NOT NULL,
+replyseq number NOT NULL,
+id varchar2(40) NOT NULL,
+content varchar2(4000) NOT NULL,
+logtime DATE DEFAULT SYSDATE
+);
+
+--리뷰게시판 seq
+CREATE SEQUENCE reviewseq NOCACHE NOCYCLE;
+CREATE SEQUENCE reviewreplyseq NOCACHE NOCYCLE;

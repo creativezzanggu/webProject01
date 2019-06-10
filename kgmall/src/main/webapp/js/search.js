@@ -2,7 +2,6 @@ $(document).ready(function(){
 	
 	$.search = function(){
 		if($('#keyword_detail').val()==null || $('#keyword_detail').val()==''){
-			alert("검색어 없음");
 			$('#search_cnt').text("0"); //검색 상품 개수 넣기
 			$('#noData').empty();
 			$('#noData').attr("class","noData");
@@ -23,7 +22,6 @@ $(document).ready(function(){
 					product_price2 : $('#product_price2').val(), order : $('#order').val(), order_by : $('#order_by').val(), currentPage : $('#pg').val()},
 				dataType : 'json',
 				success : function(data){
-					alert('들어옴');
 					$('#product_list').html("");
 					
 					if(data.list==null){
@@ -46,14 +44,13 @@ $(document).ready(function(){
 						var cnt = 1;
 						$.each(data.list, function(index, items){
 							$('#product_list').append("<li id='anchorBoxId_9"+cnt+"' class='item xans-record-'><div class='box'><span class='label-best'>BEST</span><span class='label-new'>NEW</span>" +
-									"<div class='thumbnail'><a href='../product/select.do?name="+items.name+"' name=''><img src='"+items.imageLink+"' width='400' height='300' id='eListPrdImage9"+cnt+"_' alt='실용있는 기능이 진정한 기능입니다' class='thumb' style='opacity: 1;'></a><div class='likeButton likePrd likePrd_126 ' style='opacity: 0; bottom: -10px;'><button type='button'><img src='http://ecudemo31431.cafe24.com/web/upload/icon_201606070448230500.png' class='likePrdIcon' product_no='126' category_no='108' icon_status='off' alt='좋아요 등록 전'><strong class=''><span class='likePrdCount likePrdCount_126'>"+items.thumbsup+"</span></strong></button></div></div>"
+									"<div class='thumbnail'><a href='../product/select.do?name="+items.name+"' name=''><img src='../image/productImage/"+items.imageLink+"' width='400' height='300' id='eListPrdImage9"+cnt+"_' alt='실용있는 기능이 진정한 기능입니다' class='thumb' style='opacity: 1;'></a><div class='likeButton likePrd likePrd_126 ' style='opacity: 0; bottom: -10px;'><button type='button'><img src='http://ecudemo31431.cafe24.com/web/upload/icon_201606070448230500.png' class='likePrdIcon' product_no='126' category_no='108' icon_status='off' alt='좋아요 등록 전'><strong class=''><span class='likePrdCount likePrdCount_126'>"+items.thumbsup+"</span></strong></button></div></div>"
 									+"<div class='description'><div class='fadearea'><p class='name'><a href='#' class=''><span style='font-size:12px;color:#555555;'>"+items.name+"</span></a></p>"
 									+"<ul class='xans-element- xans-search xans-search-listitem'><li item-title='모델' class=' xans-record-'><span style='font-size:11px;color:#555555;'>"+items.company+"</span></li><li item-title='판매가' class=' xans-record-'><span style='font-size:12px;color:#333333;'>"+items.price+" won</span><span id='' style=''></span></li></ul>"
 									+"<div class='icon'><img src='http://ecudemo31431.cafe24.com/web/upload/icon_201601081108285800.gif' class='icon_img' alt='New'></div></div><a href='#' class='fadebox-link'></a></div><div class='status'><div class='button'><span class='basket ' style='opacity: 0;'><img src='http://ecudemo31431.cafe24.com/web/upload/icon_201606070448018000.png' onclick='CAPP_SHOP_NEW_PRODUCT_OPTIONSELECT.selectOptionCommon(126,  108, 'basket', '')' alt='장바구니 담기' class='ec-admin-icon cart'></span></div></div></div></li>");			
 							cnt++;
 						});//each
 						//페이징 처리
-						alert(JSON.stringify(data.search_paging));
 						$('#paging').html(data.search_paging.pagingHTML);
 						$('#majorcategory').val(data.search_paging.majorcategory);
 						$('#search_type').val(data.search_paging.search_type);
