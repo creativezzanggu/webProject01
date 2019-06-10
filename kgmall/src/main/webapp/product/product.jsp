@@ -84,22 +84,22 @@ $(document).ready(function(){
 			for(var i=0;i<5;i++){
 				if(color[i].toUpperCase()=="BLACK"){
 					$('#headColor').append("<span style='background-color:#000000' class='chips xans-record-'></span>");
-					$('#selectColor').append("<li class='licolor' id='blackli' option_value='블랙' link_image='' title='BLACK' ><a id='BLACK' href='javascript:colorFcn(BLACK.id)' style='background-color:#000000'><span>블랙</span></a></li>");
+					$('#selectColor').append("<li class='licolor' id='BLACKli' option_value='블랙' link_image='' title='BLACK' ><a id='BLACK' href='javascript:colorFcn(BLACK.id)' style='background-color:#000000'><span>블랙</span></a></li>");
 				}else if(color[i].toUpperCase()=="WHITE"){
 					$('#headColor').append("<span style='background-color:#ffffff' class='chips xans-record-'></span>");
-					$('#selectColor').append("<li class='licolor' id='whiteli' option_value='화이트' link_image='' title='WHITE'><a id='WHITE' href='javascript:colorFcn(WHITE.id)' style='background-color:#ffffff'><span>화이트</span></a></li>");
+					$('#selectColor').append("<li class='licolor' id='WHITEli' option_value='화이트' link_image='' title='WHITE'><a id='WHITE' href='javascript:colorFcn(WHITE.id)' style='background-color:#ffffff'><span>화이트</span></a></li>");
 				}else if(color[i].toUpperCase()=="YELLOW"){
 					$('#headColor').append("<span style='background-color:#ffd700' class='chips xans-record-'></span>");
-					$('#selectColor').append("<li class='licolor' id='yellowli' option_value='화이트' link_image='' title='YELLOW' ><a id='YELLOW' href='javascript:colorFcn(YELLOW.id)' style='background-color:#ffd700'><span>노랑</span></a></li>");
+					$('#selectColor').append("<li class='licolor' id='YELLOWli' option_value='화이트' link_image='' title='YELLOW' ><a id='YELLOW' href='javascript:colorFcn(YELLOW.id)' style='background-color:#ffd700'><span>노랑</span></a></li>");
 				}else if(color[i].toUpperCase()=="GREEN"){
 					$('#headColor').append("<span style='background-color:#00ff00' class='chips xans-record-'></span>");					
-					$('#selectColor').append("<li class='licolor' id='greenli' option_value='화이트' link_image='' title='GREEN'><a id='GREEN' href='javascript:colorFcn(GREEN.id)' style='background-color:#00ff00'><span>초록</span></a></li>");
+					$('#selectColor').append("<li class='licolor' id='GREENli' option_value='화이트' link_image='' title='GREEN'><a id='GREEN' href='javascript:colorFcn(GREEN.id)' style='background-color:#00ff00'><span>초록</span></a></li>");
 				}else if(color[i].toUpperCase()=="BLUE"){
 					$('#headColor').append("<span style='background-color:#0000ff' class='chips xans-record-'></span>");					
-					$('#selectColor').append("<li class='licolor' id='blueli' option_value='화이트' link_image='' title='BLUE'><a id='BLUE' href='javascript:colorFcn(BLUE.id)' style='background-color:#0000ff'><span>파랑</span></a></li>");
+					$('#selectColor').append("<li class='licolor' id='BLUEli' option_value='화이트' link_image='' title='BLUE'><a id='BLUE' href='javascript:colorFcn(BLUE.id)' style='background-color:#0000ff'><span>파랑</span></a></li>");
 				}else if(color[i].toUpperCase()=="PINK"){
 					$('#headColor').append("<span style='background-color:#FF007F' class='chips xans-record-'></span>");				
-					$('#selectColor').append("<li class='licolor' id='pinkli' option_value='화이트' link_image='' title='PINK'><a id='PINK' href='javascript:colorFcn(PINK.id)' style='background-color:#FF007F'><span>분홍</span></a></li>");
+					$('#selectColor').append("<li class='licolor' id='PINKli' option_value='화이트' link_image='' title='PINK'><a id='PINK' href='javascript:colorFcn(PINK.id)' style='background-color:#FF007F'><span>분홍</span></a></li>");
 				}
 			}
 		}

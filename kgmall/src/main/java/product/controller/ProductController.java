@@ -132,7 +132,6 @@ public class ProductController {
 				str = c.getName().split("_");
 				try {
 					if(str[2]!=""){
-						System.out.println("sdf"+str[2]);
 						cartDTO.setProduct(c.getName()); // 쿠키 이름 가져오기
 						cartDTO.setProductCount(Integer.parseInt(c.getValue())); // 쿠키 값 가져오기
 						cartDTO.setSellId(id);
@@ -176,10 +175,10 @@ public class ProductController {
 				orderDTO.setOrderState("상품 준비 중");
 				orderDTO.setTotal(Integer.parseInt(c.getValue())*productDTO.getPrice());
 				orderDTO.setSell(productDTO.getPrice());
-				System.out.println(str[0]+"_"+str[1]+"_"+str[2]);
-				System.out.println(Integer.parseInt(c.getValue()));
 				productDAO.orderCountDown(str[0]+"_"+str[1]+"_"+str[2], Integer.parseInt(c.getValue()));
 				orderDAO.insertOrderList(orderDTO);
+				productDAO.likeUp(str[0]+"_"+str[1]+"_"+str[2]);
+
 			}
 		}
 	}
@@ -187,7 +186,6 @@ public class ProductController {
 	public ModelAndView getCount(@RequestParam String name) {
 		ModelAndView mav = new ModelAndView();
 		name = name.toUpperCase();
-		System.out.println(name);
 		int count = productDAO.getCount(name);
 		mav.addObject("count", count);
 		mav.setViewName("jsonView");
