@@ -15,29 +15,27 @@
 			<div class="container-fluid">
 				<div class="col-lg-12"><!--게시판 넓이 -->
 					<div class="col-lg-12">
-						<h1 class="page-header">상품 관리</h1>
+						<h1 class="page-header">주문 관리</h1>
 					</div>
 					<div class="panel panel-default">
-						<div class="panel-heading">상품 리스트 </div>
+						<div class="panel-heading">주문 리스트 </div>
 						<div class="panel-body">
 							<table class="table table-hover">
 								<thead>
 									<tr>
-										<th>대분류</th>
-										<th>소분류</th>
-										<th>제조사</th>
-										<th>상품명_색상_사이즈</th>
-										<th>수량</th>
-										<th>상품코드</th>
+										<th>주문번호</th>
+										<th>상품이미지</th>
+										<th>상품이름</th>
 										<th>상품가격</th>
-										<th>메인이미지</th>
-										<th>상품이미지1</th>
-										<th>상품이미지2</th>
-										<th>상품이미지3</th>
-										<th>수정버튼</th>
+										<th>갯수</th>
+										<th>합계</th>
+										<th>주문상태</th>
+										<th>주문아이디</th>
+										<th>주문날짜</th>
+										<th>주문확인</th>
 									</tr>
 								</thead>
-								<tbody id="productList">
+								<tbody id="orderlist">
 								
 								</tbody>
 							</table>
@@ -52,25 +50,28 @@
 	$(document).ready(function(){
 		$.ajax({
 			type : 'GET',
-			url : '/kgmall/admin/productList.do',
+			url : '/kgmall/admin/orderList.do',
 			dataType : 'json',
 			success : function(data){
-				$('#productList').html(data.productList);
+				$('#orderlist').html(data.orderlist);
 			}
 		});
 	});
-	function countModify(productname){
+	function orderOK(seq){
 		$.ajax({
 			type : 'POST',
-			url : '/kgmall/admin/countUpdate.do',
-			data : {'productname': productname,
-					'productcount' :$('#input'+productname).val()},
+			url : '/kgmall/admin/orderOK.do',
+			data : {'seq': seq},
 			dataType : 'json',
 			success : function(data){
+				if(data.check2=='ok'){
+					obj = document.getElementById('order'+seq);
+					obj.innerHTML = "상품 주문 완료";
+				}
 			}
 		});
 	}
-	function countDelete(productname){
+	function countDelete(seq){
 		$.ajax({
 			type : 'POST',
 			url : '/kgmall/admin/countDelete.do',

@@ -34,11 +34,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		 (select rownum rn, tt.* from
 		<if test="category =='MAJORCATEGORY'">
 			 (select * from product where majorcategory=#{sub}
-			 (select * from product where majorcategory='${sub}'
 		</if>
 		<if test="category =='SUBCATEGORY'">
 			 (select * from product where subcategory=#{subcategory}
-			 (select * from product where subcategory='${subcategory}'
 		</if>
 		<if test="option =='productName'">
 			 order by name asc)tt)

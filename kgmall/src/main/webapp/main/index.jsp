@@ -90,8 +90,15 @@
 					<li class="myshop">
 					<a href="/kgmall/admin/productInsertForm.do">상품등록</a>
 					</li>
+					</c:if>
+					<c:if test="${id == 'admin'}">
 					<li class="myshop">
-					<a href="/kgmall/admin/productList.do">상품관리</a>
+					<a href="/kgmall/admin/productListForm.do">상품관리</a>
+					</li>
+					</c:if>	
+					<c:if test="${id == 'admin'}">
+					<li class="myshop">
+					<a href="/kgmall/admin/orderListForm.do">주문관리</a>
 					</li>
 					</c:if>						
 

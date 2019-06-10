@@ -78,12 +78,12 @@ public class ListController {
 			List<String> colorList = listDAO.getColor(name);
 			String color =null;
 			for(String col : colorList) {
-				if(col.equals("Black"))color="#000000";
-				else if(col.equals("Blue"))color="#0000FF";
-				else if(col.equals("Green"))color="#00FF00";
-				else if(col.equals("Pink"))color="#FFC0CB";
-				else if(col.equals("White"))color="#FFFFFF";
-				else if(col.equals("Yellow"))color="#FFFF00";
+				if(col.equals("BLACK"))color="#000000";
+				else if(col.equals("BLUE"))color="#0000FF";
+				else if(col.equals("GREEN"))color="#00FF00";
+				else if(col.equals("PINK"))color="#FFC0CB";
+				else if(col.equals("WHITE"))color="#FFFFFF";
+				else if(col.equals("YELLOW"))color="#FFFF00";
 				colorForm.append("<span style='background-color:"+color+"' displaygroup='1' class='chips xans-record-'></span>");
 			}
 			pruductList.append("<li id='"+dto.getCode()+"' class='item xans-record-'>"
@@ -140,17 +140,17 @@ public class ListController {
 			List<String> colorList = listDAO.getColor(name);
 			String color =null;
 			for(String col : colorList) {
-				if(col.equals("Black"))color="#000000";
-				else if(col.equals("Blue"))color="#0000FF";
-				else if(col.equals("Green"))color="#00FF00";
-				else if(col.equals("Pink"))color="#FFC0CB";
-				else if(col.equals("White"))color="#FFFFFF";
-				else if(col.equals("Yellow"))color="#FFFF00";
+				if(col.equals("BLACK"))color="#000000";
+				else if(col.equals("BLUE"))color="#0000FF";
+				else if(col.equals("GREEN"))color="#00FF00";
+				else if(col.equals("PINK"))color="#FFC0CB";
+				else if(col.equals("WHITE"))color="#FFFFFF";
+				else if(col.equals("YELLOW"))color="#FFFF00";
 				colorForm.append("<span style='background-color:"+color+"' displaygroup='1' class='chips xans-record-'></span>");
 			}
 			pruductList.append("<li id='"+dto.getCode()+"' class='item xans-record-'>"
 					+"<div class='box'><div class='thumbnail'>"
-					+"<a href='/kgmall/product/select.do?name="+dto.getName()+"'><img src='../image/"+dto.getImageLink()+"' class='thumb'></a>"
+					+"<a href='/kgmall/product/select.do?name="+dto.getName()+"'><img src='../image/productImage/"+dto.getImageLink()+"' class='thumb'></a>"
 					+"</div><div class='description'><div class='fadearea'>"
 					+"<div class='xans-element- xans-product colorList color'>"+colorForm+"</div>"
 					+"<p class='name'>"

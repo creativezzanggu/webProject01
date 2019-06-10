@@ -260,6 +260,9 @@ $('#orderBtn').click(function(){
 			url : '/kgmall/cart/insertCartOrder.do'
 		});
 	}
+	
+	location.href='/kgmall/product/orderOk.do';
+	
 	//order 버튼 눌렀을 때 이동 경로 적어주세요
 	//	location.href='/kgmall/?????????/??????.do'
 });
@@ -275,7 +278,6 @@ window.onbeforeunload = function() {
 		type : 'POST',
 		url : '/kgmall/product/deleteCookie.do'
 	});
-    return "나가실래요?";
 }
 
 </script>
