@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
-
 <!-- 메인 슬라이드 배너 -->
 <div id="visual-main">
 	
@@ -84,12 +83,14 @@
 <div class="tit-product-main">
 		<h2><span>신상품<p>최신 상품들을 확인해보세요</p></span></h2>
 		<span style="display: none;"><img src="" class="imgtitle"></span>
+		
 	</div>
 <ul class="prdList grid3" id="new_product_list">
 <!-- 신 상 품 들어가는 곳 -->
 
     </ul>
 </div>
+
 <!-- 메인 상품 분류 목록 1 끝 -->
 
 
@@ -273,6 +274,7 @@ $.ajax({
 						color.push(data.list[i]);
 					}
 					for(var i=0;i<5;i++){
+						
 						if(color[i].toLowerCase()=="black"){
 							$('#'+txt).append("<span style='background-color:black' color_no='' displaygroup='3' class='chips xans-record-'></span>");
 						}else if(color[i].toLowerCase()=="white"){
@@ -297,5 +299,6 @@ $.ajax({
 		//});
 	}//sucess
 });//ajax의 끝
-</script>
 
+
+</script>

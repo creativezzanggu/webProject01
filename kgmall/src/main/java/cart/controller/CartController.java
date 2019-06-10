@@ -111,7 +111,6 @@ public class CartController {
 				str = c.getName().split("_");
 				try {
 					if(str[2]!=""){
-						System.out.println("sdf"+str[2]);
 						cartDTO.setProduct(c.getName()); // 쿠키 이름 가져오기
 						cartDTO.setProductCount(Integer.parseInt(c.getValue())); // 쿠키 값 가져오기
 						cartDTO.setSellId(id);
@@ -154,6 +153,8 @@ public class CartController {
 			orderDTO.setTotal(cartDTO.getProductCount()*productDTO.getPrice());
 			orderDTO.setSell(productDTO.getPrice());
 			orderDAO.insertOrderList(orderDTO);
+			System.out.println(str[0]+"_"+str[1]+"_"+str[2]);
+			System.out.println(cartDTO.getProductCount());
 			productDAO.orderCountDown(str[0]+"_"+str[1]+"_"+str[2], cartDTO.getProductCount());
 		}
 		cartDAO.deleteCartList(id);

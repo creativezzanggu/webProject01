@@ -59,7 +59,7 @@ public class ProductDAOMybatis implements ProductDAO {
 	public void orderCountDown(String name, int count) {
 		Map <String,String> map = new HashMap<String, String>();
 		System.out.println(name);
-		map.put("name",name.toLowerCase());
+		map.put("name",name.toUpperCase());
 		map.put("count", Integer.toString(count));
 		sqlSession.update("productSQL.orderCountDown",map);
 	}
