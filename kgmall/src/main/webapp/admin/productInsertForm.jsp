@@ -18,6 +18,7 @@
 						<label>분류</label>
 						<select class="form-control" id="majorCategory" name="majorCategory" onchange="category()">
 							<option value="">대분류</option>
+							<option value="OUTER">OUTER</option>
 							<option value="TOP">TOP</option>
 							<option value="BOTTOM">BOTTOM</option>
 							<option value="OUTER">OUTER</option>
@@ -87,7 +88,7 @@
 				
 				<div class=".col-md-6" style="padding: 0px 0px 5px 0px;">
 					<!-- <label>수량</label> -->
-					<div id="totalProducts" class="" style="width: 100%; height:120px;overflow:scroll;" >
+					<div id="totalProducts" class="" style="width: 100%; height:200px;overflow:scroll;" >
 						<div class="thead-wrap" ></div>
 						<table border="1" summary="" >
 							<caption>상품 목록</caption>
@@ -113,15 +114,17 @@
 				
 				<div class=".col-md-6" style="padding: 0px 0px 5px 0px;">
 					<label>메인이미지</label>
-					<input type="text" id="imageLink" name="imageLink">
+					<input type="file" id="imageLink" name="imageLink">
 					<div id="imageLinkDiv" style="color : red;"></div>
 				</div>
+				<br>
 				
 				<div class=".col-md-6" style="padding: 0px 0px 5px 0px;">
 					<label for="exampleInputFile">상품이미지</label>
 					<input type="file" id="productImage1" name="productImage1"><br>
 					<input type="file" id="productImage2" name="productImage2"><br>
 					<input type="file" id="productImage3" name="productImage3">
+					<div id="productImageDiv" style="color : red;"></div>
 				</div>
 				<br>
 				
@@ -142,10 +145,10 @@
 			form.subCategory.length = 1;
 			form.subCategory.options[1] = new Option("JACKET");
 			form.subCategory.options[1].value = "JACKET";
-			form.subCategory.options[1] = new Option("JUMPER");
-			form.subCategory.options[1].value = "JUMPER";
-			form.subCategory.options[1] = new Option("CADIGAN");
-			form.subCategory.options[1].value = "CADIGAN";
+			form.subCategory.options[2] = new Option("JUMPER");
+			form.subCategory.options[2].value = "JUMPER";
+			form.subCategory.options[3] = new Option("CADIGAN");
+			form.subCategory.options[3].value = "CADIGAN";
 		}
 		
 		if(document.productInsertForm.majorCategory.value == "TOP"){
@@ -184,15 +187,6 @@
 	<script type="text/javascript" src="http://code.jquery.com/jquery-3.4.0.min.js"></script>
 	<script type="text/javascript">
 	$('#productInsert').click(function(){
-		var fileValue1 = $("#productImage1").val().split("\\");
-		var fileName1 = fileValue1[fileValue1.length-1];
-		
-		var fileValue2 = $("#productImage2").val().split("\\");
-		var fileName2 = fileValue2[fileValue2.length-1];
-		
-		var fileValue3 = $("#productImage3").val().split("\\");
-		var fileName3 = fileValue3[fileValue3.length-1];
-		
 		$('#majorCategoryDiv').empty();
 		$('#companyDiv').empty();
 		$('#nameDiv').empty();
@@ -202,6 +196,7 @@
 		$('#productSizeDiv').empty();
 		//$('.qtyDiv').empty();
 		$('#imageLinkDiv').empty();
+		$('#productImageDiv').empty();
 		
 		if($('#majorCategory').val() == ''){
 			$('#majorCategoryDiv').text("대분류를 선택해주세요.");
@@ -231,6 +226,34 @@
 			$('#productSizeDiv').text("사이즈를 선택해주세요.");
 			$('#productSize').focus();
 			return false;
+		} else if($('#imageLink').val() == ''){
+			var ext = $('#imageLink').val().split('.').pop().toLowerCase();
+			
+			if($.inArray(ext, ['gif','png','jpg','jpeg']) == -1) {
+				$('#imageLinkDiv').text("메인 이미지를 넣어주세요.");
+				return;
+			}
+		} else if($('#productImage1').val() == ''){
+			var ext1 = $('#productImage1').val().split('.').pop().toLowerCase();
+			
+			if($.inArray(ext1, ['gif','png','jpg','jpeg']) == -1) {
+				$('#productImageDiv').text("상품 이미지를 넣어주세요.");
+				return;
+			}
+		} else if($('#productImage2').val() == ''){
+			var ext2 = $('#productImage2').val().split('.').pop().toLowerCase();
+			
+			if($.inArray(ext2, ['gif','png','jpg','jpeg']) == -1) {
+				$('#productImageDiv').text("상품 이미지를 넣어주세요.");
+				return;
+			}
+		} else if($('#productImage3').val() == ''){
+			var ext3 = $('#productImage3').val().split('.').pop().toLowerCase();
+			
+			if($.inArray(ext3, ['gif','png','jpg','jpeg']) == -1) {
+				$('#productImageDiv').text("상품 이미지를 넣어주세요.");
+				return;
+			}
 		} else {
 			var ncs = new Array();
 			for(var i=0; i<$('.productCount').length; i++){
@@ -277,6 +300,8 @@
 		$('#productSizeDiv').empty();
 		$('#qtyDiv').empty();
 		$('#imageLinkDiv').empty();
+		$('#productImageDiv').empty();
+		$('#totalTable').empty();
 		
 		$('#majorCategory').val('');
 		$('#subCategory').val('');
