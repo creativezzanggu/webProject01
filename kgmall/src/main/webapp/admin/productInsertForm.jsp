@@ -21,6 +21,7 @@
 							<option value="OUTER">OUTER</option>
 							<option value="TOP">TOP</option>
 							<option value="BOTTOM">BOTTOM</option>
+							<option value="OUTER">OUTER</option>
 							<option value="SHOES&BAG">SHOES&BAG</option>
 						</select>
 					</div>
@@ -153,7 +154,7 @@
 		if(document.productInsertForm.majorCategory.value == "TOP"){
 			form.subCategory.length = 1;
 			form.subCategory.options[1] = new Option("TEE-SHIRT");
-			form.subCategory.options[1].value = "TEE_SHIRT";
+			form.subCategory.options[1].value = "TEE-SHIRT";
 			form.subCategory.options[2] = new Option("BLOUSE");
 			form.subCategory.options[2].value = "BLOUSE";
 			form.subCategory.options[3] = new Option("KNIT");
@@ -269,6 +270,7 @@
 					}
 				});
 			}//for
+			alert($('#productImage1').val());
 			$('#productInsertForm').submit();
 		}
 	});

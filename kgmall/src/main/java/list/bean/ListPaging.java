@@ -23,7 +23,7 @@ public class ListPaging {
 		if(endPage > totalP) endPage = totalP;
 		
 		if(startPage > pageBlock)
-			pagingHTML.append("[<a id=paging href='/kgmall/list/bottomListForm.do?pg="+(startPage-1)+"'>ÀÌÀü</a>]");
+			pagingHTML.append("[<a id=paging href='/kgmall/list/bottomListForm.do?pg="+(startPage-1)+"'>ì´ì „</a>]");
 		
 		for(int i=startPage; i<=endPage; i++) {
 			if(i==currentPage)
@@ -33,10 +33,10 @@ public class ListPaging {
 		}
 		
 		if(totalP > endPage)
-			pagingHTML.append("[<a id=paging href='/kgmall/list/bottomListForm.do?pg="+(endPage+1)+"'>´ÙÀ½</a>]");
+			pagingHTML.append("[<a id=paging href='/kgmall/list/bottomListForm.do?pg="+(endPage+1)+"'>ë‹¤ìŒ</a>]");
 	}
 
-	public void makeSearchPagingHTML() {
+	public void makeSelectPagingHTML() {
 		pagingHTML = new StringBuffer();
 		
 		int totalP = (totalA+pageSize-1)/pageSize;
@@ -46,17 +46,17 @@ public class ListPaging {
 		if(endPage > totalP) endPage = totalP;
 		
 		if(startPage > pageBlock)
-			pagingHTML.append("[<span id=paging onclick=bottomSearch("+(startPage-1)+")>ÀÌÀü</span>]");
+			pagingHTML.append("[<span id=paging onclick=bottomSelect("+(startPage-1)+")>ì´ì „</span>]");
 		
 		for(int i=startPage; i<=endPage; i++) {
 			if(i==currentPage)
-				pagingHTML.append("[<span id=currentPaging onclick=bottomSearch("+i+")>"+i+"</span>]");
+				pagingHTML.append("[<span id=currentPaging onclick=bottomSelect("+i+")>"+i+"</span>]");
 			else
-				pagingHTML.append("[<span id=paging onclick=bottomSearch("+i+")>"+i+"</span>]");
+				pagingHTML.append("[<span id=paging onclick=bottomSelect("+i+")>"+i+"</span>]");
 		}
 		
 		if(totalP > endPage)
-			pagingHTML.append("[<span id=paging onclick=bottomSearch("+(endPage+1)+")>´ÙÀ½</span>]");
+			pagingHTML.append("[<span id=paging onclick=bottomSelect("+(endPage+1)+")>ë‹¤ìŒ</span>]");
 		
 	}
 

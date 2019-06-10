@@ -19,7 +19,6 @@
 <meta name="naver-site-verification" content="dd85968ac57ed1d64007f8ef41ba2a6cf51dc33f">
 <link rel="canonical" href="http://ecudemo31431.cafe24.com/">
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.4.0.min.js"></script>
-<script type="text/javascript" src="../js/index.js"></script>
 <script src="//www.youtube.com/iframe_api"></script>
 <script type="text/javascript" src="http://ecudemo31431.cafe24.com/app/Eclog/js/cid.generate.js?vs=3d0b473968a0ec4ec41e3bf59df3aa51"></script>
 <script type="text/javascript">
@@ -105,6 +104,8 @@
 <a href="/kgmall/notice/noticeForm.do?pg=1">NOTICE</a> </li>
 <li class="xans-record-">
 <a href="/kgmall/board/QA.do?pg=1">Q &amp; A</a> </li>
+<li class="xans-record-">
+<a href="/kgmall/review/reviewForm.do?pg=1">REVIEW</a> </li>
 <!-- 1:1 문의게시판 -->
 <li class="xans-element- xans-myshop xans-myshop-main displaynone "><a href="/board/consult/list.html">1:1 문의란</a>
 </li>
@@ -174,10 +175,8 @@
 							</ul><div id="search-box">
 	<form id="searchBarForm" action="/kgmall/main/search.do" >
 <div class="xans-element- xans-layout xans-layout-searchheader ">
-<fieldset>
-<legend>검색</legend>
-			<input id="keyword" name="keyword" fw-filter="" fw-label="검색어" fw-msg="" class="" placeholder="검색어를 입력해주세요" value="" type="text"></input><a href="#none" id="searchKeyword" ><i class="fa fa-search"></i></a>
-		</fieldset>
+	<input type="hidden" name="pg" val="1"/>
+	<input id="keyword" name="keyword" placeholder="검색어를 입력해주세요" value="" type="text"/><img src="../image/search.png" id="searchKeyword" width="15" height="15"/>
 </div>
 </form></div>
 
@@ -212,14 +211,13 @@
 
 							<!-- 상품분류 -->
 							<ul class="xans-element- xans-layout xans-layout-category left">
-<li df-cate-no="42" df-cate-depth="1" class="d1 xans-record-" style="width: 20%;"><a href="/product/list.html?cate_no=42">BEST 6</a><div class="m2"><ul><li df-cate-no="43" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=43">베스트 6</a></li></ul></div></li>
-<li df-cate-no="49" df-cate-depth="1" class="d1 xans-record-" style="width: 20%;"><a href="/product/list.html?cate_no=49">OUTER</a>
+<li df-cate-no="49" df-cate-depth="1" class="d1 xans-record-" style="width: 20%;"><a href="/kgmall/list/outerListForm.do?pg=1">OUTER</a>
 <div class="m2"><ul>
 <li df-cate-no="51" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=51">JACKET</a></li>
 <li df-cate-no="52" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=52">JUMPER</a></li><li df-cate-no="53" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=53">CADIGAN</a></li></ul></div></li>
-<li df-cate-no="54" df-cate-depth="1" class="d1 xans-record-" style="width: 20%;"><a href="/product/list.html?cate_no=54">TOP</a><div class="m2"><ul><li df-cate-no="55" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=55">TEE SHIRT</a></li><li df-cate-no="56" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=56">BLOUSE</a></li><li df-cate-no="57" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=57">KNIT</a></li><li df-cate-no="58" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=58">CAMI</a></li></ul></div></li>
-<li df-cate-no="59" df-cate-depth="1" class="d1 xans-record-" style="width: 20%;"><a href="/product/list.html?cate_no=59">BOTTOM</a><div class="m2"><ul><li df-cate-no="60" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=60">SKIRT</a></li><li df-cate-no="61" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=61">LEGGINGS</a></li><li df-cate-no="62" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=62">PANTS</a></li><li df-cate-no="63" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=63">DENIM</a></li></ul></div></li>
-<li df-cate-no="64" df-cate-depth="1" class="d1 xans-record-" style="width: 20%;"><a href="/product/list.html?cate_no=64">SHOES &amp; BAG</a><div class="m2"><ul><li df-cate-no="65" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=65">SHOES</a></li><li df-cate-no="66" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=66">BAG</a></li></ul></div></li>
+<li df-cate-no="54" df-cate-depth="1" class="d1 xans-record-" style="width: 20%;"><a href="/kgmall/list/topListForm.do?pg=1">TOP</a><div class="m2"><ul><li df-cate-no="55" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=55">TEE SHIRT</a></li><li df-cate-no="56" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=56">BLOUSE</a></li><li df-cate-no="57" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=57">KNIT</a></li><li df-cate-no="58" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=58">CAMI</a></li></ul></div></li>
+<li df-cate-no="59" df-cate-depth="1" class="d1 xans-record-" style="width: 20%;"><a href="/kgmall/list/bottomListForm.do?pg=1">BOTTOM</a><div class="m2"><ul><li df-cate-no="60" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=60">SKIRT</a></li><li df-cate-no="61" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=61">LEGGINGS</a></li><li df-cate-no="62" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=62">PANTS</a></li><li df-cate-no="63" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=63">DENIM</a></li></ul></div></li>
+<li df-cate-no="64" df-cate-depth="1" class="d1 xans-record-" style="width: 20%;"><a href="/kgmall/list/shoseBagListForm.do?pg=1">SHOES &amp; BAG</a><div class="m2"><ul><li df-cate-no="65" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=65">SHOES</a></li><li df-cate-no="66" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=66">BAG</a></li></ul></div></li>
 </ul>
 <ul class="right"><!-- 게시판 --><li class="d1 community" df-cate-depth="1">
 									<a href="#none">커뮤니티</a>
@@ -243,11 +241,10 @@
 				<div id="cnb" style="opacity: 1; visibility: visible;">
 					<div class="m1">
 						<ul class="xans-element- xans-layout xans-layout-category">
-<li df-cate-no="42" df-cate-depth="1" class="d1 xans-record-" style="margin-left: 5px; margin-right: 5px;"><a href="/product/list.html?cate_no=42"><span>BEST 6</span></a><div class="m2" style="margin-left: 255px;"><ul><li df-cate-no="43" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=43">한주간 베스트</a></li><li df-cate-no="44" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=44">이달의 베스트</a></li><li df-cate-no="45" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=45">MD'S 초이스</a></li></ul><div class="menuImg"><a href="#none"><img class="banner_image" alt="BEST 50" rel="145-10" src="//app-storage-005.cafe24.com/bannermanage2/ecudemo31431/2019/04/01/754aabcb687e8b214258c68638b2f99a.jpg"></a></div></div></li>
-<li df-cate-no="49" df-cate-depth="1" class="d1 xans-record-" style="margin-left: 5px; margin-right: 5px;"><a href="/product/list.html?cate_no=49"><span>OUTER</span></a><div class="m2" style="margin-left: 230px; display: none;"><ul><li df-cate-no="50" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=50">COAT &amp; TERNCH<i class="fa fa-angle-right"></i></a><div class="m3"><ul><li df-cate-no="82" class="d3" df-cate-depth="3"><a href="/product/list.html?cate_no=82">COAT</a></li><li df-cate-no="83" class="d3" df-cate-depth="3"><a href="/product/list.html?cate_no=83">TRENCH</a></li></ul></div></li><li df-cate-no="51" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=51">JACKET</a></li><li df-cate-no="52" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=52">JUMPER</a></li><li df-cate-no="53" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=53">CADIGAN</a></li></ul><div class="menuImg"><a href="#none"><img class="banner_image" alt="OUTER" rel="147-10" src="//app-storage-005.cafe24.com/bannermanage2/ecudemo31431/2019/04/01/396c3b5987be025dea136313d8fe2694.jpg"></a></div></div></li>
-<li df-cate-no="54" df-cate-depth="1" class="d1 xans-record-" style="margin-left: 5px; margin-right: 5px;"><a href="/product/list.html?cate_no=54"><span>TOP</span></a><div class="m2" style="margin-left: 135px; display: none;"><ul><li df-cate-no="55" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=55">TEE SHIRT</a></li><li df-cate-no="56" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=56">BLOUSE</a></li><li df-cate-no="57" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=57">KNIT</a></li><li df-cate-no="58" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=58">CAMI</a></li></ul><div class="menuImg"><a href="#none"><img class="banner_image" alt="TOP" rel="148-10" src="//app-storage-005.cafe24.com/bannermanage2/ecudemo31431/2019/04/01/5fd957237ec382d2da17dc91229ba020.jpg"></a></div></div></li>
+<li df-cate-no="49" df-cate-depth="1" class="d1 xans-record-" style="margin-left: 5px; margin-right: 5px;"><a href="/kgmall/list/outerListForm.do?pg=1"><span>OUTER</span></a><div class="m2" style="margin-left: 230px; display: none;"><ul><li df-cate-no="50" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=50">COAT &amp; TERNCH<i class="fa fa-angle-right"></i></a><div class="m3"><ul><li df-cate-no="82" class="d3" df-cate-depth="3"><a href="/product/list.html?cate_no=82">COAT</a></li><li df-cate-no="83" class="d3" df-cate-depth="3"><a href="/product/list.html?cate_no=83">TRENCH</a></li></ul></div></li><li df-cate-no="51" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=51">JACKET</a></li><li df-cate-no="52" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=52">JUMPER</a></li><li df-cate-no="53" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=53">CADIGAN</a></li></ul><div class="menuImg"><a href="#none"><img class="banner_image" alt="OUTER" rel="147-10" src="//app-storage-005.cafe24.com/bannermanage2/ecudemo31431/2019/04/01/396c3b5987be025dea136313d8fe2694.jpg"></a></div></div></li>
+<li df-cate-no="54" df-cate-depth="1" class="d1 xans-record-" style="margin-left: 5px; margin-right: 5px;"><a href="/kgmall/list/topListForm.do?pg=1"><span>TOP</span></a><div class="m2" style="margin-left: 135px; display: none;"><ul><li df-cate-no="55" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=55">TEE SHIRT</a></li><li df-cate-no="56" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=56">BLOUSE</a></li><li df-cate-no="57" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=57">KNIT</a></li><li df-cate-no="58" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=58">CAMI</a></li></ul><div class="menuImg"><a href="#none"><img class="banner_image" alt="TOP" rel="148-10" src="//app-storage-005.cafe24.com/bannermanage2/ecudemo31431/2019/04/01/5fd957237ec382d2da17dc91229ba020.jpg"></a></div></div></li>
 <li df-cate-no="59" df-cate-depth="1" class="d1 xans-record-" style="margin-left: 5px; margin-right: 5px;"><a href="/kgmall/list/bottomListForm.do?pg=1"><span>BOTTOM</span></a><div class="m2" style="margin-left: 135px; display: none;"><ul><li df-cate-no="60" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=60">SKIRT</a></li><li df-cate-no="61" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=61">LEGGINGS</a></li><li df-cate-no="62" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=62">PANTS</a></li><li df-cate-no="63" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=63">DENIM</a></li></ul><div class="menuImg"><a href="#none"><img class="banner_image" alt="BOTTOM" rel="149-10" src="//app-storage-005.cafe24.com/bannermanage2/ecudemo31431/2019/04/01/b803ca4d03d223ccdccae19195d85a15.jpg"></a></div></div></li>
-<li df-cate-no="64" df-cate-depth="1" class="d1 xans-record-" style="margin-left: 5px; margin-right: 5px;"><a href="/product/list.html?cate_no=64"><span>SHOES &amp; BAG</span></a><div class="m2" style="margin-left: 135px;"><ul><li df-cate-no="65" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=65">SHOES</a></li><li df-cate-no="66" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=66">BAG</a></li></ul><div class="menuImg"><a href="#none"><img class="banner_image" alt="SHOES &amp; BAG" rel="150-10" src="//app-storage-005.cafe24.com/bannermanage2/ecudemo31431/2019/04/01/1178f1d8d4955e3ae01154771aae66eb.jpg"></a></div></div></li>
+<li df-cate-no="64" df-cate-depth="1" class="d1 xans-record-" style="margin-left: 5px; margin-right: 5px;"><a href="/kgmall/list/shoseBagListForm.do?pg=1"><span>SHOES &amp; BAG</span></a><div class="m2" style="margin-left: 135px;"><ul><li df-cate-no="65" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=65">SHOES</a></li><li df-cate-no="66" class="d2" df-cate-depth="2"><a href="/product/list.html?cate_no=66">BAG</a></li></ul><div class="menuImg"><a href="#none"><img class="banner_image" alt="SHOES &amp; BAG" rel="150-10" src="//app-storage-005.cafe24.com/bannermanage2/ecudemo31431/2019/04/01/1178f1d8d4955e3ae01154771aae66eb.jpg"></a></div></div></li>
 </ul>
 </div>
 				</div>
@@ -547,15 +544,11 @@
 </div>
 
 </div>
+<script type="text/javascript" src="../js/index.js"></script>
 <script type="text/javascript" src="//ecudemo31431.cafe24.com/ind-script/i18n.php?lang=ko_KR&amp;domain=front&amp;v=1905231058" charset="utf-8"></script>
 <script type="text/javascript" src="http://ecudemo31431.cafe24.com/ind-script/optimizer.php?filename=tVTdTuswDH6B3fIc1hAXXIMOV8AQEw_gJW6b1Y1znGTQ8_QnHRNiYvx0ZaqqKq6_z_7s2NBIRzA_V6gUO3oWbUEpSlZDsI7g5pd-to5n8JVfdgFNC-u_mbTffeazi_LsIYNKXcCwIW9FIdoWIunGGYqfRDdY0flFcTxM9N41BnU-Vd87WjG5I59uRLtr8UmFmfQwjt0Knl7FPb6jYPzXs6AdBepywuTEL1aD6JERg3BfOeaRraCXROqR484wW9VuC5rKY0RaN5nFutKIWGoSpzIRRufrqSwdJbSY8HBrMARYNhL2GnOj5QrBtXSd-KfkeDT0LnNysfy7dTGNRkdCNc1I3YFz7XyEDbIrcsso7vS_GSYTDqX1Nn4kLgyh9JtOF6EhDnRCBQ16y6cMUHaDq_rT8Zc9kn4hfxaDTNDK9yv3k3v1k8HCRLVo__VwXAmq3UMX62w1WEdHvKfn4X1QsdmkRRhW9pKYTDqKalf9dRR_bCoL9u1R2Nfk4c9LUtwSbc_b41LYSh4k_Qc&amp;type=js&amp;k=ba8d9975e19e826e792e7309c8cbad287d2c55ab&amp;t=1557687796"></script>
 <script type="text/javascript" src="http://ecudemo31431.cafe24.com/ind-script/optimizer.php?filename=rZVBbsIwEEUPANueY9TeoEArIUFBRO1-cIbExPZYY6dpbt8EUAtSQSXJIlbmK__529bEkLMleHwS8MKZoAX0HpKcPWwocCmKYB_gVdhFeKMKVj5qdvDyFQVb4VgfyrVoReN9eIABoXOL2eDQmQ7eYK0j2QHR8waXaJcZSsiQaqXhg0sDnmAoKPZh_1CnbG2_mGcoFwYBTbRLBwHNMOIgoA80OsXrB2r0Ft61R1VcAKelCDlVQ2imGvnr7fEvvzpVox2Lxdg3yVCYMmrTaZObZy2clioudIg9Ec_d2-0XkkRWRSfGQhcEE-EqkExR5dSd0qMjz_ynFd2NOflgRhG1gUnpUkONaLnz_m7oU1MV0RSn1ymX7kayZR3-hrWyb_6vc7fj6_Y1-_LS7VtlzJ5u5F-ia-6ZC1tFW8PZ3xY5-y6P1pCLOmoKd02AoXbqOHb2WbJbks72laQk6nAa3w&amp;type=js&amp;k=b7c36bfa1811014339712088b43bcc81a5effc18&amp;t=1558462804"></script>
 <script type="text/javascript" src="http://ecudemo31431.cafe24.com/ind-script/optimizer.php?filename=tZTNbtswEITvsa95DoqSLUvH1gHag4MGaYGeV8uVRYvisvxJobev4gZo2ktRMb2IB2m-nRGHFANPJGTphfN89jAJcE7cg4UziUcKnDySuAQBYbb487l9D2GkiDZuL-FWrCc4r5EyGQ-eVcL1To6cHNucLPfa0PJ-tf6OHAe9fv5XHQbklJHAE1KG_PEq_8IRzDHLxyevyK_vA1nqdW4nTzBnePjgQa1vwrsUeYKo8Yr5PPD39aVMJuoHdsmtR8wnPdLL-crb2JN-IqPtyDavGx91iOzntWYcxMGzoc0TGK1gQa1PxKD-Sez-vKciTe4qDGoUhEnRxJXcVfL567pu6q7pij3ui6puuwp3fUuyxVaqtpVSdLjDHvaNLMuyg67ucVe0bXloVCdlia1AOtQNlXDAQ4EKoZJtQU3VUV-qPcjyryN-OSXcpEA-_O7Spc5o3AxxMksE2igK-mxFGLVd_KneMPvnKMjT9HrfM2jOpLO24vItkZ9flhu5leW22k76f8ywfGTbL6r4JvBA8fWBzPuxqr8JMDlDbwjsIGhceD8A&amp;type=js&amp;k=1cc8ed9afc61cd5e4e1f4019492e35c2a7f55a20&amp;t=1558894315"></script>
 <script type="text/javascript" src="http://ecudemo31431.cafe24.com/ind-script/optimizer.php?filename=tZMxcoQwDEV72Dbn0DCbm-QEgAWIyJZj2SzcPp7MApu0Md1_bp79LcEkFgH7OikGzSEZtHJv3u8N-NQx9fUULYMarA0qjQ70k1zTgBlYJIDnNJLLVPVtxFHC9ppvltxt1jcopMG16lZlMhhg_kqYDTtfoNI-CHPXHq7joLQsV-aDmNRHJo1_8AKZoaVrncstvkIx0aw_Q5A0ii188yj-vPkBhSUDrafkgCpuHpv_l5TbsflzGYHbTVIEmziSTuI_JvKe3Fj4OY-8H8-l-UUXDJaVBfcR3vMFmoAL4eNMFyw_OY3tgGjgSE_LNw&amp;type=js&amp;k=14244da5bfdc8baef95a32bf0bba0d5e375bc8b2&amp;t=1555848171"></script>
-<script>
-$('#mainLogo').click(function(){
-	location.href="/kgmall/main/index.do";
-});
-</script>
 
 </body></html>

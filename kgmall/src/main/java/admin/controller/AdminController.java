@@ -37,6 +37,9 @@ public class AdminController {
 	
 	@RequestMapping(value="/detailProductInsert.do", method=RequestMethod.POST)
 	public void detailProductInsert(@RequestParam Map<String,String> map,Model model) {
+		map.put("ncs", map.get("ncs").toUpperCase());
+		System.out.println("detailProductInsert"+map);
+
 		adminDAO.detailProductInsert(map);
 	}
 	
@@ -52,7 +55,6 @@ public class AdminController {
 		StringBuffer productList = new StringBuffer();
 		StringBuffer detailList = new StringBuffer();
 		List<AdminDTO> list = adminDAO.productList();
-		List<DetailProductDTO> list2 = adminDAO.detailProductList();
 		
 		for(int i=0;i<list.size();i++) {
 			List<DetailProductDTO> list3 = adminDAO.detailProductListCount(list.get(i).getName());
@@ -98,3 +100,6 @@ public class AdminController {
 		return "yes";
 	}
 }
+
+
+

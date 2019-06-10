@@ -13,6 +13,7 @@ $(function(){
 		}
 	});
 	
+	
 	/*공지사항 뿌려주기*/
 	$('#notice1').click(function(){
 		$.ajax({
@@ -82,5 +83,4 @@ $(function(){
 		$('#pikachu_banner').attr("usemap","#none");
 	});
 	
-
 });

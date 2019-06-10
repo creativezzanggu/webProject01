@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+	
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	
@@ -17,6 +18,7 @@
 	<context:component-scan base-package="notice.bean"/>
 	<context:component-scan base-package="notice.dao"/>
 	<context:component-scan base-package="main.dao"/>
+	<context:component-scan base-package="main.bean"/>
 	<context:component-scan base-package="product.dao"/>
 	<context:component-scan base-package="product.bean"/>
 	<context:component-scan base-package="admin.dao" />
@@ -25,10 +27,12 @@
 	<context:component-scan base-package="list.bean" />
 	<context:component-scan base-package="cart.dao" />
 	<context:component-scan base-package="cart.bean" />
-
-
-
-
+	<context:component-scan base-package="order.bean" />
+	<context:component-scan base-package="order.dao" />
+	<context:component-scan base-package="review.bean" />
+	<context:component-scan base-package="review.dao" />
+	
+	
 	<tx:annotation-driven transaction-manager="transactionManager"/>	
 	
 	<!-- SqlSessionFactory -->

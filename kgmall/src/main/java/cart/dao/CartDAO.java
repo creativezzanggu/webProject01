@@ -10,4 +10,6 @@ public interface CartDAO {
 	public List<CartDTO> getCartList(String id);
 
 	public void deleteCart(String productName,String id);
+
+	public void deleteCartList(String id);
 }

@@ -79,13 +79,7 @@
 									<tr class="first">
 										<th scope="row" class="thead txtLess">SUBJECT</th>
 										<td>
-											<select id="board_category" name="board_category" fw-filter="" fw-label="" fw-msg="" >
-												<option value="회원관련">회원관련</option>
-												<option value="주문/결제">주문/결제</option>
-												<option value="배송관련">배송관련</option>
-												<option value="취소/반품/환불/교환">취소/반품/환불/교환</option>
-												<option value="상품문의">상품문의</option>
-											</select>
+											<input id="board_category" name="board_category"  value="${qa.category}" readonly="readonly" type="text"/>	
 											<input id="subject" name="subject" fw-filter="isFill" fw-label="제목" fw-msg="" class="inputTypeText" value="${qa.subject}" maxLength="125" type="text"/>	
 										</td>
 									</tr>

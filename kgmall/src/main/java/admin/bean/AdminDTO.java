@@ -9,6 +9,7 @@ import lombok.Data;
 @Component
 @Data
 public class AdminDTO {
+
 	private String majorCategory; //占쏙옙�겫袁⑥첒
 	private String subCategory; //占쎈꺖�겫袁⑥첒
 	private String company; //占쎌젫鈺곌퀣沅�
@@ -20,5 +21,5 @@ public class AdminDTO {
 	private String productImage1; //占쎄맒占쎈�� 占쎌뵠沃섎챷占�1
 	private String productImage2; //占쎄맒占쎈�� 占쎌뵠沃섎챷占�2
 	private String productImage3; //占쎄맒占쎈�� 占쎌뵠沃섎챷占�3
-	private Date logtime;
+
 }

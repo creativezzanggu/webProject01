@@ -20,13 +20,13 @@ public class CartDAOMybatis implements CartDAO {
 	@Override
 	public void insertCart(List<CartDTO> list) {
 		for(CartDTO cartDTO : list) {
+
 			sqlSession.insert("cartSQL.insertCart", cartDTO);
 		}
 	}
 
 	@Override
 	public List<CartDTO> getCartList(String id) {
-		System.out.println(id);
 		List<CartDTO> list2=sqlSession.selectList("cartSQL.getCartList", id);
 		return list2;
 	}
@@ -37,6 +37,11 @@ public class CartDAOMybatis implements CartDAO {
 		map.put("product", productName);
 		map.put("sellid",id);
 		sqlSession.delete("cartSQL.deleteCart", map);
+	}
+
+	@Override
+	public void deleteCartList(String id) {
+		sqlSession.delete("cartSQL.deleteCartList", id);
 	}
 	
 }

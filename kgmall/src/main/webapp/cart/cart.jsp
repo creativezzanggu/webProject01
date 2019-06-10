@@ -23,8 +23,6 @@
 <p><img src="../image/search.png"/><br><br>장바구니가 비어 있습니다.</p>
 </div>
 
-
-
 <!-- 국내배송상품 주문내역 -->
 <div class="orderListArea ">
         <div class="title">
@@ -68,28 +66,17 @@
                     
                     <tbody class="xans-element- xans-order xans-order-normallist center" id="tablebody">
                     
-              
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+            
 </tbody>
 </table>
 </div>
 
-<!-- 주문 버튼 -->
-<div class="xans-element- xans-order xans-order-totalorder df-base-button justify fs-0">
-<a href="#none" class="df-btn highlight big mr-3">상품주문</a>
-<span><a href="#" class="df-btn light big" id="ing_shopping">쇼핑계속하기</a></span>
-</div></div>
+	<!-- 주문 버튼 -->
+	<div class="xans-element- xans-order xans-order-totalorder df-base-button justify fs-0">
+		<a href="#none" class="df-btn highlight big mr-3" id="orderBtn">상품주문</a>
+		<span><a href="#" class="df-btn light big" id="ing_shopping">쇼핑계속하기</a></span>
+	</div>
+</div>
 
 <!-- 이용안내 -->
 <div class="xans-element- xans-order xans-order-basketguide df-base-help ">
@@ -123,8 +110,8 @@ function deleteTr(value){
 	$.ajax({
 		type : 'POST',
 		data : {'productName' : value,
-				'id' : <%=(String)session.getAttribute("id")%>},
-		url : '/kgmall/product/selectDeleteCookie.do'
+				'id' : '${id}'},
+		url : '/kgmall/cart/selectDeleteCookie.do'
 	});
 	location.reload();
 }
@@ -139,21 +126,32 @@ $('#ing_shopping').click(function(){
 	location.href="/kgmall/main/index.do";
 });
 
+$('#orderBtn').click(function(){
+	var id = '${id}';
+	if(id==""){
+		alert("로그인이 필요합니다.");
+		location.href="/kgmall/user/loginForm.do";
+	}
+	else{
+		location.href="/kgmall/order/order.do?name=";
+	}
+});
+
 $(document).ready(function(){
 	var name=null;
 	var totalPrice=0;
-	var id = <%=(String)session.getAttribute("id")%>
-	if(id==null){
+	var id = '${id}';
+	if(id==""){
 		$.ajax({
 			type : 'POST',
-			url : '/kgmall/product/selectCookie.do',
+			url : '/kgmall/cart/selectCookie.do',
 			dataType : 'json',
 			success : function(data){
 				var map = data.map;
 				$.each(map, function(index, value){
 					var str = index.split("_");
 					name=str[0];
-					if(name!=1){
+					if(str[2]!=null){
 						$('#emptyCart').addClass('displaynone');	
 					}
 					$.ajax({
@@ -162,7 +160,7 @@ $(document).ready(function(){
 						data : "name="+name,
 						dataType : 'json',
 						success : function(data){
-							$("#tablebody").append("<tr class='alltr' id="+index+"><td class=''><button value="+index+" type='' onclick='javascript:deleteTr(this.value)'><img class='' style='height:10px; width:10px;' src='../image/x.png'></button></td><td class='thumb gClearLine'><a href='../product/product.do'><img id = 'productImage' src='../image/productImage/"+data.productDTO.imageLink+"' height='50px' width='50px' onerror='this.src=//img.echosting.cafe24.com/thumb/img_product_small.gif;' alt=''></a></td><td class='gClearLine'><a id='productName' href='../product/product.do'><strong>"+data.productDTO.name+"</strong>"+"_"+str[1]+"_"+str[2]+"</a></td><td class=''></td><td class='right'><div class=''><strong>"+addComma(data.productDTO.price)+" won</strong><p class='displaynone'></p></div></td><td>"+value+"개"+"</td><td><div class='txtInfo'>기본배송<br></div></td><td rowspan='1' class=''>[선택]</td><td class='right'><strong>"+addComma(value*data.productDTO.price)+" won</strong><div class='displaynone'></div></td></tr>");
+							$("#tablebody").append("<tr class='alltr' id="+index+"><td class=''><button value="+index+" type='' onclick='javascript:deleteTr(this.value)'><img class='' style='height:10px; width:10px;' src='../image/x.png'></button></td><td class='thumb gClearLine'><a href='../product/select.do?name="+name+"'><img id = 'productImage' src='../image/productImage/"+data.productDTO.imageLink+"' height='50px' width='50px' onerror='this.src=//img.echosting.cafe24.com/thumb/img_product_small.gif;' alt=''></a></td><td class='gClearLine'><a id='productName' href='../product/select.do?name="+name+"'><strong>"+data.productDTO.name+"</strong>"+"_"+str[1]+"_"+str[2]+"</a></td><td class=''></td><td class='right'><div class=''><strong>"+addComma(data.productDTO.price)+" won</strong><p class='displaynone'></p></div></td><td>"+value+"개"+"</td><td><div class='txtInfo'>기본배송<br></div></td><td rowspan='1' class=''>[선택]</td><td class='right'><strong>"+addComma(value*data.productDTO.price)+" won</strong><div class='displaynone'></div></td></tr>");
 							totalPrice = totalPrice+(value*data.productDTO.price);
 							$('#domestic_ship_fee_sum').text(addComma(totalPrice));
 						}
@@ -174,7 +172,7 @@ $(document).ready(function(){
 	else{
 		$.ajax({
 			type : 'POST',
-			url : '/kgmall/product/insertCookie.do',
+			url : '/kgmall/cart/insertCookie.do',
 			data : {'id':id},
 			dataType : 'json',
 			success : function(data){
@@ -182,16 +180,16 @@ $(document).ready(function(){
 				$.each(list, function(index, value){
 					var str = value.product.split("_");
 					name=str[0];
-					if(name!=1){
+					if(str[2]!=null){
 						$('#emptyCart').addClass('displaynone');	
-					} 
+					}
 					$.ajax({
 						type : 'POST',
 						url : '/kgmall/product/getDTO.do',
 						data : "name="+name,
 						dataType : 'json',
 						success : function(data){
-							$("#tablebody").append("<tr class='alltr' id="+value.product+"><td class=''><button value="+value.product+" type='' onclick='javascript:deleteTr(this.value)'><img class='' style='height:10px; width:10px;' src='../image/x.png'></button></td><td class='thumb gClearLine'><a href='../product/product.do'><img id = 'productImage' src='../image/productImage/"+data.productDTO.imageLink+"' height='50px' width='50px' onerror='this.src=//img.echosting.cafe24.com/thumb/img_product_small.gif;' alt=''></a></td><td class='gClearLine'><a id='productName' href='../product/product.do'><strong>"+data.productDTO.name+"</strong>"+"_"+str[1]+"_"+str[2]+"</a></td><td class=''></td><td class='right'><div class=''><strong>"+addComma(data.productDTO.price)+" won</strong><p class='displaynone'></p></div></td><td>"+value.productCount+"개"+"</td><td><div class='txtInfo'>기본배송<br></div></td><td rowspan='1' class=''>[선택]</td><td class='right'><strong>"+addComma(value.productCount*data.productDTO.price)+" won</strong><div class='displaynone'></div></td></tr>");
+							$("#tablebody").append("<tr class='alltr' id="+value.product+"><td class=''><button value="+value.product+" type='' onclick='javascript:deleteTr(this.value)'><img class='' style='height:10px; width:10px;' src='../image/x.png'></button></td><td class='thumb gClearLine'><a href='../product/select.do?name="+name+"'><img id = 'productImage' src='../image/productImage/"+data.productDTO.imageLink+"' height='50px' width='50px' onerror='this.src=//img.echosting.cafe24.com/thumb/img_product_small.gif;' alt=''></a></td><td class='gClearLine'><a id='productName' href='../product/select.do?name="+name+"'><strong>"+data.productDTO.name+"</strong>"+"_"+str[1]+"_"+str[2]+"</a></td><td class=''></td><td class='right'><div class=''><strong>"+addComma(data.productDTO.price)+" won</strong><p class='displaynone'></p></div></td><td>"+value.productCount+"개"+"</td><td><div class='txtInfo'>기본배송<br></div></td><td rowspan='1' class=''>[선택]</td><td class='right'><strong>"+addComma(value.productCount*data.productDTO.price)+" won</strong><div class='displaynone'></div></td></tr>");
 							totalPrice = totalPrice+(value.productCount*data.productDTO.price);
 							$('#domestic_ship_fee_sum').text(addComma(totalPrice));
 						}
@@ -199,7 +197,7 @@ $(document).ready(function(){
 				});
 				$.ajax({
 					type : 'POST',
-					url : '/kgmall/product/deleteCookie.do'
+					url : '/kgmall/cart/deleteCookie.do'
 				});
 			}
 		});
