@@ -76,8 +76,8 @@ public class AdminController {
 						+"<td><img width='50' height='50' src='../image/productImage/"+list.get(i).getProductImage1()+"'></td>"
 						+"<td><img width='50' height='50' src='../image/productImage/"+list.get(i).getProductImage2()+"'></td>"
 						+"<td><img width='50' height='50' src='../image/productImage/"+list.get(i).getProductImage3()+"'></td>"
-						+"<td><input type='button' id='modify' onclick=countModify('"+list3.get(j).getProductname()+"') value='¼öÁ¤' size='5'>&nbsp;"
-						+"<input type='button' id='delete' onclick=countDelete('"+list3.get(j).getProductname()+"') value='»èÁ¦' size='5'></td></tr>");
+						+"<td><input type='button' id='modify' onclick=countModify('"+list3.get(j).getProductname()+"') value='ìˆ˜ì •' size='5'>&nbsp;"
+						+"<input type='button' id='delete' onclick=countDelete('"+list3.get(j).getProductname()+"') value='ì‚­ì œ' size='5'></td></tr>");
 				detailList.setLength(0);
 			}
 		}
@@ -125,7 +125,7 @@ public class AdminController {
 					+"<td id='order"+dto.getSeq()+"'>"+dto.getOrderState()+"</td>"
 					+"<td>"+dto.getOrderId()+"</td>"
 					+"<td>"+sdf.format(dto.getLogtime())+"</td>"
-					+"<td><input type='button'  onclick=orderOK('"+dto.getSeq()+"') value='ÁÖ¹®È®ÀÎ' size='5'>&nbsp;</tr>");
+					+"<td><input type='button'  onclick=orderOK('"+dto.getSeq()+"') value='ì£¼ë¬¸í™•ì¸' size='5'>&nbsp;</tr>");
 		}
 		
 		ModelAndView mav = new ModelAndView();
@@ -135,12 +135,12 @@ public class AdminController {
 	}
 	@RequestMapping(value="/orderOK.do", method=RequestMethod.POST)
 	public ModelAndView orderOK(@RequestParam Map<String,String> map) {
-		map.put("state", "»óÇÄ ÁÖ¹® ¿Ï·á");
+
 		int check = adminDAO.checkOrder(map);
 		String check2 = null;
 		if(check==0) {
 			adminDAO.orderOK(map);
-			check2="»óÇÄ ÁÖ¹® ¿Ï·á";
+			check2="ok";
 		}else {
 			check2=null;
 		}

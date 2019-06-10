@@ -12,6 +12,7 @@ public class ReviewPaging {
 	private int pageSize;
 	private int totalA;
 	private StringBuffer pagingHTML;
+	private String category;
 	
 	public void makePagingHTML(){
 		pagingHTML = new StringBuffer();
@@ -46,17 +47,17 @@ public class ReviewPaging {
 		if(endPage > totalP) endPage = totalP;
 		
 		if(startPage > pageBlock)
-			pagingHTML.append("[<span id=paging onclick=reviewSelect("+(startPage-1)+")>이전</span>]");
+			pagingHTML.append("[<span id=paging onclick=reviewSelect("+(startPage-1)+",'"+getCategory()+"')>이전</span>]");
 		
 		for(int i=startPage; i<=endPage; i++) {
 			if(i==currentPage)
-				pagingHTML.append("[<span id=currentPaging onclick=reviewSelect("+i+")>"+i+"</span>]");
+				pagingHTML.append("[<span id=currentPaging onclick=reviewSelect("+i+",'"+getCategory()+"')>"+i+"</span>]");
 			else
-				pagingHTML.append("[<span id=paging onclick=reviewSelect("+i+")>"+i+"</span>]");
+				pagingHTML.append("[<span id=paging onclick=reviewSelect("+i+",'"+getCategory()+"')>"+i+"</span>]");
 		}
 		
 		if(totalP > endPage)
-			pagingHTML.append("[<span id=paging onclick=reviewSelect("+(endPage+1)+")>다음</span>]");
+			pagingHTML.append("[<span id=paging onclick=reviewSelect("+(endPage+1)+",'"+getCategory()+"')>다음</span>]");
 		
 	}
 

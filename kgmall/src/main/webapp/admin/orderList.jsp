@@ -64,7 +64,7 @@
 			data : {'seq': seq},
 			dataType : 'json',
 			success : function(data){
-				if(data.check2=='상픔 주문 완료'){
+				if(data.check2=='ok'){
 					obj = document.getElementById('order'+seq);
 					obj.innerHTML = "상품 주문 완료";
 				}
