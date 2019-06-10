@@ -84,7 +84,6 @@ productCount number,
 logtime date DEFAULT sysdate
 );
 
-
 --order table
 create table ordertable(
 Seq number not null,

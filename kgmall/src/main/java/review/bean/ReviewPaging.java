@@ -23,17 +23,17 @@ public class ReviewPaging {
 		if(endPage > totalP) endPage = totalP;
 		
 		if(startPage > pageBlock)
-			pagingHTML.append("[<a id=paging href='/kgmall/review/bottomListForm.do?pg="+(startPage-1)+"'>이전</a>]");
+			pagingHTML.append("[<a id=paging href='/kgmall/review/reviewForm.do?pg="+(startPage-1)+"'>이전</a>]");
 		
 		for(int i=startPage; i<=endPage; i++) {
 			if(i==currentPage)
-				pagingHTML.append("[<a id=currentPaging href='/kgmall/review/bottomListForm.do?pg="+i+"'>"+i+"</a>]");
+				pagingHTML.append("[<a id=currentPaging href='/kgmall/review/reviewForm.do?pg="+i+"'>"+i+"</a>]");
 			else
-				pagingHTML.append("[<a id=paging href='/kgmall/review/bottomListForm.do?pg="+i+"'>"+i+"</a>]");
+				pagingHTML.append("[<a id=paging href='/kgmall/review/reviewForm.do?pg="+i+"'>"+i+"</a>]");
 		}
 		
 		if(totalP > endPage)
-			pagingHTML.append("[<a id=paging href='/kgmall/review/bottomListForm.do?pg="+(endPage+1)+"'>다음</a>]");
+			pagingHTML.append("[<a id=paging href='/kgmall/review/reviewForm.do?pg="+(endPage+1)+"'>다음</a>]");
 	}
 
 	public void makeSelectPagingHTML() {
@@ -46,17 +46,17 @@ public class ReviewPaging {
 		if(endPage > totalP) endPage = totalP;
 		
 		if(startPage > pageBlock)
-			pagingHTML.append("[<span id=paging onclick=bottomSelect("+(startPage-1)+")>이전</span>]");
+			pagingHTML.append("[<span id=paging onclick=reviewSelect("+(startPage-1)+")>이전</span>]");
 		
 		for(int i=startPage; i<=endPage; i++) {
 			if(i==currentPage)
-				pagingHTML.append("[<span id=currentPaging onclick=bottomSelect("+i+")>"+i+"</span>]");
+				pagingHTML.append("[<span id=currentPaging onclick=reviewSelect("+i+")>"+i+"</span>]");
 			else
-				pagingHTML.append("[<span id=paging onclick=bottomSelect("+i+")>"+i+"</span>]");
+				pagingHTML.append("[<span id=paging onclick=reviewSelect("+i+")>"+i+"</span>]");
 		}
 		
 		if(totalP > endPage)
-			pagingHTML.append("[<span id=paging onclick=bottomSelect("+(endPage+1)+")>다음</span>]");
+			pagingHTML.append("[<span id=paging onclick=reviewSelect("+(endPage+1)+")>다음</span>]");
 		
 	}
 

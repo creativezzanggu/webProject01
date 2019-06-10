@@ -81,4 +81,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update review set content=#{editor},subject=#{subject},category=#{board_category},logtime=sysdate where seq=#{seq}
 	</update>
 	
+	<select id="getReviewSelectList" parameterType="java.util.Map" resultType="reviewlist">
+		select * from 
+		(select rownum rn,tt.* from 
+		(select * from review where majorcategory=#{majorcategory} order by logtime desc)tt) 
+ 		where rn between  #{startNum} and #{endNum}
+	</select>
+	
+	<select id="getReviewSelectTotal" parameterType="String" resultType="Integer">
+		select count(*) from review where majorcategory=#{majorcategory}
+	</select>
+	
 </mapper>

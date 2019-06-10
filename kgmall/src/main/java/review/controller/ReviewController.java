@@ -19,12 +19,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import board.bean.QADTO;
-import board.bean.QAreplyDTO;
-import list.bean.ListDTO;
-import list.dao.ListDAO;
 import product.bean.ProductDTO;
 import review.bean.ReviewDTO;
+import review.bean.ReviewPaging;
 import review.bean.ReviewReplyDTO;
 import review.dao.ReviewDAO;
 
@@ -34,7 +31,7 @@ public class ReviewController {
 	@Autowired
 	private ReviewDAO reviewDAO;
 	@Autowired
-	private ListDAO listDAO;
+	private ReviewPaging reviewPaging;
 	
 	@RequestMapping(value="/reviewForm.do", method=RequestMethod.GET)
 	public String reviewForm(@RequestParam(required=false,defaultValue="1") String pg,Model model) {
@@ -124,7 +121,7 @@ public class ReviewController {
 		return check;
 	}
 	
-	@RequestMapping(value="/reviewListForm.do", method=RequestMethod.POST)
+	@RequestMapping(value="/reviewListForm.do", method=RequestMethod.GET)
 	public ModelAndView reviewListForm(@RequestParam(required=false,defaultValue="1") int pg) {
 		int endNum = pg*9;
 		int startNum = endNum-8;
@@ -148,6 +145,45 @@ public class ReviewController {
 					+"</div></div></div>");
 		}
 		int totalA = reviewDAO.getReviewTotal();
+		reviewPaging.setCurrentPage(pg);
+		reviewPaging.setPageBlock(5);
+		reviewPaging.setPageSize(9);
+		reviewPaging.setTotalA(totalA);
+		reviewPaging.makePagingHTML();
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("reviewList",reviewList);
+		mav.addObject("totalA",totalA);
+		mav.addObject("reviewPaging",reviewPaging);
+		mav.addObject("pg",pg);
+		mav.setViewName("jsonView");
+		return mav;
+	}
+	
+	@RequestMapping(value="/reviewSelectListForm.do", method=RequestMethod.POST)
+	public ModelAndView reviewSelectListForm(@RequestParam(required=false,defaultValue="1") int pg,@RequestParam Map<String,String>map) {
+		int endNum = pg*9;
+		int startNum = endNum-8;
+		StringBuffer reviewList = new StringBuffer();
+		
+		map.put("startNum", startNum+"");
+		map.put("endNum", endNum+"");
+		
+		
+		List<ReviewDTO> list = reviewDAO.getReviewSelectList(map);
+		for(ReviewDTO dto : list) {
+			reviewList.append("<li id='"+dto.getSeq()+"' class='item xans-record-'>"
+					+"<div class='box'><div class='thumbnail'>"
+					+"<a href='/kgmall/product/select.do?name="+dto.getImgName()+"'><img src='../image/productImage/"+dto.getImgSrc()+"' class='thumb'></a>"
+					+"</div><div class='description'><div class='fadearea'>"
+					+"<p class='name'>"
+					+"<a href='/kgmall/review/reviewViewForm.do?seq="+dto.getSeq()+"'><span style='font-size:12px;color:#555555;'>"+dto.getSubject()+"</span></a></p>"
+					+"<ul class='xans-element- xans-product'>"
+					+"<li class='xans-record-'><span style='font-size:11px;color:#555555;'>"+dto.getId()+"</span></li>" 
+					+"<li class='xans-record-'><span style='font-size:12px;color:#333333;'>"+dto.getHit()+"</span></li></ul>"
+					+"</div></div></div>");
+		}
+		int totalA = reviewDAO.getReviewSelectTotal(map.get("majorcategory"));
 		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("reviewList",reviewList);

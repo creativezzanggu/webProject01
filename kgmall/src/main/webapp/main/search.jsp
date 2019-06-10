@@ -106,7 +106,6 @@ Search</strong></li>
 </div>
 </div>
 <script type="text/javascript">
-	alert("search_type : "+'${search_paging.search_type}');
 	$('#majorcategory').val('${search_paging.majorcategory}');
 	$('#search_type').val('${search_paging.search_type}');
 	$('#order').val('${search_paging.order}');
