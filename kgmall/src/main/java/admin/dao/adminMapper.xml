@@ -22,4 +22,30 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into productdetail values(#{ncs},#{array},sysdate)
 	</insert>
 	
+	<select id="productList" resultType="admin">
+		select * from product order by logtime desc
+	</select>
+	<select id="detailProductList" resultType="detail">
+		select * from productdetail order by logtime desc,PRODUCTNAME desc
+	</select>
+	
+	<select id="detailProductListCount" parameterType="String" resultType="detail">
+		select * from productdetail where productname like #{name}
+	</select>
+	
+	<update id="countUpdate" parameterType="java.util.Map">
+		update productdetail  set productcount=#{productcount} where productname=#{productname}
+	</update>
+	
+	<delete id="countDelete" parameterType="java.util.Map">
+		delete productdetail where productname=#{productname}
+	</delete>
+	
+	<select id="checkProduct" parameterType="String" resultType="Integer">
+		select count(*) from productdetail where productname like #{name}
+	</select>
+	
+	<delete id="productDelete" parameterType="String">
+		delete from product where name=#{name}
+	</delete>
 </mapper>
