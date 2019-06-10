@@ -180,7 +180,6 @@ $(document).ready(function(){
 				$.each(list, function(index, value){
 					var str = value.product.split("_");
 					name=str[0];
-					alert(str[2]);
 					if(str[2]!=""){
 						$('#emptyCart').addClass('displaynone');	
 					}
