@@ -16,4 +16,6 @@ public interface ProductDAO {
 
 	public void orderCountDown(String name, int count);
 
+	public void likeUp(String name);
+
 }

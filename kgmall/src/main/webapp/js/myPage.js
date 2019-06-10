@@ -15,7 +15,6 @@ $(function(){
 		url : '/kgmall/board/myQAList.do',
 		dataType : 'json',
 		success : function(data){
-			
 			if(data.list!=""){
 				$('#empty3').attr("class","");
 			
