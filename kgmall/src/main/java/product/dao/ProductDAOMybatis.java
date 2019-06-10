@@ -32,13 +32,13 @@ public class ProductDAOMybatis implements ProductDAO {
 		for(String c : list) {
 			String str[] = c.split("_");
 			colorList.add(str[1]);
-		}//색 뽑아오기
+		}//�깋 戮묒븘�삤湲�
 		List<String> resultList = new ArrayList<String>();
 		for (int i = 0; i < colorList.size(); i++) {
 		    if (!resultList.contains(colorList.get(i))) {
 		        resultList.add(colorList.get(i));
 		    }
-		}//중복제거
+		}//以묐났�젣嫄�
 		return resultList;
 	}
 

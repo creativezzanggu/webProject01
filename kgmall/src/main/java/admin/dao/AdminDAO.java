@@ -5,6 +5,7 @@ import java.util.Map;
 
 import admin.bean.AdminDTO;
 import admin.bean.DetailProductDTO;
+import order.bean.OrderDTO;
 
 public interface AdminDAO {
 
@@ -25,6 +26,12 @@ public interface AdminDAO {
 	public void countDelete(Map<String, String> map);
 
 	public void productDelete(String name);
+
+	public List<OrderDTO> orderList();
+
+	public void orderOK(Map<String, String> map);
+
+	public int checkOrder(Map<String, String> map);
 
 
 }

@@ -203,4 +203,10 @@ public class ProductController {
 		return mav;
 	}
 	
+	@RequestMapping(value="/orderOk.do",method=RequestMethod.GET)
+	public String orderOk(Model model) {
+		model.addAttribute("display", "../user/orderOK.jsp");
+		return "/main/index";
+	}
+	
 }

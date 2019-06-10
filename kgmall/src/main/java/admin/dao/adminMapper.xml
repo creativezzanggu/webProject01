@@ -48,4 +48,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="productDelete" parameterType="String">
 		delete from product where name=#{name}
 	</delete>
+	
+	<select id="orderList" resultType="order">
+		select * from ordertable order by orderstate asc, seq asc 
+	</select>
+	
+	<update id="orderOK" parameterType="java.util.Map">
+		update ordertable  set ORDERSTATE=#{state} where seq=#{seq}
+	</update>
+	
+	<select id="checkOrder" parameterType="java.util.Map" resultType="Integer">
+		select count(*) from ordertable where seq=#{seq} and ORDERSTATE=#{state}
+	</select>
 </mapper>

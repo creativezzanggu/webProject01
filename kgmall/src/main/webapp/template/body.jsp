@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 
 <!-- 메인 슬라이드 배너 -->
@@ -129,7 +130,7 @@ $.ajax({
 					  + "</div><div class='description'><div class='fadearea'><p class='name'><a href='#none' class=''><span style='font-size:12px;color:#555555;'>"+items.name+"</span></a>"
 					  + "</p><ul class='xans-element- xans-product xans-product-listitem-2 xans-product-listitem xans-product-2'>"
 					  + "<li item-title='모델' class=' xans-record-'><span style='font-size:11px;color:#555555;'>"+items.company+"</span></li><li item-title='판매가' class=' xans-record-'>"
-					  + "<span style='font-size:12px;color:#333333;'>179,000 won</span><span id='span_product_tax_type_text' style=''> </span></li></ul>"
+					  + "<span style='font-size:12px;color:#333333;'>"+items.price+"won</span><span id='span_product_tax_type_text' style=''> </span></li></ul>"
 					  + "<div class='icon'><img src='http://ecudemo31431.cafe24.com/web/upload/icon_201601081108247400.gif' class='icon_img' alt='추천'><img src='http://ecudemo31431.cafe24.com/web/upload/icon_201601081108285800.gif' class='icon_img' alt='New'>"
 					  + "</div></div><a href='#' class='fadebox-link'></a></div>"
 					  + "<div class='status'><div class='button' id='cart"+items.code+"'><span class='basket'><img src='http://ecudemo31431.cafe24.com/web/upload/icon_201606070448018000.png' alt='장바구니 담기' class='ec-admin-icon cart'></span>"
@@ -295,10 +296,7 @@ $.ajax({
 		});//each
 		
 		$('#new_product_list').html().trigger("create");
-		//$(document).on('pageshow', '#new_product_list',function(event){
-		//});
 	}//sucess
 });//ajax의 끝
-
 
 </script>

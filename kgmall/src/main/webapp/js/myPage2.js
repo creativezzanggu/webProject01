@@ -51,4 +51,46 @@ $(function(){
 			
 		}
 	});
+	
+	$.ajax({
+		type : 'GET',
+		url : '/kgmall/order/userGetOrderList.do',
+		dataType : 'json',
+		success : function(data){
+			if(data.list!=""){
+				$('#empty1').attr("class","");
+			
+				$.each(data.list, function(index, items){
+					$('<tr/>').append($('<td/>',{
+						align : 'center',
+						text : items.seq
+					})).append($('<td/>',{
+						align : 'center'
+						}).append($('<img/>',{
+							src : "../image/productImage/"+items.image,
+							width : '40px',
+							height : '40px'
+					}))).append($('<td/>',{
+						align : 'center',
+						text : items.productName
+					})).append($('<td/>',{
+						align : 'center',
+						text : items.quantity
+					})).append($('<td/>',{
+						align : 'center',
+						text : items.total
+					})).append($('<td/>',{
+						align : 'center',
+						text : items.orderState
+					})).appendTo($('#orderState'));
+					
+				});
+				
+				
+			}
+		}
+		
+	});
+	
+	
 });
