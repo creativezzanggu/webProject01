@@ -184,11 +184,17 @@ public class ReviewController {
 					+"</div></div></div>");
 		}
 		int totalA = reviewDAO.getReviewSelectTotal(map.get("majorcategory"));
+		reviewPaging.setCurrentPage(pg);
+		reviewPaging.setPageBlock(5);
+		reviewPaging.setPageSize(9);
+		reviewPaging.setTotalA(totalA);
+		reviewPaging.setCategory(map.get("majorcategory"));
+		reviewPaging.makeSelectPagingHTML();
 		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("reviewList",reviewList);
 		mav.addObject("totalA",totalA);
-		mav.addObject("listPaging","");
+		mav.addObject("reviewPaging",reviewPaging);
 		mav.addObject("pg",pg);
 		mav.setViewName("jsonView");
 		return mav;

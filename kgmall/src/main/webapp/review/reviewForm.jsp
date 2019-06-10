@@ -82,26 +82,23 @@ $(document).ready(function(){
 	});//ajax
 });
 function ReviewSearch(name){
-	$('#'+name).click(function(){
-		$.ajax({
-			type : 'POST',
-			url : '/kgmall/review/reviewSelectListForm.do',
-			data : {'pg' : $('#pg').val(),
-					'majorcategory':name},
-			dataType : 'json',
-			success : function(data){
-				$('#category').val(name);
-				$('#total').text(data.totalA);
-				$('.prdList').html(data.reviewList);
-				$('#paging').html(data.listPaging.pagingHTML);
-			}//success
-		});//ajax
-	});
+	$.ajax({
+		type : 'POST',
+		url : '/kgmall/review/reviewSelectListForm.do',
+		data : {'pg' : $('#pg').val(),
+				'majorcategory':name},
+		dataType : 'json',
+		success : function(data){
+			$('#total').text(data.totalA);
+			$('.prdList').html(data.reviewList);
+			$('#paging').html(data.reviewPaging.pagingHTML);
+		}//success
+	});//ajax
 }
 
-function reviewSelect(pg){
+function reviewSelect(pg,name){
 	$('#pg').val(pg);
-	$(ReviewSearch).trigger('onclick','trigger');
+	ReviewSearch(name);
 }
 
 </script>
