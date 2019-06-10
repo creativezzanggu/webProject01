@@ -76,8 +76,8 @@ public class AdminController {
 						+"<td><img width='50' height='50' src='../image/productImage/"+list.get(i).getProductImage1()+"'></td>"
 						+"<td><img width='50' height='50' src='../image/productImage/"+list.get(i).getProductImage2()+"'></td>"
 						+"<td><img width='50' height='50' src='../image/productImage/"+list.get(i).getProductImage3()+"'></td>"
-						+"<td><input type='button' id='modify' onclick=countModify('"+list3.get(j).getProductname()+"') value='¼öÁ¤' size='5'>&nbsp;"
-						+"<input type='button' id='delete' onclick=countDelete('"+list3.get(j).getProductname()+"') value='»èÁ¦' size='5'></td></tr>");
+						+"<td><input type='button' id='modify' onclick=countModify('"+list3.get(j).getProductname()+"') value='ìˆ˜ì •' size='5'>&nbsp;"
+						+"<input type='button' id='delete' onclick=countDelete('"+list3.get(j).getProductname()+"') value='ì‚­ì œ' size='5'></td></tr>");
 				detailList.setLength(0);
 			}
 		}
@@ -122,11 +122,10 @@ public class AdminController {
 					+"<td>"+dto.getSell()+"</td>"
 					+"<td>"+dto.getQuantity()+"</td>"
 					+"<td>"+dto.getTotal()+"</td>"
-					+"<td>"+dto.getOrderState()+"</td>"
+					+"<td id='order"+dto.getSeq()+"'>"+dto.getOrderState()+"</td>"
 					+"<td>"+dto.getOrderId()+"</td>"
 					+"<td>"+sdf.format(dto.getLogtime())+"</td>"
-					+"<td><input type='button'  onclick=orderOK('"+dto.getSeq()+"') value='ÁÖ¹®È®ÀÎ' size='5'>&nbsp;"
-					+"<input type='button' onclick=orderCansle('"+dto.getSeq()+"') value='ÁÖ¹®Ãë¼Ò' size='5'></td></tr>");
+					+"<td><input type='button'  onclick=orderOK('"+dto.getSeq()+"') value='ì£¼ë¬¸í™•ì¸' size='5'>&nbsp;</tr>");
 		}
 		
 		ModelAndView mav = new ModelAndView();
@@ -135,13 +134,21 @@ public class AdminController {
 		return mav;
 	}
 	@RequestMapping(value="/orderOK.do", method=RequestMethod.POST)
+	public ModelAndView orderOK(@RequestParam Map<String,String> map) {
 
-	public void orderOK(@RequestParam int seq) {
-		System.out.println(seq);
-		int check = adminDAO.checkOrder(seq);
+		int check = adminDAO.checkOrder(map);
+		String check2 = null;
 		if(check==0) {
-			adminDAO.orderOK(seq);
+			adminDAO.orderOK(map);
+			check2="ok";
+		}else {
+			check2=null;
 		}
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("check2",check2);
+		mav.setViewName("jsonView");
+		return mav;
 	}
 	
 }

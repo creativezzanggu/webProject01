@@ -29,9 +29,9 @@ public interface AdminDAO {
 
 	public List<OrderDTO> orderList();
 
-	public void orderOK(int seq);
+	public void orderOK(Map<String, String> map);
 
-	public int checkOrder(int seq);
+	public int checkOrder(Map<String, String> map);
 
 
 }

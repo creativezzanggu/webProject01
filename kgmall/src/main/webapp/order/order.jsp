@@ -261,9 +261,7 @@ $('#orderBtn').click(function(){
 		});
 	}
 	
-	
-	//order 버튼 눌렀을 때 이동 경로 적어주세요
-	//	location.href='/kgmall/?????????/??????.do'
+	location.href='/kgmall/product/orderOk.do';
 });
 $('#cancelBtn').click(function(){
 	$.ajax({
@@ -277,7 +275,6 @@ window.onbeforeunload = function() {
 		type : 'POST',
 		url : '/kgmall/product/deleteCookie.do'
 	});
-    return "나가실래요?";
 }
 
 </script>

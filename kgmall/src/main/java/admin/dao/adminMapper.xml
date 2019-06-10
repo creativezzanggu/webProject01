@@ -50,14 +50,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</delete>
 	
 	<select id="orderList" resultType="order">
-		select * from ordertable order by logtime asc, seq asc, orderstate desc
+		select * from ordertable order by orderstate asc, seq asc 
 	</select>
 	
-	<update id="orderOK" parameterType="Integer">
-		update ordertable  set ORDERSTATE="상품 주문 완료" where seq=#{seq}
+	<update id="orderOK" parameterType="java.util.Map">
+		update ordertable  set ORDERSTATE='상품 준비 완료' where seq=#{seq}
 	</update>
 	
-	<select id="checkOrder" parameterType="Integer" resultType="Integer">
-		select count(*) from ordertable where seq=#{seq} and ORDERSTATE=#{state}
+	<select id="checkOrder" parameterType="java.util.Map" resultType="Integer">
+		select count(*) from ordertable where seq=#{seq} and ORDERSTATE='상품 준비 완료'
 	</select>
 </mapper>

@@ -32,13 +32,13 @@ public class ProductDAOMybatis implements ProductDAO {
 		for(String c : list) {
 			String str[] = c.split("_");
 			colorList.add(str[1]);
-		}//�깋 戮묒븘�삤湲�
+		}//색 가져오기
 		List<String> resultList = new ArrayList<String>();
 		for (int i = 0; i < colorList.size(); i++) {
 		    if (!resultList.contains(colorList.get(i))) {
 		        resultList.add(colorList.get(i));
 		    }
-		}//以묐났�젣嫄�
+		}//중복된 색 제거
 		return resultList;
 	}
 
@@ -58,10 +58,15 @@ public class ProductDAOMybatis implements ProductDAO {
 	@Override
 	public void orderCountDown(String name, int count) {
 		Map <String,String> map = new HashMap<String, String>();
-		System.out.println(name);
 		map.put("name",name.toUpperCase());
 		map.put("count", Integer.toString(count));
 		sqlSession.update("productSQL.orderCountDown",map);
+	}
+
+	@Override
+	public void likeUp(String name) {
+		String str[]=name.split("_");
+		sqlSession.update("productSQL.likeUp",str[0]);
 	}
 }
 

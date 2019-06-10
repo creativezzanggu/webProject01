@@ -84,22 +84,22 @@ $(document).ready(function(){
 			for(var i=0;i<5;i++){
 				if(color[i].toUpperCase()=="BLACK"){
 					$('#headColor').append("<span style='background-color:#000000' class='chips xans-record-'></span>");
-					$('#selectColor').append("<li class='licolor' id='blackli' option_value='블랙' link_image='' title='BLACK' ><a id='BLACK' href='javascript:colorFcn(BLACK.id)' style='background-color:#000000'><span>블랙</span></a></li>");
+					$('#selectColor').append("<li class='licolor' id='BLACKli' option_value='블랙' link_image='' title='BLACK' ><a id='BLACK' href='javascript:colorFcn(BLACK.id)' style='background-color:#000000'><span>블랙</span></a></li>");
 				}else if(color[i].toUpperCase()=="WHITE"){
 					$('#headColor').append("<span style='background-color:#ffffff' class='chips xans-record-'></span>");
-					$('#selectColor').append("<li class='licolor' id='whiteli' option_value='화이트' link_image='' title='WHITE'><a id='WHITE' href='javascript:colorFcn(WHITE.id)' style='background-color:#ffffff'><span>화이트</span></a></li>");
+					$('#selectColor').append("<li class='licolor' id='WHITEli' option_value='화이트' link_image='' title='WHITE'><a id='WHITE' href='javascript:colorFcn(WHITE.id)' style='background-color:#ffffff'><span>화이트</span></a></li>");
 				}else if(color[i].toUpperCase()=="YELLOW"){
 					$('#headColor').append("<span style='background-color:#ffd700' class='chips xans-record-'></span>");
-					$('#selectColor').append("<li class='licolor' id='yellowli' option_value='화이트' link_image='' title='YELLOW' ><a id='YELLOW' href='javascript:colorFcn(YELLOW.id)' style='background-color:#ffd700'><span>노랑</span></a></li>");
+					$('#selectColor').append("<li class='licolor' id='YELLOWli' option_value='화이트' link_image='' title='YELLOW' ><a id='YELLOW' href='javascript:colorFcn(YELLOW.id)' style='background-color:#ffd700'><span>노랑</span></a></li>");
 				}else if(color[i].toUpperCase()=="GREEN"){
 					$('#headColor').append("<span style='background-color:#00ff00' class='chips xans-record-'></span>");					
-					$('#selectColor').append("<li class='licolor' id='greenli' option_value='화이트' link_image='' title='GREEN'><a id='GREEN' href='javascript:colorFcn(GREEN.id)' style='background-color:#00ff00'><span>초록</span></a></li>");
+					$('#selectColor').append("<li class='licolor' id='GREENli' option_value='화이트' link_image='' title='GREEN'><a id='GREEN' href='javascript:colorFcn(GREEN.id)' style='background-color:#00ff00'><span>초록</span></a></li>");
 				}else if(color[i].toUpperCase()=="BLUE"){
 					$('#headColor').append("<span style='background-color:#0000ff' class='chips xans-record-'></span>");					
-					$('#selectColor').append("<li class='licolor' id='blueli' option_value='화이트' link_image='' title='BLUE'><a id='BLUE' href='javascript:colorFcn(BLUE.id)' style='background-color:#0000ff'><span>파랑</span></a></li>");
+					$('#selectColor').append("<li class='licolor' id='BLUEli' option_value='화이트' link_image='' title='BLUE'><a id='BLUE' href='javascript:colorFcn(BLUE.id)' style='background-color:#0000ff'><span>파랑</span></a></li>");
 				}else if(color[i].toUpperCase()=="PINK"){
 					$('#headColor').append("<span style='background-color:#FF007F' class='chips xans-record-'></span>");				
-					$('#selectColor').append("<li class='licolor' id='pinkli' option_value='화이트' link_image='' title='PINK'><a id='PINK' href='javascript:colorFcn(PINK.id)' style='background-color:#FF007F'><span>분홍</span></a></li>");
+					$('#selectColor').append("<li class='licolor' id='PINKli' option_value='화이트' link_image='' title='PINK'><a id='PINK' href='javascript:colorFcn(PINK.id)' style='background-color:#FF007F'><span>분홍</span></a></li>");
 				}
 			}
 		}
@@ -484,7 +484,7 @@ Home</a></li>
 						</div>
 					</div>
 						<!-- 상품요약설명 -->
-						<div class="df-summary-desc"></div>
+						
 
 
 						<!-- 공급사정보 -->
@@ -511,16 +511,8 @@ Home</a></li>
 										<td><span style="font-size:12px;color:#555555;" id="productCompany"></span><span class="df-custom-add"></span>
 </td>
 									</tr>
-<tr class="mileage_value_css  xans-record-">
-<th scope="row"><span style="font-size:11px;color:#555555;">적립금</span></th>
-										<td><span style="font-size:11px;color:#555555;"><span id="span_mileage_text"></span></span><span class="df-custom-add"></span>
-</td>
-									</tr>
-<tr class="product_custom_css  xans-record-">
-<th scope="row"><span style="font-size:11px;color:#555555;">소비자가</span></th>
-										<td><span style="font-size:11px;color:#555555;"><span id="span_product_price_custom"></span></span><span class="df-custom-add"></span>
-</td>
-									</tr>
+
+
 <tr class="product_price_css  xans-record-">
 <th scope="row"><span style="font-size:12px;color:#333333;font-weight:bold;">판매가</span></th>
 										<td><span style="font-size:12px;color:#333333;font-weight:bold;"><strong id="span_product_price_text1"></strong><input id="product_price" name="product_price" value="" type="hidden"></span><span class="df-custom-add"></span>
@@ -531,28 +523,20 @@ Home</a></li>
 										<td><span style="font-size:12px;color:#555555;">국내배송</span><span class="df-custom-add"></span>
 </td>
 									</tr>
-<tr class="delivery_css  xans-record-">
-<th scope="row"><span style="font-size:12px;color:#555555;">배송방법</span></th>
-										<td><span style="font-size:12px;color:#555555;">고객직접선택</span><span class="df-custom-add"></span>
-</td>
-									</tr>
+
 <tr class="delivery_price_css  xans-record-">
 <th scope="row"><span style="font-size:12px;color:#555555;">배송비</span></th>
-										<td><span style="font-size:12px;color:#555555;"><span class="delv_price_B"><select name="delivery_cost_prepaid" id="delivery_cost_prepaid">
-<option value="P" selected="selected">수령시 결제(착불)</option>
-<option value="C">주문시 결제(선결제)</option>
-</select>고객직접선택</span></span><span class="df-custom-add"></span>
+										<td><span style="font-size:12px;color:#555555;"><span class="delv_price_B">무료</span></span><span class="df-custom-add"></span>
 </td>
-									</tr>
+</tr>
 
 </tbody>
 </table>
 </div>
 						<!-- //상품 기본정보 끝 -->
 
-
 						<!-- 상품간략설명 -->
-						<div class="df-simple-desc"></div>
+						
 
 
 						<p class="displaynone"><img src="//img.echosting.cafe24.com/skin/base_ko_KR/product/txt_naver.gif" alt="개인결제창을 통한 결제 시 네이버 마일리지 적립 및 사용이 가능합니다."></p>

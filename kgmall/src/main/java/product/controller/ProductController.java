@@ -53,7 +53,6 @@ public class ProductController {
 	public ModelAndView getColor(@RequestParam String name) {
 		ModelAndView mav = new ModelAndView();
 		name = name.toUpperCase();
-		System.out.println(name);
 		List<String> list = productDAO.getColor(name);
 		mav.addObject("list", list);
 		mav.setViewName("jsonView");
@@ -133,7 +132,6 @@ public class ProductController {
 				str = c.getName().split("_");
 				try {
 					if(str[2]!=""){
-						System.out.println("sdf"+str[2]);
 						cartDTO.setProduct(c.getName()); // 쿠키 이름 가져오기
 						cartDTO.setProductCount(Integer.parseInt(c.getValue())); // 쿠키 값 가져오기
 						cartDTO.setSellId(id);
@@ -162,9 +160,14 @@ public class ProductController {
 				OrderDTO orderDTO = new OrderDTO();
 				orderDTO.setSeq(orderDAO.getSEQ());
 				orderDTO.setProductName(str[0]+"_"+str[1]+"_"+str[2]); // 쿠키 이름 가져오기
-				if(c.getValue().length()<10) {
-					orderDTO.setQuantity(Integer.parseInt(c.getValue())); // 쿠키 값 가져오기
+				try {
+					if(str[2]!=""){
+						orderDTO.setQuantity(Integer.parseInt(c.getValue())); // 쿠키 값 가져오기
+					}
+				}catch(ArrayIndexOutOfBoundsException e) {
+					//e.printStackTrace();
 				}
+				
 				ProductDTO productDTO = productDAO.getDTO(str[0]);
 
 				orderDTO.setOrderId(id);
@@ -174,6 +177,8 @@ public class ProductController {
 				orderDTO.setSell(productDTO.getPrice());
 				productDAO.orderCountDown(str[0]+"_"+str[1]+"_"+str[2], Integer.parseInt(c.getValue()));
 				orderDAO.insertOrderList(orderDTO);
+				productDAO.likeUp(str[0]+"_"+str[1]+"_"+str[2]);
+
 			}
 		}
 	}
@@ -181,7 +186,6 @@ public class ProductController {
 	public ModelAndView getCount(@RequestParam String name) {
 		ModelAndView mav = new ModelAndView();
 		name = name.toUpperCase();
-		System.out.println(name);
 		int count = productDAO.getCount(name);
 		mav.addObject("count", count);
 		mav.setViewName("jsonView");
@@ -195,6 +199,12 @@ public class ProductController {
 		mav.addObject("list", list);
 		mav.setViewName("jsonView");
 		return mav;
+	}
+	
+	@RequestMapping(value="/orderOk.do",method=RequestMethod.GET)
+	public String orderOk(Model model) {
+		model.addAttribute("display", "../user/orderOK.jsp");
+		return "/main/index";
 	}
 	
 }

@@ -32,7 +32,7 @@
 										<th>주문상태</th>
 										<th>주문아이디</th>
 										<th>주문날짜</th>
-										<th>수정버튼</th>
+										<th>주문확인</th>
 									</tr>
 								</thead>
 								<tbody id="orderlist">
@@ -58,13 +58,16 @@
 		});
 	});
 	function orderOK(seq){
-		alert(seq);
 		$.ajax({
 			type : 'POST',
 			url : '/kgmall/admin/orderOK.do',
 			data : {'seq': seq},
 			dataType : 'json',
 			success : function(data){
+				if(data.check2=='ok'){
+					obj = document.getElementById('order'+seq);
+					obj.innerHTML = "상품 주문 완료";
+				}
 			}
 		});
 	}
