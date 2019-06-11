@@ -33,5 +33,5 @@ public interface AdminDAO {
 
 	public int checkOrder(Map<String, String> map);
 
-
+	public AdminDTO nameCheck(String name);
 }
