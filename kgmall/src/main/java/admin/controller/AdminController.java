@@ -76,8 +76,8 @@ public class AdminController {
 						+"<td><img width='50' height='50' src='../image/productImage/"+list.get(i).getProductImage1()+"'></td>"
 						+"<td><img width='50' height='50' src='../image/productImage/"+list.get(i).getProductImage2()+"'></td>"
 						+"<td><img width='50' height='50' src='../image/productImage/"+list.get(i).getProductImage3()+"'></td>"
-						+"<td><input type='button' id='modify' onclick=countModify('"+list3.get(j).getProductname()+"') value='�닔�젙' size='5'>&nbsp;"
-						+"<input type='button' id='delete' onclick=countDelete('"+list3.get(j).getProductname()+"') value='�궘�젣' size='5'></td></tr>");
+						+"<td><input type='button' id='modify' onclick=countModify('"+list3.get(j).getProductname()+"') value='수정' size='5'>&nbsp;"
+						+"<input type='button' id='delete' onclick=countDelete('"+list3.get(j).getProductname()+"') value='삭제' size='5'></td></tr>");
 				detailList.setLength(0);
 			}
 		}
@@ -125,7 +125,7 @@ public class AdminController {
 					+"<td id='order"+dto.getSeq()+"'>"+dto.getOrderState()+"</td>"
 					+"<td>"+dto.getOrderId()+"</td>"
 					+"<td>"+sdf.format(dto.getLogtime())+"</td>"
-					+"<td><input type='button'  onclick=orderOK('"+dto.getSeq()+"') value='二쇰Ц�솗�씤' size='5'>&nbsp;</tr>");
+					+"<td><input type='button'  onclick=orderOK('"+dto.getSeq()+"') value='주문 확인' size='5'>&nbsp;</tr>");
 		}
 		
 		ModelAndView mav = new ModelAndView();

@@ -173,29 +173,33 @@ public class ProductController {
 			for(int i=0; i<getCookie.length-3; i++){
 				Cookie c = getCookie[i];
 
-				String[] str = c.getName().split("_");
-				OrderDTO orderDTO = new OrderDTO();
-				orderDTO.setSeq(orderDAO.getSEQ());
-				orderDTO.setProductName(str[0]+"_"+str[1]+"_"+str[2]); // 쿠키 이름 가져오기
+				String[] str;
 				try {
-					if(str[2]!=""){
-						orderDTO.setQuantity(Integer.parseInt(c.getValue())); // 쿠키 값 가져오기
+					str = URLDecoder.decode(c.getName(),"UTF-8").split("_");
+					OrderDTO orderDTO = new OrderDTO();
+					orderDTO.setSeq(orderDAO.getSEQ());
+					orderDTO.setProductName(str[0]+"_"+str[1]+"_"+str[2]); // 쿠키 이름 가져오기
+					try {
+						if(str[2]!=""){
+							orderDTO.setQuantity(Integer.parseInt(c.getValue())); // 쿠키 값 가져오기
+						}
+					}catch(ArrayIndexOutOfBoundsException e) {
+						//e.printStackTrace();
 					}
-				}catch(ArrayIndexOutOfBoundsException e) {
-					//e.printStackTrace();
+					
+					ProductDTO productDTO = productDAO.getDTO(str[0]);
+
+					orderDTO.setOrderId(id);
+					orderDTO.setImage(productDTO.getImageLink());
+					orderDTO.setOrderState("상품 준비 중");
+					orderDTO.setTotal(Integer.parseInt(c.getValue())*productDTO.getPrice());
+					orderDTO.setSell(productDTO.getPrice());
+					productDAO.orderCountDown(str[0]+"_"+str[1]+"_"+str[2], Integer.parseInt(c.getValue()));
+					orderDAO.insertOrderList(orderDTO);
+					productDAO.likeUp(str[0]+"_"+str[1]+"_"+str[2]);
+				} catch (UnsupportedEncodingException e1) {
+					e1.printStackTrace();
 				}
-				
-				ProductDTO productDTO = productDAO.getDTO(str[0]);
-
-				orderDTO.setOrderId(id);
-				orderDTO.setImage(productDTO.getImageLink());
-				orderDTO.setOrderState("상품 준비 중");
-				orderDTO.setTotal(Integer.parseInt(c.getValue())*productDTO.getPrice());
-				orderDTO.setSell(productDTO.getPrice());
-				productDAO.orderCountDown(str[0]+"_"+str[1]+"_"+str[2], Integer.parseInt(c.getValue()));
-				orderDAO.insertOrderList(orderDTO);
-				productDAO.likeUp(str[0]+"_"+str[1]+"_"+str[2]);
-
 			}
 		}
 	}
