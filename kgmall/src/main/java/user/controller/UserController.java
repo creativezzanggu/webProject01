@@ -235,4 +235,16 @@ public class UserController {
 		return "/main/index";
 	}
 	
+	@RequestMapping(value="/usergradeSilver.do",method=RequestMethod.POST)
+	public void usergradeSilver(String id, HttpSession session) {
+		userDAO.usergradeSilver(id);
+		session.setAttribute("usergrade", "silver");
+		
+	}
+	@RequestMapping(value="/usergradeGold.do",method=RequestMethod.POST)
+	public void usergradeGold(String id, HttpSession session) {
+		userDAO.usergradeGold(id);
+		session.setAttribute("usergrade", "gold");
+	}
+	
 }

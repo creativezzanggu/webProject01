@@ -11,6 +11,8 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	</head>
 	<body>
+	<div id="container">
+	<div id="contents">
 		<div class="page-wrapper">
 			<div class="container-fluid">
 				<div class="col-lg-12"><!--게시판 넓이 -->
@@ -45,6 +47,8 @@
 					</div>
 				</div>
 			</div>
+		</div>
+		</div>
 		</div>
 	</body>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-3.4.0.min.js"></script>

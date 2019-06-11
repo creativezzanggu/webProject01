@@ -116,6 +116,11 @@
 <ul class="prdList grid3" id="best">
 <script>
 
+function addComma(num) {
+	  var regexp = /\B(?=(\d{3})+(?!\d))/g;
+	  return num.toString().replace(regexp, ',');
+}
+
 $.ajax({
 	type : 'GET',
 	url : '/kgmall/product/best.do',
@@ -129,8 +134,8 @@ $.ajax({
 					  + "</div><div class='description'><div class='fadearea'><p class='name'><a href='#none' class=''><span style='font-size:12px;color:#555555;'>"+items.name+"</span></a>"
 					  + "</p><ul class='xans-element- xans-product xans-product-listitem-2 xans-product-listitem xans-product-2'>"
 					  + "<li item-title='모델' class=' xans-record-'><span style='font-size:11px;color:#555555;'>"+items.company+"</span></li><li item-title='판매가' class=' xans-record-'>"
-					  + "<span style='font-size:12px;color:#333333;'>"+items.price+" won</span><span id='span_product_tax_type_text' style=''> </span></li></ul>"
-					  + "<div class='icon'><img src='http://ecudemo31431.cafe24.com/web/upload/icon_201601081108247400.gif' class='icon_img' alt='추천'>"
+					  + "<span style='font-size:12px;color:#333333;'>"+addComma(items.price)+"won</span><span id='span_product_tax_type_text' style=''> </span></li></ul>"
+					  + "<div class='icon'><img src='http://ecudemo31431.cafe24.com/web/upload/icon_201601081108247400.gif' class='icon_img' alt='추천'><img src='http://ecudemo31431.cafe24.com/web/upload/icon_201601081108285800.gif' class='icon_img' alt='New'>"
 					  + "</div></div><a href='#' class='fadebox-link'></a></div>"
 					  + "<div class='status'><div class='button' id='cart"+items.code+"'><span class='basket'><img src='http://ecudemo31431.cafe24.com/web/upload/icon_201606070448018000.png' alt='장바구니 담기' class='ec-admin-icon cart'></span>"
 					  + "</div></div></div></li>");
@@ -262,7 +267,7 @@ $.ajax({
 			+"<div class='likeButton likePrd likePrd_97 ' style='opacity: 0; bottom: -10px;'><button type='button'><img src='http://ecudemo31431.cafe24.com/web/upload/icon_201606070448230500.png' class='likePrdIcon' product_no='97' category_no='1' icon_status='off' alt='좋아요 등록 전'>"
 			+"<strong class=''><span class='likePrdCount likePrdCount_97'>"+items.thumbsup+"</span></strong></button></div></div><div class='description'><div class='fadearea'><div class=''><div class='xans-element- xans-product xans-product-colorchip-2 xans-product-colorchip xans-product-2 colorList color' id='new_item_color_"+cnt+"'>"
 			+"</div></div><p class='name'><a href='../product/select.do?name="+items.name+"'><span style='font-size:12px;color:#555555;'>"+items.name+"</span></a></p><ul class='xans-element- xans-product xans-product-listitem-2 xans-product-listitem xans-product-2'>"
-			+"<li item-title='제조사' class=' xans-record-'><span style='font-size:11px;color:#555555;'>"+items.company+"</span></li><li item-title='판매가' class=' xans-record-'><span style='font-size:12px;color:#333333;'>"+items.price+" won</span></li></ul></div><a href='../product/select.do?name="+items.name+"' class='fadebox-link'></a></div></div></li>");
+			+"<li item-title='제조사' class=' xans-record-'><span style='font-size:11px;color:#555555;'>"+items.company+"</span></li><li item-title='판매가' class=' xans-record-'><span style='font-size:12px;color:#333333;'>"+addComma(items.price)+" won</span></li></ul></div><a href='../product/select.do?name="+items.name+"' class='fadebox-link'></a></div></div></li>");
 			$.ajax({
 				type : 'POST',
 				url : '/kgmall/product/getColor.do',
