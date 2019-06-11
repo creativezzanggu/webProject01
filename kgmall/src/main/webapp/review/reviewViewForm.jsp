@@ -142,7 +142,7 @@ $(document).ready(function(){
 				url : '/kgmall/review/reviewReplyInsert.do',
 				data : {'seq' : $('#seq').val(),
 						'id' : $('#id').val(),
-						'content' : $('#content1').val()},
+						'content' : $('#comment').val()},
 				dataType : 'text',
 				success : function(data){
 					if(data=='insert')location.reload(true); 

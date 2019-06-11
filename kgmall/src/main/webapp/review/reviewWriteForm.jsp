@@ -121,7 +121,7 @@
 										<th scope="row" class="thead txtLess">SUBJECT</th>
 										<td>
 											<select id="product_category" name="product_category">
-												<option value="TOP">OUTER</option>
+												<option value="OUTER">OUTER</option>
 												<option value="TOP">TOP</option>
 												<option value="BOTTOM">BOTTOM</option>
 												<option value="SHOES&BAG">SHOES&BAG</option>
