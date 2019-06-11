@@ -89,7 +89,7 @@ public class ListController {
 			}
 			pruductList.append("<li id='"+dto.getCode()+"' class='item xans-record-'>"
 					+"<div class='box'><div class='thumbnail'>"
-					+"<a href='/kgmall/product/select.do?name="+dto.getName()+"'><img src='../image/productImage/"+dto.getImageLink()+"' class='thumb'></a>"
+					+"<a href='/kgmall/product/select.do?name="+dto.getName()+"'><img width='350' height='350' src='../image/productImage/"+dto.getImageLink()+"' class='thumb'></a>"
 					+"</div><div class='description'><div class='fadearea'>"
 					+"<div class='xans-element- xans-product colorList color'>"+colorForm+"</div>"
 					+"<p class='name'>"
@@ -149,7 +149,7 @@ public class ListController {
 			}
 			pruductList.append("<li id='"+dto.getCode()+"' class='item xans-record-'>"
 					+"<div class='box'><div class='thumbnail'>"
-					+"<a href='/kgmall/product/select.do?name="+dto.getName()+"'><img src='../image/productImage/"+dto.getImageLink()+"' class='thumb'></a>"
+					+"<a href='/kgmall/product/select.do?name="+dto.getName()+"'><img width='350' height='350' src='../image/productImage/"+dto.getImageLink()+"' class='thumb'></a>"
 					+"</div><div class='description'><div class='fadearea'>"
 					+"<div class='xans-element- xans-product colorList color'>"+colorForm+"</div>"
 					+"<p class='name'>"
@@ -211,7 +211,7 @@ public class ListController {
 			}
 			pruductList.append("<li id='"+dto.getCode()+"' class='item xans-record-'>"
 					+"<div class='box'><div class='thumbnail'>"
-					+"<a href='/kgmall/product/select.do?name="+dto.getName()+"'><img src='../image/productImage/"+dto.getImageLink()+"' class='thumb'></a>"
+					+"<a href='/kgmall/product/select.do?name="+dto.getName()+"'><img width='350' height='350' src='../image/productImage/"+dto.getImageLink()+"' class='thumb'></a>"
 					+"</div><div class='description'><div class='fadearea'>"
 					+"<div class='xans-element- xans-product colorList color'>"+colorForm+"</div>"
 					+"<p class='name'>"

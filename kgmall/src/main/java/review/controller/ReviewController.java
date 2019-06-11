@@ -106,8 +106,8 @@ public class ReviewController {
 		Map<String,String> map = new HashMap<String, String>();
 		map.put("productname", productname);
 		map.put("product_category", product_category);
-		
 		ProductDTO checkProduct = reviewDAO.getProductCheck(map);
+		
 		String check = null;
 		if(checkProduct == null) {
 			check ="no";
@@ -212,6 +212,7 @@ public class ReviewController {
 	public String reviewReplyInsert(@RequestParam Map<String,String> map,Model model,HttpSession session) {
 		ReviewReplyDTO dto = reviewDAO.reviewReplyInsertCheck(map);//중복글체크
 		ReviewDTO reviewDTO= reviewDAO.getReview(Integer.parseInt(map.get("seq")));
+		System.out.println(map);
 		if(dto==null)reviewDAO.reviewReplyInsert(map);
 		else if(dto != null) {
 			return "no";
