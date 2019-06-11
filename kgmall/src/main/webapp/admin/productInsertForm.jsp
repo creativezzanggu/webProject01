@@ -21,7 +21,6 @@
 							<option value="OUTER">OUTER</option>
 							<option value="TOP">TOP</option>
 							<option value="BOTTOM">BOTTOM</option>
-							<option value="OUTER">OUTER</option>
 							<option value="SHOES&BAG">SHOES&BAG</option>
 						</select>
 					</div>

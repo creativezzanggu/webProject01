@@ -1,6 +1,7 @@
 package cart.controller;
 
 import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -77,8 +78,13 @@ public class CartController {
 				try {
 					if(str[2]!=""){
 						String name1 = c.getName(); // 쿠키 이름 가져오기
-						String value = c.getValue(); // 쿠키 값 가져오기
-						map.put(name1, value);
+						try {
+							String productname = URLDecoder.decode(name1,"UTF-8");
+							String value = c.getValue(); // 쿠키 값 가져오기
+							map.put(productname, value);
+						} catch (UnsupportedEncodingException e) {
+							e.printStackTrace();
+						}
 					}
 				}catch(ArrayIndexOutOfBoundsException e) {
 					//e.printStackTrace();
@@ -94,11 +100,16 @@ public class CartController {
 	@RequestMapping(value="/cart/selectDeleteCookie.do", method=RequestMethod.POST)
 	public void selectDeleteCookie(@RequestParam String productName, String id, HttpServletResponse response,HttpServletRequest request) {
 		Cookie[] cookies = request.getCookies();
+		
 		if(cookies != null){
 			for(int i=0; i< cookies.length; i++){
-				if(cookies[i].getName().equals(productName)) {
-					cookies[i].setMaxAge(0); // 유효시간을 0으로 설정
-					response.addCookie(cookies[i]); // 응답 헤더에 추가
+				try {
+					if(URLDecoder.decode(cookies[i].getName(),"UTF-8").equals(productName)) {
+						cookies[i].setMaxAge(0); // 유효시간을 0으로 설정
+						response.addCookie(cookies[i]); // 응답 헤더에 추가
+					}
+				} catch (UnsupportedEncodingException e) {
+					e.printStackTrace();
 				}
 			}
 		}
@@ -119,7 +130,11 @@ public class CartController {
 				str = c.getName().split("_");
 				try {
 					if(str[2]!=""){
-						cartDTO.setProduct(c.getName()); // 쿠키 이름 가져오기
+						try {
+							cartDTO.setProduct(URLDecoder.decode(c.getName(),"UTF-8"));
+						} catch (UnsupportedEncodingException e) {
+							e.printStackTrace();
+						} // 쿠키 이름 가져오기
 						cartDTO.setProductCount(Integer.parseInt(c.getValue())); // 쿠키 값 가져오기
 						cartDTO.setSellId(id);
 						list.add(cartDTO);

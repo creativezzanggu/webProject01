@@ -106,6 +106,7 @@
 //지우기
 function deleteTr(value){
 	var totalPrice=0;
+	
 	$('#'+value).remove();
 	$.ajax({
 		type : 'POST',
