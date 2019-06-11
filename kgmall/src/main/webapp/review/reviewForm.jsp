@@ -2,6 +2,18 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <head>
+<style type="text/css">
+#paging{
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+#currentPaging{
+	color: red;
+	text-decoration: underline;
+	cursor: pointer;
+}
+</style>
 <link rel="stylesheet" type="text/css" href="../css/productCss1.css">
 <link rel="stylesheet" type="text/css" href="../css/productCss2.css">
 <title></title>

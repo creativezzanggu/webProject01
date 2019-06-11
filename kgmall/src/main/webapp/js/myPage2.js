@@ -83,14 +83,14 @@ $(function(){
 						align : 'center',
 						text : items.orderState
 					})).appendTo($('#orderState'));
-					
+
 				});
-				
-				
+
 			}
 		}
 		
 	});
+	
 	
 	
 });

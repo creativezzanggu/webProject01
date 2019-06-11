@@ -13,6 +13,7 @@
 <meta name="keywords" content="BEAUTY INSIDE">
 <body>
 <form id="myPage">
+<input type="hidden" id="total" value="">
 <div id="container">
 <div id="contents">
 <div class="location-subpage">
@@ -51,7 +52,7 @@
 <ul>
 <li class="totalorder">
 	<span class="title">&nbsp;:&nbsp;
-	<strong class="data total"><span id="xans_myshop_bankbook_order_price">0 won</span></strong></span>
+	<strong class="data total"><span id="xans_myshop_bankbook_order_price"> </span></strong></span>
 </li>
 </ul>
 </div></div></div>

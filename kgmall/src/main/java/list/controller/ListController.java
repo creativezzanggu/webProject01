@@ -40,8 +40,9 @@ public class ListController {
 	}
 	
 	@RequestMapping(value="/outerListForm.do", method=RequestMethod.GET)
-	public String outerListForm(@RequestParam(required=false,defaultValue="1") String pg,Model model) {
+	public String outerListForm(@RequestParam(required=false,defaultValue="1") String pg,String subcategory,Model model) {
 		
+		model.addAttribute("subcategory", subcategory);
 		model.addAttribute("pg", pg);
 		model.addAttribute("display", "/list/outerListForm.jsp");
 		return "/main/index";
@@ -100,11 +101,11 @@ public class ListController {
 					+"</div></div></div>");
 			colorForm.setLength(0);
 		}
-		String category = "BOTTOM";
-		int totalA = listDAO.getMajorCategoryTotal("majorcategory");
+		int totalA = listDAO.getMajorCategoryTotal(map.get("majorcategory"));
 		listPaging.setCurrentPage(pg);
 		listPaging.setPageBlock(5);
 		listPaging.setPageSize(9);
+		listPaging.setCategory(map.get("majorcategory"));
 		listPaging.setTotalA(totalA);
 		listPaging.makePagingHTML();
 		
@@ -131,8 +132,6 @@ public class ListController {
 		StringBuffer colorForm = new StringBuffer();
 		map.put("startNum", startNum+"");
 		map.put("endNum", endNum+"");
-		
-		System.out.println(map);
 		
 		List<ListDTO> list = listDAO.getProductSelectOptionList(map);
 		for(ListDTO dto : list) {
@@ -172,7 +171,10 @@ public class ListController {
 		listPaging.setPageBlock(5);
 		listPaging.setPageSize(9);
 		listPaging.setTotalA(totalA);
-		listPaging.makePagingHTML();
+		listPaging.setCategory(map.get("sub"));
+		listPaging.setCategory(map.get("subcategory"));
+		listPaging.setOption(map.get("option"));
+		listPaging.makeSelectOptionPagingHTML();
 		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("pruductList",pruductList);
@@ -199,17 +201,17 @@ public class ListController {
 			List<String> colorList = listDAO.getColor(name);
 			String color =null;
 			for(String col : colorList) {
-				if(col.equals("Black"))color="#000000";
-				else if(col.equals("Blue"))color="#0000FF";
-				else if(col.equals("Green"))color="#00FF00";
-				else if(col.equals("Pink"))color="#FFC0CB";
-				else if(col.equals("White"))color="#FFFFFF";
-				else if(col.equals("Yellow"))color="#FFFF00";
+				if(col.equals("BLACK"))color="#000000";
+				else if(col.equals("BLUE"))color="#0000FF";
+				else if(col.equals("GREEN"))color="#00FF00";
+				else if(col.equals("PINK"))color="#FFC0CB";
+				else if(col.equals("WHITE"))color="#FFFFFF";
+				else if(col.equals("YELLOW"))color="#FFFF00";
 				colorForm.append("<span style='background-color:"+color+"' displaygroup='1' class='chips xans-record-'></span>");
 			}
 			pruductList.append("<li id='"+dto.getCode()+"' class='item xans-record-'>"
 					+"<div class='box'><div class='thumbnail'>"
-					+"<a href='/kgmall/product/select.do?name="+dto.getName()+"'><img src='../image/"+dto.getImageLink()+"' class='thumb'></a>"
+					+"<a href='/kgmall/product/select.do?name="+dto.getName()+"'><img src='../image/productImage/"+dto.getImageLink()+"' class='thumb'></a>"
 					+"</div><div class='description'><div class='fadearea'>"
 					+"<div class='xans-element- xans-product colorList color'>"+colorForm+"</div>"
 					+"<p class='name'>"
@@ -227,6 +229,8 @@ public class ListController {
 		listPaging.setPageBlock(5);
 		listPaging.setPageSize(9);
 		listPaging.setTotalA(totalA);
+		listPaging.setCategory(map.get("majorcategory"));
+		listPaging.setCategory2(map.get("subcategory"));
 		listPaging.makeSelectPagingHTML();
 		
 		

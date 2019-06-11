@@ -88,6 +88,20 @@ public class UserDAOMybatis implements UserDAO {
 	}
 
 
+	@Override
+	public void usergradeSilver(String id) {
+		sqlSession.update("userSQL.usergradeSilver", id);
+		
+	}
+
+
+	@Override
+	public void usergradeGold(String id) {
+		sqlSession.update("userSQL.usergradeGold",id);
+		
+	}
+
+
 	
 	
 }

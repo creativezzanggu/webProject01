@@ -1,5 +1,4 @@
 $(function(){
-	
 	if($('#member').text()=='bronze'){
 		$('#member').css("color", "brown");
 	}else if($('#member').text() == 'silver'){
@@ -15,7 +14,6 @@ $(function(){
 		url : '/kgmall/board/myQAList.do',
 		dataType : 'json',
 		success : function(data){
-			
 			if(data.list!=""){
 				$('#empty3').attr("class","");
 			
@@ -91,7 +89,7 @@ $(function(){
 						text : items.quantity
 					})).append($('<td/>',{
 						align : 'center',
-						text : items.total
+						text : addComma(items.total)
 					})).append($('<td/>',{
 						align : 'center',
 						text : items.orderState
@@ -107,5 +105,54 @@ $(function(){
 		}
 		
 	});
+	
+	var totalmoney=0;
+	var id;
+	$.ajax({
+		type : 'GET',
+		url : '/kgmall/order/userGetOrderList.do',
+		dataType : 'json',
+		success : function(data){
+			if(data.list!=""){
+				$('#empty1').attr("class","");
+			
+				$.each(data.list, function(index, items){
+					id=items.orderId;
+					if(items.orderState=="상품 준비 완료"){
+						totalmoney = totalmoney + items.total;
+					}
+				});
+			}
+			
+			$('#xans_myshop_bankbook_order_price').text(addComma(totalmoney)+" won");
+			
+			if(totalmoney>=200000){
+				$.ajax({
+					type : 'POST',
+					url : '/kgmall/user/usergradeGold.do',
+					data : "id="+id,
+					success : function(data){
+						
+					}
+				});
+			}else if(totalmoney>=100000){
+				$.ajax({
+					type : 'POST',
+					url : '/kgmall/user/usergradeSilver.do',
+					data : "id="+id,
+					success : function(data){
+						
+					}
+				});
+			}
+		}
+		
+	});
+	
 });
+
+function addComma(num) {
+	  var regexp = /\B(?=(\d{3})+(?!\d))/g;
+	  return num.toString().replace(regexp, ',');
+}
 

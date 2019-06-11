@@ -1,6 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <head>
+<style type="text/css">
+#paging{
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+#currentPaging{
+	color: red;
+	text-decoration: underline;
+	cursor: pointer;
+}
+</style>
 <link rel="stylesheet" type="text/css" href="../css/productCss1.css">
 <link rel="stylesheet" type="text/css" href="../css/productCss2.css">
 <title></title>
@@ -8,6 +20,7 @@
 <body>
 <input type="hidden" id="pg" name="pg" value="${pg }">
 <input type="hidden" id="category" name="category" value="">
+<input type="hidden" id="subcategory" name="subcategory" value="${subcategory}">
 
 <div class="xans-element- xans-product xans-product-menupackage" style="margin-left: 322px;">
 		<div class="location-product">
@@ -70,42 +83,26 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.4.0.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-	$.ajax({
-		type : 'POST',
-		url : '/kgmall/list/ListForm.do',
-		data : {'pg' : $('#pg').val(),
-				'majorcategory': 'TOP'},
-		dataType : 'json',
-		success : function(data){
-			$('#category').val('MAJORCATEGORY');
-			$('#total').text(data.totalA);
-			$('.prdList').html(data.pruductList);
-			$('#paging').html(data.listPaging.pagingHTML);
-		}
-	});
-	
+	if($('#subcategory').val()!=""){
+		TOP($('#subcategory').val());
+	}else{
+		$.ajax({
+			type : 'POST',
+			url : '/kgmall/list/ListForm.do',
+			data : {'pg' : $('#pg').val(),
+					'majorcategory': 'TOP'},
+			dataType : 'json',
+			success : function(data){
+				$('#category').val('MAJORCATEGORY');
+				$('#total').text(data.totalA);
+				$('.prdList').html(data.pruductList);
+				$('#paging').html(data.listPaging.pagingHTML);
+			}
+		});
+	}
 });
-function Top(name){
-	$.ajax({
-		type : 'POST',
-		url : '/kgmall/list/SelectListForm.do',
-		data : {'pg' : $('#pg').val(),
-				'majorcategory':'TOP',
-				'subcategory' : name},
-		dataType : 'json',
-		success : function(data){
-			$('#category').val(name);
-			$('#total').text(data.totalA);
-			$('.prdList').html(data.pruductList);
-			$('#paging').html(data.listPaging.pagingHTML);
-			
-			
-			
-		}//success
-	});//ajax
-}	
 
-function TopOption(option){
+function TOPOption(option){
 	$.ajax({
 		type : 'POST',
 		url : '/kgmall/list/SelectOptionForm.do',
@@ -120,6 +117,57 @@ function TopOption(option){
 			$('#paging').html(data.listPaging.pagingHTML);
 		}
 	});
+}
+function TOP(name){
+	$.ajax({
+		type : 'POST',
+		url : '/kgmall/list/SelectListForm.do',
+		data : {'pg' : $('#pg').val(),
+				'majorcategory':'TOP',
+				'subcategory' : name},
+		dataType : 'json',
+		success : function(data){
+			$('#category').val(name);
+			$('#total').text(data.totalA);
+			$('.prdList').html(data.pruductList);
+			$('#paging').html(data.listPaging.pagingHTML);	
+		}//success
+	});//ajax
+}
+function ListForm(pg,category){
+	$('#pg').val(pg);
+	$.ajax({
+		type : 'POST',
+		url : '/kgmall/list/ListForm.do',
+		data : {'pg' : $('#pg').val(),
+				'majorcategory': category},
+		dataType : 'json',
+		success : function(data){
+			$('#category').val('MAJORCATEGORY');
+			$('#total').text(data.totalA);
+			$('.prdList').html(data.pruductList);
+			$('#paging').html(data.listPaging.pagingHTML);
+		}
+	});
+}
+function ListSelectForm(pg,major,sub){
+	alert(pg);
+	
+	$('#pg').val(pg);
+	$.ajax({
+		type : 'POST',
+		url : '/kgmall/list/SelectListForm.do',
+		data : {'pg' : $('#pg').val(),
+				'majorcategory':major,
+				'subcategory' : sub},
+		dataType : 'json',
+		success : function(data){
+			$('#category').val(name);
+			$('#total').text(data.totalA);
+			$('.prdList').html(data.pruductList);
+			$('#paging').html(data.listPaging.pagingHTML);	
+		}//success
+	});//ajax
 }
 </script>
 </html>

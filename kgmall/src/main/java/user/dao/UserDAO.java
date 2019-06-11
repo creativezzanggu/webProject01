@@ -15,5 +15,7 @@ public interface UserDAO {
 	public void pwdUpdate(Map<String,String> map);
 	public String checkEmail(String email);
 	public void infoUpdate(Map<String, String> map);
+	public void usergradeSilver(String id);
+	public void usergradeGold(String id);
 	
 }
