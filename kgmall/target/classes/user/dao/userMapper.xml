@@ -31,4 +31,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="infoUpdate" parameterType="java.util.Map">
 		update usertable set pwd=#{pwd}, name=#{name}, phone=#{phone1}||'-'||#{phone2}||'-'||#{phone3}, email=#{email1}||'@'||#{email2} where id=#{id}
 	</update>
+	<update id="usergradeSilver" parameterType="String">
+		update usertable set usergrade ='silver' where id=#{id}
+	</update>
+	<update id="usergradeGold" parameterType="String">
+		update usertable set usergrade ='gold' where id=#{id}
+	</update>
 </mapper>
