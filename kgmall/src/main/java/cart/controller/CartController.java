@@ -1,5 +1,7 @@
 package cart.controller;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -41,9 +43,15 @@ public class CartController {
 	
 	@RequestMapping(value="/cart/createCookie.do", method=RequestMethod.POST)
 	public void createCookie(@RequestParam String productName, String number, HttpServletResponse response,HttpServletRequest request) {
-		Cookie setCookie = new Cookie(productName, number);
-		setCookie.setMaxAge(60*60*24); 
-		response.addCookie(setCookie);
+		try {
+			String productname = URLEncoder.encode(productName,"UTF-8");
+			Cookie setCookie = new Cookie(productname, number);
+			setCookie.setMaxAge(60*60*24); 
+			response.addCookie(setCookie);
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		
 	}
 	@RequestMapping(value="/cart/deleteCookie.do", method=RequestMethod.POST)
 	public void deleteCookie(HttpServletResponse response,HttpServletRequest request) {
