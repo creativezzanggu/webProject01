@@ -93,9 +93,6 @@ $(document).ready(function(){
 		}//success
 	});//ajax
 });
-function aler(name){
-	alert(name);
-}
 function ReviewSearch(name){
 	$.ajax({
 		type : 'POST',
