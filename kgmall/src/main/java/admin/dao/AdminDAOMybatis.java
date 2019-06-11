@@ -77,11 +77,11 @@ public class AdminDAOMybatis implements AdminDAO {
 
 	@Override
 	public int checkOrder(Map<String, String> map) {
-		return sqlSession.selectOne("adminSQL.checkOrder",map);
+		return sqlSession.selectOne("adminSQL.checkOrder", map);
 	}
 
-
-
-
-
+	@Override
+	public AdminDTO nameCheck(String name) {
+		return sqlSession.selectOne("adminSQL.nameCheck", name);
+	}
 }

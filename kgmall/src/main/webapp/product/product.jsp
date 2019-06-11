@@ -187,7 +187,7 @@ function selectS(){
 					}
 					else{
 						$('#sizeS').addClass('ec-product-selected');
-						$('#totalTable').append("<tr class='' id="+name+"_"+color+"_"+size+"><td>"+name+"_"+color+"_"+size+"</td><td><div>남은수량 "+count+"</div><span><input class='productCount' id='"+name+"_"+color+"_"+size+"_text"+"' style='width:33px;'  value='1' min='1' max='"+count+"' type='number' oninput='maxCheck(this)' ></span><button value="+name+"_"+color+"_"+size+" type='' onclick='javascript:deleteTr(this.value)'><img class='' style='height:10px; width:10px;' src='../image/x.png' ></button></td><td class='right'><span class='quantity_price'>"+addComma(sale)+"</span></td></tr>");
+						$('#totalTable').append("<tr class='' id="+name+"_"+color+"_"+size+"><td>"+name+"_"+color+"_"+size+"</td><td><div>남은수량 "+count+"</div><span><input class='productCount' id='"+name+"_"+color+"_"+size+"_text"+"' style='width:33px;'  value='1' min='1' max='"+count+"' type='number'></span><button value="+name+"_"+color+"_"+size+" type='' onclick='javascript:deleteTr(this.value)'><img class='' style='height:10px; width:10px;' src='../image/x.png' ></button></td><td class='right'><span class='quantity_price'>"+addComma(sale)+"</span></td></tr>");
 						$('#sizeValue').addClass('ec-product-value').text('S');
 						total = total+sale;
 						$('#totalp').text(addComma(total));		
@@ -302,11 +302,13 @@ function selectXL(){
 
 //합계구하기
 $(document).on('change', '.productCount', function() {
+	var currentVal=0;
+	var maxVal=0;
 	currentVal = $(this).val();
 	maxVal = $(this).attr("max");
-	if(currentVal>maxVal){
+	if(parseInt(currentVal)>parseInt(maxVal)){
 		$(this).val(maxVal);
-	}else if(currentVal<1){
+	}else if(parseInt(currentVal)<=1){
 		$(this).val(1);
 	}
 	var totalCount=0;

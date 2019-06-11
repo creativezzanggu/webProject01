@@ -60,4 +60,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="checkOrder" parameterType="java.util.Map" resultType="Integer">
 		select count(*) from ordertable where seq=#{seq} and ORDERSTATE='상품 준비 완료'
 	</select>
+	
+	<select id="nameCheck" parameterType="String" resultType="admin">
+		select * from product where name=#{name}
+	</select>
 </mapper>

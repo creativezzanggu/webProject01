@@ -187,6 +187,7 @@
 	<script type="text/javascript" src="http://code.jquery.com/jquery-3.4.0.min.js"></script>
 	<script type="text/javascript">
 	$('#productInsert').click(function(){
+		var check=0;
 		$('#majorCategoryDiv').empty();
 		$('#companyDiv').empty();
 		$('#nameDiv').empty();
@@ -256,6 +257,7 @@
 			}
 		} else {
 			var ncs = new Array();
+			
 			for(var i=0; i<$('.productCount').length; i++){
 				var array = parseInt($('.productCount').eq(i).val()); //수량
 				ncs[i] = $('.productCount').eq(i).attr('id');
@@ -270,8 +272,26 @@
 					}
 				});
 			}//for
-			alert($('#productImage1').val());
-			$('#productInsertForm').submit();
+			$.ajax({
+				type : 'POST',
+				url : '/kgmall/admin/checkName.do',
+				data : 'name='+$('#name').val(),
+				dataType : 'text',
+				success : function(data){
+					if(data=='name_fail'){
+						$('#nameDiv').text("중복된 상품명입니다.").css('color', 'magenta').css('font-size', '8pt');
+						$('#totalTable').empty();
+						return;
+					}else if(data=='name_ok'){
+						if($('#name').val().length == 0){
+							$('#nameDiv').text("상품명을 입력해주세요.");
+						} else {
+							$('#nameDiv').text("사용 가능한 상품명입니다.").css('color', 'magenta').css('font-size', '8pt');
+							$('#productInsertForm').submit();
+						}
+					}
+				}
+			});
 		}
 	});
 	
