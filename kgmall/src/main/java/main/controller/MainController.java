@@ -46,7 +46,7 @@ public class MainController {
 		}else {
 			search_paging.setSearch_type(map.get("search_type"));
 		}
-		search_paging.setKeyword(map.get("keyword").trim());
+		search_paging.setKeyword(map.get("keyword").trim().toUpperCase());
 		if(map.get("product_price1")==null) {
 			search_paging.setProduct_price1("");
 		}else {
@@ -78,6 +78,7 @@ public class MainController {
 	public ModelAndView searchDetail(@RequestParam Map<String, String> map){
 		map.put("startP",String.valueOf(Integer.parseInt(map.get("currentPage"))*9-8));
 		map.put("endP", String.valueOf(Integer.parseInt(map.get("currentPage"))*9));
+		map.put("keyword", map.get("keyword").toUpperCase());
 		System.out.println("startP, endP : "+map.get("startP")+", "+map.get("endP"));
 		System.out.println(map.get("keyword"));
 		List<ProductDTO> list = mainDAO.searchDetail(map); //상품 가져오기
@@ -89,7 +90,7 @@ public class MainController {
 		search_paging.setTotalA(cnt);
 		search_paging.setMajorcategory(map.get("majorcategory"));
 		search_paging.setSearch_type(map.get("search_type"));
-		search_paging.setKeyword(map.get("keyword").trim());
+		search_paging.setKeyword(map.get("keyword").trim().toUpperCase());
 		search_paging.setProduct_price1(map.get("product_price1"));
 		search_paging.setProduct_price2(map.get("product_price2"));
 		search_paging.setOrder(map.get("order"));

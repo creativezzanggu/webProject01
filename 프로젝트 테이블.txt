@@ -132,3 +132,10 @@ logtime DATE DEFAULT SYSDATE
 --리뷰게시판 seq
 CREATE SEQUENCE reviewseq NOCACHE NOCYCLE;
 CREATE SEQUENCE reviewreplyseq NOCACHE NOCYCLE;
+
+
+--cart
+create table cart(
+product varchar2(100),
+productCount number,
+sellId varchar2(100));

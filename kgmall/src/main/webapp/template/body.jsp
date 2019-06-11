@@ -3,7 +3,6 @@
 
 <!DOCTYPE html>
 
-
 <!-- 메인 슬라이드 배너 -->
 <div id="visual-main">
 	
@@ -15,10 +14,9 @@
 <li class="xans-record-" style="float: none; list-style: none; position: absolute; width: 1120px; z-index: 50; display: list-item;"><a href=""><img class="banner_image" alt="간편하게" rel="137-7" src="//app-storage-005.cafe24.com/bannermanage2/ecudemo31431/2019/03/31/048b86ae6ca613c77438f6db6d7ea373.jpg"></a></li>
 <li class="xans-record-" style="float: none; list-style: none; position: absolute; width: 1120px; z-index: 0; display: none;"><a href=""><img class="banner_image" alt="등록하세요" rel="139-7" src="//app-storage-005.cafe24.com/bannermanage2/ecudemo31431/2019/03/31/bc13dba531e0042860db88b6b7cbbfbe.jpg"></a></li>
 <li class="xans-record-" style="float: none; list-style: none; position: absolute; width: 1120px; z-index: 0; display: none;"><a href="" alt="MISS DIOR - Collection"><iframe id="yt5" style="width:160%;margin-left:-30%;height:875px" frameborder="0" allowfullscreen="1" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" title="" width="640" height="875" src="https://www.youtube.com/embed/h4s0llOpKrU?cc_load_policy=0&amp;controls=0&amp;modestbranding=0&amp;rel=0&amp;showinfo=0&amp;autoplay=0&amp;start=NaN&amp;enablejsapi=1&amp;origin=http%3A%2F%2Fecudemo31431.cafe24.com&amp;widgetid=1"></iframe></a><div class="ytl"></div></li>
-</ul></div><div class="bx-controls bx-has-pager bx-has-controls-direction"><div class="bx-pager bx-default-pager text"><div class="bx-pager-item"><a href="" data-slide-index="0" class="bx-pager-link"><span class="bar"></span><span class="timer" style="width: 0px;"></span><span class="text">HTML 수정없이</span></a></div><div class="bx-pager-item"><a href="" data-slide-index="1" class="bx-pager-link"><span class="bar"></span><span class="timer" style="width: 0px;"></span><span class="text">배너·동영상을</span></a></div><div class="bx-pager-item"><a href="" data-slide-index="2" class="bx-pager-link"><span class="bar"></span><span class="timer" style="width: 0px;"></span><span class="text">자유로운 사이즈로</span></a></div><div class="bx-pager-item"><a href="" data-slide-index="3" class="bx-pager-link active"><span class="bar"></span><span class="timer" style="width: 20.2222%; overflow: hidden;"></span><span class="text">간편하게</span></a></div><div class="bx-pager-item"><a href="" data-slide-index="4" class="bx-pager-link"><span class="bar"></span><span class="timer" style="width: 0px;"></span><span class="text">등록하세요</span></a></div><div class="bx-pager-item yt ytAutoPlay ytVolume"><span class="btn-play"><i class="fa fa-pause-circle" aria-hidden="true"></i></span><span class="btn-volume"><i class="fa fa-volume-up" aria-hidden="true"></i></span><a href="" data-slide-index="5" class="bx-pager-link"><span class="bar"></span><span class="timer" style="width: 0px;"></span><span class="text">MISS DIOR - Collection</span></a></div></div><div class="bx-controls-direction"><a class="bx-prev" href="" style="margin-top: 97.5px;"><img src="http://ecudemo31431.cafe24.com/web/upload/dfloor_base/web/button/btn_wideslider_prev.png" style="width:20px; height:30px"></a><a class="bx-next" href="" style="margin-top: 97.5px;"><img src="http://ecudemo31431.cafe24.com/web/upload/dfloor_base/web/button/btn_wideslider_next.png" style="width:20px; height:30px"></a></div></div></div>
+</ul></div></div>
 </div>
 </div>
-
 
 <!-- 메인 동영상 배너 -->
 <div class="sec-vbanner">
@@ -41,7 +39,7 @@
 </ul>
 <!-- 공지사항 --><div class="latest use-latest" style="display: block;">
 		<div class="notice">
-			<h3 class="xans-element- xans-board xans-board-title-1 xans-board-title xans-board-1 "><a href="#"><span class="title df-ani-02">NOTICE</span><span class="more df-ani-02"></span></a>
+			<h3 class="xans-element- xans-board xans-board-title-1 xans-board-title xans-board-1 "><a href="/kgmall/notice/noticeForm.do?pg=1"><span class="title df-ani-02">NOTICE</span><span class="more df-ani-02"></span></a>
 </h3>
 			<div class="content">
 				<div class="showarea">
@@ -85,12 +83,14 @@
 <div class="tit-product-main">
 		<h2><span>신상품<p>최신 상품들을 확인해보세요</p></span></h2>
 		<span style="display: none;"><img src="" class="imgtitle"></span>
+		
 	</div>
 <ul class="prdList grid3" id="new_product_list">
 <!-- 신 상 품 들어가는 곳 -->
 
     </ul>
 </div>
+
 <!-- 메인 상품 분류 목록 1 끝 -->
 
 
@@ -129,13 +129,18 @@ $.ajax({
 		$.each(data.list, function(index,items){
 			
 			$('#best').append("<li id='anchorBoxId_100' class='item xans-record-'><div class='box'>"
-					  + "<span class='label-best'>BEST</span><span class='label-new'>NEW</span><div class='thumbnail'>"
-					  + "<a href='/kgmall/product/select.do?name="+items.name+"' name='anchorBoxName_100'><img src='../image/productImage/"+items.imageLink+"' id='eListPrdImage100_3' class='thumb'></a>"
+					  + "<span class='label-best'>BEST</span><div class='thumbnail'>"
+					  + "<a href='/kgmall/product/select.do?name="+items.name+"' name='anchorBoxName_100'><img width='350' height='350' src='../image/productImage/"+items.imageLink+"' id='eListPrdImage100_3' class='thumb'></a>"
 					  + "</div><div class='description'><div class='fadearea'><p class='name'><a href='#none' class=''><span style='font-size:12px;color:#555555;'>"+items.name+"</span></a>"
 					  + "</p><ul class='xans-element- xans-product xans-product-listitem-2 xans-product-listitem xans-product-2'>"
 					  + "<li item-title='모델' class=' xans-record-'><span style='font-size:11px;color:#555555;'>"+items.company+"</span></li><li item-title='판매가' class=' xans-record-'>"
+<<<<<<< HEAD
 					  + "<span style='font-size:12px;color:#333333;'>"+addComma(items.price)+"won</span><span id='span_product_tax_type_text' style=''> </span></li></ul>"
 					  + "<div class='icon'><img src='http://ecudemo31431.cafe24.com/web/upload/icon_201601081108247400.gif' class='icon_img' alt='추천'><img src='http://ecudemo31431.cafe24.com/web/upload/icon_201601081108285800.gif' class='icon_img' alt='New'>"
+=======
+					  + "<span style='font-size:12px;color:#333333;'>"+items.price+" won</span><span id='span_product_tax_type_text' style=''> </span></li></ul>"
+					  + "<div class='icon'><img src='http://ecudemo31431.cafe24.com/web/upload/icon_201601081108247400.gif' class='icon_img' alt='추천'>"
+>>>>>>> branch 'develop' of https://github.com/creativezzanggu/webProject01.git
 					  + "</div></div><a href='#' class='fadebox-link'></a></div>"
 					  + "<div class='status'><div class='button' id='cart"+items.code+"'><span class='basket'><img src='http://ecudemo31431.cafe24.com/web/upload/icon_201606070448018000.png' alt='장바구니 담기' class='ec-admin-icon cart'></span>"
 					  + "</div></div></div></li>");
@@ -279,6 +284,7 @@ $.ajax({
 						color.push(data.list[i]);
 					}
 					for(var i=0;i<5;i++){
+						
 						if(color[i].toLowerCase()=="black"){
 							$('#'+txt).append("<span style='background-color:black' color_no='' displaygroup='3' class='chips xans-record-'></span>");
 						}else if(color[i].toLowerCase()=="white"){
@@ -301,6 +307,5 @@ $.ajax({
 		$('#new_product_list').html().trigger("create");
 	}//sucess
 });//ajax의 끝
+
 </script>
-
-

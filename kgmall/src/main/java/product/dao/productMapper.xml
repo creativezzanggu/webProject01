@@ -21,4 +21,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  	<update id="orderCountDown" parameterType="java.util.Map">
 		update productdetail set productcount=productcount-#{count} where productname=#{name}
 	</update>
+	<update id="likeUp" parameterType="String">
+		update product set thumbsup=thumbsup+1 where name=#{name}
+	</update>
 </mapper>

@@ -2,6 +2,18 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <head>
+<style type="text/css">
+#paging{
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+#currentPaging{
+	color: red;
+	text-decoration: underline;
+	cursor: pointer;
+}
+</style>
 <link rel="stylesheet" type="text/css" href="../css/productCss1.css">
 <link rel="stylesheet" type="text/css" href="../css/productCss2.css">
 <title></title>
@@ -81,27 +93,27 @@ $(document).ready(function(){
 		}//success
 	});//ajax
 });
+function aler(name){
+	alert(name);
+}
 function ReviewSearch(name){
-	$('#'+name).click(function(){
-		$.ajax({
-			type : 'POST',
-			url : '/kgmall/review/reviewSelectListForm.do',
-			data : {'pg' : $('#pg').val(),
-					'majorcategory':name},
-			dataType : 'json',
-			success : function(data){
-				$('#category').val(name);
-				$('#total').text(data.totalA);
-				$('.prdList').html(data.reviewList);
-				$('#paging').html(data.listPaging.pagingHTML);
-			}//success
-		});//ajax
-	});
+	$.ajax({
+		type : 'POST',
+		url : '/kgmall/review/reviewSelectListForm.do',
+		data : {'pg' : $('#pg').val(),
+				'majorcategory':name},
+		dataType : 'json',
+		success : function(data){
+			$('#total').text(data.totalA);
+			$('.prdList').html(data.reviewList);
+			$('#paging').html(data.reviewPaging.pagingHTML);
+		}//success
+	});//ajax
 }
 
-function reviewSelect(pg){
+function reviewSelect(pg,name){
 	$('#pg').val(pg);
-	$(ReviewSearch).trigger('onclick','trigger');
+	ReviewSearch(name);
 }
 
 </script>

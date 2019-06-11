@@ -151,7 +151,7 @@ $(document).ready(function(){
 				$.each(map, function(index, value){
 					var str = index.split("_");
 					name=str[0];
-					if(str[2]!=null){
+					if(str[2]!=""){
 						$('#emptyCart').addClass('displaynone');	
 					}
 					$.ajax({
@@ -180,7 +180,7 @@ $(document).ready(function(){
 				$.each(list, function(index, value){
 					var str = value.product.split("_");
 					name=str[0];
-					if(str[2]!=null){
+					if(str[2]!=""){
 						$('#emptyCart').addClass('displaynone');	
 					}
 					$.ajax({

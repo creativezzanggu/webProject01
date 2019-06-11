@@ -111,5 +111,21 @@ function ShoseOption(option){
 		}
 	});
 }
+function ListForm(pg,category){
+	$('#pg').val(pg);
+	$.ajax({
+		type : 'POST',
+		url : '/kgmall/list/ListForm.do',
+		data : {'pg' : $('#pg').val(),
+				'majorcategory': category},
+		dataType : 'json',
+		success : function(data){
+			$('#category').val('MAJORCATEGORY');
+			$('#total').text(data.totalA);
+			$('.prdList').html(data.pruductList);
+			$('#paging').html(data.listPaging.pagingHTML);
+		}
+	});
+}
 </script>
 </html>

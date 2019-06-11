@@ -100,11 +100,11 @@ public class ListController {
 					+"</div></div></div>");
 			colorForm.setLength(0);
 		}
-		String category = "BOTTOM";
-		int totalA = listDAO.getMajorCategoryTotal("majorcategory");
+		int totalA = listDAO.getMajorCategoryTotal(map.get("majorcategory"));
 		listPaging.setCurrentPage(pg);
 		listPaging.setPageBlock(5);
 		listPaging.setPageSize(9);
+		listPaging.setCategory(map.get("majorcategory"));
 		listPaging.setTotalA(totalA);
 		listPaging.makePagingHTML();
 		
@@ -119,6 +119,8 @@ public class ListController {
 	
 	@RequestMapping(value="/SelectOptionForm.do", method=RequestMethod.POST)
 	public ModelAndView SelectOptionForm(@RequestParam(required=false,defaultValue="1") int pg,@RequestParam Map<String,String>map) {
+		listPaging.setCategory(map.get("sub"));
+		listPaging.setCategory(map.get("category"));
 		if(map.get("category").equals("MAJORCATEGORY")) {
 			map.put("majorcategory",map.get("sub"));
 		}else {
@@ -172,7 +174,7 @@ public class ListController {
 		listPaging.setPageBlock(5);
 		listPaging.setPageSize(9);
 		listPaging.setTotalA(totalA);
-		listPaging.makePagingHTML();
+		listPaging.makeSelectPagingHTML();
 		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("pruductList",pruductList);
@@ -186,6 +188,8 @@ public class ListController {
 	
 	@RequestMapping(value="/SelectListForm.do", method=RequestMethod.POST)
 	public ModelAndView SelectListForm(@RequestParam(required=false,defaultValue="1") int pg,@RequestParam Map<String,String>map) {
+		listPaging.setCategory(map.get("majorcategory"));
+		listPaging.setCategory(map.get("subcategory"));
 		int endNum = pg*9;
 		int startNum = endNum-8;
 		StringBuffer pruductList = new StringBuffer();
