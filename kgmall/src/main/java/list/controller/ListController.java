@@ -40,8 +40,9 @@ public class ListController {
 	}
 	
 	@RequestMapping(value="/outerListForm.do", method=RequestMethod.GET)
-	public String outerListForm(@RequestParam(required=false,defaultValue="1") String pg,Model model) {
+	public String outerListForm(@RequestParam(required=false,defaultValue="1") String pg,String subcategory,Model model) {
 		
+		model.addAttribute("subcategory", subcategory);
 		model.addAttribute("pg", pg);
 		model.addAttribute("display", "/list/outerListForm.jsp");
 		return "/main/index";
@@ -119,8 +120,6 @@ public class ListController {
 	
 	@RequestMapping(value="/SelectOptionForm.do", method=RequestMethod.POST)
 	public ModelAndView SelectOptionForm(@RequestParam(required=false,defaultValue="1") int pg,@RequestParam Map<String,String>map) {
-		listPaging.setCategory(map.get("sub"));
-		listPaging.setCategory(map.get("category"));
 		if(map.get("category").equals("MAJORCATEGORY")) {
 			map.put("majorcategory",map.get("sub"));
 		}else {
@@ -133,8 +132,6 @@ public class ListController {
 		StringBuffer colorForm = new StringBuffer();
 		map.put("startNum", startNum+"");
 		map.put("endNum", endNum+"");
-		
-		System.out.println(map);
 		
 		List<ListDTO> list = listDAO.getProductSelectOptionList(map);
 		for(ListDTO dto : list) {
@@ -174,7 +171,10 @@ public class ListController {
 		listPaging.setPageBlock(5);
 		listPaging.setPageSize(9);
 		listPaging.setTotalA(totalA);
-		listPaging.makeSelectPagingHTML();
+		listPaging.setCategory(map.get("sub"));
+		listPaging.setCategory(map.get("subcategory"));
+		listPaging.setOption(map.get("option"));
+		listPaging.makeSelectOptionPagingHTML();
 		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("pruductList",pruductList);
@@ -188,8 +188,6 @@ public class ListController {
 	
 	@RequestMapping(value="/SelectListForm.do", method=RequestMethod.POST)
 	public ModelAndView SelectListForm(@RequestParam(required=false,defaultValue="1") int pg,@RequestParam Map<String,String>map) {
-		listPaging.setCategory(map.get("majorcategory"));
-		listPaging.setCategory(map.get("subcategory"));
 		int endNum = pg*9;
 		int startNum = endNum-8;
 		StringBuffer pruductList = new StringBuffer();
@@ -203,12 +201,12 @@ public class ListController {
 			List<String> colorList = listDAO.getColor(name);
 			String color =null;
 			for(String col : colorList) {
-				if(col.equals("Black"))color="#000000";
-				else if(col.equals("Blue"))color="#0000FF";
-				else if(col.equals("Green"))color="#00FF00";
-				else if(col.equals("Pink"))color="#FFC0CB";
-				else if(col.equals("White"))color="#FFFFFF";
-				else if(col.equals("Yellow"))color="#FFFF00";
+				if(col.equals("BLACK"))color="#000000";
+				else if(col.equals("BLUE"))color="#0000FF";
+				else if(col.equals("GREEN"))color="#00FF00";
+				else if(col.equals("PINK"))color="#FFC0CB";
+				else if(col.equals("WHITE"))color="#FFFFFF";
+				else if(col.equals("YELLOW"))color="#FFFF00";
 				colorForm.append("<span style='background-color:"+color+"' displaygroup='1' class='chips xans-record-'></span>");
 			}
 			pruductList.append("<li id='"+dto.getCode()+"' class='item xans-record-'>"
@@ -231,6 +229,8 @@ public class ListController {
 		listPaging.setPageBlock(5);
 		listPaging.setPageSize(9);
 		listPaging.setTotalA(totalA);
+		listPaging.setCategory(map.get("majorcategory"));
+		listPaging.setCategory2(map.get("subcategory"));
 		listPaging.makeSelectPagingHTML();
 		
 		

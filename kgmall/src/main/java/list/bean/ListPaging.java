@@ -14,6 +14,7 @@ public class ListPaging {
 	private StringBuffer pagingHTML;
 	private String category;
 	private String category2;
+	private String option;
 	
 	public void makePagingHTML(){
 		pagingHTML = new StringBuffer();
@@ -61,7 +62,30 @@ public class ListPaging {
 			pagingHTML.append("[<span id=paging onclick=ListSelectForm("+(endPage+1)+",'"+getCategory()+"','"+getCategory2()+"')>다음</span>]");
 		
 	}
-
+	
+	public void makeSelectOptionPagingHTML() {
+		pagingHTML = new StringBuffer();
+		
+		int totalP = (totalA+pageSize-1)/pageSize;
+		
+		int startPage = (currentPage-1)/pageBlock*pageBlock+1;
+		int endPage = startPage+pageBlock-1;
+		if(endPage > totalP) endPage = totalP;
+		
+		if(startPage > pageBlock)
+			pagingHTML.append("[<span id=paging onclick=ListSelectOptionForm("+(startPage-1)+",'"+getCategory()+"','"+getCategory2()+"','"+getOption()+"')>이전</span>]");
+		
+		for(int i=startPage; i<=endPage; i++) {
+			if(i==currentPage)
+				pagingHTML.append("[<span id=currentPaging onclick=ListSelectOptionForm("+i+",'"+getCategory()+"','"+getCategory2()+"','"+getOption()+"')>"+i+"</span>]");
+			else
+				pagingHTML.append("[<span id=paging onclick=ListSelectOptionForm("+i+",'"+getCategory()+",'"+getCategory2()+"','"+getOption()+"')>"+i+"</span>]");
+		}
+		
+		if(totalP > endPage)
+			pagingHTML.append("[<span id=paging onclick=ListSelectOptionForm("+(endPage+1)+",'"+getCategory()+"','"+getCategory2()+"','"+getOption()+"')>다음</span>]");
+		
+	}
 }
 
 
