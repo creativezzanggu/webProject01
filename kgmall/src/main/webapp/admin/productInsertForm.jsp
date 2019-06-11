@@ -278,9 +278,7 @@
 				data : 'name='+$('#name').val(),
 				dataType : 'text',
 				success : function(data){
-					alert(data);
 					if(data=='name_fail'){
-						alert("중복된 상품입니다.");
 						$('#nameDiv').text("중복된 상품명입니다.").css('color', 'magenta').css('font-size', '8pt');
 						$('#totalTable').empty();
 						return;
