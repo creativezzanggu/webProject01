@@ -1,5 +1,6 @@
 package list.controller;
 
+import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Map;
 
@@ -66,6 +67,7 @@ public class ListController {
 	
 	@RequestMapping(value="/ListForm.do", method=RequestMethod.POST)
 	public ModelAndView ListForm(@RequestParam(required=false,defaultValue="1") int pg,@RequestParam Map<String,String> map) {
+		DecimalFormat df = new DecimalFormat("#,##0.00");
 		int endNum = pg*9;
 		int startNum = endNum-8;
 		StringBuffer pruductList = new StringBuffer();
@@ -97,7 +99,7 @@ public class ListController {
 					+"<span style='font-size:12px;color:#555555;'>"+dto.getName()+"</span></a></p>"
 					+"<ul class='xans-element- xans-product'>"
 					+"<li class='xans-record-'><span style='font-size:11px;color:#555555;'>"+dto.getCompany()+"</span></li>" 
-					+"<li class='xans-record-'><span style='font-size:12px;color:#333333;'>"+dto.getPrice()+"</span></li></ul>"
+					+"<li class='xans-record-'><span style='font-size:12px;color:#333333;'>"+df.format(dto.getPrice())+" won</span></li></ul>"
 					+"</div></div></div>");
 			colorForm.setLength(0);
 		}
@@ -120,6 +122,7 @@ public class ListController {
 	
 	@RequestMapping(value="/SelectOptionForm.do", method=RequestMethod.POST)
 	public ModelAndView SelectOptionForm(@RequestParam(required=false,defaultValue="1") int pg,@RequestParam Map<String,String>map) {
+		DecimalFormat df = new DecimalFormat("#,##0.00");
 		if(map.get("category").equals("MAJORCATEGORY")) {
 			map.put("majorcategory",map.get("sub"));
 		}else {
@@ -157,7 +160,7 @@ public class ListController {
 					+"<span style='font-size:12px;color:#555555;'>"+dto.getName()+"</span></a></p>"
 					+"<ul class='xans-element- xans-product'>"
 					+"<li class='xans-record-'><span style='font-size:11px;color:#555555;'>"+dto.getCompany()+"</span></li>" 
-					+"<li class='xans-record-'><span style='font-size:12px;color:#333333;'>"+dto.getPrice()+"</span></li></ul>"
+					+"<li class='xans-record-'><span style='font-size:12px;color:#333333;'>"+df.format(dto.getPrice())+" won</span></li></ul>"
 					+"</div></div></div>");
 			colorForm.setLength(0);
 		}
@@ -188,6 +191,7 @@ public class ListController {
 	
 	@RequestMapping(value="/SelectListForm.do", method=RequestMethod.POST)
 	public ModelAndView SelectListForm(@RequestParam(required=false,defaultValue="1") int pg,@RequestParam Map<String,String>map) {
+		DecimalFormat df = new DecimalFormat("#,##0.00");
 		int endNum = pg*9;
 		int startNum = endNum-8;
 		StringBuffer pruductList = new StringBuffer();
@@ -219,7 +223,7 @@ public class ListController {
 					+"<span style='font-size:12px;color:#555555;'>"+dto.getName()+"</span></a></p>"
 					+"<ul class='xans-element- xans-product'>"
 					+"<li class='xans-record-'><span style='font-size:11px;color:#555555;'>"+dto.getCompany()+"</span></li>" 
-					+"<li class='xans-record-'><span style='font-size:12px;color:#333333;'>"+dto.getPrice()+"</span></li></ul>"
+					+"<li class='xans-record-'><span style='font-size:12px;color:#333333;'>"+df.format(dto.getPrice())+" won</span></li></ul>"
 					+"</div></div></div>");
 			colorForm.setLength(0);
 		}
